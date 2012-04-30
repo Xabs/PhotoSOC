@@ -24,6 +24,7 @@ void TimeLapse(char camara);
 void Executar();
 void Ara();
 void Envia(char valor);
+void Trabajando();
 void Sistema();
 void Reali_LCD();
 void Zumbador();
@@ -797,7 +798,7 @@ void Executar()
 //Funcion que permite empezar a enviar la infomacion al PSoC de trabajo
 //y empieza a ejecutar los sensores
 
-void Ara()
+void Ara()		//Prova
 {
 	Reset_PdT();
 	Envia(9);
@@ -811,14 +812,8 @@ void Ara()
 	Envia(Fla2);
 	Envia(Fla3);
 	Envia(Fla4);
-//	Envia(Uni);
-//	Envia(Inter);
-//	Envia(Tilap);
 	if(Buzzer==1) Pitido();
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("Datos enviados");
-	LCD_Position(1,0);
-	LCD_PrCString("PhotoSOC Activo");
+	Trabajando();
 }
 
 //***************************************************************************************
@@ -839,6 +834,45 @@ void Envia(char valor)
 		if(valor==confirmacion) UART_PutChar(5);	//verificacion de la coms 
 		else UART_PutChar(4);	//Error al comunicar
 	}while(valor!=confirmacion);
+}
+
+//***************************************************************************************
+//***************************************************************************************
+
+//Funcion en la que el PSoC Terminal se queda al empezar despues de 
+//enviar los datos y el PSoC de Trabajo esta trabajando
+
+void Trabajando()
+{
+	unsigned int x, temp=0;
+	char pulsat;
+	
+	LCD_Control(0x01);	//Borrat de pantalla
+	LCD_PrCString("Datos enviados");
+	LCD_Position(1,0);
+	LCD_PrCString("PhotoSOC Activo");
+	for(x=0;x<60000;x++);
+	do
+	{
+		if(temp<60)LCD_Control(0x08)	//LCD off
+		pulsat=Pulsador();
+		if(Buzzer==1) Pitido();
+		if(pulsat==1||pulsat==2||pulsat==4)
+		{
+			LCD_Control(0x0E);	//LCD on
+			LCD_Control(0x01);	//Borrat de pantalla
+			LCD_PrCString("PhotoSOC activo");
+			LCD_Position(1,0);
+			LCD_PrCString("Quiere pararlo?");
+			temp=0;
+		}
+		else if(pulsat==3)
+		{
+			Resetear();
+		}
+		for(x=0;x<1000;x++)
+		temp++;
+	}while(true);	
 }
 
 //***************************************************************************************************************
