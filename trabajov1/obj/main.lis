@@ -1,0 +1,199 @@
+ 0000                   cpu LMM
+                        .module main.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ./main.c
+ 0000                   .dbfunc e main _main fV
+ 0000           ;            num -> X+11
+ 0000           ;              a -> X+1
+ 0000           ;              x -> X+0
+ 0000           _main::
+ 0000                   .dbline -1
+ 0000 10                push X
+ 0001 4F                mov X,SP
+ 0002 380D              add SP,13
+ 0004                   .dbline 12
+ 0004           ; //----------------------------------------------------------------------------
+ 0004           ; // Envia una serie de caracteres por el canal serie cuando iniciamos el programa
+ 0004           ; // Luego visualiza por el LCD los caracteres que nos llegan
+ 0004           ; // TxD en P1.4 y RxD en P1.6.  19200 baudios sin paridad
+ 0004           ; //----------------------------------------------------------------------------
+ 0004           ; 
+ 0004           ; #include <m8c.h>        // part specific constants and macros
+ 0004           ; #include "PSoCAPI.h"    // PSoC API definitions for all User Modules
+ 0004           ; #include "stdlib.h"
+ 0004           ; 
+ 0004           ; void main()
+ 0004           ; {     char x;
+ 0004                   .dbline 15
+ 0004           ;       int num;
+ 0004           ;       char a[10];
+ 0004           ;       Timer8_WritePeriod(156);                //Este valor es Fosc/Baudios/8
+ 0004 10                push X
+ 0005 509C              mov A,-100
+ 0007 7C0000            xcall _Timer8_WritePeriod
+ 000A                   .dbline 16
+ 000A           ;       Timer8_WriteCompareValue(156/2);
+ 000A 504E              mov A,78
+ 000C 7C0000            xcall _Timer8_WriteCompareValue
+ 000F                   .dbline 17
+ 000F           ;       Timer8_Start();
+ 000F 7C0000            xcall _Timer8_Start
+ 0012 20                pop X
+ 0013                   .dbline 18
+ 0013           ;       LCD_Start();
+ 0013 7C0000            xcall _LCD_Start
+ 0016                   .dbline 19
+ 0016           ;       LCD_Init();
+ 0016 7C0000            xcall _LCD_Init
+ 0019                   .dbline 20
+ 0019           ;       LCD_PrCString("UART");
+ 0019 501F              mov A,>L2
+ 001B 08                push A
+ 001C 501F              mov A,<L2
+ 001E 08                push A
+ 001F 7C0000            xcall _LCD_PrCString
+ 0022 38FE              add SP,-2
+ 0024                   .dbline 21
+ 0024           ;       UART_Start(UART_PARITY_NONE);
+ 0024 10                push X
+ 0025 5000              mov A,0
+ 0027 7C0000            xcall _UART_Start
+ 002A 20                pop X
+ 002B                   .dbline 22
+ 002B           ;       for (x='A';x<'Z';x++) 
+ 002B 560041            mov [X+0],65
+ 002E 8063              xjmp L6
+ 0030           L3:
+ 0030                   .dbline 23
+ 0030                   .dbline 23
+ 0030 10                push X
+ 0031 5014              mov A,>L7
+ 0033 08                push A
+ 0034 5014              mov A,<L7
+ 0036 5C                mov X,A
+ 0037 18                pop A
+ 0038 7C0000            xcall _UART_CPutString
+ 003B 20                pop X
+ 003C                   .dbline 24
+ 003C 10                push X
+ 003D 5200              mov A,[X+0]
+ 003F 7C0000            xcall _UART_PutChar
+ 0042 20                pop X
+ 0043                   .dbline 25
+ 0043 5000              mov A,0
+ 0045 08                push A
+ 0046 500A              mov A,10
+ 0048 08                push A
+ 0049 62D000            mov REG[0xd0],>__r0
+ 004C 5200              mov A,[X+0]
+ 004E 5300              mov [__r1],A
+ 0050 5000              mov A,0
+ 0052 08                push A
+ 0053 5100              mov A,[__r1]
+ 0055 08                push A
+ 0056 5A00              mov [__r1],X
+ 0058 060001            add [__r1],1
+ 005B 5007              mov A,7
+ 005D 08                push A
+ 005E 5100              mov A,[__r1]
+ 0060 08                push A
+ 0061 7C0000            xcall _itoa
+ 0064 38FA              add SP,-6
+ 0066                   .dbline 26
+ 0066 10                push X
+ 0067 5003              mov A,>L8
+ 0069 08                push A
+ 006A 5003              mov A,<L8
+ 006C 5C                mov X,A
+ 006D 18                pop A
+ 006E 7C0000            xcall _UART_CPutString
+ 0071 20                pop X
+ 0072                   .dbline 27
+ 0072 62D000            mov REG[0xd0],>__r0
+ 0075 5A00              mov [__r1],X
+ 0077 060001            add [__r1],1
+ 007A 10                push X
+ 007B 5007              mov A,7
+ 007D 08                push A
+ 007E 5100              mov A,[__r1]
+ 0080 5C                mov X,A
+ 0081 18                pop A
+ 0082 7C0000            xcall _UART_PutString
+ 0085                   .dbline 28
+ 0085 5000              mov A,>L9
+ 0087 08                push A
+ 0088 5000              mov A,<L9
+ 008A 5C                mov X,A
+ 008B 18                pop A
+ 008C 7C0000            xcall _UART_CPutString
+ 008F 20                pop X
+ 0090                   .dbline 29
+ 0090           L4:
+ 0090                   .dbline 22
+ 0090 7700              inc [X+0]
+ 0092           L6:
+ 0092                   .dbline 22
+ 0092 3D005A            cmp [X+0],90
+ 0095 CF9A              jc L3
+ 0097           X1:
+ 0097                   .dbline 30
+ 0097           ;       {       UART_CPutString("La x vale ");
+ 0097           ;               UART_PutChar(x);
+ 0097           ;               itoa(a,x,10);
+ 0097           ;               UART_CPutString(" y en numero es ");            
+ 0097           ;               UART_PutString(a);
+ 0097           ;               UART_CPutString("\r\n");
+ 0097           ;       }
+ 0097           ;       LCD_Position(1,0);
+ 0097 5000              mov A,0
+ 0099 08                push A
+ 009A 08                push A
+ 009B 08                push A
+ 009C 5001              mov A,1
+ 009E 08                push A
+ 009F 7C0000            xcall _LCD_Position
+ 00A2 38FC              add SP,-4
+ 00A4                   .dbline 31
+ 00A4           ;       for(;;)
+ 00A4           L10:
+ 00A4                   .dbline 32
+ 00A4                   .dbline 32
+ 00A4 10                push X
+ 00A5 7C0000            xcall _UART_cGetChar
+ 00A8 62D000            mov REG[0xd0],>__r0
+ 00AB 20                pop X
+ 00AC 5400              mov [X+0],A
+ 00AE                   .dbline 33
+ 00AE 5200              mov A,[X+0]
+ 00B0 5300              mov [__r1],A
+ 00B2 5000              mov A,0
+ 00B4 08                push A
+ 00B5 5100              mov A,[__r1]
+ 00B7 08                push A
+ 00B8 7C0000            xcall _LCD_WriteData
+ 00BB 38FE              add SP,-2
+ 00BD                   .dbline 35
+ 00BD                   .dbline 31
+ 00BD                   .dbline 31
+ 00BD 8FE6              xjmp L10
+ 00BF           X0:
+ 00BF                   .dbline -2
+ 00BF           L1:
+ 00BF 38F3              add SP,-13
+ 00C1 20                pop X
+ 00C2                   .dbline 0 ; func end
+ 00C2 8FFF              jmp .
+ 00C4                   .dbsym l num 11 I
+ 00C4                   .dbsym l a 1 A[10:10]c
+ 00C4                   .dbsym l x 0 c
+ 00C4                   .dbend
+                        .area lit(rom, con, rel)
+ 0000           L9:
+ 0000 0D0A00            .byte 13,10,0
+ 0003           L8:
+ 0003 207920656E206E756D65726F20657320  .byte 32,'y,32,'e,'n,32,'n,'u,'m,'e,'r,'o,32,'e,'s,32
+ 0013 00                .byte 0
+ 0014           L7:
+ 0014 4C6120782076616C652000    .byte 'L,'a,32,'x,32,'v,'a,'l,'e,32,0
+ 001F           L2:
+ 001F 5541525400        .byte 'U,'A,'R,'T,0

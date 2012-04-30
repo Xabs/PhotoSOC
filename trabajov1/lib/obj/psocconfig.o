@@ -1,0 +1,34 @@
+XH
+H 3 areas 7 global symbols
+M psocconfig.asm
+S LoadConfigTBL_trabajov1 Ref0000
+A text size 0 flags 0
+dbfile lib/psocconfig.asm
+dbfunc 0 ? 0 I
+dbfile ./lib/GlobalParams.inc
+dbfunc 0 ? 0 I
+dbfile lib/psocconfig.asm
+dbfunc 0 ? 0 I
+dbfile memory.inc
+dbfunc 0 ? 0 I
+dbfile lib/psocconfig.asm
+dbfunc 0 ? 0 I
+dbfile C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc
+dbfunc 0 ? 0 I
+A psoc_config size A flags 0
+dbfile lib/psocconfig.asm
+dbfunc 0 ? 0 I
+dbline 3B 0
+dbline 3F 3
+dbline 57 4
+dbline 5A 7
+dbline 5C 9
+S _LoadConfig_trabajov1 Def0004
+S LoadConfigInit Def0000
+S LoadConfig_trabajov1 Def0004
+S _LoadConfigInit Def0000
+A InterruptRAM size 0 flags 20
+S _NO_SHADOW Def0000
+S NO_SHADOW Def0000
+T 00 00 7C 00 04 7F 7C 00 00 70 EF 7F
+R 00 00 00 01 00 03 00 01 02 07 00 00

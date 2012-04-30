@@ -1,0 +1,143 @@
+ 0000                   cpu LMM
+                        .module main.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ./main.c
+ 0000                   .dbfunc e main _main fV
+ 0000           ;              x -> X+1
+ 0000           ;             xx -> X+0
+ 0000           _main::
+ 0000                   .dbline -1
+ 0000 10                push X
+ 0001 4F                mov X,SP
+ 0002 3802              add SP,2
+ 0004                   .dbline 12
+ 0004           ; //------------------------------------------------------------//
+ 0004           ; //   Proyecto de GS Desarrollo Productos Electronicos EPSS      //
+ 0004           ; //                 By Albert Sagol & Xavi Vicient                       //
+ 0004           ; //               PhotoSoC - Controlador fotográfico                     //
+ 0004           ; //------------------------------------------------------------//
+ 0004           ; 
+ 0004           ; #include <m8c.h>        // part specific constants and macros
+ 0004           ; #include "PSoCAPI.h"    // PSoC API definitions for all User Modules
+ 0004           ; #include "stdlib.h"
+ 0004           ; 
+ 0004           ; void main()
+ 0004           ; {     char x,xx;
+ 0004                   .dbline 17
+ 0004           ;       
+ 0004           ;       //Timer8_WritePeriod(156);              //Este valor es Fosc/Baudios/8
+ 0004           ;       //Timer8_WriteCompareValue(156/2);
+ 0004           ;       //Timer8_Start();
+ 0004           ;       LCD_Start();
+ 0004 10                push X
+ 0005 7C0000            xcall _LCD_Start
+ 0008                   .dbline 18
+ 0008           ;       LCD_Init();
+ 0008 7C0000            xcall _LCD_Init
+ 000B                   .dbline 20
+ 000B           ;       
+ 000B           ;       LCD_PrCString("PHOTOSoC V0");
+ 000B 500B              mov A,>L2
+ 000D 08                push A
+ 000E 500B              mov A,<L2
+ 0010 5C                mov X,A
+ 0011 18                pop A
+ 0012 7C0000            xcall _LCD_PrCString
+ 0015                   .dbline 22
+ 0015           ;       //UART_Start(UART_PARITY_NONE);
+ 0015           ;       LCD_Position (1,0);
+ 0015 5700              mov X,0
+ 0017 5001              mov A,1
+ 0019 7C0000            xcall _LCD_Position
+ 001C 20                pop X
+ 001D                   .dbline 29
+ 001D           ;       
+ 001D           ;       
+ 001D           ;       //for(;;)
+ 001D           ;       //{ x=UART_cGetChar();  //Esta se espera a que llegue un byte. Ver tambien UART_cReadChar()
+ 001D           ;       //  LCD_WriteData(x);
+ 001D           ;       //}
+ 001D           ;       PRT0DR=PRT0DR|0x20;
+ 001D 430020            or REG[ 0],32
+ 0020                   .dbline 30
+ 0020           ;       for (;;)
+ 0020                   .dbline 31
+ 0020           ;       {
+ 0020           L7:
+ 0020                   .dbline 32
+ 0020           L8:
+ 0020                   .dbline 32
+ 0020           ;       while((PRT0DR & 0x20)==0x20);
+ 0020 5D00              mov A,REG[ 0]
+ 0022 62D000            mov REG[0xd0],>__r0
+ 0025 5300              mov [__r0],A
+ 0027 260020            and [__r0],32
+ 002A 3C0020            cmp [__r0],32
+ 002D AFF2              jz L7
+ 002F                   .dbline 33
+ 002F           ;       PRT0DR=PRT0DR|0x20;
+ 002F 430020            or REG[ 0],32
+ 0032                   .dbline 34
+ 0032 560000            mov [X+0],0
+ 0035 8003              xjmp L13
+ 0037           L10:
+ 0037                   .dbline 34
+ 0037           L11:
+ 0037                   .dbline 34
+ 0037 7700              inc [X+0]
+ 0039           L13:
+ 0039                   .dbline 34
+ 0039           ;       for(xx=0;xx<100;xx++);
+ 0039 3D0064            cmp [X+0],100
+ 003C CFFA              jc L10
+ 003E           X1:
+ 003E 8004              xjmp L15
+ 0040           L14:
+ 0040                   .dbline 35
+ 0040 430020            or REG[ 0],32
+ 0043           L15:
+ 0043                   .dbline 35
+ 0043           ;       while((PRT0DR & 0x20)==0x00)    PRT0DR=PRT0DR|0x20;
+ 0043 490020            tst REG[ 0],32
+ 0046 AFF9              jz L14
+ 0048                   .dbline 36
+ 0048 560000            mov [X+0],0
+ 004B 8003              xjmp L20
+ 004D           L17:
+ 004D                   .dbline 36
+ 004D           L18:
+ 004D                   .dbline 36
+ 004D 7700              inc [X+0]
+ 004F           L20:
+ 004F                   .dbline 36
+ 004F 3D0064            cmp [X+0],100
+ 0052 CFFA              jc L17
+ 0054           X2:
+ 0054                   .dbline 37
+ 0054 10                push X
+ 0055 5000              mov A,>L21
+ 0057 08                push A
+ 0058 5000              mov A,<L21
+ 005A 5C                mov X,A
+ 005B 18                pop A
+ 005C 7C0000            xcall _LCD_PrCString
+ 005F 20                pop X
+ 0060                   .dbline 38
+ 0060                   .dbline 30
+ 0060                   .dbline 30
+ 0060 8FBF              xjmp L8
+ 0062           X0:
+ 0062                   .dbline -2
+ 0062           L1:
+ 0062 38FE              add SP,-2
+ 0064 20                pop X
+ 0065                   .dbline 0 ; func end
+ 0065 8FFF              jmp .
+ 0067                   .dbsym l x 1 c
+ 0067                   .dbsym l xx 0 c
+ 0067                   .dbend
+                        .area lit(rom, con, rel)
+ 0000           L21:
+ 0000 426F746F6E20726F6A6F00    .byte 'B,'o,'t,'o,'n,32,'r,'o,'j,'o,0
+ 000B           L2:
+ 000B 50484F544F536F4320563000  .byte 'P,'H,'O,'T,'O,'S,'o,'C,32,'V,48,0
