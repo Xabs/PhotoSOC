@@ -4,58 +4,35 @@
 
 char pulsat,menu;
 
-if (menu!=1&&menu!=2&&menu!=3&&menu!=4)	menu=1;
+menu=1;
  
 do
 {
 	LCD_Control(0x01);	//Borrat de pantalla
 	LCD_PrCString(">Menu Principal");
-	switch(menu)
-	{
-		case 1:
-			LCD_Position(1,0);
-			LCD_PrCString("1-Conf. Sensores");
-			break;
-		case 2:
-			LCD_Position(1,0);
-			LCD_PrCString("2-Conf. Salidas");
-			break;
-		case 3:
-			LCD_Position(1,0);
-			LCD_PrCString("3-Ejecutar");
-			break;
-		case 4:
-			LCD_Position(1,0);
-			LCD_PrCString("4-Conf. Sistema");
-			break;
-	}
+	LCD_Position(1,0);
+	if(menu==1) LCD_PrCString("1-Conf. Sensores");
+	elseif(menu==2) LCD_PrCString("2-Conf. Salidas");
+	elseif(menu==3) LCD_PrCString("3-Conf. Disparo");
+	elseif(menu==4) LCD_PrCString("4-Ejecutar");
+	elseif(menu==5)	LCD_PrCString("5-Conf. Sistema");
 	pulsat=Pulsadors();
-	switch(pulsat)
+	if(pulsat==1)
 	{
-		case 0:
-			if(menu++>4)	menu=1;
-			else	menu++;
-			break;
-		case 1:
-			switch(menu)
-			{
-				case 0:
-					Sensores();
-					break;
-				case 1:
-					Salidas();
-					break;
-				case 2:
-					Ejecutar();
-					break;
-				case 3:
-					Sistema();
-					break;
-			}
-			break;
-		case 2:
-			if(menu--<1)	menu=4;
-			else	menu--;
-			break;
+		if(menu++>5)	menu=1;
+		else	menu++;
 	}
-}while(pulsat=!3)
+	elseif(pulsat==3)
+	{
+			if(menu==1) Sensores();
+			elseif(menu==2)	Salidas();
+			elseif(menu==3)	Disparo();
+			elseif(menu==4)	Ejecutar();
+			elseif(menu==5)	Sistema();
+	}
+	elseif(pulsat==2)
+	{	
+		if(menu--<1)	menu=5;
+			else	menu--;
+	}
+}while(pulsat=!4)
