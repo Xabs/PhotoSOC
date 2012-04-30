@@ -1,97 +1,328 @@
 XH
-H 2 areas 11 global symbols
+H 1B areas 1D global symbols
 M main.c
 S _Timer8_Start Ref0000
 S _UART_Start Ref0000
-S _itoa Ref0000
-S _LCD_PrCString Ref0000
-S _LCD_WriteData Ref0000
-S _LCD_Init Ref0000
 S __r0 Ref0000
-S __r1 Ref0000
 S _Timer8_WritePeriod Ref0000
-S _LCD_Start Ref0000
-S _UART_PutString Ref0000
 S _UART_PutChar Ref0000
 S _Timer8_WriteCompareValue Ref0000
-S _LCD_Position Ref0000
-S _UART_CPutString Ref0000
 S _UART_cGetChar Ref0000
-A text size C4 flags 0
-dbfile ./main.c
-dbfunc e main 0 fV
-dbsym l num B I
-dbsym l a 1 A[10:10]c
-dbsym l x 0 c
+A text size 17F flags 0
+dbfile ./trabajo.h
+dbfunc e Inicio 0 fV
+dbsym l coms 0 c
 dbline FFFFFFFF 0
-dbline C 4
-dbline F 4
-dbline 10 A
-dbline 11 F
-dbline 12 13
-dbline 13 16
-dbline 14 19
-dbline 15 24
-dbline 16 2B
-dbline 17 30
-dbline 17 30
-dbline 18 3C
-dbline 19 43
-dbline 1A 66
-dbline 1B 72
-dbline 1C 85
-dbline 1D 90
-dbline 16 90
-dbline 16 92
-dbline 1E 97
-dbline 1F A4
-dbline 20 A4
-dbline 20 A4
-dbline 21 AE
-dbline 23 BD
-dbline 1F BD
-dbline 1F BD
-dbline FFFFFFFE BF
-dbline 0 C2
-S _main Def0000
-A lit size 24 flags 0
-T 00 00 10 4F 38 0D 10 50 9C 7C 00 00 50 4E 7C
-R 00 00 00 00 02 0A 00 08
-T 00 0D 00 00 7C 00 00 20 7C 00 00 7C
-R 00 00 00 00 02 02 00 0C 02 05 00 00 02 09 00 09
-T 00 17 00 00 50 00 1F 08 50 00 1F 08 7C
-R 00 00 00 00 02 02 00 05 49 05 00 01 09 09 00 01
-T 00 20 00 00 38 FE 10 50 00 7C 00 00 20 56 00 41
-R 00 00 00 00 02 02 00 03 02 0A 00 01
-T 00 2E 80 63 10 50 00 14 08 50 00 14 5C 18 7C
-R 00 00 00 00 49 06 00 01 09 0A 00 01
-T 00 39 00 00 20 10 52 00 7C 00 00 20 50 00 08 50
-R 00 00 00 00 02 02 00 0E 02 09 00 0B
-T 00 47 0A 08 62 D0 00 00 52 00 53 00 00 50 00 08
-R 00 00 00 00 4B 06 00 06 0B 0B 00 07
-T 00 53 51 00 00 08 5A 00 00 06 00 00 01 50 07 08
-R 00 00 00 00 0B 03 00 07 0B 07 00 07 0B 0A 00 07
-T 00 5E 51 00 00 08 7C 00 00 38 FA 10 50 00 03 08
-R 00 00 00 00 0B 03 00 07 02 07 00 02 49 0D 00 01
-T 00 6A 50 00 03 5C 18 7C 00 00 20 62 D0 00 00 5A
-R 00 00 00 00 09 03 00 01 02 08 00 0E 4B 0D 00 06
-T 00 76 00 00 06 00 00 01 10 50 07 08 51 00 00 5C
-R 00 00 00 00 0B 02 00 07 0B 05 00 07 0B 0D 00 07
-T 00 81 18 7C 00 00 50 00 00 08 50 00 00 5C 18 7C
-R 00 00 00 00 02 04 00 0A 49 07 00 01 09 0B 00 01
-T 00 8D 00 00 20 77 00 3D 00 5A CF 9A 50 00 08 08
-R 00 00 00 00 02 02 00 0E
-T 00 9B 08 50 01 08 7C 00 00 38 FC 10 7C 00 00 62
-R 00 00 00 00 02 07 00 0D 02 0D 00 0F
-T 00 A9 D0 00 00 20 54 00 52 00 53 00 00 50 00 08
-R 00 00 00 00 4B 03 00 06 0B 0B 00 07
-T 00 B5 51 00 00 08 7C 00 00 38 FE 8F E6 38 F3 20
-R 00 00 00 00 0B 03 00 07 02 07 00 04
-T 00 C2 8F FF
+dbline 1C 4
+dbline 1F 4
+dbline 20 4
+dbline 21 4
+dbline 22 B
+dbline 22 10
+dbline 24 12
+dbline 1F 12
+dbline 1F 12
+dbline FFFFFFFE 14
+dbline 0 17
+dbfunc e Ejecucion 18 fV
+dbline FFFFFFFF 18
+dbline 2E 18
+dbline 2F 18
+dbline 30 1F
+dbline 31 26
+dbline 32 2D
+dbline 33 34
+dbline 34 3B
+dbline 35 42
+dbline 36 49
+dbline 37 50
+dbline 38 57
+dbline 39 5E
+dbline 3A 65
+dbline 3B 6C
+dbline 3C 73
+dbline FFFFFFFE 75
+dbline 3D 75
+dbline 0 75
+dbfunc e Dato 76 fc
+dbsym l confirma 1 c
+dbsym l recivido 0 c
+dbline FFFFFFFF 76
+dbline 46 7A
+dbline 4A 7A
+dbline 4B 7A
+dbline 4C 84
+dbline 4D 8A
+dbline 4E 93
+dbline 4E 93
+dbline 4F 98
+dbline FFFFFFFE 9D
+dbline 0 A0
+dbfunc e Deteccion A1 fV
+dbsym l sensor 0 c
+dbline FFFFFFFF A1
+dbline 5A A5
+dbline 5B A5
+dbline 5D A8
+dbline 60 AB
+dbline 61 AB
+dbline 61 B3
+dbline 61 B8
+dbline 63 BD
+dbline 63 C5
+dbline 63 CA
+dbline 65 CF
+dbline 66 D7
+dbline 67 D7
+dbline 68 DB
+dbline 69 DB
+dbline 6A DE
+dbline 6B E1
+dbline 6C E1
+dbline 6D E3
+dbline 6E EB
+dbline 6F EB
+dbline 70 EF
+dbline 71 EF
+dbline 72 F2
+dbline 73 F5
+dbline 74 F5
+dbline 75 F5
+dbline 75 F5
+dbline 76 FA
+dbline FFFFFFFE FC
+dbline 77 FC
+dbline 0 FF
+dbfunc e Disparo 100 fV
+dbline FFFFFFFF 100
+dbline 80 100
+dbline 81 100
+dbline 81 108
+dbline 82 10C
+dbline 82 114
+dbline 83 118
+dbline 83 120
+dbline FFFFFFFE 122
+dbline 85 122
+dbline 0 122
+dbfunc e Unico 123 fV
+dbsym l x 0 I
+dbline FFFFFFFF 123
+dbline 8D 127
+dbline 90 127
+dbline 91 12A
+dbline 92 12D
+dbline 92 133
+dbline 92 133
+dbline 92 138
+dbline 93 144
+dbline 94 147
+dbline FFFFFFFE 14A
+dbline 96 14A
+dbline 0 14D
+dbfunc e Intervalometro 14E fV
+dbsym l x 0 I
+dbline FFFFFFFF 14E
+dbline 9E 152
+dbline FFFFFFFE 152
+dbline A3 152
+dbline 0 155
+dbfunc e TimeLapse 156 fV
+dbsym l x 0 I
+dbline FFFFFFFF 156
+dbline AB 15A
+dbline FFFFFFFE 15A
+dbline B0 15A
+dbline 0 15D
+dbfile ./main.c
+dbfunc e main 15E fV
+dbsym l a 3 A[10:10]c
+dbsym l num 1 I
+dbsym l x 0 c
+dbline FFFFFFFF 15E
+dbline D 162
+dbline 10 162
+dbline 11 168
+dbline 12 16D
+dbline 14 170
+dbline 19 176
+dbline 19 176
+dbline 19 178
+dbline 19 178
+dbline FFFFFFFE 17A
+dbline 0 17D
+S _main Def015E
+S _Disparo Def0100
+S _Intervalometro Def014E
+S _Unico Def0123
+S _Inicio Def0000
+S _TimeLapse Def0156
+S _Dato Def0076
+S _Deteccion Def00A1
+S _Ejecucion Def0018
+A data size 1 flags 20
+dbfile ./trabajo.h
+dbsym e Ent1 0 c
+S _Ent1 Def0000
+A data size 0 flags 20
+dbfile ./trabajo.h
+A data size 1 flags 20
+dbfile ./trabajo.h
+dbsym e Ent2 0 c
+S _Ent2 Def0000
+A data size 0 flags 20
+dbfile ./trabajo.h
+A data size 1 flags 20
+dbfile ./trabajo.h
+dbsym e Ent3 0 c
+S _Ent3 Def0000
+A data size 0 flags 20
+dbfile ./trabajo.h
+A data size 1 flags 20
+dbfile ./trabajo.h
+dbsym e Ent4 0 c
+S _Ent4 Def0000
+A data size 0 flags 20
+dbfile ./trabajo.h
+A data size 1 flags 20
+dbfile ./trabajo.h
+dbsym e Cam1 0 c
+S _Cam1 Def0000
+A data size 0 flags 20
+dbfile ./trabajo.h
+A data size 1 flags 20
+dbfile ./trabajo.h
+dbsym e Cam2 0 c
+S _Cam2 Def0000
+A data size 0 flags 20
+dbfile ./trabajo.h
+A data size 1 flags 20
+dbfile ./trabajo.h
+dbsym e Fla1 0 c
+S _Fla1 Def0000
+A data size 0 flags 20
+dbfile ./trabajo.h
+A data size 1 flags 20
+dbfile ./trabajo.h
+dbsym e Fla2 0 c
+S _Fla2 Def0000
+A data size 0 flags 20
+dbfile ./trabajo.h
+A data size 1 flags 20
+dbfile ./trabajo.h
+dbsym e Fla3 0 c
+S _Fla3 Def0000
+A data size 0 flags 20
+dbfile ./trabajo.h
+A data size 1 flags 20
+dbfile ./trabajo.h
+dbsym e Fla4 0 c
+S _Fla4 Def0000
+A data size 0 flags 20
+dbfile ./trabajo.h
+A data size 1 flags 20
+dbfile ./trabajo.h
+dbsym e Uni 0 c
+S _Uni Def0000
+A data size 0 flags 20
+dbfile ./trabajo.h
+A data size 1 flags 20
+dbfile ./trabajo.h
+dbsym e Inter 0 c
+S _Inter Def0000
+A data size 0 flags 20
+dbfile ./trabajo.h
+A data size 1 flags 20
+dbfile ./trabajo.h
+dbsym e Tilap 0 c
+S _Tilap Def0000
+A data size 0 flags 20
+dbfile ./trabajo.h
+T 00 00 00
+R 00 00 00 01
+T 00 00 00
+R 00 00 00 03
+T 00 00 00
+R 00 00 00 05
+T 00 00 00
+R 00 00 00 07
+T 00 00 00
+R 00 00 00 09
+T 00 00 00
+R 00 00 00 0B
+T 00 00 00
+R 00 00 00 0D
+T 00 00 00
+R 00 00 00 0F
+T 00 00 00
+R 00 00 00 11
+T 00 00 00
+R 00 00 00 13
+T 00 00 00
+R 00 00 00 15
+T 00 00 00
+R 00 00 00 17
+T 00 00 00
+R 00 00 00 19
+T 00 00 10 4F 38 01 90 70 62 D0 00 00 54 00 3D 00
+R 00 00 00 00 4B 0A 00 02
+T 00 0D 09 BF F5 90 06 8F F1 38 FF 20 7F 90 5C 62
 R 00 00 00 00
-T 00 00 0D 0A 00 20 79 20 65 6E 20 6E 75 6D 65 72
-R 00 00 00 01
-T 00 0E 6F 20 65 73 20 00 4C 61 20 78 20 76 61 6C
-R 00 00 00 01
-T 00 1C 65 20 00 55 41 52 54 00
-R 00 00 00 01
+T 00 1B D0 00 00 53 00 00 90 55 62 D0 00 00 53
+R 00 00 00 00 49 03 00 01 09 06 00 01 49 0C 00 03
+T 00 25 00 00 90 4E 62 D0 00 00 53 00 00 90 47 62
+R 00 00 00 00 09 02 00 03 49 08 00 05 09 0B 00 05
+T 00 30 D0 00 00 53 00 00 90 40 62 D0 00 00 53
+R 00 00 00 00 49 03 00 07 09 06 00 07 49 0C 00 09
+T 00 3A 00 00 90 39 62 D0 00 00 53 00 00 90 32 62
+R 00 00 00 00 09 02 00 09 49 08 00 0B 09 0B 00 0B
+T 00 45 D0 00 00 53 00 00 90 2B 62 D0 00 00 53
+R 00 00 00 00 49 03 00 0D 09 06 00 0D 49 0C 00 0F
+T 00 4F 00 00 90 24 62 D0 00 00 53 00 00 90 1D 62
+R 00 00 00 00 09 02 00 0F 49 08 00 11 09 0B 00 11
+T 00 5A D0 00 00 53 00 00 90 16 62 D0 00 00 53
+R 00 00 00 00 49 03 00 13 09 06 00 13 49 0C 00 15
+T 00 64 00 00 90 0F 62 D0 00 00 53 00 00 90 08 62
+R 00 00 00 00 09 02 00 15 49 08 00 17 09 0B 00 17
+T 00 6F D0 00 00 53 00 00 90 2C 7F 10 4F 38 02 10
+R 00 00 00 00 49 03 00 19 09 06 00 19
+T 00 7B 7C 00 00 62 D0 00 00 20 54 00 10 52 00 7C
+R 00 00 00 00 02 03 00 06 4B 07 00 02
+T 00 88 00 00 7C 00 00 62 D0 00 00 20 54 01 3D 01
+R 00 00 00 00 02 02 00 04 02 05 00 06 4B 09 00 02
+T 00 95 05 BF E3 52 00 62 D0 00 00 38 FE 20 7F 10
+R 00 00 00 00 4B 09 00 02
+T 00 A2 4F 38 01 56 00 00 62 00 AA 62 D0 00 00 3C
+R 00 00 00 00 49 0D 00 01
+T 00 AF 00 00 01 B0 43 49 00 01 A0 06 56 00 01 80
+R 00 00 00 00 09 02 00 01
+T 00 BC 39 62 D0 00 00 3C 00 00 01 B0 31 49 00 01
+R 00 00 00 00 49 05 00 03 09 08 00 03
+T 00 C8 A0 06 56 00 02 80 27 62 D0 00 00 3C 00 00
+R 00 00 00 00 49 0B 00 05 09 0E 00 05
+T 00 D4 01 B0 0D 50 00 A0 1B 56 00 03 43 00 08 80
+R 00 00 00 00
+T 00 E2 13 62 D0 00 00 3C 00 00 01 B0 0B 50 00 A0
+R 00 00 00 00 49 05 00 07 09 08 00 07
+T 00 EE 07 56 00 04 43 00 02 3D 00 00 AF B2 90 04
+R 00 00 00 00
+T 00 FC 38 FF 20 7F 62 D0 00 00 3C 00 00 01 B0 05
+R 00 00 00 00 49 08 00 15 09 0B 00 15
+T 01 08 90 19 80 17 62 D0 00 00 3C 00 00 01 B0 05
+R 00 00 00 00 49 08 00 17 09 0B 00 17
+T 01 14 90 38 80 0B 62 D0 00 00 3C 00 00 01 B0 03
+R 00 00 00 00 49 08 00 19 09 0B 00 19
+T 01 20 90 34 7F 10 4F 38 02 43 00 55 43 08 55 56
+R 00 00 00 00
+T 01 2E 01 00 56 00 00 77 01 0F 00 00 52 01 11 2C
+R 00 00 00 00
+T 01 3C 52 00 31 80 19 81 CF F0 41 00 AA 41 08 AA
+R 00 00 00 00
+T 01 4A 38 FE 20 7F 10 4F 38 02 38 FE 20 7F 10 4F
+R 00 00 00 00
+T 01 58 38 02 38 FE 20 7F 10 4F 38 0D 10 50 9C 7C
+R 00 00 00 00
+T 01 66 00 00 50 4E 7C 00 00 7C 00 00 50 00 7C
+R 00 00 00 00 02 02 00 03 02 07 00 05 02 0A 00 00
+T 01 73 00 00 20 9E 88 8F FD 38 F3 20 8F FF
+R 00 00 00 00 02 02 00 01

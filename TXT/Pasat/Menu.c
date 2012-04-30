@@ -24,10 +24,10 @@ do
 	}
 	elseif(pulsat==3)
 	{
-			if(menu==1) Sensores();
-			elseif(menu==2)	Salidas();
-			elseif(menu==3)	Disparo();
-			elseif(menu==4)	Ejecutar();
+			if(menu==1) Sensors();
+			elseif(menu==2)	Sortides();
+			elseif(menu==3)	Dispar();
+			elseif(menu==4)	Executar();
 			elseif(menu==5)	Sistema();
 	}
 	elseif(pulsat==2)

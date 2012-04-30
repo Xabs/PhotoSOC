@@ -2,15 +2,15 @@
 ;
 include "m8c.inc"
 ;  Personalization tables 
-export LoadConfigTBL_uart_prueba1
+export LoadConfigTBL_trabajov1
 AREA psoc_config(rom, rel)
-LoadConfigTBL_uart_prueba1:
+LoadConfigTBL_trabajov1:
 ;  Ordered Global Register values
 	M8C_SetBank1
-	mov	reg[00h], 00h		; Port_0_DriveMode_0 register (PRT0DM0)
-	mov	reg[01h], ffh		; Port_0_DriveMode_1 register (PRT0DM1)
+	mov	reg[00h], 40h		; Port_0_DriveMode_0 register (PRT0DM0)
+	mov	reg[01h], bfh		; Port_0_DriveMode_1 register (PRT0DM1)
 	M8C_SetBank0
-	mov	reg[03h], ffh		; Port_0_DriveMode_2 register (PRT0DM2)
+	mov	reg[03h], bfh		; Port_0_DriveMode_2 register (PRT0DM2)
 	mov	reg[02h], 00h		; Port_0_GlobalSelect register (PRT0GS)
 	M8C_SetBank1
 	mov	reg[02h], 00h		; Port_0_IntCtrl_0 register (PRT0IC0)
@@ -29,10 +29,10 @@ LoadConfigTBL_uart_prueba1:
 	M8C_SetBank0
 	mov	reg[05h], 00h		; Port_1_IntEn register (PRT1IE)
 	M8C_SetBank1
-	mov	reg[08h], 7fh		; Port_2_DriveMode_0 register (PRT2DM0)
-	mov	reg[09h], 80h		; Port_2_DriveMode_1 register (PRT2DM1)
+	mov	reg[08h], 01h		; Port_2_DriveMode_0 register (PRT2DM0)
+	mov	reg[09h], feh		; Port_2_DriveMode_1 register (PRT2DM1)
 	M8C_SetBank0
-	mov	reg[0bh], 80h		; Port_2_DriveMode_2 register (PRT2DM2)
+	mov	reg[0bh], feh		; Port_2_DriveMode_2 register (PRT2DM2)
 	mov	reg[0ah], 00h		; Port_2_GlobalSelect register (PRT2GS)
 	M8C_SetBank1
 	mov	reg[0ah], 00h		; Port_2_IntCtrl_0 register (PRT2IC0)
@@ -135,7 +135,6 @@ LoadConfigTBL_uart_prueba1:
 	mov	reg[6dh], 00h		; TMP_DR1 register (TMP_DR1)
 	mov	reg[6eh], 00h		; TMP_DR2 register (TMP_DR2)
 	mov	reg[6fh], 00h		; TMP_DR3 register (TMP_DR3)
-;  Instance name LCD, User Module LCD
 ;  Instance name Timer8, User Module Timer8
 ;       Instance name Timer8, Block Name TIMER8(DBB00)
 	mov	reg[23h], 04h		;Timer8_CONTROL_REG(DBB00CR0)
@@ -170,7 +169,6 @@ LoadConfigTBL_uart_prueba1:
 	mov	reg[deh], 00h		; OscillatorControl_4 register (OSC_CR4)
 	mov	reg[ddh], 00h		; OscillatorGlobalBusEnableControl register (OSC_GO_EN)
 	mov	reg[e7h], 00h		; Type2Decimator_Control register (DEC_CR2)
-;  Instance name LCD, User Module LCD
 ;  Instance name Timer8, User Module Timer8
 ;       Instance name Timer8, Block Name TIMER8(DBB00)
 	mov	reg[20h], 20h		;Timer8_FUNC_REG(DBB00FN)

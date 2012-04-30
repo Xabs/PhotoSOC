@@ -1,199 +1,655 @@
  0000                   cpu LMM
                         .module main.c
+                        .area data(ram, con, rel)
+ 0000           _Ent1::
+ 0000 00                .byte 0
+ 0001                   .dbfile ./trabajo.h
+ 0001                   .dbsym e Ent1 _Ent1 c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+ 0000           _Ent2::
+ 0000 00                .byte 0
+ 0001                   .dbsym e Ent2 _Ent2 c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+ 0000           _Ent3::
+ 0000 00                .byte 0
+ 0001                   .dbsym e Ent3 _Ent3 c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+ 0000           _Ent4::
+ 0000 00                .byte 0
+ 0001                   .dbsym e Ent4 _Ent4 c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+ 0000           _Cam1::
+ 0000 00                .byte 0
+ 0001                   .dbsym e Cam1 _Cam1 c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+ 0000           _Cam2::
+ 0000 00                .byte 0
+ 0001                   .dbsym e Cam2 _Cam2 c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+ 0000           _Fla1::
+ 0000 00                .byte 0
+ 0001                   .dbsym e Fla1 _Fla1 c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+ 0000           _Fla2::
+ 0000 00                .byte 0
+ 0001                   .dbsym e Fla2 _Fla2 c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+ 0000           _Fla3::
+ 0000 00                .byte 0
+ 0001                   .dbsym e Fla3 _Fla3 c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+ 0000           _Fla4::
+ 0000 00                .byte 0
+ 0001                   .dbsym e Fla4 _Fla4 c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+ 0000           _Uni::
+ 0000 00                .byte 0
+ 0001                   .dbsym e Uni _Uni c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+ 0000           _Inter::
+ 0000 00                .byte 0
+ 0001                   .dbsym e Inter _Inter c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
+ 0000           _Tilap::
+ 0000 00                .byte 0
+ 0001                   .dbsym e Tilap _Tilap c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./trabajo.h
                         .area text(rom, con, rel)
- 0000                   .dbfile ./main.c
- 0000                   .dbfunc e main _main fV
- 0000           ;            num -> X+11
- 0000           ;              a -> X+1
- 0000           ;              x -> X+0
- 0000           _main::
+ 0000                   .dbfile ./trabajo.h
+ 0000                   .dbfunc e Inicio _Inicio fV
+ 0000           ;           coms -> X+0
+ 0000           _Inicio::
  0000                   .dbline -1
  0000 10                push X
  0001 4F                mov X,SP
- 0002 380D              add SP,13
- 0004                   .dbline 12
+ 0002 3801              add SP,1
+ 0004                   .dbline 28
  0004           ; //----------------------------------------------------------------------------
- 0004           ; // Envia una serie de caracteres por el canal serie cuando iniciamos el programa
- 0004           ; // Luego visualiza por el LCD los caracteres que nos llegan
+ 0004           ; // PSoC de trabajo del proyecto PhotoSOC
+ 0004           ; // 
  0004           ; // TxD en P1.4 y RxD en P1.6.  19200 baudios sin paridad
  0004           ; //----------------------------------------------------------------------------
  0004           ; 
  0004           ; #include <m8c.h>        // part specific constants and macros
  0004           ; #include "PSoCAPI.h"    // PSoC API definitions for all User Modules
  0004           ; #include "stdlib.h"
+ 0004           ; #include "trabajo.h"
  0004           ; 
  0004           ; void main()
  0004           ; {     char x;
- 0004                   .dbline 15
  0004           ;       int num;
  0004           ;       char a[10];
  0004           ;       Timer8_WritePeriod(156);                //Este valor es Fosc/Baudios/8
- 0004 10                push X
- 0005 509C              mov A,-100
- 0007 7C0000            xcall _Timer8_WritePeriod
- 000A                   .dbline 16
- 000A           ;       Timer8_WriteCompareValue(156/2);
- 000A 504E              mov A,78
- 000C 7C0000            xcall _Timer8_WriteCompareValue
- 000F                   .dbline 17
- 000F           ;       Timer8_Start();
- 000F 7C0000            xcall _Timer8_Start
- 0012 20                pop X
- 0013                   .dbline 18
- 0013           ;       LCD_Start();
- 0013 7C0000            xcall _LCD_Start
- 0016                   .dbline 19
- 0016           ;       LCD_Init();
- 0016 7C0000            xcall _LCD_Init
- 0019                   .dbline 20
- 0019           ;       LCD_PrCString("UART");
- 0019 501F              mov A,>L2
- 001B 08                push A
- 001C 501F              mov A,<L2
- 001E 08                push A
- 001F 7C0000            xcall _LCD_PrCString
- 0022 38FE              add SP,-2
- 0024                   .dbline 21
- 0024           ;       UART_Start(UART_PARITY_NONE);
- 0024 10                push X
- 0025 5000              mov A,0
- 0027 7C0000            xcall _UART_Start
- 002A 20                pop X
- 002B                   .dbline 22
- 002B           ;       for (x='A';x<'Z';x++) 
- 002B 560041            mov [X+0],65
- 002E 8063              xjmp L6
- 0030           L3:
- 0030                   .dbline 23
- 0030                   .dbline 23
- 0030 10                push X
- 0031 5014              mov A,>L7
- 0033 08                push A
- 0034 5014              mov A,<L7
- 0036 5C                mov X,A
- 0037 18                pop A
- 0038 7C0000            xcall _UART_CPutString
- 003B 20                pop X
- 003C                   .dbline 24
- 003C 10                push X
- 003D 5200              mov A,[X+0]
- 003F 7C0000            xcall _UART_PutChar
- 0042 20                pop X
- 0043                   .dbline 25
- 0043 5000              mov A,0
- 0045 08                push A
- 0046 500A              mov A,10
- 0048 08                push A
- 0049 62D000            mov REG[0xd0],>__r0
- 004C 5200              mov A,[X+0]
- 004E 5300              mov [__r1],A
- 0050 5000              mov A,0
- 0052 08                push A
- 0053 5100              mov A,[__r1]
- 0055 08                push A
- 0056 5A00              mov [__r1],X
- 0058 060001            add [__r1],1
- 005B 5007              mov A,7
- 005D 08                push A
- 005E 5100              mov A,[__r1]
- 0060 08                push A
- 0061 7C0000            xcall _itoa
- 0064 38FA              add SP,-6
- 0066                   .dbline 26
- 0066 10                push X
- 0067 5003              mov A,>L8
- 0069 08                push A
- 006A 5003              mov A,<L8
- 006C 5C                mov X,A
- 006D 18                pop A
- 006E 7C0000            xcall _UART_CPutString
- 0071 20                pop X
- 0072                   .dbline 27
- 0072 62D000            mov REG[0xd0],>__r0
- 0075 5A00              mov [__r1],X
- 0077 060001            add [__r1],1
+ 0004           ;       Timer8_WriteCompareValue(156/2);
+ 0004           ;       Timer8_Start();
+ 0004           ;       
+ 0004           ;       UART_Start(UART_PARITY_NONE);
+ 0004           ;       
+ 0004           ;       //falta activar las direntes entradas 
+ 0004           ;       // y variables
+ 0004           ;       
+ 0004           ;       for(;;) Inicio();
+ 0004           ; }             
+ 0004           ;       
+ 0004           ;       //Posibles utiles del PSoC de trabajo
+ 0004                   .dbline 31
+ 0004           ;       /*
+ 0004           ;               
+ 0004           ;               x=UART_cGetChar();  //Esta se espera a que llegue un byte. 
+ 0004           L2:
+ 0004                   .dbline 32
+ 0004                   .dbline 33
+ 0004 9070              xcall _Dato
+ 0006 62D000            mov REG[0xd0],>__r0
+ 0009 5400              mov [X+0],A
+ 000B                   .dbline 34
+ 000B 3D0009            cmp [X+0],9
+ 000E BFF5              jnz L2
+ 0010                   .dbline 34
+ 0010 9006              xcall _Ejecucion
+ 0012                   .dbline 36
+ 0012                   .dbline 31
+ 0012                   .dbline 31
+ 0012 8FF1              xjmp L2
+ 0014           X0:
+ 0014                   .dbline -2
+ 0014           L1:
+ 0014 38FF              add SP,-1
+ 0016 20                pop X
+ 0017                   .dbline 0 ; func end
+ 0017 7F                ret
+ 0018                   .dbsym l coms 0 c
+ 0018                   .dbend
+ 0018                   .dbfunc e Ejecucion _Ejecucion fV
+ 0018           _Ejecucion::
+ 0018                   .dbline -1
+ 0018                   .dbline 46
+ 0018           ;               Ver tambien UART_cReadChar()
+ 0018           ;       
+ 0018           ;               PRT0DR=PRT0DR | 0x40;
+ 0018           ;               for(num=0;num<20000;num++);
+ 0018           ;               PRT0DR=PRT0DR & 0xBF;
+ 0018           ;               for(;;);
+ 0018           ;       */
+ 0018           ;       */
+ 0018           ;       */
+ 0018           ;       */
+ 0018           ;       */
+ 0018           ;       */
+ 0018           ;       */
+ 0018           ;       */
+ 0018           ;       */
+ 0018                   .dbline 47
+ 0018           ;       */
+ 0018 905C              xcall _Dato
+ 001A 62D000            mov REG[0xd0],>_Ent1
+ 001D 5300              mov [_Ent1],A
+ 001F                   .dbline 48
+ 001F           ;       */
+ 001F 9055              xcall _Dato
+ 0021 62D000            mov REG[0xd0],>_Ent2
+ 0024 5300              mov [_Ent2],A
+ 0026                   .dbline 49
+ 0026           ;       */
+ 0026 904E              xcall _Dato
+ 0028 62D000            mov REG[0xd0],>_Ent3
+ 002B 5300              mov [_Ent3],A
+ 002D                   .dbline 50
+ 002D           ;       */
+ 002D 9047              xcall _Dato
+ 002F 62D000            mov REG[0xd0],>_Ent4
+ 0032 5300              mov [_Ent4],A
+ 0034                   .dbline 51
+ 0034           ;       */
+ 0034 9040              xcall _Dato
+ 0036 62D000            mov REG[0xd0],>_Cam1
+ 0039 5300              mov [_Cam1],A
+ 003B                   .dbline 52
+ 003B           ;       */
+ 003B 9039              xcall _Dato
+ 003D 62D000            mov REG[0xd0],>_Cam2
+ 0040 5300              mov [_Cam2],A
+ 0042                   .dbline 53
+ 0042           ;       */
+ 0042 9032              xcall _Dato
+ 0044 62D000            mov REG[0xd0],>_Fla1
+ 0047 5300              mov [_Fla1],A
+ 0049                   .dbline 54
+ 0049           ;       */
+ 0049 902B              xcall _Dato
+ 004B 62D000            mov REG[0xd0],>_Fla2
+ 004E 5300              mov [_Fla2],A
+ 0050                   .dbline 55
+ 0050           ;       */
+ 0050 9024              xcall _Dato
+ 0052 62D000            mov REG[0xd0],>_Fla3
+ 0055 5300              mov [_Fla3],A
+ 0057                   .dbline 56
+ 0057           ;       */
+ 0057 901D              xcall _Dato
+ 0059 62D000            mov REG[0xd0],>_Fla4
+ 005C 5300              mov [_Fla4],A
+ 005E                   .dbline 57
+ 005E           ;       */
+ 005E 9016              xcall _Dato
+ 0060 62D000            mov REG[0xd0],>_Uni
+ 0063 5300              mov [_Uni],A
+ 0065                   .dbline 58
+ 0065           ;       */
+ 0065 900F              xcall _Dato
+ 0067 62D000            mov REG[0xd0],>_Inter
+ 006A 5300              mov [_Inter],A
+ 006C                   .dbline 59
+ 006C           ;       */
+ 006C 9008              xcall _Dato
+ 006E 62D000            mov REG[0xd0],>_Tilap
+ 0071 5300              mov [_Tilap],A
+ 0073                   .dbline 60
+ 0073           ;       */
+ 0073 902C              xcall _Deteccion
+ 0075                   .dbline -2
+ 0075                   .dbline 61
+ 0075           ;       */
+ 0075           L8:
+ 0075                   .dbline 0 ; func end
+ 0075 7F                ret
+ 0076                   .dbend
+ 0076                   .dbfunc e Dato _Dato fc
+ 0076           ;       confirma -> X+1
+ 0076           ;       recivido -> X+0
+ 0076           _Dato::
+ 0076                   .dbline -1
+ 0076 10                push X
+ 0077 4F                mov X,SP
+ 0078 3802              add SP,2
+ 007A                   .dbline 70
+ 007A           ;       */
+ 007A           ;       */
+ 007A           ;       */
+ 007A           ;       */
+ 007A           ;       */
+ 007A           ;       */
+ 007A           ;       */
+ 007A           ;       */
+ 007A           ;       */
+ 007A           L10:
+ 007A                   .dbline 74
+ 007A           ;       */
+ 007A           ;       */
+ 007A           ;       */
+ 007A           ;       */
+ 007A                   .dbline 75
+ 007A           ;       */
  007A 10                push X
- 007B 5007              mov A,7
- 007D 08                push A
- 007E 5100              mov A,[__r1]
- 0080 5C                mov X,A
- 0081 18                pop A
- 0082 7C0000            xcall _UART_PutString
- 0085                   .dbline 28
- 0085 5000              mov A,>L9
- 0087 08                push A
- 0088 5000              mov A,<L9
- 008A 5C                mov X,A
- 008B 18                pop A
- 008C 7C0000            xcall _UART_CPutString
- 008F 20                pop X
- 0090                   .dbline 29
- 0090           L4:
- 0090                   .dbline 22
- 0090 7700              inc [X+0]
- 0092           L6:
- 0092                   .dbline 22
- 0092 3D005A            cmp [X+0],90
- 0095 CF9A              jc L3
- 0097           X1:
- 0097                   .dbline 30
- 0097           ;       {       UART_CPutString("La x vale ");
- 0097           ;               UART_PutChar(x);
- 0097           ;               itoa(a,x,10);
- 0097           ;               UART_CPutString(" y en numero es ");            
- 0097           ;               UART_PutString(a);
- 0097           ;               UART_CPutString("\r\n");
- 0097           ;       }
- 0097           ;       LCD_Position(1,0);
- 0097 5000              mov A,0
- 0099 08                push A
- 009A 08                push A
- 009B 08                push A
- 009C 5001              mov A,1
- 009E 08                push A
- 009F 7C0000            xcall _LCD_Position
- 00A2 38FC              add SP,-4
- 00A4                   .dbline 31
- 00A4           ;       for(;;)
- 00A4           L10:
- 00A4                   .dbline 32
- 00A4                   .dbline 32
- 00A4 10                push X
- 00A5 7C0000            xcall _UART_cGetChar
- 00A8 62D000            mov REG[0xd0],>__r0
- 00AB 20                pop X
- 00AC 5400              mov [X+0],A
- 00AE                   .dbline 33
- 00AE 5200              mov A,[X+0]
- 00B0 5300              mov [__r1],A
- 00B2 5000              mov A,0
- 00B4 08                push A
- 00B5 5100              mov A,[__r1]
- 00B7 08                push A
- 00B8 7C0000            xcall _LCD_WriteData
- 00BB 38FE              add SP,-2
- 00BD                   .dbline 35
- 00BD                   .dbline 31
- 00BD                   .dbline 31
- 00BD 8FE6              xjmp L10
- 00BF           X0:
- 00BF                   .dbline -2
- 00BF           L1:
- 00BF 38F3              add SP,-13
- 00C1 20                pop X
- 00C2                   .dbline 0 ; func end
- 00C2 8FFF              jmp .
- 00C4                   .dbsym l num 11 I
- 00C4                   .dbsym l a 1 A[10:10]c
- 00C4                   .dbsym l x 0 c
- 00C4                   .dbend
-                        .area lit(rom, con, rel)
- 0000           L9:
- 0000 0D0A00            .byte 13,10,0
- 0003           L8:
- 0003 207920656E206E756D65726F20657320  .byte 32,'y,32,'e,'n,32,'n,'u,'m,'e,'r,'o,32,'e,'s,32
- 0013 00                .byte 0
- 0014           L7:
- 0014 4C6120782076616C652000    .byte 'L,'a,32,'x,32,'v,'a,'l,'e,32,0
- 001F           L2:
- 001F 5541525400        .byte 'U,'A,'R,'T,0
+ 007B 7C0000            xcall _UART_cGetChar
+ 007E 62D000            mov REG[0xd0],>__r0
+ 0081 20                pop X
+ 0082 5400              mov [X+0],A
+ 0084                   .dbline 76
+ 0084           ;       */
+ 0084 10                push X
+ 0085 5200              mov A,[X+0]
+ 0087 7C0000            xcall _UART_PutChar
+ 008A                   .dbline 77
+ 008A           ;       */
+ 008A 7C0000            xcall _UART_cGetChar
+ 008D 62D000            mov REG[0xd0],>__r0
+ 0090 20                pop X
+ 0091 5401              mov [X+1],A
+ 0093                   .dbline 78
+ 0093           L11:
+ 0093                   .dbline 78
+ 0093           ;       */
+ 0093 3D0105            cmp [X+1],5
+ 0096 BFE3              jnz L10
+ 0098                   .dbline 79
+ 0098           ;       */
+ 0098 5200              mov A,[X+0]
+ 009A 62D000            mov REG[0xd0],>__r0
+ 009D                   .dbline -2
+ 009D           L9:
+ 009D 38FE              add SP,-2
+ 009F 20                pop X
+ 00A0                   .dbline 0 ; func end
+ 00A0 7F                ret
+ 00A1                   .dbsym l confirma 1 c
+ 00A1                   .dbsym l recivido 0 c
+ 00A1                   .dbend
+ 00A1                   .dbfunc e Deteccion _Deteccion fV
+ 00A1           ;         sensor -> X+0
+ 00A1           _Deteccion::
+ 00A1                   .dbline -1
+ 00A1 10                push X
+ 00A2 4F                mov X,SP
+ 00A3 3801              add SP,1
+ 00A5                   .dbline 90
+ 00A5           ;       */
+ 00A5           ;       */
+ 00A5           ;       */
+ 00A5           ;       */
+ 00A5           ;       */
+ 00A5           ;       */
+ 00A5           ;       */
+ 00A5           ;       */
+ 00A5           ;       */
+ 00A5           ;       */
+ 00A5           ;       */
+ 00A5                   .dbline 91
+ 00A5           ;       */
+ 00A5 560000            mov [X+0],0
+ 00A8                   .dbline 93
+ 00A8           ;       */
+ 00A8           ;       */
+ 00A8 6200AA            mov REG[ 0],-86
+ 00AB           L14:
+ 00AB                   .dbline 96
+ 00AB           ;       */
+ 00AB           ;       */
+ 00AB           ;       */
+ 00AB                   .dbline 97
+ 00AB           ;       */
+ 00AB 62D000            mov REG[0xd0],>_Ent1
+ 00AE 3C0001            cmp [_Ent1],1
+ 00B1 B043              jnz L17
+ 00B3                   .dbline 97
+ 00B3 490001            tst REG[ 0],1
+ 00B6 A006              jz L19
+ 00B8                   .dbline 97
+ 00B8 560001            mov [X+0],1
+ 00BB 8039              xjmp L20
+ 00BD           L19:
+ 00BD                   .dbline 99
+ 00BD           ;       */
+ 00BD           ;       */
+ 00BD 62D000            mov REG[0xd0],>_Ent2
+ 00C0 3C0001            cmp [_Ent2],1
+ 00C3 B031              jnz L21
+ 00C5                   .dbline 99
+ 00C5 490001            tst REG[ 0],1
+ 00C8 A006              jz L23
+ 00CA                   .dbline 99
+ 00CA 560002            mov [X+0],2
+ 00CD 8027              xjmp L24
+ 00CF           L23:
+ 00CF                   .dbline 101
+ 00CF           ;       */
+ 00CF           ;       */
+ 00CF 62D000            mov REG[0xd0],>_Ent3
+ 00D2 3C0001            cmp [_Ent3],1
+ 00D5 B00D              jnz L25
+ 00D7                   .dbline 102
+ 00D7           ;       */
+ 00D7                   .dbline 103
+ 00D7           ;       */
+ 00D7 5000              mov A,0
+ 00D9 A01B              jz L26
+ 00DB                   .dbline 104
+ 00DB           ;       */
+ 00DB                   .dbline 105
+ 00DB           ;       */
+ 00DB 560003            mov [X+0],3
+ 00DE                   .dbline 106
+ 00DE           ;       */
+ 00DE 430008            or REG[ 0],8
+ 00E1                   .dbline 107
+ 00E1           ;       */
+ 00E1                   .dbline 108
+ 00E1           ;       */
+ 00E1 8013              xjmp L26
+ 00E3           L25:
+ 00E3                   .dbline 109
+ 00E3           ;       */
+ 00E3 62D000            mov REG[0xd0],>_Ent4
+ 00E6 3C0001            cmp [_Ent4],1
+ 00E9 B00B              jnz L29
+ 00EB                   .dbline 110
+ 00EB           ;       */
+ 00EB                   .dbline 111
+ 00EB           ;       */
+ 00EB 5000              mov A,0
+ 00ED A007              jz L31
+ 00EF                   .dbline 112
+ 00EF           ;       */
+ 00EF                   .dbline 113
+ 00EF           ;       */
+ 00EF 560004            mov [X+0],4
+ 00F2                   .dbline 114
+ 00F2           ;       */
+ 00F2 430002            or REG[ 0],2
+ 00F5                   .dbline 115
+ 00F5           ;       */
+ 00F5           L31:
+ 00F5                   .dbline 116
+ 00F5           ;       */
+ 00F5           L29:
+ 00F5           L26:
+ 00F5           L24:
+ 00F5           L21:
+ 00F5           L20:
+ 00F5           L17:
+ 00F5                   .dbline 117
+ 00F5           L15:
+ 00F5                   .dbline 117
+ 00F5           ;       */
+ 00F5 3D0000            cmp [X+0],0
+ 00F8 AFB2              jz L14
+ 00FA                   .dbline 118
+ 00FA           ;       */
+ 00FA 9004              xcall _Disparo
+ 00FC                   .dbline -2
+ 00FC                   .dbline 119
+ 00FC           ;       */
+ 00FC           L13:
+ 00FC 38FF              add SP,-1
+ 00FE 20                pop X
+ 00FF                   .dbline 0 ; func end
+ 00FF 7F                ret
+ 0100                   .dbsym l sensor 0 c
+ 0100                   .dbend
+ 0100                   .dbfunc e Disparo _Disparo fV
+ 0100           _Disparo::
+ 0100                   .dbline -1
+ 0100                   .dbline 128
+ 0100           ;       */
+ 0100           ;       */
+ 0100           ;       */
+ 0100           ;       */
+ 0100           ;       */
+ 0100           ;       */
+ 0100           ;       */
+ 0100           ;       */
+ 0100           ;       */
+ 0100                   .dbline 129
+ 0100           ;       */
+ 0100 62D000            mov REG[0xd0],>_Uni
+ 0103 3C0001            cmp [_Uni],1
+ 0106 B005              jnz L34
+ 0108                   .dbline 129
+ 0108 9019              xcall _Unico
+ 010A 8017              xjmp L35
+ 010C           L34:
+ 010C                   .dbline 130
+ 010C           ;       */
+ 010C 62D000            mov REG[0xd0],>_Inter
+ 010F 3C0001            cmp [_Inter],1
+ 0112 B005              jnz L36
+ 0114                   .dbline 130
+ 0114 9038              xcall _Intervalometro
+ 0116 800B              xjmp L37
+ 0118           L36:
+ 0118                   .dbline 131
+ 0118           ;       */
+ 0118 62D000            mov REG[0xd0],>_Tilap
+ 011B 3C0001            cmp [_Tilap],1
+ 011E B003              jnz L38
+ 0120                   .dbline 131
+ 0120 9034              xcall _TimeLapse
+ 0122           L38:
+ 0122           L37:
+ 0122           L35:
+ 0122                   .dbline -2
+ 0122                   .dbline 133
+ 0122           ;       */
+ 0122           ;       */
+ 0122           L33:
+ 0122                   .dbline 0 ; func end
+ 0122 7F                ret
+ 0123                   .dbend
+ 0123                   .dbfunc e Unico _Unico fV
+ 0123           ;              x -> X+0
+ 0123           _Unico::
+ 0123                   .dbline -1
+ 0123 10                push X
+ 0124 4F                mov X,SP
+ 0125 3802              add SP,2
+ 0127                   .dbline 141
+ 0127           ;       */
+ 0127           ;       */
+ 0127           ;       */
+ 0127           ;       */
+ 0127           ;       */
+ 0127           ;       */
+ 0127           ;       */
+ 0127           ;       */
+ 0127                   .dbline 144
+ 0127           ;       */
+ 0127           ;       */
+ 0127           ;       */
+ 0127 430055            or REG[ 0],85
+ 012A                   .dbline 145
+ 012A           ;       */
+ 012A 430855            or REG[0x8],85
+ 012D                   .dbline 146
+ 012D 560100            mov [X+1],0
+ 0130 560000            mov [X+0],0
+ 0133           L41:
+ 0133                   .dbline 146
+ 0133           L42:
+ 0133                   .dbline 146
+ 0133           ;       */
+ 0133 7701              inc [X+1]
+ 0135 0F0000            adc [X+0],0
+ 0138                   .dbline 146
+ 0138 5201              mov A,[X+1]
+ 013A 112C              sub A,44
+ 013C 5200              mov A,[X+0]
+ 013E 3180              xor A,-128
+ 0140 1981              sbb A,(1 ^ 0x80)
+ 0142 CFF0              jc L41
+ 0144           X1:
+ 0144                   .dbline 147
+ 0144           ;       */
+ 0144 4100AA            and REG[ 0],-86
+ 0147                   .dbline 148
+ 0147           ;       */
+ 0147 4108AA            and REG[0x8],-86
+ 014A                   .dbline -2
+ 014A                   .dbline 150
+ 014A           ;       */
+ 014A           ;       */
+ 014A           L40:
+ 014A 38FE              add SP,-2
+ 014C 20                pop X
+ 014D                   .dbline 0 ; func end
+ 014D 7F                ret
+ 014E                   .dbsym l x 0 I
+ 014E                   .dbend
+ 014E                   .dbfunc e Intervalometro _Intervalometro fV
+ 014E           ;              x -> X+0
+ 014E           _Intervalometro::
+ 014E                   .dbline -1
+ 014E 10                push X
+ 014F 4F                mov X,SP
+ 0150 3802              add SP,2
+ 0152                   .dbline 158
+ 0152           ;       */
+ 0152           ;       */
+ 0152           ;       */
+ 0152           ;       */
+ 0152           ;       */
+ 0152           ;       */
+ 0152           ;       */
+ 0152           ;       */
+ 0152                   .dbline -2
+ 0152                   .dbline 163
+ 0152           ;       */
+ 0152           ;       */
+ 0152           ;       */
+ 0152           ;       */
+ 0152           ;       */
+ 0152           L45:
+ 0152 38FE              add SP,-2
+ 0154 20                pop X
+ 0155                   .dbline 0 ; func end
+ 0155 7F                ret
+ 0156                   .dbsym l x 0 I
+ 0156                   .dbend
+ 0156                   .dbfunc e TimeLapse _TimeLapse fV
+ 0156           ;              x -> X+0
+ 0156           _TimeLapse::
+ 0156                   .dbline -1
+ 0156 10                push X
+ 0157 4F                mov X,SP
+ 0158 3802              add SP,2
+ 015A                   .dbline 171
+ 015A           ;       */
+ 015A           ;       */
+ 015A           ;       */
+ 015A           ;       */
+ 015A           ;       */
+ 015A           ;       */
+ 015A           ;       */
+ 015A           ;       */
+ 015A                   .dbline -2
+ 015A                   .dbline 176
+ 015A           ;       */
+ 015A           ;       */
+ 015A           ;       */
+ 015A           ;       */
+ 015A           ;       */
+ 015A           L46:
+ 015A 38FE              add SP,-2
+ 015C 20                pop X
+ 015D                   .dbline 0 ; func end
+ 015D 7F                ret
+ 015E                   .dbsym l x 0 I
+ 015E                   .dbend
+ 015E                   .dbfile ./main.c
+ 015E                   .dbfunc e main _main fV
+ 015E           ;              a -> X+3
+ 015E           ;            num -> X+1
+ 015E           ;              x -> X+0
+ 015E           _main::
+ 015E                   .dbline -1
+ 015E 10                push X
+ 015F 4F                mov X,SP
+ 0160 380D              add SP,13
+ 0162                   .dbline 13
+ 0162                   .dbline 16
+ 0162 10                push X
+ 0163 509C              mov A,-100
+ 0165 7C0000            xcall _Timer8_WritePeriod
+ 0168                   .dbline 17
+ 0168 504E              mov A,78
+ 016A 7C0000            xcall _Timer8_WriteCompareValue
+ 016D                   .dbline 18
+ 016D 7C0000            xcall _Timer8_Start
+ 0170                   .dbline 20
+ 0170 5000              mov A,0
+ 0172 7C0000            xcall _UART_Start
+ 0175 20                pop X
+ 0176                   .dbline 25
+ 0176           L48:
+ 0176                   .dbline 25
+ 0176 9E88              xcall _Inicio
+ 0178                   .dbline 25
+ 0178                   .dbline 25
+ 0178 8FFD              xjmp L48
+ 017A           X2:
+ 017A                   .dbline -2
+ 017A           L47:
+ 017A 38F3              add SP,-13
+ 017C 20                pop X
+ 017D                   .dbline 0 ; func end
+ 017D 8FFF              jmp .
+ 017F                   .dbsym l a 3 A[10:10]c
+ 017F                   .dbsym l num 1 I
+ 017F                   .dbsym l x 0 c
+ 017F                   .dbend

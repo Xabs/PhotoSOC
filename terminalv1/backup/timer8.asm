@@ -61,7 +61,7 @@ export  bTimer8_CaptureCounter    ; obsolete
 export _bTimer8_CaptureCounter    ; obsolete
 
 
-AREA uart_prueba1_RAM (RAM,REL)
+AREA terminalv1_RAM (RAM,REL)
 
 ;-----------------------------------------------
 ;  Constant Definitions

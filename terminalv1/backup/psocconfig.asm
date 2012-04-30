@@ -22,8 +22,8 @@ include "GlobalParams.inc"
 
 export LoadConfigInit
 export _LoadConfigInit
-export LoadConfig_uart_prueba1
-export _LoadConfig_uart_prueba1
+export LoadConfig_terminalv1
+export _LoadConfig_terminalv1
 export Port_2_Data_SHADE
 export _Port_2_Data_SHADE
 export Port_2_DriveMode_0_SHADE
@@ -64,19 +64,19 @@ _LoadConfigInit:
     RAM_PROLOGUE RAM_USE_CLASS_4
     
 	mov		[Port_2_Data_SHADE], 0h
-	mov		[Port_2_DriveMode_0_SHADE], 7fh
-	mov		[Port_2_DriveMode_1_SHADE], 80h
+	mov		[Port_2_DriveMode_0_SHADE], ffh
+	mov		[Port_2_DriveMode_1_SHADE], 0h
 
-	lcall	LoadConfig_uart_prueba1
+	lcall	LoadConfig_terminalv1
 
 
     RAM_EPILOGUE RAM_USE_CLASS_4
     ret
 
 ;---------------------------------------------------------------------------
-; Load Configuration uart_prueba1
+; Load Configuration terminalv1
 ;
-;    Load configuration registers for uart_prueba1.
+;    Load configuration registers for terminalv1.
 ;    IO Bank 0 registers a loaded first,then those in IO Bank 1.
 ;
 ;       INPUTS: None.
@@ -92,10 +92,10 @@ _LoadConfigInit:
 ;               Page Pointer Registers Modified: 
 ;               CUR_PP
 ;
-_LoadConfig_uart_prueba1:
- LoadConfig_uart_prueba1:
+_LoadConfig_terminalv1:
+ LoadConfig_terminalv1:
     RAM_PROLOGUE RAM_USE_CLASS_4
-    lcall   LoadConfigTBL_uart_prueba1            ; Call load config table routine
+    lcall   LoadConfigTBL_terminalv1            ; Call load config table routine
 
 
     M8C_SetBank0                    ; Force return to bank 0
