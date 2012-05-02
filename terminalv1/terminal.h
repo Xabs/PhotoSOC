@@ -1,7 +1,7 @@
 //Listado de prototipos
 void bucle_temp();
 void Pitido();
-void PATATA();	//Interrupcion interna
+void PATATA();		//Interrupcion interna
 char Pulsador();
 void Reset_PdT();
 void Principal();
@@ -9,8 +9,8 @@ void Menu();
 void Sensors();
 void Entrada1();	//Barrera 1 a 12V
 void Entrada2();	//Barrera 2 a 12V
-void Entrada3();	//Conversor Ana/Dig a 5V
-void Entrada4();	//0/1 a 5V
+void Entrada3();	//Digital 0/1 a 5V
+void Entrada4();	//Digital 0/1 a 5V
 void Flashes();
 void Flash1();
 void Flash2();
@@ -41,7 +41,8 @@ char Alimentacion=0;
 char Interrupcion=1;
 char Ent1=0, Ent2=0, Ent3=0, Ent4=0;
 char Fla1=0, Fla2=0, Fla3=0, Fla4=0;
-char Cam1=0, Cam2=0, Inter1=0, Tilap1=0, Inter2=0, Tilap2=0;
+char Cam1=0, Int1_Tdisp=0, Int1_Tdisp_Uni=0, Int1_Ndisp=0, TL1_Treal, TL1_Treal_Uni, TL1_Tfilm, TL1_Tfilm_Uni;
+char Cam2=0, Int2_Tdisp=0, Int2_Tdisp_Uni=0, Int2_Ndisp=0, TL2_Treal, TL2_Treal_Uni, TL2_Tfilm, TL2_Tfilm_Uni;
 
 //***************************************************************************************
 //***************************************************************************************
@@ -728,9 +729,12 @@ void Tipo_disp(char camara)
 		}
 		else if(pulsat==3)
 		{
-			if(camara==1) Cam1=menu-1;
-			else if(camara==2) Cam2=menu-1;
-			if(menu==3) Intervalometro(camara);
+			if(menu==1 || menu==2) 
+			{
+				if(camara==1)Cam1=menu-1;
+				else if(camara==2) Cam2=menu-1;
+			}
+			else if(menu==3) Intervalometro(camara);
 			else if(menu==4) TimeLapse(camara);
 			pulsat=4;
 		}
@@ -749,9 +753,11 @@ void Tipo_disp(char camara)
 
 void Intervalometro(char camara)
 {
-	char pulsat, menu;
+	char pulsat, menu=1;
 	unsigned int x;
 			
+	if(camara==1) Cam1=2;
+	else if(camara==2) Cam2=2;
 	do
 	{
 		LCD_Control(0x01);	//Borrat de pantalla
@@ -769,9 +775,25 @@ void Intervalometro(char camara)
 		}
 		else if(pulsat==3)
 		{
-			if(camara==1) Cam1=menu-1;
-			else if(camara==2) Cam2=menu-1;
-			pulsat=4;
+			if(menu==1)
+			{
+				if(camara==1)
+				{
+					Int1_Tdisp=Numeros();
+					Int1_Tdisp_Uni=Tiempos();
+				}
+				else if(camara==2)
+				{
+					Int2_Tdisp=Numeros();
+					Int2_Tdisp_Uni=Tiempos();	 
+				}
+				pulsat=4;
+			}
+			else if(menu==2)
+			{
+				if(camara==1)Int1_Ndisp=Numeros();		
+				else if(camara==2)Int2_Ndisp=Numeros();			
+			}
 		}
 		else if(pulsat==2)
 		{	
@@ -789,16 +811,18 @@ void Intervalometro(char camara)
 
 void TimeLapse(char camara)
 {
-	char pulsat, menu;
+	char pulsat, menu=1;
 	unsigned int x;
-			
+	
+	if(camara==1) Cam1=3;
+	else if(camara==2) Cam2=3;
 	do
 	{
 		LCD_Control(0x01);	//Borrat de pantalla
-		LCD_PrCString(">Intervalometro");
+		LCD_PrCString(">Time Lapse");
 		LCD_Position(1,0);
-		if(menu==1) LCD_PrCString("T entre foto");
-		else if(menu==2) LCD_PrCString("Numero de fotos");
+		if(menu==1) LCD_PrCString("Tiempo real");
+		else if(menu==2) LCD_PrCString("Tiempo video");
 		bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
 		pulsat=Pulsador();
 		if(Buzzer==1) Pitido();
@@ -809,8 +833,32 @@ void TimeLapse(char camara)
 		}
 		else if(pulsat==3)
 		{
-			if(camara==1) Cam1=menu-1;
-			else if(camara==2) Cam2=menu-1;
+			if(menu==1)
+			{
+				if(camara==1)
+				{
+					TL1_Treal=Numeros();
+					TL1_Treal_Uni=Tiempos();
+				}
+				else if(camara==2)
+				{
+					TL2_Treal=Numeros();
+					TL2_Treal_Uni=Tiempos();	 
+				}
+			}
+			else if(menu==2)
+			{
+				if(camara==1)
+				{
+					TL1_Tfilm=Numeros();
+					TL1_Tfilm_Uni=Tiempos();
+				}
+				else if(camara==2)
+				{
+					TL2_Tfilm=Numeros();
+					TL2_Tfilm_Uni=Tiempos();
+				}
+			}
 			pulsat=4;
 		}
 		else if(pulsat==2)
@@ -829,15 +877,21 @@ void TimeLapse(char camara)
 
 char Numeros() 
 {
-	char pulsat, menu=0;
+	char pulsat, menu=1, mostrar, recortar, zeros;
 	unsigned int x;
 	
 	do
 	{
 		LCD_Control(0x01);	//Borrat de pantalla
-		LCD_PrCString(">Num. de tiempo");
+		LCD_PrCString(">Numero 1-100");
 		LCD_Position(1,0);
-		LCD_WriteData(menu+48);
+		for(x=0,zeros=100,recortar=menu;x<3;x++)
+		{	
+			mostrar=recortar/zeros;
+			recortar=recortar%zeros;
+			zeros=zeros/10;
+			LCD_WriteData(mostrar+48);
+		}
 		bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
 		pulsat=Pulsador();
 		if(Buzzer==1) Pitido();
@@ -855,7 +909,7 @@ char Numeros()
 			if(menu-1<1)	menu=100;
 			else	menu--;
 		}
-	}while(pulsat!=4);
+	}while(pulsat!=5);
 }
 
 //***************************************************************************************
@@ -865,7 +919,7 @@ char Numeros()
 
 char Tiempos() 
 {
-	char pulsat, menu=0;
+	char pulsat, menu=1;
 	unsigned int x;
 	
 	do
@@ -876,12 +930,13 @@ char Tiempos()
 		if(menu==1) LCD_PrCString("Milisegundos");
 		else if(menu==2)LCD_PrCString("Segundos");
 		else if(menu==3)LCD_PrCString("Minutos");
+		else if(menu==4)LCD_PrCString("Horas");
 		bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
 		pulsat=Pulsador();
 		if(Buzzer==1) Pitido();
 		if(pulsat==1)
 		{
-			if(menu+1>3)	menu=1;
+			if(menu+1>4)	menu=1;
 			else	menu++;
 		}
 		else if(pulsat==3)
@@ -890,10 +945,10 @@ char Tiempos()
 		}
 		else if(pulsat==2)
 		{	
-			if(menu-1<1)	menu=3;
+			if(menu-1<1)	menu=4;
 			else	menu--;
 		}
-	}while(pulsat!=4);
+	}while(pulsat!=5);
 }
 
 //***************************************************************************************************************
