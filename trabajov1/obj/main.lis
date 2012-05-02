@@ -253,7 +253,7 @@
  0076                   .dbend
  0076                   .dbfunc e Dato _Dato fc
  0076           ;       confirma -> X+1
- 0076           ;       recivido -> X+0
+ 0076           ;       recibido -> X+0
  0076           _Dato::
  0076                   .dbline -1
  0076 10                push X
@@ -310,7 +310,7 @@
  00A0                   .dbline 0 ; func end
  00A0 7F                ret
  00A1                   .dbsym l confirma 1 c
- 00A1                   .dbsym l recivido 0 c
+ 00A1                   .dbsym l recibido 0 c
  00A1                   .dbend
  00A1                   .dbfunc e Deteccion _Deteccion fV
  00A1           ;         sensor -> X+0

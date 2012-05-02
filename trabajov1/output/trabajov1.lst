@@ -3355,21 +3355,21 @@ _Ejecucion:
 (0070) {
 _Dato:
   confirma             --> X+1
-  recivido             --> X+0
+  recibido             --> X+0
 069B: 10       PUSH  X
 069C: 4F       MOV   X,SP
 069D: 38 02    ADD   SP,2
-(0071) 	char recivido, confirma;
+(0071) 	char recibido, confirma;
 (0072) 	
 (0073) 	do
 (0074) 	{
-(0075) 		recivido=UART_cGetChar();	//Esta se espera a que llegue un byte. Ver tambien UART_cReadChar()
+(0075) 		recibido=UART_cGetChar();	//Esta se espera a que llegue un byte. Ver tambien UART_cReadChar()
 069F: 10       PUSH  X
 06A0: 7C 04 8C LCALL 0x048C
 06A3: 62 D0 00 MOV   REG[208],0
 06A6: 20       POP   X
 06A7: 54 00    MOV   [X+0],A
-(0076) 		UART_PutChar(recivido);		//Devolvemos el valor para la confirmacion confirmacion
+(0076) 		UART_PutChar(recibido);		//Devolvemos el valor para la confirmacion confirmacion
 06A9: 10       PUSH  X
 06AA: 52 00    MOV   A,[X+0]
 06AC: 7C 04 84 LCALL 0x0484
@@ -3381,7 +3381,7 @@ _Dato:
 (0078) 	}while(confirma!=5);
 06B8: 3D 01 05 CMP   [X+1],5
 06BB: BF E3    JNZ   0x069F
-(0079) 	return recivido;
+(0079) 	return recibido;
 06BD: 52 00    MOV   A,[X+0]
 06BF: 62 D0 00 MOV   REG[208],0
 06C2: 38 FE    ADD   SP,254

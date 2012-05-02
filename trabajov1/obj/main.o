@@ -46,7 +46,7 @@ dbline 3D 75
 dbline 0 75
 dbfunc e Dato 76 fc
 dbsym l confirma 1 c
-dbsym l recivido 0 c
+dbsym l recibido 0 c
 dbline FFFFFFFF 76
 dbline 46 7A
 dbline 4A 7A

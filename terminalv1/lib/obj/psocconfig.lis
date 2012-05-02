@@ -1037,15 +1037,15 @@
  0000           CLOCK_DIV_VC1:			equ	0h	;VC1 clock divider
  00F0           CLOCK_DIV_VC1_MASK:		equ	f0h	;VC1 clock divider mask
  0000           CLOCK_DIV_VC1_JUST:		equ	0h	;VC1 clock divider justified
- 0000           CLOCK_DIV_VC2:			equ	0h	;VC2 clock divider
+ 000B           CLOCK_DIV_VC2:			equ	bh	;VC2 clock divider
  000F           CLOCK_DIV_VC2_MASK:		equ	fh	;VC2 clock divider mask
- 0000           CLOCK_DIV_VC2_JUST:		equ	0h	;VC2 clock divider justified
- 0000           CLOCK_INPUT_VC3:		equ	0h	;VC3 clock source
+ 000B           CLOCK_DIV_VC2_JUST:		equ	bh	;VC2 clock divider justified
+ 0002           CLOCK_INPUT_VC3:		equ	2h	;VC3 clock source
  0003           CLOCK_INPUT_VC3_MASK:	equ	3h	;VC3 clock source mask
- 0000           CLOCK_INPUT_VC3_JUST:	equ	0h	;VC3 clock source justified
- 0000           CLOCK_DIV_VC3:			equ	0h	;VC3 clock divider
+ 0002           CLOCK_INPUT_VC3_JUST:	equ	2h	;VC3 clock source justified
+ 00C7           CLOCK_DIV_VC3:			equ	c7h	;VC3 clock divider
  00FF           CLOCK_DIV_VC3_MASK:		equ	ffh	;VC3 clock divider mask
- 0000           CLOCK_DIV_VC3_JUST:		equ	0h	;VC3 clock divider justified
+ 00C7           CLOCK_DIV_VC3_JUST:		equ	c7h	;VC3 clock divider justified
  0000           ANALOG_BUFFER_PWR:		equ	0h	;Analog buffer power level
  0001           ANALOG_BUFFER_PWR_MASK:	equ	1h	;Analog buffer power level mask
  0000           ANALOG_BUFFER_PWR_JUST:	equ	0h	;Analog buffer power level justified

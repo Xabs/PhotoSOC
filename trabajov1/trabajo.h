@@ -68,15 +68,15 @@ void Ejecucion()
 
 char Dato()
 {
-	char recivido, confirma;
+	char recibido, confirma;
 	
 	do
 	{
-		recivido=UART_cGetChar();	//Esta se espera a que llegue un byte. Ver tambien UART_cReadChar()
-		UART_PutChar(recivido);		//Devolvemos el valor para la confirmacion confirmacion
+		recibido=UART_cGetChar();	//Esta se espera a que llegue un byte. Ver tambien UART_cReadChar()
+		UART_PutChar(recibido);		//Devolvemos el valor para la confirmacion confirmacion
 		confirma=UART_cGetChar();	//Resultado de la confirmacion
 	}while(confirma!=5);
-	return recivido;
+	return recibido;
 }
 
 //******************************************************************************

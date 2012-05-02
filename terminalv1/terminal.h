@@ -1,6 +1,7 @@
 //Listado de prototipos
 void bucle_temp();
 void Pitido();
+void PATATA();	//Interrupcion interna
 char Pulsador();
 void Reset_PdT();
 void Principal();
@@ -21,10 +22,13 @@ void Camara2();
 void Tipo_disp(char camara);
 void Intervalometro(char camara);
 void TimeLapse(char camara);
+char Numeros();
+char Tiempos();
 void Executar();
 void Ara();
 void Envia(char valor);
 void Trabajando();
+void Resetear();
 void Sistema();
 void Reali_LCD();
 void Zumbador();
@@ -34,6 +38,7 @@ void Ali_Led();
 char Luz_LCD=0;
 char Buzzer=0;
 char Alimentacion=0;
+char Interrupcion=1;
 char Ent1=0, Ent2=0, Ent3=0, Ent4=0;
 char Fla1=0, Fla2=0, Fla3=0, Fla4=0;
 char Cam1=0, Cam2=0, Inter1=0, Tilap1=0, Inter2=0, Tilap2=0;
@@ -84,6 +89,17 @@ void Reset_PdT()
 //***************************************************************************************
 //***************************************************************************************
 
+//Interrupcion interna que hara para apagar el LCD cuando este en la funcion Trabajando()
+
+void PATATA()
+{
+	Interrupcion=0;	//Variable para que no haga el bucle de perdida de tiempo
+	Trabajando();
+}
+
+//***************************************************************************************
+//***************************************************************************************
+
 // Funcio per detectar si un pulsador ha sigut pitjat la cual retornara un valor entre 0 i 3
 //  que farem correspondre amb una accio o una altre.
 	// retorn 1 --> pulsacio curta del boto groc
@@ -96,11 +112,13 @@ char Pulsador()
 	#define amarillo 1
 	#define rojo 2
 	
-	char pulsado=0;
+	char pulsado=0, aviso;
 	unsigned int x;
 	
 	do
 	{
+		aviso=UART_cReadChar();
+		if(aviso==255);		//Aviso nos permite saber cuando a terminado de trabajar el PSoC de Trabajo
 		if((PRT0DR & 0xA0)==0x20)pulsado=amarillo;		// pulsado el botón amarillo (0.7) que dará un 0 (resistencias de pull-up) 
 		if((PRT0DR & 0xA0)==0x80)pulsado=rojo;			// pulsado el botón rojo (0.5) que dará un 0 (resistencia de pull-up)
 		if(pulsado!=0)
@@ -764,6 +782,120 @@ void Intervalometro(char camara)
 
 }
 
+//***************************************************************************************
+//***************************************************************************************
+
+//Funcion donde se especificaran variables de la funcin del Intervalometro
+
+void TimeLapse(char camara)
+{
+	char pulsat, menu;
+	unsigned int x;
+			
+	do
+	{
+		LCD_Control(0x01);	//Borrat de pantalla
+		LCD_PrCString(">Intervalometro");
+		LCD_Position(1,0);
+		if(menu==1) LCD_PrCString("T entre foto");
+		else if(menu==2) LCD_PrCString("Numero de fotos");
+		bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
+		pulsat=Pulsador();
+		if(Buzzer==1) Pitido();
+		if(pulsat==1)
+		{
+			if(menu+1>2)	menu=1;
+			else	menu++;
+		}
+		else if(pulsat==3)
+		{
+			if(camara==1) Cam1=menu-1;
+			else if(camara==2) Cam2=menu-1;
+			pulsat=4;
+		}
+		else if(pulsat==2)
+		{	
+			if(menu-1<1)	menu=2;
+			else	menu--;
+		}
+	}while(pulsat!=4);
+
+}
+
+//***************************************************************************************
+//***************************************************************************************
+
+//
+
+char Numeros() 
+{
+	char pulsat, menu=0;
+	unsigned int x;
+	
+	do
+	{
+		LCD_Control(0x01);	//Borrat de pantalla
+		LCD_PrCString(">Num. de tiempo");
+		LCD_Position(1,0);
+		LCD_WriteData(menu+48);
+		bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
+		pulsat=Pulsador();
+		if(Buzzer==1) Pitido();
+		if(pulsat==1)
+		{
+			if(menu+1>100)	menu=1;
+			else	menu++;
+		}
+		else if(pulsat==3)
+		{
+			return menu;
+		}
+		else if(pulsat==2)
+		{	
+			if(menu-1<1)	menu=100;
+			else	menu--;
+		}
+	}while(pulsat!=4);
+}
+
+//***************************************************************************************
+//***************************************************************************************
+
+//
+
+char Tiempos() 
+{
+	char pulsat, menu=0;
+	unsigned int x;
+	
+	do
+	{
+		LCD_Control(0x01);	//Borrat de pantalla
+		LCD_PrCString(">Uni. de tiempo");
+		LCD_Position(1,0);
+		if(menu==1) LCD_PrCString("Milisegundos");
+		else if(menu==2)LCD_PrCString("Segundos");
+		else if(menu==3)LCD_PrCString("Minutos");
+		bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
+		pulsat=Pulsador();
+		if(Buzzer==1) Pitido();
+		if(pulsat==1)
+		{
+			if(menu+1>3)	menu=1;
+			else	menu++;
+		}
+		else if(pulsat==3)
+		{
+			return menu;
+		}
+		else if(pulsat==2)
+		{	
+			if(menu-1<1)	menu=3;
+			else	menu--;
+		}
+	}while(pulsat!=4);
+}
+
 //***************************************************************************************************************
 //***************************************************************************************         Ejecutar
 
@@ -844,17 +976,17 @@ void Envia(char valor)
 
 void Trabajando()
 {
-	unsigned int x, temp=0;
+	unsigned int x;
 	char pulsat;
 	
 	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("Datos enviados");
-	LCD_Position(1,0);
-	LCD_PrCString("PhotoSOC Activo");
-	for(x=0;x<60000;x++);
-	do
+	LCD_PrCString("PhotoSOC activo");
+	if(Interrupcion==1)for(x=0;x<60000;x++);
+	Timer1seg_Stop();
+	for(;;)
 	{
-		if(temp<60)LCD_Control(0x08)	//LCD off
+		Interrupcion=1;
+		LCD_Control(0x08);	//LCD off
 		pulsat=Pulsador();
 		if(Buzzer==1) Pitido();
 		if(pulsat==1||pulsat==2||pulsat==4)
@@ -864,15 +996,26 @@ void Trabajando()
 			LCD_PrCString("PhotoSOC activo");
 			LCD_Position(1,0);
 			LCD_PrCString("Quiere pararlo?");
-			temp=0;
+			Timer1seg_WritePeriod(20000);
+			Timer1seg_Start();
 		}
 		else if(pulsat==3)
 		{
 			Resetear();
 		}
-		for(x=0;x<1000;x++)
-		temp++;
-	}while(true);	
+	}	
+}
+
+//***************************************************************************************
+//***************************************************************************************
+
+//Funcion en la que el PSoC Terminal interrumpe el funcionamiento del programa
+//del PSoC de Trabajo y vuelve a iniciar la programacion 
+
+void Resetear()
+{
+	Envia(99);
+	Principal();
 }
 
 //***************************************************************************************************************
