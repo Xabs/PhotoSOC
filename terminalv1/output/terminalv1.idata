@@ -1,5 +1,2 @@
-flash 2078 SRAM   1B:
- <size at next line>   0  0  0  1
-  [size:] 4 bytes
-flash 207F SRAM   1F:
- 00 24 bytes
+flash 2034 SRAM   1B:
+ 00 27 bytes

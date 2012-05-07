@@ -150,7 +150,7 @@ ENABLE_LJMP_TO_MAIN:             equ 0
     reti
 
     org   34h                      ;PSoC Block DBB11 Interrupt Vector
-    ljmp	_Timer1seg_ISR
+    // call	void_handler
     reti
 
     org   38h                      ;PSoC Block DCB12 Interrupt Vector

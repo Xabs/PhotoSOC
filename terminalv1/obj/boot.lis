@@ -1388,9 +1388,9 @@
  0030 7E            reti
  0031           
                     org   34h                      ;PSoC Block DBB11 Interrupt Vector
- 0034 7D0000        ljmp        _Timer1seg_ISR
- 0037 7E            reti
- 0038           
+                    // call     void_handler
+ 0034 7E            reti
+ 0035           
                     org   38h                      ;PSoC Block DCB12 Interrupt Vector
                     // call     void_handler
  0038 7E            reti

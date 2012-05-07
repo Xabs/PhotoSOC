@@ -1,7 +1,6 @@
 //Listado de prototipos
 void bucle_temp();
 void Pitido();
-void PATATA();		//Interrupcion interna
 char Pulsador();
 void Reset_PdT();
 void Principal();
@@ -38,7 +37,6 @@ void Ali_Led();
 char Luz_LCD=0;
 char Buzzer=0;
 char Alimentacion=0;
-char Interrupcion=1;
 char Ent1=0, Ent2=0, Ent3=0, Ent4=0;
 char Fla1=0, Fla2=0, Fla3=0, Fla4=0;
 char Cam1=0, Int1_Tdisp=0, Int1_Tdisp_Uni=0, Int1_Ndisp=0, TL1_Treal, TL1_Treal_Uni, TL1_Tfilm, TL1_Tfilm_Uni;
@@ -90,17 +88,6 @@ void Reset_PdT()
 //***************************************************************************************
 //***************************************************************************************
 
-//Interrupcion interna que hara para apagar el LCD cuando este en la funcion Trabajando()
-
-void PATATA()
-{
-	Interrupcion=0;	//Variable para que no haga el bucle de perdida de tiempo
-	Trabajando();
-}
-
-//***************************************************************************************
-//***************************************************************************************
-
 // Funcio per detectar si un pulsador ha sigut pitjat la cual retornara un valor entre 0 i 3
 //  que farem correspondre amb una accio o una altre.
 	// retorn 1 --> pulsacio curta del boto groc
@@ -132,6 +119,7 @@ char Pulsador()
 			}
 			pulsado=pulsado+2;
 		}
+		if(UART_cReadChar()==251)Principal();
 	}while(pulsado==0);
 	return pulsado;
 }
@@ -787,7 +775,6 @@ void Intervalometro(char camara)
 					Int2_Tdisp=Numeros();
 					Int2_Tdisp_Uni=Tiempos();	 
 				}
-				pulsat=4;
 			}
 			else if(menu==2)
 			{
@@ -859,7 +846,6 @@ void TimeLapse(char camara)
 					TL2_Tfilm_Uni=Tiempos();
 				}
 			}
-			pulsat=4;
 		}
 		else if(pulsat==2)
 		{	
@@ -927,16 +913,15 @@ char Tiempos()
 		LCD_Control(0x01);	//Borrat de pantalla
 		LCD_PrCString(">Uni. de tiempo");
 		LCD_Position(1,0);
-		if(menu==1) LCD_PrCString("Milisegundos");
-		else if(menu==2)LCD_PrCString("Segundos");
-		else if(menu==3)LCD_PrCString("Minutos");
-		else if(menu==4)LCD_PrCString("Horas");
+		if(menu==1) LCD_PrCString("Segundos");
+		else if(menu==2)LCD_PrCString("Minutos");
+		else if(menu==3)LCD_PrCString("Horas");
 		bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
 		pulsat=Pulsador();
 		if(Buzzer==1) Pitido();
 		if(pulsat==1)
 		{
-			if(menu+1>4)	menu=1;
+			if(menu+1>3)	menu=1;
 			else	menu++;
 		}
 		else if(pulsat==3)
@@ -945,7 +930,7 @@ char Tiempos()
 		}
 		else if(pulsat==2)
 		{	
-			if(menu-1<1)	menu=4;
+			if(menu-1<1)	menu=3;
 			else	menu--;
 		}
 	}while(pulsat!=5);
@@ -1034,28 +1019,32 @@ void Trabajando()
 	unsigned int x;
 	char pulsat;
 	
+
 	LCD_Control(0x01);	//Borrat de pantalla
 	LCD_PrCString("PhotoSOC activo");
-	if(Interrupcion==1)for(x=0;x<60000;x++);
-	Timer1seg_Stop();
+	for(x=0;x<60000;x++);
+
 	for(;;)
 	{
-		Interrupcion=1;
+		
 		LCD_Control(0x08);	//LCD off
+		LCD_Control(0x01);	//Borrat de pantalla
+		
 		pulsat=Pulsador();
 		if(Buzzer==1) Pitido();
 		if(pulsat==1||pulsat==2||pulsat==4)
 		{
 			LCD_Control(0x0E);	//LCD on
-			LCD_Control(0x01);	//Borrat de pantalla
-			LCD_PrCString("PhotoSOC activo");
-			LCD_Position(1,0);
 			LCD_PrCString("Quiere pararlo?");
-			Timer1seg_WritePeriod(20000);
-			Timer1seg_Start();
-		}
+			LCD_Position(1,0);
+			LCD_PrCString("Mantener Amarillo");
+			for(x=0;x<50000;x++);
+		}	
 		else if(pulsat==3)
 		{
+			LCD_Control(0x0E);	//LCD on
+			LCD_PrCString("Trabajo parado");
+			for(x=0;x<50000;x++);
 			Resetear();
 		}
 	}	

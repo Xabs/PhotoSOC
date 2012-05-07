@@ -2,8 +2,6 @@
 lib/lcd.asm   
 lib/psocconfig.asm   
 lib/psocconfigtbl.asm   
-lib/timer1seg.asm   
-lib/timer1segint.asm   
 lib/timer8.asm   
 lib/timer8int.asm   
 lib/uart.asm   

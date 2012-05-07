@@ -954,56 +954,74 @@
  0156 626D00            mov     reg[6dh], 00h           ; TMP_DR1 register (TMP_DR1)
  0159 626E00            mov     reg[6eh], 00h           ; TMP_DR2 register (TMP_DR2)
  015C 626F00            mov     reg[6fh], 00h           ; TMP_DR3 register (TMP_DR3)
- 015F           ;  Instance name Timer8, User Module Timer8
- 015F           ;       Instance name Timer8, Block Name TIMER8(DBB00)
- 015F 622304            mov     reg[23h], 04h           ;Timer8_CONTROL_REG(DBB00CR0)
- 0162 622100            mov     reg[21h], 00h           ;Timer8_PERIOD_REG(DBB00DR1)
- 0165 622200            mov     reg[22h], 00h           ;Timer8_COMPARE_REG(DBB00DR2)
- 0168           ;  Instance name UART, User Module UART
- 0168           ;       Instance name UART, Block Name RX(DCB03)
- 0168 622F00            mov     reg[2fh], 00h           ;UART_RX_CONTROL_REG(DCB03CR0)
- 016B 622D00            mov     reg[2dh], 00h           ;UART_(DCB03DR1)
- 016E 622E00            mov     reg[2eh], 00h           ;UART_RX_BUFFER_REG (DCB03DR2)
- 0171           ;       Instance name UART, Block Name TX(DCB02)
- 0171 622B00            mov     reg[2bh], 00h           ;UART_TX_CONTROL_REG(DCB02CR0)
- 0174 622900            mov     reg[29h], 00h           ;UART_TX_BUFFER_REG (DCB02DR1)
- 0177 622A00            mov     reg[2ah], 00h           ;UART_(DCB02DR2)
- 017A 7110          or    F, FLAG_XIO_MASK
- 017C           ;  Global Register values
- 017C 626100            mov     reg[61h], 00h           ; AnalogClockSelect1 register (CLK_CR1)
- 017F 626900            mov     reg[69h], 00h           ; AnalogClockSelect2 register (CLK_CR2)
- 0182 626000            mov     reg[60h], 00h           ; AnalogColumnClockSelect register (CLK_CR0)
- 0185 626200            mov     reg[62h], 00h           ; AnalogIOControl_0 register (ABF_CR0)
- 0188 626733            mov     reg[67h], 33h           ; AnalogLUTControl0 register (ALT_CR0)
- 018B 626833            mov     reg[68h], 33h           ; AnalogLUTControl1 register (ALT_CR1)
- 018E 626300            mov     reg[63h], 00h           ; AnalogModulatorControl_0 register (AMD_CR0)
- 0191 626600            mov     reg[66h], 00h           ; AnalogModulatorControl_1 register (AMD_CR1)
- 0194 62D100            mov     reg[d1h], 00h           ; GlobalDigitalInterconnect_Drive_Even_Input register (GDI_E_IN)
- 0197 62D300            mov     reg[d3h], 00h           ; GlobalDigitalInterconnect_Drive_Even_Output register (GDI_E_OU)
- 019A 62D000            mov     reg[d0h], 00h           ; GlobalDigitalInterconnect_Drive_Odd_Input register (GDI_O_IN)
- 019D 62D200            mov     reg[d2h], 00h           ; GlobalDigitalInterconnect_Drive_Odd_Output register (GDI_O_OU)
- 01A0 62E100            mov     reg[e1h], 00h           ; OscillatorControl_1 register (OSC_CR1)
- 01A3 62E200            mov     reg[e2h], 00h           ; OscillatorControl_2 register (OSC_CR2)
- 01A6 62DF00            mov     reg[dfh], 00h           ; OscillatorControl_3 register (OSC_CR3)
- 01A9 62DE00            mov     reg[deh], 00h           ; OscillatorControl_4 register (OSC_CR4)
- 01AC 62DD00            mov     reg[ddh], 00h           ; OscillatorGlobalBusEnableControl register (OSC_GO_EN)
- 01AF 62E700            mov     reg[e7h], 00h           ; Type2Decimator_Control register (DEC_CR2)
- 01B2           ;  Instance name Timer8, User Module Timer8
- 01B2           ;       Instance name Timer8, Block Name TIMER8(DBB00)
- 01B2 622020            mov     reg[20h], 20h           ;Timer8_FUNC_REG(DBB00FN)
- 01B5 622105            mov     reg[21h], 05h           ;Timer8_INPUT_REG(DBB00IN)
- 01B8 622228            mov     reg[22h], 28h           ;Timer8_OUTPUT_REG(DBB00OU)
- 01BB           ;  Instance name UART, User Module UART
- 01BB           ;       Instance name UART, Block Name RX(DCB03)
- 01BB 622C05            mov     reg[2ch], 05h           ;UART_RX_FUNC_REG   (DCB03FN)
- 01BE 622DE9            mov     reg[2dh], e9h           ;UART_RX_INPUT_REG  (DCB03IN)
- 01C1 622E00            mov     reg[2eh], 00h           ;UART_RX_OUTPUT_REG (DCB03OU)
- 01C4           ;       Instance name UART, Block Name TX(DCB02)
- 01C4 62280D            mov     reg[28h], 0dh           ;UART_TX_FUNC_REG   (DCB02FN)
- 01C7 622909            mov     reg[29h], 09h           ;UART_TX_INPUT_REG  (DCB02IN)
- 01CA 622A04            mov     reg[2ah], 04h           ;UART_TX_OUTPUT_REG (DCB02OU)
- 01CD 70EF          and   F, ~FLAG_XIO_MASK
- 01CF 7F                ret
- 01D0           
- 01D0           
- 01D0           ; PSoC Configuration file trailer PsocConfig.asm
+ 015F           ;  Instance name Segundos, User Module Timer16
+ 015F           ;       Instance name Segundos, Block Name TIMER16_LSB(DBB10)
+ 015F 623300            mov     reg[33h], 00h           ;Segundos_CONTROL_LSB_REG(DBB10CR0)
+ 0162 623100            mov     reg[31h], 00h           ;Segundos_PERIOD_LSB_REG(DBB10DR1)
+ 0165 623200            mov     reg[32h], 00h           ;Segundos_COMPARE_LSB_REG(DBB10DR2)
+ 0168           ;       Instance name Segundos, Block Name TIMER16_MSB(DBB11)
+ 0168 623704            mov     reg[37h], 04h           ;Segundos_CONTROL_MSB_REG(DBB11CR0)
+ 016B 623500            mov     reg[35h], 00h           ;Segundos_PERIOD_MSB_REG(DBB11DR1)
+ 016E 623600            mov     reg[36h], 00h           ;Segundos_COMPARE_MSB_REG(DBB11DR2)
+ 0171           ;  Instance name Timer8, User Module Timer8
+ 0171           ;       Instance name Timer8, Block Name TIMER8(DBB00)
+ 0171 622304            mov     reg[23h], 04h           ;Timer8_CONTROL_REG(DBB00CR0)
+ 0174 622100            mov     reg[21h], 00h           ;Timer8_PERIOD_REG(DBB00DR1)
+ 0177 622200            mov     reg[22h], 00h           ;Timer8_COMPARE_REG(DBB00DR2)
+ 017A           ;  Instance name UART, User Module UART
+ 017A           ;       Instance name UART, Block Name RX(DCB03)
+ 017A 622F00            mov     reg[2fh], 00h           ;UART_RX_CONTROL_REG(DCB03CR0)
+ 017D 622D00            mov     reg[2dh], 00h           ;UART_(DCB03DR1)
+ 0180 622E00            mov     reg[2eh], 00h           ;UART_RX_BUFFER_REG (DCB03DR2)
+ 0183           ;       Instance name UART, Block Name TX(DCB02)
+ 0183 622B00            mov     reg[2bh], 00h           ;UART_TX_CONTROL_REG(DCB02CR0)
+ 0186 622900            mov     reg[29h], 00h           ;UART_TX_BUFFER_REG (DCB02DR1)
+ 0189 622A00            mov     reg[2ah], 00h           ;UART_(DCB02DR2)
+ 018C 7110          or    F, FLAG_XIO_MASK
+ 018E           ;  Global Register values
+ 018E 626100            mov     reg[61h], 00h           ; AnalogClockSelect1 register (CLK_CR1)
+ 0191 626900            mov     reg[69h], 00h           ; AnalogClockSelect2 register (CLK_CR2)
+ 0194 626000            mov     reg[60h], 00h           ; AnalogColumnClockSelect register (CLK_CR0)
+ 0197 626200            mov     reg[62h], 00h           ; AnalogIOControl_0 register (ABF_CR0)
+ 019A 626733            mov     reg[67h], 33h           ; AnalogLUTControl0 register (ALT_CR0)
+ 019D 626833            mov     reg[68h], 33h           ; AnalogLUTControl1 register (ALT_CR1)
+ 01A0 626300            mov     reg[63h], 00h           ; AnalogModulatorControl_0 register (AMD_CR0)
+ 01A3 626600            mov     reg[66h], 00h           ; AnalogModulatorControl_1 register (AMD_CR1)
+ 01A6 62D100            mov     reg[d1h], 00h           ; GlobalDigitalInterconnect_Drive_Even_Input register (GDI_E_IN)
+ 01A9 62D300            mov     reg[d3h], 00h           ; GlobalDigitalInterconnect_Drive_Even_Output register (GDI_E_OU)
+ 01AC 62D000            mov     reg[d0h], 00h           ; GlobalDigitalInterconnect_Drive_Odd_Input register (GDI_O_IN)
+ 01AF 62D200            mov     reg[d2h], 00h           ; GlobalDigitalInterconnect_Drive_Odd_Output register (GDI_O_OU)
+ 01B2 62E10B            mov     reg[e1h], 0bh           ; OscillatorControl_1 register (OSC_CR1)
+ 01B5 62E200            mov     reg[e2h], 00h           ; OscillatorControl_2 register (OSC_CR2)
+ 01B8 62DFC7            mov     reg[dfh], c7h           ; OscillatorControl_3 register (OSC_CR3)
+ 01BB 62DE02            mov     reg[deh], 02h           ; OscillatorControl_4 register (OSC_CR4)
+ 01BE 62DD00            mov     reg[ddh], 00h           ; OscillatorGlobalBusEnableControl register (OSC_GO_EN)
+ 01C1 62E700            mov     reg[e7h], 00h           ; Type2Decimator_Control register (DEC_CR2)
+ 01C4           ;  Instance name Segundos, User Module Timer16
+ 01C4           ;       Instance name Segundos, Block Name TIMER16_LSB(DBB10)
+ 01C4 623000            mov     reg[30h], 00h           ;Segundos_FUNC_LSB_REG(DBB10FN)
+ 01C7 623101            mov     reg[31h], 01h           ;Segundos_INPUT_LSB_REG(DBB10IN)
+ 01CA 623240            mov     reg[32h], 40h           ;Segundos_OUTPUT_LSB_REG(DBB10OU)
+ 01CD           ;       Instance name Segundos, Block Name TIMER16_MSB(DBB11)
+ 01CD 623420            mov     reg[34h], 20h           ;Segundos_FUNC_MSB_REG(DBB11FN)
+ 01D0 623531            mov     reg[35h], 31h           ;Segundos_INPUT_MSB_REG(DBB11IN)
+ 01D3 623640            mov     reg[36h], 40h           ;Segundos_OUTPUT_MSB_REG(DBB11OU)
+ 01D6           ;  Instance name Timer8, User Module Timer8
+ 01D6           ;       Instance name Timer8, Block Name TIMER8(DBB00)
+ 01D6 622020            mov     reg[20h], 20h           ;Timer8_FUNC_REG(DBB00FN)
+ 01D9 622105            mov     reg[21h], 05h           ;Timer8_INPUT_REG(DBB00IN)
+ 01DC 622228            mov     reg[22h], 28h           ;Timer8_OUTPUT_REG(DBB00OU)
+ 01DF           ;  Instance name UART, User Module UART
+ 01DF           ;       Instance name UART, Block Name RX(DCB03)
+ 01DF 622C05            mov     reg[2ch], 05h           ;UART_RX_FUNC_REG   (DCB03FN)
+ 01E2 622DE9            mov     reg[2dh], e9h           ;UART_RX_INPUT_REG  (DCB03IN)
+ 01E5 622E00            mov     reg[2eh], 00h           ;UART_RX_OUTPUT_REG (DCB03OU)
+ 01E8           ;       Instance name UART, Block Name TX(DCB02)
+ 01E8 62280D            mov     reg[28h], 0dh           ;UART_TX_FUNC_REG   (DCB02FN)
+ 01EB 622909            mov     reg[29h], 09h           ;UART_TX_INPUT_REG  (DCB02IN)
+ 01EE 622A04            mov     reg[2ah], 04h           ;UART_TX_OUTPUT_REG (DCB02OU)
+ 01F1 70EF          and   F, ~FLAG_XIO_MASK
+ 01F3 7F                ret
+ 01F4           
+ 01F4           
+ 01F4           ; PSoC Configuration file trailer PsocConfig.asm

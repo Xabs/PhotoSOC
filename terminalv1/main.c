@@ -8,7 +8,6 @@
 #include "PSoCAPI.h"    // PSoC API definitions for all User Modules
 #include "stdlib.h"
 #include "terminal.h"	// Libreria creada por Albert y Xavi para el proyecto
-#pragma interrupt_handler PATATA;	//Interrupcion para el apagado de LCD
 
 void main()
 {	char x;
@@ -18,9 +17,6 @@ void main()
 	Timer8_WritePeriod(156);		//Este valor es Fosc/Baudios/8
 	Timer8_WriteCompareValue(156/2);
 	Timer8_Start();
-	
-	M8C_EnableGInt;
-	Timer1seg_EnableInt();
 	
 	LCD_Start();
 	LCD_Init();

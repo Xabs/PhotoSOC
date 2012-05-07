@@ -10,16 +10,10 @@
 #include "trabajo.h"
 
 void main()
-{	char x;
-	int num;
-	char a[10];
-	Timer8_WritePeriod(156);		//Este valor es Fosc/Baudios/8
-	Timer8_WriteCompareValue(156/2);
-	Timer8_Start();
+{	
+	Inicializacion ()
 	
-	UART_Start(UART_PARITY_NONE);
-	
-	//falta activar las direntes entradas 
+	//falta activar las diferentes entradas 
 	// y variables
 	
 	for(;;) Inicio();

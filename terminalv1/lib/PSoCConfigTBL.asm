@@ -136,15 +136,6 @@ LoadConfigTBL_terminalv1:
 	mov	reg[6eh], 00h		; TMP_DR2 register (TMP_DR2)
 	mov	reg[6fh], 00h		; TMP_DR3 register (TMP_DR3)
 ;  Instance name LCD, User Module LCD
-;  Instance name Timer1seg, User Module Timer16
-;       Instance name Timer1seg, Block Name TIMER16_LSB(DBB10)
-	mov	reg[33h], 00h		;Timer1seg_CONTROL_LSB_REG(DBB10CR0)
-	mov	reg[31h], 00h		;Timer1seg_PERIOD_LSB_REG(DBB10DR1)
-	mov	reg[32h], 00h		;Timer1seg_COMPARE_LSB_REG(DBB10DR2)
-;       Instance name Timer1seg, Block Name TIMER16_MSB(DBB11)
-	mov	reg[37h], 04h		;Timer1seg_CONTROL_MSB_REG(DBB11CR0)
-	mov	reg[35h], 00h		;Timer1seg_PERIOD_MSB_REG(DBB11DR1)
-	mov	reg[36h], 00h		;Timer1seg_COMPARE_MSB_REG(DBB11DR2)
 ;  Instance name Timer8, User Module Timer8
 ;       Instance name Timer8, Block Name TIMER8(DBB00)
 	mov	reg[23h], 04h		;Timer8_CONTROL_REG(DBB00CR0)
@@ -180,15 +171,6 @@ LoadConfigTBL_terminalv1:
 	mov	reg[ddh], 00h		; OscillatorGlobalBusEnableControl register (OSC_GO_EN)
 	mov	reg[e7h], 00h		; Type2Decimator_Control register (DEC_CR2)
 ;  Instance name LCD, User Module LCD
-;  Instance name Timer1seg, User Module Timer16
-;       Instance name Timer1seg, Block Name TIMER16_LSB(DBB10)
-	mov	reg[30h], 10h		;Timer1seg_FUNC_LSB_REG(DBB10FN)
-	mov	reg[31h], 01h		;Timer1seg_INPUT_LSB_REG(DBB10IN)
-	mov	reg[32h], 40h		;Timer1seg_OUTPUT_LSB_REG(DBB10OU)
-;       Instance name Timer1seg, Block Name TIMER16_MSB(DBB11)
-	mov	reg[34h], 30h		;Timer1seg_FUNC_MSB_REG(DBB11FN)
-	mov	reg[35h], 31h		;Timer1seg_INPUT_MSB_REG(DBB11IN)
-	mov	reg[36h], 40h		;Timer1seg_OUTPUT_MSB_REG(DBB11OU)
 ;  Instance name Timer8, User Module Timer8
 ;       Instance name Timer8, Block Name TIMER8(DBB00)
 	mov	reg[20h], 20h		;Timer8_FUNC_REG(DBB00FN)

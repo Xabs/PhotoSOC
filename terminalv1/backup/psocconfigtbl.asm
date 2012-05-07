@@ -7,11 +7,11 @@ AREA psoc_config(rom, rel)
 LoadConfigTBL_terminalv1:
 ;  Ordered Global Register values
 	M8C_SetBank1
-	mov	reg[00h], beh		; Port_0_DriveMode_0 register (PRT0DM0)
-	mov	reg[01h], e1h		; Port_0_DriveMode_1 register (PRT0DM1)
+	mov	reg[00h], feh		; Port_0_DriveMode_0 register (PRT0DM0)
+	mov	reg[01h], a1h		; Port_0_DriveMode_1 register (PRT0DM1)
 	M8C_SetBank0
-	mov	reg[03h], 41h		; Port_0_DriveMode_2 register (PRT0DM2)
-	mov	reg[02h], 00h		; Port_0_GlobalSelect register (PRT0GS)
+	mov	reg[03h], 01h		; Port_0_DriveMode_2 register (PRT0DM2)
+	mov	reg[02h], 40h		; Port_0_GlobalSelect register (PRT0GS)
 	M8C_SetBank1
 	mov	reg[02h], 00h		; Port_0_IntCtrl_0 register (PRT0IC0)
 	mov	reg[03h], 00h		; Port_0_IntCtrl_1 register (PRT0IC1)
@@ -116,7 +116,7 @@ LoadConfigTBL_terminalv1:
 	mov	reg[bbh], 33h		; Row_1_LogicSelect_0 register (RDI1LT0)
 	mov	reg[bch], 33h		; Row_1_LogicSelect_1 register (RDI1LT1)
 	mov	reg[bdh], 00h		; Row_1_OutputDrive_0 register (RDI1SRO0)
-	mov	reg[beh], 00h		; Row_1_OutputDrive_1 register (RDI1SRO1)
+	mov	reg[beh], 02h		; Row_1_OutputDrive_1 register (RDI1SRO1)
 	mov	reg[c0h], 00h		; Row_2_InputMux register (RDI2RI)
 	mov	reg[c1h], 00h		; Row_2_InputSync register (RDI2SYN)
 	mov	reg[c2h], 20h		; Row_2_LogicInputAMux register (RDI2IS)
@@ -164,10 +164,10 @@ LoadConfigTBL_terminalv1:
 	mov	reg[d3h], 00h		; GlobalDigitalInterconnect_Drive_Even_Output register (GDI_E_OU)
 	mov	reg[d0h], 00h		; GlobalDigitalInterconnect_Drive_Odd_Input register (GDI_O_IN)
 	mov	reg[d2h], 00h		; GlobalDigitalInterconnect_Drive_Odd_Output register (GDI_O_OU)
-	mov	reg[e1h], 00h		; OscillatorControl_1 register (OSC_CR1)
+	mov	reg[e1h], 0bh		; OscillatorControl_1 register (OSC_CR1)
 	mov	reg[e2h], 00h		; OscillatorControl_2 register (OSC_CR2)
-	mov	reg[dfh], 00h		; OscillatorControl_3 register (OSC_CR3)
-	mov	reg[deh], 00h		; OscillatorControl_4 register (OSC_CR4)
+	mov	reg[dfh], c7h		; OscillatorControl_3 register (OSC_CR3)
+	mov	reg[deh], 02h		; OscillatorControl_4 register (OSC_CR4)
 	mov	reg[ddh], 00h		; OscillatorGlobalBusEnableControl register (OSC_GO_EN)
 	mov	reg[e7h], 00h		; Type2Decimator_Control register (DEC_CR2)
 ;  Instance name LCD, User Module LCD
