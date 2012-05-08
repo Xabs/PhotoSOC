@@ -39,8 +39,11 @@ char Buzzer=0;
 char Alimentacion=0;
 char Ent1=0, Ent2=0, Ent3=0, Ent4=0;
 char Fla1=0, Fla2=0, Fla3=0, Fla4=0;
-char Cam1=0, Int1_Tdisp=0, Int1_Tdisp_Uni=0, Int1_Ndisp=0, TL1_Treal, TL1_Treal_Uni, TL1_Tfilm, TL1_Tfilm_Uni;
-char Cam2=0, Int2_Tdisp=0, Int2_Tdisp_Uni=0, Int2_Ndisp=0, TL2_Treal, TL2_Treal_Uni, TL2_Tfilm, TL2_Tfilm_Uni;
+char Cam1=0, Cam2=0; 
+unsigned char Int1_Tdisp=0, Int1_Tdisp_Uni=0, Int1_Ndisp=0;			//Variables del modo disparo Intervalómetro Cámara 1
+unsigned char Int2_Tdisp=0, Int2_Tdisp_Uni=0, Int2_Ndisp=0;			//Variables del modo disparo Intervalómetro Cámara 2
+unsigned char TL1_Treal, TL1_Treal_Uni, TL1_Tfilm, TL1_Tfilm_Uni; 	//Variables del modo disparo Time Lapse Cámara 1
+unsigned char TL2_Treal, TL2_Treal_Uni, TL2_Tfilm, TL2_Tfilm_Uni;	//Variables del modo disparo Time Lapse Cámara 2
 
 //***************************************************************************************
 //***************************************************************************************

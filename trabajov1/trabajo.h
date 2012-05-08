@@ -1,5 +1,5 @@
 //Listado de defines utilizados en la libreria
-
+#define on 1 (FALTA COMPROBAR)
 
 //Variables globales del PSoC de trabajo
 char inici;
@@ -11,6 +11,11 @@ char Ent4=0;	//Digital 0/1 5V
 char Fla1=0, Fla2=0, Fla3=0, Fla4=0;
 char Cam1=0;
 char Cam2=0;
+unsigned char TL1_Treal, TL1_Treal_Uni, TL1_Tfilm, TL1_Tfilm_Uni; 	//Variables del modo disparo Time Lapse Cámara 1
+unsigned char TL2_Treal, TL2_Treal_Uni, TL2_Tfilm, TL2_Tfilm_Uni;	//Variables del modo disparo Time Lapse Cámara 2
+unsigned char Int1_Tdisp=0, Int1_Tdisp_Uni=0, Int1_Ndisp=0;			//Variables del modo disparo Intervalómetro Cámara 1
+unsigned char Int2_Tdisp=0, Int2_Tdisp_Uni=0, Int2_Ndisp=0;			//Variables del modo disparo Intervalómetro Cámara 2unsigned char 
+
 
 //Prototipos de la libreria del PSoC de trabajo
 void Inicializacion();
@@ -20,10 +25,11 @@ char Dato();
 void Deteccion();
 void Tipodisparo();
 void Disparo_camara(char disparo_camara_numero);
+void Dispara_camaras (void);
 void Disparo_flash(char disparo_flash_numero);
 void Unico();
-void Intervalometro(char camara);
-void TimeLapse(char camara);
+void Intervalometro();
+void TimeLapse();
 void Reset();
 
 
@@ -81,7 +87,6 @@ void Ejecucion()
 {
 	unsigned double real, film;
 	
-
 	Ent1=Dato();
 	Ent2=Dato();
 	Ent3=Dato();
@@ -254,6 +259,15 @@ void Disparo_camara(char disparo_camara_numero)
 //******************************************************************************
 //******************************************************************************
 
+//Funcion que dispara las camaras segun si estan activadas o no por menú
+void Dispara_camaras (void)
+{	
+	if (Cam1==on) Disparo_camara(1);
+	if (Cam2==on) Disparo_camara(2);
+}
+//******************************************************************************
+//******************************************************************************
+
 
 //Funcion que realiza un disparo de flash
 void Disparo_flash(char disparo_flash_numero)
@@ -297,31 +311,51 @@ void Unico()
 
 //Funcion de Intervalometro
 
-void Intervalometro(char camara)
+void Intervalometro()
 {
-	int x;
+	unsigned char intervalometro_x;
 	
-	// A la espera de la conf 
-	if()
+	//Cálculo del tiempo entre disparos en segundos
+	
+	//Disparos
+	for (intervalometro_x=0;intervalometro_x<Int_Ndisp;intervalometro_x++)
+	{
+		Dispara_camaras();
+		Temporizador(Int_Tdisp);
+	}
 }
 
 //******************************************************************************
 //******************************************************************************
 
-//Funcion de Intevalometro
+//Funcion de Timelapse
 
-void TimeLapse(char camara)
+void TimeLapse()
 {
-	int x;
+	unsigned long timelapse_treal, timelapse_tclip, timelapse_disparos, timelapse_resultado;
+	unsigned int timelapse_x;
 	
-	// A la espera de la conf
-	//Inicio();  ??
+	//Cálculo del tiempo real en segundos
+	
+	//Cálculo del tiempo del clip en segundos
+	
+	//Cálculo del numero de disparos a realizar
+	timelapse_disparos=(timelapse_tclip*25); //25fotogramas por segundo para Europa (PAL)
+	
+	//Cálculo del tiempo entre disparos
+	timelapse_resultado=(timelapse_treal/timelapse_disparos);
+	
+	for (timelapse_x=0;timelapse_x<timelapse_disparos;timelapse_x++)
+	{
+		Dispara_camaras();
+		Temporizador(timelapse_resultado);
+	}
 }
-
 //******************************************************************************
 //******************************************************************************
 
-//Funcion de Intevalometro
+//Funcion de Reset
+
 
 void Reset()
 {
@@ -330,3 +364,16 @@ void Reset()
 	// A la espera de la conf
 	//Inicio();  ??
 }
+
+//******************************************************************************
+//******************************************************************************
+
+//Funcion de temporizador que contará X segundos
+
+void Temporizador (void)
+{
+
+}
+
+//******************************************************************************
+//******************************************************************************
