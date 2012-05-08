@@ -1,0 +1,825 @@
+ 0000                   cpu LMM
+                        .module main.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ./comunicaciones.h
+ 0000                   .dbfunc e envia _envia fV
+ 0000           ;   envia_recibe -> X+2
+ 0000           ; envia_contador -> X+1
+ 0000           ; envia_confirmacion -> X+0
+ 0000           ;     envia_dato -> X-4
+ 0000           _envia::
+ 0000                   .dbline -1
+ 0000 10                push X
+ 0001 4F                mov X,SP
+ 0002 3803              add SP,3
+ 0004                   .dbline 19
+ 0004           ; //----------------------------------------------------------------//
+ 0004           ; //     Proyecto de GS Desarrollo Productos Electronicos EPSS    //
+ 0004           ; //                   By Albert Sagol & Xavi Vicient                         //
+ 0004           ; //                 PhotoSoC - Controlador fotográfico                   //
+ 0004           ; //----------------------------------------------------------------//
+ 0004           ; 
+ 0004           ; #include <m8c.h>        // part specific constants and macros
+ 0004           ; #include "PSoCAPI.h"    // PSoC API definitions for all User Modules
+ 0004           ; #include "stdlib.h"
+ 0004           ; #include "comunicaciones.h"   // Libreria creada por Albert y Xavi para el proyecto
+ 0004           ; 
+ 0004           ; //Prototipos
+ 0004           ; void numero_a_LCD (int f_numero);
+ 0004           ; 
+ 0004           ; //Funciones usuario
+ 0004           ; void numero_a_LCD (int f_numero)
+ 0004           ; {
+ 0004           ;       char f_num[5],f_i,f_k;
+ 0004           ;       int f_division,f_mod,f_j;
+ 0004                   .dbline 22
+ 0004           ;       
+ 0004           ;       f_i=0;
+ 0004           ;       f_j=1000;
+ 0004 560030            mov [X+0],48
+ 0007                   .dbline 23
+ 0007           ;       f_mod=f_numero;
+ 0007 560100            mov [X+1],0
+ 000A 8037              xjmp L3
+ 000C           L2:
+ 000C                   .dbline 26
+ 000C           ; 
+ 000C           ;       for (f_k=0;f_k<4;f_k++)
+ 000C           ;       {
+ 000C                   .dbline 27
+ 000C           ;               f_division=f_mod/f_j;   
+ 000C 10                push X
+ 000D 52FC              mov A,[X-4]
+ 000F 7C0000            xcall _UART_PutChar
+ 0012                   .dbline 28
+ 0012           ;               f_mod=f_mod%f_j;                
+ 0012 7C0000            xcall _UART_cGetChar
+ 0015 62D000            mov REG[0xd0],>__r0
+ 0018 20                pop X
+ 0019 5402              mov [X+2],A
+ 001B                   .dbline 30
+ 001B           ;               
+ 001B           ;               if (f_division>0)
+ 001B 5202              mov A,[X+2]
+ 001D 3BFC              cmp A,[X-4]
+ 001F B004              jnz L5
+ 0021                   .dbline 30
+ 0021 560031            mov [X+0],49
+ 0024           L5:
+ 0024                   .dbline 31
+ 0024           ;                       {
+ 0024 10                push X
+ 0025 5200              mov A,[X+0]
+ 0027 7C0000            xcall _UART_PutChar
+ 002A 20                pop X
+ 002B                   .dbline 32
+ 002B           ;                               f_num[f_i]=f_division+48;
+ 002B 5201              mov A,[X+1]
+ 002D 62D000            mov REG[0xd0],>__r0
+ 0030 5300              mov [__r0],A
+ 0032 0101              add A,1
+ 0034 5401              mov [X+1],A
+ 0036 5100              mov A,[__r0]
+ 0038 5401              mov [X+1],A
+ 003A                   .dbline 33
+ 003A           ;                               f_i++;
+ 003A 3D010A            cmp [X+1],10
+ 003D B004              jnz L7
+ 003F                   .dbline 33
+ 003F 560001            mov [X+0],1
+ 0042           L7:
+ 0042                   .dbline 34
+ 0042           L3:
+ 0042                   .dbline 25
+ 0042 3D0030            cmp [X+0],48
+ 0045 AFC6              jz L2
+ 0047                   .dbline -2
+ 0047                   .dbline 35
+ 0047           ;                       }
+ 0047           ;               if (f_division==0 && f_i>0)
+ 0047           L1:
+ 0047 38FD              add SP,-3
+ 0049 20                pop X
+ 004A                   .dbline 0 ; func end
+ 004A 7F                ret
+ 004B                   .dbsym l envia_recibe 2 c
+ 004B                   .dbsym l envia_contador 1 c
+ 004B                   .dbsym l envia_confirmacion 0 c
+ 004B                   .dbsym l envia_dato -4 c
+ 004B                   .dbend
+ 004B                   .dbfunc e recibe _recibe fc
+ 004B           ;    recibe_dato -> X+2
+ 004B           ; recibe_contador -> X+1
+ 004B           ; recibe_confirmacion -> X+0
+ 004B           _recibe::
+ 004B                   .dbline -1
+ 004B 10                push X
+ 004C 4F                mov X,SP
+ 004D 3803              add SP,3
+ 004F                   .dbline 50
+ 004F           ;                       {
+ 004F           ;                               f_num[f_i]=48;
+ 004F           ;                               f_i++;
+ 004F           ;                       }
+ 004F           ;               f_j=f_j/10;
+ 004F           ;       }
+ 004F           ;       
+ 004F           ;       f_num[f_i]=0;
+ 004F           ;       
+ 004F           ;       LCD_PrString (f_num);
+ 004F           ;       
+ 004F           ; }
+ 004F           ; 
+ 004F           ; 
+ 004F           ; //Programa principal
+ 004F                   .dbline 53
+ 004F           ; void main()
+ 004F           ; {     
+ 004F           ;       unsigned char x,prueba1,prueba2,prueba3;
+ 004F 560030            mov [X+0],48
+ 0052                   .dbline 54
+ 0052           ;       unsigned int temp1;
+ 0052 560100            mov [X+1],0
+ 0055 803A              xjmp L11
+ 0057           L10:
+ 0057                   .dbline 57
+ 0057           ;       
+ 0057           ;       //- Inicializacion de parametros basicos del sistema al encender        
+ 0057           ;               Timer8_WritePeriod(156);                //Este valor es Fosc/Baudios/8
+ 0057                   .dbline 58
+ 0057           ;               Timer8_WriteCompareValue(156/2);
+ 0057 10                push X
+ 0058 7C0000            xcall _UART_cGetChar
+ 005B 62D000            mov REG[0xd0],>__r0
+ 005E 20                pop X
+ 005F 5402              mov [X+2],A
+ 0061                   .dbline 59
+ 0061           ;               Timer8_Start();
+ 0061 10                push X
+ 0062 5202              mov A,[X+2]
+ 0064 7C0000            xcall _UART_PutChar
+ 0067                   .dbline 61
+ 0067           ;               
+ 0067           ;               UART_Start(UART_PARITY_NONE);
+ 0067 7C0000            xcall _UART_cGetChar
+ 006A 62D000            mov REG[0xd0],>__r0
+ 006D 20                pop X
+ 006E 5400              mov [X+0],A
+ 0070                   .dbline 62
+ 0070           ;               
+ 0070 3D0031            cmp [X+0],49
+ 0073 B005              jnz L13
+ 0075                   .dbline 62
+ 0075 5202              mov A,[X+2]
+ 0077 8022              xjmp L9
+ 0079           L13:
+ 0079                   .dbline 63
+ 0079           ;               LCD_Start();
+ 0079 5201              mov A,[X+1]
+ 007B 62D000            mov REG[0xd0],>__r0
+ 007E 5300              mov [__r0],A
+ 0080 0101              add A,1
+ 0082 5401              mov [X+1],A
+ 0084 5100              mov A,[__r0]
+ 0086 5401              mov [X+1],A
+ 0088                   .dbline 64
+ 0088           ;               LCD_Init();     
+ 0088 3D010A            cmp [X+1],10
+ 008B B004              jnz L15
+ 008D                   .dbline 64
+ 008D 560001            mov [X+0],1
+ 0090           L15:
+ 0090                   .dbline 65
+ 0090           L11:
+ 0090                   .dbline 56
+ 0090 3D0030            cmp [X+0],48
+ 0093 AFC3              jz L10
+ 0095                   .dbline 66
+ 0095           ;               
+ 0095           ;               LCD_Control(0x01);
+ 0095 62D000            mov REG[0xd0],>__r0
+ 0098 50FF              mov A,-1
+ 009A                   .dbline -2
+ 009A           L9:
+ 009A 38FD              add SP,-3
+ 009C 20                pop X
+ 009D                   .dbline 0 ; func end
+ 009D 7F                ret
+ 009E                   .dbsym l recibe_dato 2 c
+ 009E                   .dbsym l recibe_contador 1 c
+ 009E                   .dbsym l recibe_confirmacion 0 c
+ 009E                   .dbend
+ 009E                   .dbfile ./main.c
+ 009E                   .dbfunc e numero_a_LCD _numero_a_LCD fV
+ 009E           ;          f_num -> X+8
+ 009E           ;            f_k -> X+7
+ 009E           ;          f_mod -> X+5
+ 009E           ;            f_i -> X+4
+ 009E           ;     f_division -> X+2
+ 009E           ;            f_j -> X+0
+ 009E           ;       f_numero -> X-5
+ 009E           _numero_a_LCD::
+ 009E                   .dbline -1
+ 009E 10                push X
+ 009F 4F                mov X,SP
+ 00A0 380D              add SP,13
+ 00A2                   .dbline 17
+ 00A2                   .dbline 21
+ 00A2 560400            mov [X+4],0
+ 00A5                   .dbline 22
+ 00A5 5601E8            mov [X+1],-24
+ 00A8 560003            mov [X+0],3
+ 00AB                   .dbline 23
+ 00AB 52FC              mov A,[X-4]
+ 00AD 5406              mov [X+6],A
+ 00AF 52FB              mov A,[X-5]
+ 00B1 5405              mov [X+5],A
+ 00B3                   .dbline 25
+ 00B3 560700            mov [X+7],0
+ 00B6 80AE              xjmp L21
+ 00B8           L18:
+ 00B8                   .dbline 26
+ 00B8                   .dbline 27
+ 00B8 5200              mov A,[X+0]
+ 00BA 08                push A
+ 00BB 5201              mov A,[X+1]
+ 00BD 08                push A
+ 00BE 5205              mov A,[X+5]
+ 00C0 08                push A
+ 00C1 5206              mov A,[X+6]
+ 00C3 08                push A
+ 00C4 62D000            mov REG[0xd0],>__r0
+ 00C7 7C0000            xcall __divmod_16X16_16
+ 00CA 18                pop A
+ 00CB 5403              mov [X+3],A
+ 00CD 18                pop A
+ 00CE 5402              mov [X+2],A
+ 00D0 38FE              add SP,-2
+ 00D2                   .dbline 28
+ 00D2 5200              mov A,[X+0]
+ 00D4 08                push A
+ 00D5 5201              mov A,[X+1]
+ 00D7 08                push A
+ 00D8 5205              mov A,[X+5]
+ 00DA 08                push A
+ 00DB 5206              mov A,[X+6]
+ 00DD 08                push A
+ 00DE 7C0000            xcall __divmod_16X16_16
+ 00E1 38FE              add SP,-2
+ 00E3 18                pop A
+ 00E4 5406              mov [X+6],A
+ 00E6 18                pop A
+ 00E7 5405              mov [X+5],A
+ 00E9                   .dbline 30
+ 00E9 5000              mov A,0
+ 00EB 1303              sub A,[X+3]
+ 00ED 5202              mov A,[X+2]
+ 00EF 3180              xor A,-128
+ 00F1 5300              mov [__rX],A
+ 00F3 5080              mov A,(0 ^ 0x80)
+ 00F5 1A00              sbb A,[__rX]
+ 00F7 D024              jnc L22
+ 00F9           X0:
+ 00F9                   .dbline 31
+ 00F9                   .dbline 32
+ 00F9 62D000            mov REG[0xd0],>__r0
+ 00FC 5203              mov A,[X+3]
+ 00FE 0130              add A,48
+ 0100 5300              mov [__r0],A
+ 0102 550007            mov [__r2],7
+ 0105 5A00              mov [__r3],X
+ 0107 060008            add [__r3],8
+ 010A 5204              mov A,[X+4]
+ 010C 0200              add A,[__r3]
+ 010E 5300              mov [__r3],A
+ 0110 5000              mov A,0
+ 0112 0A00              adc A,[__r2]
+ 0114 60D5              mov REG[0xd5],A
+ 0116 5100              mov A,[__r0]
+ 0118 3F00              mvi [__r3],A
+ 011A                   .dbline 33
+ 011A 7704              inc [X+4]
+ 011C                   .dbline 34
+ 011C           L22:
+ 011C                   .dbline 35
+ 011C 3D0200            cmp [X+2],0
+ 011F B029              jnz L24
+ 0121 3D0300            cmp [X+3],0
+ 0124 B024              jnz L24
+ 0126           X1:
+ 0126 5000              mov A,0
+ 0128 3B04              cmp A,[X+4]
+ 012A D01E              jnc L24
+ 012C           X2:
+ 012C                   .dbline 36
+ 012C                   .dbline 37
+ 012C 62D000            mov REG[0xd0],>__r0
+ 012F 550007            mov [__r0],7
+ 0132 5A00              mov [__r1],X
+ 0134 060008            add [__r1],8
+ 0137 5204              mov A,[X+4]
+ 0139 0200              add A,[__r1]
+ 013B 5300              mov [__r1],A
+ 013D 5000              mov A,0
+ 013F 0A00              adc A,[__r0]
+ 0141 60D5              mov REG[0xd5],A
+ 0143 5030              mov A,48
+ 0145 3F00              mvi [__r1],A
+ 0147                   .dbline 38
+ 0147 7704              inc [X+4]
+ 0149                   .dbline 39
+ 0149           L24:
+ 0149                   .dbline 40
+ 0149 5000              mov A,0
+ 014B 08                push A
+ 014C 500A              mov A,10
+ 014E 08                push A
+ 014F 5200              mov A,[X+0]
+ 0151 08                push A
+ 0152 5201              mov A,[X+1]
+ 0154 08                push A
+ 0155 62D000            mov REG[0xd0],>__r0
+ 0158 7C0000            xcall __divmod_16X16_16
+ 015B 18                pop A
+ 015C 5401              mov [X+1],A
+ 015E 18                pop A
+ 015F 5400              mov [X+0],A
+ 0161 38FE              add SP,-2
+ 0163                   .dbline 41
+ 0163           L19:
+ 0163                   .dbline 25
+ 0163 7707              inc [X+7]
+ 0165           L21:
+ 0165                   .dbline 25
+ 0165 3D0704            cmp [X+7],4
+ 0168 CF4F              jc L18
+ 016A           X3:
+ 016A                   .dbline 43
+ 016A 62D000            mov REG[0xd0],>__r0
+ 016D 550007            mov [__r0],7
+ 0170 5A00              mov [__r1],X
+ 0172 060008            add [__r1],8
+ 0175 5204              mov A,[X+4]
+ 0177 0200              add A,[__r1]
+ 0179 5300              mov [__r1],A
+ 017B 5000              mov A,0
+ 017D 0A00              adc A,[__r0]
+ 017F 60D5              mov REG[0xd5],A
+ 0181 5000              mov A,0
+ 0183 3F00              mvi [__r1],A
+ 0185                   .dbline 45
+ 0185 5A00              mov [__r1],X
+ 0187 060008            add [__r1],8
+ 018A 10                push X
+ 018B 5007              mov A,7
+ 018D 08                push A
+ 018E 5100              mov A,[__r1]
+ 0190 5C                mov X,A
+ 0191 18                pop A
+ 0192 7C0000            xcall _LCD_PrString
+ 0195 20                pop X
+ 0196                   .dbline -2
+ 0196                   .dbline 47
+ 0196           L17:
+ 0196 38F3              add SP,-13
+ 0198 20                pop X
+ 0199                   .dbline 0 ; func end
+ 0199 7F                ret
+ 019A                   .dbsym l f_num 8 A[5:5]c
+ 019A                   .dbsym l f_k 7 c
+ 019A                   .dbsym l f_mod 5 I
+ 019A                   .dbsym l f_i 4 c
+ 019A                   .dbsym l f_division 2 I
+ 019A                   .dbsym l f_j 0 I
+ 019A                   .dbsym l f_numero -5 I
+ 019A                   .dbend
+ 019A                   .dbfunc e main _main fV
+ 019A           ;              x -> X+5
+ 019A           ;        prueba3 -> X+4
+ 019A           ;        prueba2 -> X+3
+ 019A           ;        prueba1 -> X+2
+ 019A           ;          temp1 -> X+0
+ 019A           _main::
+ 019A                   .dbline -1
+ 019A 10                push X
+ 019B 4F                mov X,SP
+ 019C 3806              add SP,6
+ 019E                   .dbline 52
+ 019E                   .dbline 57
+ 019E 10                push X
+ 019F 509C              mov A,-100
+ 01A1 7C0000            xcall _Timer8_WritePeriod
+ 01A4                   .dbline 58
+ 01A4 504E              mov A,78
+ 01A6 7C0000            xcall _Timer8_WriteCompareValue
+ 01A9                   .dbline 59
+ 01A9 7C0000            xcall _Timer8_Start
+ 01AC                   .dbline 61
+ 01AC 5000              mov A,0
+ 01AE 7C0000            xcall _UART_Start
+ 01B1                   .dbline 63
+ 01B1 7C0000            xcall _LCD_Start
+ 01B4                   .dbline 64
+ 01B4 7C0000            xcall _LCD_Init
+ 01B7                   .dbline 66
+ 01B7 5001              mov A,1
+ 01B9 7C0000            xcall _LCD_Control
+ 01BC                   .dbline 67
+ 01BC           ;               LCD_PrCString ("Recibiendo");   
+ 01BC 5025              mov A,>L27
+ 01BE 08                push A
+ 01BF 5025              mov A,<L27
+ 01C1 5C                mov X,A
+ 01C2 18                pop A
+ 01C3 7C0000            xcall _LCD_PrCString
+ 01C6 20                pop X
+ 01C7                   .dbline 68
+ 01C7 560100            mov [X+1],0
+ 01CA 560000            mov [X+0],0
+ 01CD 8006              xjmp L31
+ 01CF           L28:
+ 01CF                   .dbline 68
+ 01CF           L29:
+ 01CF                   .dbline 68
+ 01CF 7701              inc [X+1]
+ 01D1 0F0000            adc [X+0],0
+ 01D4           L31:
+ 01D4                   .dbline 68
+ 01D4           ;               for (temp1=0;temp1<50000;temp1++);
+ 01D4 62D000            mov REG[0xd0],>__r0
+ 01D7 5201              mov A,[X+1]
+ 01D9 5300              mov [__r3],A
+ 01DB 5200              mov A,[X+0]
+ 01DD 5300              mov [__r2],A
+ 01DF 5100              mov A,[__r3]
+ 01E1 1150              sub A,80
+ 01E3 5100              mov A,[__r2]
+ 01E5 19C3              sbb A,-61
+ 01E7 5000              mov A,0
+ 01E9 1900              sbb A,0
+ 01EB 5000              mov A,0
+ 01ED 3180              xor A,-128
+ 01EF 1980              sbb A,(0 ^ 0x80)
+ 01F1 CFDD              jc L28
+ 01F3           X4:
+ 01F3                   .dbline 69
+ 01F3           ;               LCD_Control(0x01);
+ 01F3 10                push X
+ 01F4 5001              mov A,1
+ 01F6 7C0000            xcall _LCD_Control
+ 01F9 20                pop X
+ 01FA                   .dbline 72
+ 01FA           ;       
+ 01FA           ;       // Recepción de datos
+ 01FA           ;               prueba1=recibe();
+ 01FA 9E4F              xcall _recibe
+ 01FC 62D000            mov REG[0xd0],>__r0
+ 01FF 5402              mov [X+2],A
+ 0201                   .dbline 73
+ 0201           ;               prueba2=recibe();
+ 0201 9E48              xcall _recibe
+ 0203 62D000            mov REG[0xd0],>__r0
+ 0206 5403              mov [X+3],A
+ 0208                   .dbline 74
+ 0208           ;               prueba3=recibe();
+ 0208 9E41              xcall _recibe
+ 020A 62D000            mov REG[0xd0],>__r0
+ 020D 5404              mov [X+4],A
+ 020F                   .dbline 77
+ 020F           ;               
+ 020F           ;       //Envio al LCD  
+ 020F           ;               LCD_Control(0x01);
+ 020F 10                push X
+ 0210 5001              mov A,1
+ 0212 7C0000            xcall _LCD_Control
+ 0215                   .dbline 78
+ 0215           ;               LCD_PrCString ("prueba1");      
+ 0215 501D              mov A,>L32
+ 0217 08                push A
+ 0218 501D              mov A,<L32
+ 021A 5C                mov X,A
+ 021B 18                pop A
+ 021C 7C0000            xcall _LCD_PrCString
+ 021F 20                pop X
+ 0220                   .dbline 79
+ 0220 560100            mov [X+1],0
+ 0223 560000            mov [X+0],0
+ 0226 8006              xjmp L36
+ 0228           L33:
+ 0228                   .dbline 79
+ 0228           L34:
+ 0228                   .dbline 79
+ 0228 7701              inc [X+1]
+ 022A 0F0000            adc [X+0],0
+ 022D           L36:
+ 022D                   .dbline 79
+ 022D           ;               for (temp1=0;temp1<50000;temp1++);
+ 022D 62D000            mov REG[0xd0],>__r0
+ 0230 5201              mov A,[X+1]
+ 0232 5300              mov [__r3],A
+ 0234 5200              mov A,[X+0]
+ 0236 5300              mov [__r2],A
+ 0238 5100              mov A,[__r3]
+ 023A 1150              sub A,80
+ 023C 5100              mov A,[__r2]
+ 023E 19C3              sbb A,-61
+ 0240 5000              mov A,0
+ 0242 1900              sbb A,0
+ 0244 5000              mov A,0
+ 0246 3180              xor A,-128
+ 0248 1980              sbb A,(0 ^ 0x80)
+ 024A CFDD              jc L33
+ 024C           X5:
+ 024C                   .dbline 80
+ 024C           ;               LCD_Control(0x01);
+ 024C 10                push X
+ 024D 5001              mov A,1
+ 024F 7C0000            xcall _LCD_Control
+ 0252 20                pop X
+ 0253                   .dbline 81
+ 0253           ;               numero_a_LCD(prueba1);          
+ 0253 62D000            mov REG[0xd0],>__r0
+ 0256 5202              mov A,[X+2]
+ 0258 5300              mov [__r1],A
+ 025A 5000              mov A,0
+ 025C 08                push A
+ 025D 5100              mov A,[__r1]
+ 025F 08                push A
+ 0260 9E3C              xcall _numero_a_LCD
+ 0262 38FE              add SP,-2
+ 0264                   .dbline 82
+ 0264 560100            mov [X+1],0
+ 0267 560000            mov [X+0],0
+ 026A 8006              xjmp L40
+ 026C           L37:
+ 026C                   .dbline 82
+ 026C           L38:
+ 026C                   .dbline 82
+ 026C 7701              inc [X+1]
+ 026E 0F0000            adc [X+0],0
+ 0271           L40:
+ 0271                   .dbline 82
+ 0271           ;               for (temp1=0;temp1<50000;temp1++);
+ 0271 62D000            mov REG[0xd0],>__r0
+ 0274 5201              mov A,[X+1]
+ 0276 5300              mov [__r3],A
+ 0278 5200              mov A,[X+0]
+ 027A 5300              mov [__r2],A
+ 027C 5100              mov A,[__r3]
+ 027E 1150              sub A,80
+ 0280 5100              mov A,[__r2]
+ 0282 19C3              sbb A,-61
+ 0284 5000              mov A,0
+ 0286 1900              sbb A,0
+ 0288 5000              mov A,0
+ 028A 3180              xor A,-128
+ 028C 1980              sbb A,(0 ^ 0x80)
+ 028E CFDD              jc L37
+ 0290           X6:
+ 0290                   .dbline 83
+ 0290           ;               LCD_Control(0x01);
+ 0290 10                push X
+ 0291 5001              mov A,1
+ 0293 7C0000            xcall _LCD_Control
+ 0296                   .dbline 84
+ 0296           ;               LCD_PrCString ("Prueba2");      
+ 0296 5015              mov A,>L41
+ 0298 08                push A
+ 0299 5015              mov A,<L41
+ 029B 5C                mov X,A
+ 029C 18                pop A
+ 029D 7C0000            xcall _LCD_PrCString
+ 02A0 20                pop X
+ 02A1                   .dbline 85
+ 02A1 560100            mov [X+1],0
+ 02A4 560000            mov [X+0],0
+ 02A7 8006              xjmp L45
+ 02A9           L42:
+ 02A9                   .dbline 85
+ 02A9           L43:
+ 02A9                   .dbline 85
+ 02A9 7701              inc [X+1]
+ 02AB 0F0000            adc [X+0],0
+ 02AE           L45:
+ 02AE                   .dbline 85
+ 02AE           ;               for (temp1=0;temp1<50000;temp1++);
+ 02AE 62D000            mov REG[0xd0],>__r0
+ 02B1 5201              mov A,[X+1]
+ 02B3 5300              mov [__r3],A
+ 02B5 5200              mov A,[X+0]
+ 02B7 5300              mov [__r2],A
+ 02B9 5100              mov A,[__r3]
+ 02BB 1150              sub A,80
+ 02BD 5100              mov A,[__r2]
+ 02BF 19C3              sbb A,-61
+ 02C1 5000              mov A,0
+ 02C3 1900              sbb A,0
+ 02C5 5000              mov A,0
+ 02C7 3180              xor A,-128
+ 02C9 1980              sbb A,(0 ^ 0x80)
+ 02CB CFDD              jc L42
+ 02CD           X7:
+ 02CD                   .dbline 86
+ 02CD           ;               LCD_Control(0x01);
+ 02CD 10                push X
+ 02CE 5001              mov A,1
+ 02D0 7C0000            xcall _LCD_Control
+ 02D3 20                pop X
+ 02D4                   .dbline 87
+ 02D4           ;               numero_a_LCD(prueba2);          
+ 02D4 62D000            mov REG[0xd0],>__r0
+ 02D7 5203              mov A,[X+3]
+ 02D9 5300              mov [__r1],A
+ 02DB 5000              mov A,0
+ 02DD 08                push A
+ 02DE 5100              mov A,[__r1]
+ 02E0 08                push A
+ 02E1 9DBB              xcall _numero_a_LCD
+ 02E3 38FE              add SP,-2
+ 02E5                   .dbline 88
+ 02E5 560100            mov [X+1],0
+ 02E8 560000            mov [X+0],0
+ 02EB 8006              xjmp L49
+ 02ED           L46:
+ 02ED                   .dbline 88
+ 02ED           L47:
+ 02ED                   .dbline 88
+ 02ED 7701              inc [X+1]
+ 02EF 0F0000            adc [X+0],0
+ 02F2           L49:
+ 02F2                   .dbline 88
+ 02F2           ;               for (temp1=0;temp1<50000;temp1++);
+ 02F2 62D000            mov REG[0xd0],>__r0
+ 02F5 5201              mov A,[X+1]
+ 02F7 5300              mov [__r3],A
+ 02F9 5200              mov A,[X+0]
+ 02FB 5300              mov [__r2],A
+ 02FD 5100              mov A,[__r3]
+ 02FF 1150              sub A,80
+ 0301 5100              mov A,[__r2]
+ 0303 19C3              sbb A,-61
+ 0305 5000              mov A,0
+ 0307 1900              sbb A,0
+ 0309 5000              mov A,0
+ 030B 3180              xor A,-128
+ 030D 1980              sbb A,(0 ^ 0x80)
+ 030F CFDD              jc L46
+ 0311           X8:
+ 0311                   .dbline 89
+ 0311           ;               LCD_Control(0x01);
+ 0311 10                push X
+ 0312 5001              mov A,1
+ 0314 7C0000            xcall _LCD_Control
+ 0317                   .dbline 90
+ 0317           ;               LCD_PrCString ("Prueba3");      
+ 0317 500D              mov A,>L50
+ 0319 08                push A
+ 031A 500D              mov A,<L50
+ 031C 5C                mov X,A
+ 031D 18                pop A
+ 031E 7C0000            xcall _LCD_PrCString
+ 0321 20                pop X
+ 0322                   .dbline 91
+ 0322 560100            mov [X+1],0
+ 0325 560000            mov [X+0],0
+ 0328 8006              xjmp L54
+ 032A           L51:
+ 032A                   .dbline 91
+ 032A           L52:
+ 032A                   .dbline 91
+ 032A 7701              inc [X+1]
+ 032C 0F0000            adc [X+0],0
+ 032F           L54:
+ 032F                   .dbline 91
+ 032F           ;               for (temp1=0;temp1<50000;temp1++);
+ 032F 62D000            mov REG[0xd0],>__r0
+ 0332 5201              mov A,[X+1]
+ 0334 5300              mov [__r3],A
+ 0336 5200              mov A,[X+0]
+ 0338 5300              mov [__r2],A
+ 033A 5100              mov A,[__r3]
+ 033C 1150              sub A,80
+ 033E 5100              mov A,[__r2]
+ 0340 19C3              sbb A,-61
+ 0342 5000              mov A,0
+ 0344 1900              sbb A,0
+ 0346 5000              mov A,0
+ 0348 3180              xor A,-128
+ 034A 1980              sbb A,(0 ^ 0x80)
+ 034C CFDD              jc L51
+ 034E           X9:
+ 034E                   .dbline 92
+ 034E           ;               LCD_Control(0x01);
+ 034E 10                push X
+ 034F 5001              mov A,1
+ 0351 7C0000            xcall _LCD_Control
+ 0354 20                pop X
+ 0355                   .dbline 93
+ 0355           ;               numero_a_LCD(prueba3);          
+ 0355 62D000            mov REG[0xd0],>__r0
+ 0358 5204              mov A,[X+4]
+ 035A 5300              mov [__r1],A
+ 035C 5000              mov A,0
+ 035E 08                push A
+ 035F 5100              mov A,[__r1]
+ 0361 08                push A
+ 0362 9D3A              xcall _numero_a_LCD
+ 0364 38FE              add SP,-2
+ 0366                   .dbline 94
+ 0366 560100            mov [X+1],0
+ 0369 560000            mov [X+0],0
+ 036C 8006              xjmp L58
+ 036E           L55:
+ 036E                   .dbline 94
+ 036E           L56:
+ 036E                   .dbline 94
+ 036E 7701              inc [X+1]
+ 0370 0F0000            adc [X+0],0
+ 0373           L58:
+ 0373                   .dbline 94
+ 0373           ;               for (temp1=0;temp1<50000;temp1++);
+ 0373 62D000            mov REG[0xd0],>__r0
+ 0376 5201              mov A,[X+1]
+ 0378 5300              mov [__r3],A
+ 037A 5200              mov A,[X+0]
+ 037C 5300              mov [__r2],A
+ 037E 5100              mov A,[__r3]
+ 0380 1150              sub A,80
+ 0382 5100              mov A,[__r2]
+ 0384 19C3              sbb A,-61
+ 0386 5000              mov A,0
+ 0388 1900              sbb A,0
+ 038A 5000              mov A,0
+ 038C 3180              xor A,-128
+ 038E 1980              sbb A,(0 ^ 0x80)
+ 0390 CFDD              jc L55
+ 0392           X10:
+ 0392                   .dbline 96
+ 0392           ; 
+ 0392           ;               LCD_Control(0x01);
+ 0392 10                push X
+ 0393 5001              mov A,1
+ 0395 7C0000            xcall _LCD_Control
+ 0398                   .dbline 97
+ 0398           ;               LCD_PrCString ("Fin programa"); 
+ 0398 5000              mov A,>L59
+ 039A 08                push A
+ 039B 5000              mov A,<L59
+ 039D 5C                mov X,A
+ 039E 18                pop A
+ 039F 7C0000            xcall _LCD_PrCString
+ 03A2 20                pop X
+ 03A3                   .dbline 98
+ 03A3 560100            mov [X+1],0
+ 03A6 560000            mov [X+0],0
+ 03A9 8006              xjmp L63
+ 03AB           L60:
+ 03AB                   .dbline 98
+ 03AB           L61:
+ 03AB                   .dbline 98
+ 03AB 7701              inc [X+1]
+ 03AD 0F0000            adc [X+0],0
+ 03B0           L63:
+ 03B0                   .dbline 98
+ 03B0           ;               for (temp1=0;temp1<50000;temp1++);
+ 03B0 62D000            mov REG[0xd0],>__r0
+ 03B3 5201              mov A,[X+1]
+ 03B5 5300              mov [__r3],A
+ 03B7 5200              mov A,[X+0]
+ 03B9 5300              mov [__r2],A
+ 03BB 5100              mov A,[__r3]
+ 03BD 1150              sub A,80
+ 03BF 5100              mov A,[__r2]
+ 03C1 19C3              sbb A,-61
+ 03C3 5000              mov A,0
+ 03C5 1900              sbb A,0
+ 03C7 5000              mov A,0
+ 03C9 3180              xor A,-128
+ 03CB 1980              sbb A,(0 ^ 0x80)
+ 03CD CFDD              jc L60
+ 03CF           X11:
+ 03CF                   .dbline -2
+ 03CF                   .dbline 99
+ 03CF           ; }
+ 03CF           L26:
+ 03CF 38FA              add SP,-6
+ 03D1 20                pop X
+ 03D2                   .dbline 0 ; func end
+ 03D2 8FFF              jmp .
+ 03D4                   .dbsym l x 5 c
+ 03D4                   .dbsym l prueba3 4 c
+ 03D4                   .dbsym l prueba2 3 c
+ 03D4                   .dbsym l prueba1 2 c
+ 03D4                   .dbsym l temp1 0 i
+ 03D4                   .dbend
+                        .area lit(rom, con, rel)
+ 0000           L59:
+ 0000 46696E2070726F6772616D6100        .byte 'F,'i,'n,32,'p,'r,'o,'g,'r,'a,'m,'a,0
+ 000D           L50:
+ 000D 5072756562613300  .byte 'P,'r,'u,'e,'b,'a,51,0
+ 0015           L41:
+ 0015 5072756562613200  .byte 'P,'r,'u,'e,'b,'a,50,0
+ 001D           L32:
+ 001D 7072756562613100  .byte 'p,'r,'u,'e,'b,'a,49,0
+ 0025           L27:
+ 0025 526563696269656E646F00    .byte 'R,'e,'c,'i,'b,'i,'e,'n,'d,'o,0

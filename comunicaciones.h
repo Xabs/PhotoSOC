@@ -1,16 +1,20 @@
-//Función envia
+//Listado de defines utilzados en la libreria
 
-//Prototipo
-void envia(char);
+//Variables globales de la libreria
+
+//Prototipos de la libreria de comunicaciones
+void envia (char envia_dato);
+char recibe ();
 
 
-//A colocar en rutina de inicialización del aparato
-Timer8_WritePeriod(156);		//Este valor es Fosc/Baudios/8
-Timer8_WriteCompareValue(156/2);
-Timer8_Start();
-UART_Start(UART_PARITY_NONE);
-
-//Función
+/************************************************************************************************************************
+/  	LLAMADA: envia(dato a enviar)
+/  	FUNCION: Envia mediante la UART el dato introducido
+/  	ENTRADA: dato a introducir
+/  	SALIDA: void
+/	INICIALIZAR PERIFERICOS: UART
+/  	OTROS: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/************************************************************************************************************************/
 void envia (char envia_dato)
 {
 	char envia_recibe, envia_confirmacion, envia_contador;
@@ -30,21 +34,18 @@ void envia (char envia_dato)
 	}
 }
 
+//***********************************************************************************************************************
+//***********************************************************************************************************************
 
 
-//Función recibe
-
-//Prototipo
-char recibe();
-
-
-//A colocar en rutina de inicialización del aparato
-Timer8_WritePeriod(156);		//Este valor es Fosc/Baudios/8
-Timer8_WriteCompareValue(156/2);
-Timer8_Start();
-UART_Start(UART_PARITY_NONE);
-
-//Función
+/************************************************************************************************************************
+/  	LLAMADA: recibe()
+/  	FUNCION: Recibe mediante la UART un dato para guardarlo en una variable
+/  	ENTRADA: void
+/  	SALIDA: dato recibido o 255 en caso de fallo de recepción
+/	INICIALIZAR PERIFERICOS: UART
+/  	OTROS: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/************************************************************************************************************************/
 char recibe ()
 {
 	char recibe_dato, recibe_confirmacion, recibe_contador;

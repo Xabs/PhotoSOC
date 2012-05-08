@@ -1,8 +1,6 @@
 //Listado de defines utilizados en la libreria
 
 
-
-
 //Variables globales del PSoC de trabajo
 char inici;
 char listo_int1, listo_int2, listo_tl1, listo_tl2;
@@ -33,11 +31,12 @@ void Reset();
 //******************************************************************************
 
 /************************************************************************************************************************
-/  LLAMADA: Inicializacion()
-/  FUNCION: Inicializa todos los perifericos necesarios en el proyecto: Timers, UART, etc
-/  ENTRADA: void
-/  SALIDA: void
-/  OTROS: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/  	LLAMADA: Inicializacion()
+/  	FUNCION: Inicializa todos los perifericos necesarios en el proyecto: Timers, UART, etc
+/  	ENTRADA: void
+/  	SALIDA: void
+/	INICIALIZAR PERIFERICOS: ninguno
+/  	OTROS: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
 
 void Inicializacion()
@@ -296,7 +295,7 @@ void Unico()
 //******************************************************************************
 //******************************************************************************
 
-//Funcion de Intevalometro
+//Funcion de Intervalometro
 
 void Intervalometro(char camara)
 {
