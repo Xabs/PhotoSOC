@@ -1,0 +1,11 @@
+cd PhotoSOC
+
+git pull 			//Descarrega del servidor les diferencies amb el teu repositori local
+
+git status			//Et diu en quin estat esta el git
+
+git add *			//Per afegir tots els arxius i directoris modificats al commit
+
+git commit -a -m "Descripció"	//Guarda localment les diferencies que s'han produit amb la descripció que tu vols
+
+git push			//Puja al servidor els diferents commits que has fet
