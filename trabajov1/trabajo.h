@@ -100,7 +100,8 @@ void Ejecucion()
 	
 	if(Cam1==2)
 	{
-		listo_int1=1;
+		listo_int1=
+		;
 		if(Int1_Tdisp_Uni==1)Td_int1=Int1_Tdisp;			//Td_int1, Int1_Tdisp, Int1_Tdisp_Uni
 		else if(Int1_Tdisp_Uni==2)Td_int1=Int1_Tdisp*60;
 		else if(Int1_Tdisp_Uni==3)Td_int1=Int1_Tdisp*3600;
