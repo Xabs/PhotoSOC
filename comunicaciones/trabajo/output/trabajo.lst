@@ -4691,11 +4691,11 @@ __text_start:
 08FA: 20       POP   X
 08FB: 54 02    MOV   [X+2],A
 (0029) 		
-(0030) 		if (envia_recibe==envia_dato) envia_confirmacion=251;		//Si el dato enviado y recibido coinciden damos la comunicación por correcta enviando un 251
+(0030) 		if (envia_recibe==envia_dato) envia_confirmacion='O';	//Si el dato enviado y recibido coinciden damos la comunicación por correcta enviando un 251
 08FD: 52 02    MOV   A,[X+2]
 08FF: 3B FC    CMP   A,[X-4]
 0901: B0 04    JNZ   0x0906
-0903: 56 00 FB MOV   [X+0],251
+0903: 56 00 4F MOV   [X+0],79
 (0031) 		UART_PutChar(envia_confirmacion);							//Envio de la confirmacion (170 ACC, 0 NOK)
 0906: 10       PUSH  X
 0907: 52 00    MOV   A,[X+0]
@@ -4768,12 +4768,13 @@ _recibe:
 094C: 62 D0 00 MOV   REG[208],0
 094F: 20       POP   X
 0950: 54 00    MOV   [X+0],A
-(0062) 		if (recibe_confirmacion==251) return recibe_dato;	//Si es ACC (251) la función devuelve el dato recibido
-0952: 3D 00 FB CMP   [X+0],251
+(0062) 		if (recibe_confirmacion=='O') 
+0952: 3D 00 4F CMP   [X+0],79
 0955: B0 05    JNZ   0x095B
+(0063) 		return recibe_dato;	//Si es ACC (251) la función devuelve el dato recibido
 0957: 52 02    MOV   A,[X+2]
 0959: 80 22    JMP   0x097C
-(0063) 		recibe_contador=recibe_contador++;					//Suma 1 al contador que evita una recepción infinita
+(0064) 		recibe_contador=recibe_contador++;					//Suma 1 al contador que evita una recepción infinita
 095B: 52 01    MOV   A,[X+1]
 095D: 62 D0 00 MOV   REG[208],0
 0960: 53 1B    MOV   [__r0],A
@@ -4781,14 +4782,14 @@ _recibe:
 0964: 54 01    MOV   [X+1],A
 0966: 51 1B    MOV   A,[__r0]
 0968: 54 01    MOV   [X+1],A
-(0064) 		if (recibe_contador==10) recibe_confirmacion=1;		//Si la recepción falla 10 veces hacemos que salga del bucle dando un 1
+(0065) 		if (recibe_contador==10) recibe_confirmacion=1;		//Si la recepción falla 10 veces hacemos que salga del bucle dando un 1
 096A: 3D 01 0A CMP   [X+1],10
 096D: B0 04    JNZ   0x0972
 096F: 56 00 01 MOV   [X+0],1
 0972: 3D 00 00 CMP   [X+0],0
 0975: AF C3    JZ    0x0939
-(0065) 	}
-(0066) 	return 255;
+(0066) 	}
+(0067) 	return 255;
 0977: 62 D0 00 MOV   REG[208],0
 097A: 50 FF    MOV   A,255
 097C: 38 FD    ADD   SP,253

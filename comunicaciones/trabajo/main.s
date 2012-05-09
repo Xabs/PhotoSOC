@@ -64,7 +64,7 @@ L2:
 	cmp A,[X-4]
 	jnz L5
 	.dbline 30
-	mov [X+0],-5
+	mov [X+0],79
 L5:
 	.dbline 31
 ; 			{
@@ -167,14 +167,15 @@ L10:
 	mov [X+0],A
 	.dbline 62
 ; 		
-	cmp [X+0],-5
+	cmp [X+0],79
 	jnz L13
-	.dbline 62
+	.dbline 63
+; 		LCD_Start();
 	mov A,[X+2]
 	xjmp L9
 L13:
-	.dbline 63
-; 		LCD_Start();
+	.dbline 64
+; 		LCD_Init();	
 	mov A,[X+1]
 	mov REG[0xd0],>__r0
 	mov [__r0],A
@@ -182,21 +183,21 @@ L13:
 	mov [X+1],A
 	mov A,[__r0]
 	mov [X+1],A
-	.dbline 64
-; 		LCD_Init();	
+	.dbline 65
+; 		
 	cmp [X+1],10
 	jnz L15
-	.dbline 64
+	.dbline 65
 	mov [X+0],1
 L15:
-	.dbline 65
+	.dbline 66
 L11:
 	.dbline 56
 	cmp [X+0],0
 	jz L10
-	.dbline 66
-; 		
+	.dbline 67
 ; 		LCD_Control(0x01);
+; 		LCD_PrCString ("Recibiendo");	
 	mov REG[0xd0],>__r0
 	mov A,-1
 	.dbline -2
@@ -425,7 +426,6 @@ _main::
 	mov A,1
 	xcall _LCD_Control
 	.dbline 67
-; 		LCD_PrCString ("Recibiendo");	
 	mov A,>L27
 	push A
 	mov A,<L27

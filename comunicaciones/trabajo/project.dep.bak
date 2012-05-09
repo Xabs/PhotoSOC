@@ -1,11 +1,11 @@
 # DO NOT DELETE
 ./obj/boot.o :  C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8ssc.inc\
-   H:\PhotoSOC\COMUNI~1\trabajo\lib\GLOBAL~1.INC\
-   H:\PhotoSOC\COMUNI~1\trabajo\memory.inc
+   I:\PhotoSOC\COMUNI~1\trabajo\lib\GLOBAL~1.INC\
+   I:\PhotoSOC\COMUNI~1\trabajo\memory.inc
 ./obj/main.o :  ./lib/LCD.h ./lib/PSoCAPI.h ./lib/Timer8.h\
    ./lib/UART.h C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.h\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/_const.h\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/limits.h\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/stdlib.h\
-   H:\PhotoSOC\COMUNI~1\trabajo\COMUNI~1.H
+   I:\PhotoSOC\COMUNI~1\trabajo\COMUNI~1.H

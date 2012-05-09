@@ -64,7 +64,7 @@
  001D 3BFC              cmp A,[X-4]
  001F B004              jnz L5
  0021                   .dbline 30
- 0021 5600FB            mov [X+0],-5
+ 0021 56004F            mov [X+0],79
  0024           L5:
  0024                   .dbline 31
  0024           ;                       {
@@ -167,14 +167,15 @@
  006E 5400              mov [X+0],A
  0070                   .dbline 62
  0070           ;               
- 0070 3D00FB            cmp [X+0],-5
+ 0070 3D004F            cmp [X+0],79
  0073 B005              jnz L13
- 0075                   .dbline 62
+ 0075                   .dbline 63
+ 0075           ;               LCD_Start();
  0075 5202              mov A,[X+2]
  0077 8022              xjmp L9
  0079           L13:
- 0079                   .dbline 63
- 0079           ;               LCD_Start();
+ 0079                   .dbline 64
+ 0079           ;               LCD_Init();     
  0079 5201              mov A,[X+1]
  007B 62D000            mov REG[0xd0],>__r0
  007E 5300              mov [__r0],A
@@ -182,21 +183,21 @@
  0082 5401              mov [X+1],A
  0084 5100              mov A,[__r0]
  0086 5401              mov [X+1],A
- 0088                   .dbline 64
- 0088           ;               LCD_Init();     
+ 0088                   .dbline 65
+ 0088           ;               
  0088 3D010A            cmp [X+1],10
  008B B004              jnz L15
- 008D                   .dbline 64
+ 008D                   .dbline 65
  008D 560001            mov [X+0],1
  0090           L15:
- 0090                   .dbline 65
+ 0090                   .dbline 66
  0090           L11:
  0090                   .dbline 56
  0090 3D0000            cmp [X+0],0
  0093 AFC3              jz L10
- 0095                   .dbline 66
- 0095           ;               
+ 0095                   .dbline 67
  0095           ;               LCD_Control(0x01);
+ 0095           ;               LCD_PrCString ("Recibiendo");   
  0095 62D000            mov REG[0xd0],>__r0
  0098 50FF              mov A,-1
  009A                   .dbline -2
@@ -425,7 +426,6 @@
  01B7 5001              mov A,1
  01B9 7C0000            xcall _LCD_Control
  01BC                   .dbline 67
- 01BC           ;               LCD_PrCString ("Recibiendo");   
  01BC 5025              mov A,>L27
  01BE 08                push A
  01BF 5025              mov A,<L27

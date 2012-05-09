@@ -59,7 +59,8 @@ unsigned char recibe(void)
 		UART_PutChar(recibe_dato);		//envia el dato recibido para su confirmación
 			
 		recibe_confirmacion=UART_cGetChar();				//Recibe la confirmación
-		if (recibe_confirmacion=='O') return recibe_dato;	//Si es ACC (251) la función devuelve el dato recibido
+		if (recibe_confirmacion=='O') 
+		return recibe_dato;	//Si es ACC (251) la función devuelve el dato recibido
 		recibe_contador=recibe_contador++;					//Suma 1 al contador que evita una recepción infinita
 		if (recibe_contador==10) recibe_confirmacion=1;		//Si la recepción falla 10 veces hacemos que salga del bucle dando un 1
 	}
