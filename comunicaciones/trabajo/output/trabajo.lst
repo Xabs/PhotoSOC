@@ -4673,13 +4673,13 @@ __text_start:
 08E4: 38 03    ADD   SP,3
 (0020) 	unsigned char envia_recibe, envia_confirmacion, envia_contador;
 (0021) 	
-(0022) 	envia_confirmacion=48;					//Inicialización de variables
-08E6: 56 00 30 MOV   [X+0],48
+(0022) 	envia_confirmacion=0;					//Inicialización de variables
+08E6: 56 00 00 MOV   [X+0],0
 (0023) 	envia_contador=0;
 08E9: 56 01 00 MOV   [X+1],0
 08EC: 80 37    JMP   0x0924
 (0024) 	
-(0025) 	while (envia_confirmacion==48)
+(0025) 	while (envia_confirmacion==0)
 (0026) 	{
 (0027) 		UART_PutChar(envia_dato);		//envia el dato introducido en la función
 08EE: 10       PUSH  X
@@ -4691,11 +4691,11 @@ __text_start:
 08FA: 20       POP   X
 08FB: 54 02    MOV   [X+2],A
 (0029) 		
-(0030) 		if (envia_recibe==envia_dato) envia_confirmacion=49;	//Si el dato enviado y recibido coinciden damos la comunicación por correcta enviando un 170
+(0030) 		if (envia_recibe==envia_dato) envia_confirmacion=251;		//Si el dato enviado y recibido coinciden damos la comunicación por correcta enviando un 251
 08FD: 52 02    MOV   A,[X+2]
 08FF: 3B FC    CMP   A,[X-4]
 0901: B0 04    JNZ   0x0906
-0903: 56 00 31 MOV   [X+0],49
+0903: 56 00 FB MOV   [X+0],251
 (0031) 		UART_PutChar(envia_confirmacion);							//Envio de la confirmacion (170 ACC, 0 NOK)
 0906: 10       PUSH  X
 0907: 52 00    MOV   A,[X+0]
@@ -4713,7 +4713,7 @@ __text_start:
 091C: 3D 01 0A CMP   [X+1],10
 091F: B0 04    JNZ   0x0924
 0921: 56 00 01 MOV   [X+0],1
-0924: 3D 00 30 CMP   [X+0],48
+0924: 3D 00 00 CMP   [X+0],0
 0927: AF C6    JZ    0x08EE
 (0034) 	}
 (0035) }
@@ -4744,13 +4744,13 @@ _recibe:
 092F: 38 03    ADD   SP,3
 (0051) 	unsigned char recibe_dato, recibe_confirmacion, recibe_contador;
 (0052) 
-(0053) 	recibe_confirmacion=48;				//Inicialización de variables
-0931: 56 00 30 MOV   [X+0],48
+(0053) 	recibe_confirmacion=0;				//Inicialización de variables
+0931: 56 00 00 MOV   [X+0],0
 (0054) 	recibe_contador=0;
 0934: 56 01 00 MOV   [X+1],0
 0937: 80 3A    JMP   0x0972
 (0055) 	
-(0056) 	while (recibe_confirmacion==48)
+(0056) 	while (recibe_confirmacion==0)
 (0057) 	{
 (0058) 		recibe_dato=UART_cGetChar();	//recibe el dato
 0939: 10       PUSH  X
@@ -4768,8 +4768,8 @@ _recibe:
 094C: 62 D0 00 MOV   REG[208],0
 094F: 20       POP   X
 0950: 54 00    MOV   [X+0],A
-(0062) 		if (recibe_confirmacion==49) return recibe_dato;	//Si es ACC (170) la función devuelve el dato recibido
-0952: 3D 00 31 CMP   [X+0],49
+(0062) 		if (recibe_confirmacion==251) return recibe_dato;	//Si es ACC (251) la función devuelve el dato recibido
+0952: 3D 00 FB CMP   [X+0],251
 0955: B0 05    JNZ   0x095B
 0957: 52 02    MOV   A,[X+2]
 0959: 80 22    JMP   0x097C
@@ -4781,11 +4781,11 @@ _recibe:
 0964: 54 01    MOV   [X+1],A
 0966: 51 1B    MOV   A,[__r0]
 0968: 54 01    MOV   [X+1],A
-(0064) 		if (recibe_contador==10) recibe_confirmacion=1;		//Si la recepción falla 10 veces hacemos que salga del bucle dando un 255
+(0064) 		if (recibe_contador==10) recibe_confirmacion=1;		//Si la recepción falla 10 veces hacemos que salga del bucle dando un 1
 096A: 3D 01 0A CMP   [X+1],10
 096D: B0 04    JNZ   0x0972
 096F: 56 00 01 MOV   [X+0],1
-0972: 3D 00 30 CMP   [X+0],48
+0972: 3D 00 00 CMP   [X+0],0
 0975: AF C3    JZ    0x0939
 (0065) 	}
 (0066) 	return 255;

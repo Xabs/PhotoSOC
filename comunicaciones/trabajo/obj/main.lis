@@ -36,7 +36,7 @@
  0004           ;       
  0004           ;       f_i=0;
  0004           ;       f_j=1000;
- 0004 560030            mov [X+0],48
+ 0004 560000            mov [X+0],0
  0007                   .dbline 23
  0007           ;       f_mod=f_numero;
  0007 560100            mov [X+1],0
@@ -64,7 +64,7 @@
  001D 3BFC              cmp A,[X-4]
  001F B004              jnz L5
  0021                   .dbline 30
- 0021 560031            mov [X+0],49
+ 0021 5600FB            mov [X+0],-5
  0024           L5:
  0024                   .dbline 31
  0024           ;                       {
@@ -91,7 +91,7 @@
  0042                   .dbline 34
  0042           L3:
  0042                   .dbline 25
- 0042 3D0030            cmp [X+0],48
+ 0042 3D0000            cmp [X+0],0
  0045 AFC6              jz L2
  0047                   .dbline -2
  0047                   .dbline 35
@@ -136,7 +136,7 @@
  004F           ; void main()
  004F           ; {     
  004F           ;       unsigned char x,prueba1,prueba2,prueba3;
- 004F 560030            mov [X+0],48
+ 004F 560000            mov [X+0],0
  0052                   .dbline 54
  0052           ;       unsigned int temp1;
  0052 560100            mov [X+1],0
@@ -167,7 +167,7 @@
  006E 5400              mov [X+0],A
  0070                   .dbline 62
  0070           ;               
- 0070 3D0031            cmp [X+0],49
+ 0070 3D00FB            cmp [X+0],-5
  0073 B005              jnz L13
  0075                   .dbline 62
  0075 5202              mov A,[X+2]
@@ -192,7 +192,7 @@
  0090                   .dbline 65
  0090           L11:
  0090                   .dbline 56
- 0090 3D0030            cmp [X+0],48
+ 0090 3D0000            cmp [X+0],0
  0093 AFC3              jz L10
  0095                   .dbline 66
  0095           ;               

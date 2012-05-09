@@ -36,7 +36,7 @@ _envia::
 ; 	Timer8_WriteCompareValue(156/2);
 ; 	Timer8_Start();
 ; 	
-	mov [X+0],48
+	mov [X+0],0
 	.dbline 23
 ; 	UART_Start(UART_PARITY_NONE);
 	mov [X+1],0
@@ -52,19 +52,19 @@ L2:
 	mov A,[X-4]
 	xcall _UART_PutChar
 	.dbline 28
-; 	prueba1=50;
+; 	prueba1=65;
 	xcall _UART_cGetChar
 	mov REG[0xd0],>__r0
 	pop X
 	mov [X+2],A
 	.dbline 30
-; 	prueba2=58;
-; 	prueba3=62;
+; 	prueba2=66;
+; 	prueba3=67;
 	mov A,[X+2]
 	cmp A,[X-4]
 	jnz L5
 	.dbline 30
-	mov [X+0],49
+	mov [X+0],79
 L5:
 	.dbline 31
 ; 	
@@ -91,7 +91,7 @@ L7:
 	.dbline 34
 L3:
 	.dbline 25
-	cmp [X+0],48
+	cmp [X+0],0
 	jz L2
 	.dbline -2
 	.dbline 35
@@ -167,7 +167,7 @@ L10:
 	mov [X+0],A
 	.dbline 62
 ; }
-	cmp [X+0],48
+	cmp [X+0],79
 	jnz L13
 	.dbline 62
 	mov A,[X+2]
@@ -234,11 +234,11 @@ _main::
 	xcall _UART_Start
 	pop X
 	.dbline 28
-	mov [X+0],50
+	mov [X+0],65
 	.dbline 29
-	mov [X+1],58
+	mov [X+1],66
 	.dbline 30
-	mov [X+2],62
+	mov [X+2],67
 	.dbline 32
 	mov A,[X+0]
 	push A

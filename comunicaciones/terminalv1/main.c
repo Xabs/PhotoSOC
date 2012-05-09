@@ -25,9 +25,9 @@ unsigned char prueba1,prueba2,prueba3;
 
 // Envio de datos
 
-	prueba1=50;
-	prueba2=58;
-	prueba3=62;
+	prueba1=65;
+	prueba2=66;
+	prueba3=67;
 	
 	envia(prueba1);
 	envia(prueba2);

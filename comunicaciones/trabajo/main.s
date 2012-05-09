@@ -36,7 +36,7 @@ _envia::
 ; 	
 ; 	f_i=0;
 ; 	f_j=1000;
-	mov [X+0],48
+	mov [X+0],0
 	.dbline 23
 ; 	f_mod=f_numero;
 	mov [X+1],0
@@ -64,7 +64,7 @@ L2:
 	cmp A,[X-4]
 	jnz L5
 	.dbline 30
-	mov [X+0],49
+	mov [X+0],-5
 L5:
 	.dbline 31
 ; 			{
@@ -91,7 +91,7 @@ L7:
 	.dbline 34
 L3:
 	.dbline 25
-	cmp [X+0],48
+	cmp [X+0],0
 	jz L2
 	.dbline -2
 	.dbline 35
@@ -136,7 +136,7 @@ _recibe::
 ; void main()
 ; {	
 ; 	unsigned char x,prueba1,prueba2,prueba3;
-	mov [X+0],48
+	mov [X+0],0
 	.dbline 54
 ; 	unsigned int temp1;
 	mov [X+1],0
@@ -167,7 +167,7 @@ L10:
 	mov [X+0],A
 	.dbline 62
 ; 		
-	cmp [X+0],49
+	cmp [X+0],-5
 	jnz L13
 	.dbline 62
 	mov A,[X+2]
@@ -192,7 +192,7 @@ L15:
 	.dbline 65
 L11:
 	.dbline 56
-	cmp [X+0],48
+	cmp [X+0],0
 	jz L10
 	.dbline 66
 ; 		

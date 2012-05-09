@@ -36,7 +36,7 @@
  0004           ;       Timer8_WriteCompareValue(156/2);
  0004           ;       Timer8_Start();
  0004           ;       
- 0004 560030            mov [X+0],48
+ 0004 560000            mov [X+0],0
  0007                   .dbline 23
  0007           ;       UART_Start(UART_PARITY_NONE);
  0007 560100            mov [X+1],0
@@ -52,19 +52,19 @@
  000D 52FC              mov A,[X-4]
  000F 7C0000            xcall _UART_PutChar
  0012                   .dbline 28
- 0012           ;       prueba1=50;
+ 0012           ;       prueba1=65;
  0012 7C0000            xcall _UART_cGetChar
  0015 62D000            mov REG[0xd0],>__r0
  0018 20                pop X
  0019 5402              mov [X+2],A
  001B                   .dbline 30
- 001B           ;       prueba2=58;
- 001B           ;       prueba3=62;
+ 001B           ;       prueba2=66;
+ 001B           ;       prueba3=67;
  001B 5202              mov A,[X+2]
  001D 3BFC              cmp A,[X-4]
  001F B004              jnz L5
  0021                   .dbline 30
- 0021 560031            mov [X+0],49
+ 0021 56004F            mov [X+0],79
  0024           L5:
  0024                   .dbline 31
  0024           ;       
@@ -91,7 +91,7 @@
  0042                   .dbline 34
  0042           L3:
  0042                   .dbline 25
- 0042 3D0030            cmp [X+0],48
+ 0042 3D0000            cmp [X+0],0
  0045 AFC6              jz L2
  0047                   .dbline -2
  0047                   .dbline 35
@@ -167,7 +167,7 @@
  006E 5400              mov [X+0],A
  0070                   .dbline 62
  0070           ; }
- 0070 3D0030            cmp [X+0],48
+ 0070 3D004F            cmp [X+0],79
  0073 B005              jnz L13
  0075                   .dbline 62
  0075 5202              mov A,[X+2]
@@ -234,11 +234,11 @@
  00B2 7C0000            xcall _UART_Start
  00B5 20                pop X
  00B6                   .dbline 28
- 00B6 560032            mov [X+0],50
+ 00B6 560041            mov [X+0],65
  00B9                   .dbline 29
- 00B9 56013A            mov [X+1],58
+ 00B9 560142            mov [X+1],66
  00BC                   .dbline 30
- 00BC 56023E            mov [X+2],62
+ 00BC 560243            mov [X+2],67
  00BF                   .dbline 32
  00BF 5200              mov A,[X+0]
  00C1 08                push A
