@@ -1,8 +1,14 @@
+//Listado de defines
+
+
+
+
 //Listado de prototipos
+void Inicializacion(void);
 void bucle_temp();
 void Pitido();
 char Pulsador();
-void Reset_PdT();
+void Reset_PdT(void);
 void Principal();
 void Menu();
 void Sensors();
@@ -45,8 +51,37 @@ unsigned char Int2_Tdisp=0, Int2_Tdisp_Uni=0, Int2_Ndisp=0;			//Variables del mo
 unsigned char TL1_Treal, TL1_Treal_Uni, TL1_Tfilm, TL1_Tfilm_Uni; 	//Variables del modo disparo Time Lapse Cámara 1
 unsigned char TL2_Treal, TL2_Treal_Uni, TL2_Tfilm, TL2_Tfilm_Uni;	//Variables del modo disparo Time Lapse Cámara 2
 
-//***************************************************************************************
-//***************************************************************************************
+//***********************************************************************************************************************/
+//***********************************************************************************************************************/
+
+
+
+
+/************************************************************************************************************************
+/  	LLAMADA: Inicializacion ()
+/  	FUNCION: Inicializa los perifericos y variables necesarias del PSoC terminal
+/  	ENTRADA: void
+/  	SALIDA: void
+/	INICIALIZAR PERIFERICOS: No
+/  	OTROS: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/************************************************************************************************************************/
+
+void Inicializacion(void)
+{
+	
+	PRT0DR=PRT0DR | 0x04;			//Puesta a 1 del puerto 0.2 para evitar el Reset del PdT
+}
+
+//***********************************************************************************************************************/
+//***********************************************************************************************************************/
+
+
+
+
+
+
+
+
 
 //Funcion de bucle de perdida de tiempo 
 
@@ -75,18 +110,25 @@ void Pitido()
 //***************************************************************************************
 //***************************************************************************************
 
-//Funcion que resetea el PSoC de trabajo dejandolo a la espera de enviarle 
-//datos, para trabajar
 
-void Reset_PdT()
+/************************************************************************************************************************
+/  	LLAMADA: Reset_PdT ()
+/  	FUNCION: Activa la patilla 25 (Port 0.2) para resetear el PSoC de Trabajo
+/  	ENTRADA: void
+/  	SALIDA: void
+/	INICIALIZAR PERIFERICOS: No
+/  	OTROS: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/************************************************************************************************************************/
+
+void Reset_PdT(void)
 {
 	int x;
 	
-	PRT0DR=PRT0DR | 0x04;
-	for(x=0;x<500;x++);
-	PRT0DR=PRT0DR & 0xFB;
-	for(x=0;x<500;x++);
+	PRT0DR=PRT0DR & 0xFB;			//Apagado del puerto 0.2
+	for(x=0;x<500;x++);				//Bucle de tiempo
+	PRT0DR=PRT0DR | 0x04;			//Puesta a 1 del puerto 0.2
 }
+
 
 //***************************************************************************************
 //***************************************************************************************
@@ -1221,3 +1263,6 @@ void Ali_Led()
 		}
 	}while(pulsat!=4);
 }
+
+//***********************************************************************************************************************
+//***********************************************************************************************************************
