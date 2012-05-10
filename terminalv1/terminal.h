@@ -1,3 +1,11 @@
+//----------------------------------------------------------------//
+//     Proyecto de GS Desarrollo Productos Electronicos EPSS	  //
+//                   By Albert Sagol & Xavi Vicient			      //
+//                 PhotoSoC - Controlador fotográfico		  	  //
+//----------------------------------------------------------------//
+//              Libreria de rutinas para el PSoC terminal		  //
+//----------------------------------------------------------------//
+
 //Listado de defines
 
 
@@ -68,8 +76,20 @@ unsigned char TL2_Treal, TL2_Treal_Uni, TL2_Tfilm, TL2_Tfilm_Uni;	//Variables de
 
 void Inicializacion(void)
 {
+	//Inicialización del Timer para la UART
+	Timer8_WritePeriod(156);		//Este valor es Fosc/Baudios/8
+	Timer8_WriteCompareValue(156/2);
+	Timer8_Start();
 	
-	PRT0DR=PRT0DR | 0x04;			//Puesta a 1 del puerto 0.2 para evitar el Reset del PdT
+	//Inicialización de la UART en modo sin paridad
+	UART_Start(UART_PARITY_NONE);
+	
+	//Inicialización del LCD
+	LCD_Start();
+	LCD_Init();
+	
+	// Con los 1 conectamos resistencias de pull-up y evitamos reset del PdT
+	PRT0DR=	0xA4					//1010 0100 
 }
 
 //***********************************************************************************************************************/
