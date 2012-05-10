@@ -13,11 +13,12 @@
 
 //Listado de prototipos
 void Inicializacion(void);
+void Principal(void);
+void Bienvenida(void);
 void bucle_temp();
 void Pitido();
 char Pulsador();
 void Reset_PdT(void);
-void Principal();
 void Menu();
 void Sensors();
 void Entrada1();	//Barrera 1 a 12V
@@ -97,6 +98,51 @@ void Inicializacion(void)
 
 
 
+
+/************************************************************************************************************************
+/  	LLAMADA: Bienvenida()
+/  	FUNCION: Muestra por el LCD un mensaje de bienvenida al encender el PhotoSOC
+/  	ENTRADA: void
+/  	SALIDA: void
+/	INICIALIZAR PERIFERICOS: No
+/  	OTROS: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/************************************************************************************************************************/
+
+void Bienvenida(void)
+{
+	LCD_Control(0x01);	//Borrat de pantalla
+	LCD_Position(0,1);
+	LCD_PrCString("Bienvenidos");
+	LCD_Position(1,3);
+	LCD_PrCString("a  PhotoSoC");
+}
+
+//***********************************************************************************************************************/
+//***********************************************************************************************************************/
+
+
+
+
+
+// Programa pricipal del projecte, aquest sera el programa inicial que s'iniciara al encendre el circuit
+//	en ell el que farem sera saludar a la persona que a ences el circuit i esperar a pulsi algun boto 
+//	per accedir al menu 
+
+void Principal(void)
+{
+	char boton;
+	unsigned int x;
+	bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
+	boton=Pulsador();
+	if(Buzzer==1) Pitido();
+	if(boton!=0) 
+	{
+		Menu();		// Canviar nom de la rutina
+	}
+}
+
+//***************************************************************************************************************
+//***************************************************************************************     Menu principal
 
 
 
@@ -191,32 +237,6 @@ char Pulsador()
 
 //***************************************************************************************************************
 //***************************************************************************************       Principal
-
-// Programa pricipal del projecte, aquest sera el programa inicial que s'iniciara al encendre el circuit
-//	en ell el que farem sera saludar a la persona que a ences el circuit i esperar a pulsi algun boto 
-//	per accedir al menu 
-
-void Principal()
-{
-	char boton;
-	unsigned int x;
-	
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_Position(0,1);
-	LCD_PrCString("Bienvenidos");
-	LCD_Position(1,3);
-	LCD_PrCString("a  PhotoSoC");
-	bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
-	boton=Pulsador();
-	if(Buzzer==1) Pitido();
-	if(boton!=0) 
-	{
-		Menu();		// Canviar nom de la rutina
-	}
-}
-
-//***************************************************************************************************************
-//***************************************************************************************     Menu principal
 
 // Programa del menu principal, aquest programa sera el que permetra
 //	navegar per el menu i elegir entre las diferents funcions que 

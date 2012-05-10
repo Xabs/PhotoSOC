@@ -17,7 +17,7 @@ void main()
 	//int xx;
 	
 	Inicializacion();			//Rutina de inicialización de los perifericos
-	
+	Bienvenida();				//Rutina que muestra el mensaje de bienvenida
 	for (;;) Principal();		//Programa principal del PSoC terminal del PhotoSOC
 		
 
