@@ -1,3 +1,12 @@
+//----------------------------------------------------------------//
+//     Proyecto de GS Desarrollo Productos Electronicos EPSS	  //
+//                   By Albert Sagol & Xavi Vicient			      //
+//                 PhotoSoC - Controlador fotográfico		  	  //
+//----------------------------------------------------------------//
+//              Libreria de rutinas para el PSoC trabajo		  //
+//----------------------------------------------------------------//
+
+
 //Listado de defines utilizados en la libreria
 
 
