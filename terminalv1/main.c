@@ -4,10 +4,11 @@
 //                 PhotoSoC - Controlador fotográfico		  	  //
 //----------------------------------------------------------------//
 
-#include <m8c.h>        // part specific constants and macros
-#include "PSoCAPI.h"    // PSoC API definitions for all User Modules
+#include <m8c.h>        		// part specific constants and macros
+#include "PSoCAPI.h"    		// PSoC API definitions for all User Modules
 #include "stdlib.h"
-#include "terminal.h"	// Libreria creada por Albert y Xavi para el proyecto
+#include "terminal.h"			// Libreria creada por Albert y Xavi para el proyecto
+#include "comunicaciones.h" 	// Libreria de comunicaciones creada por Albert y Xavi para el proyecto
 
 void main()
 {	char x;

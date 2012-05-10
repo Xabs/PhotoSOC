@@ -4,10 +4,11 @@
 // TxD en P1.4 y RxD en P1.6.  19200 baudios sin paridad
 //----------------------------------------------------------------------------
 
-#include <m8c.h>        // part specific constants and macros
-#include "PSoCAPI.h"    // PSoC API definitions for all User Modules
+#include <m8c.h>        		// part specific constants and macros
+#include "PSoCAPI.h"   	 		// PSoC API definitions for all User Modules
 #include "stdlib.h"
-#include "trabajo.h"
+#include "trabajo.h"			// Libreria creada por Albert y Xavi para el proyecto
+#include "comunicaciones.h" 	// Libreria de comunicaciones creada por Albert y Xavi para el proyecto
 
 void main()
 {	
