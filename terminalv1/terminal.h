@@ -1117,7 +1117,7 @@ void Trabajando()
 
 void Resetear()
 {
-	Envia(99);
+	Reset_PdT();
 	Principal();
 }
 
