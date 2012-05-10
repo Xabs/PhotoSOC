@@ -6,16 +6,12 @@
 //              Libreria de rutinas para el PSoC terminal		  //
 //----------------------------------------------------------------//
 
-//Listado de defines
-
-
-
 
 //Listado de prototipos
 void Inicializacion(void);
-void Principal(void);
 void Bienvenida(void);
-void bucle_temp();
+void Principal(void);
+void bucle_temp(void);
 void Pitido();
 char Pulsador();
 void Reset_PdT(void);
@@ -115,38 +111,11 @@ void Bienvenida(void)
 	LCD_PrCString("Bienvenidos");
 	LCD_Position(1,3);
 	LCD_PrCString("a  PhotoSoC");
-}
-
-//***********************************************************************************************************************/
-//***********************************************************************************************************************/
-
-
-
-
-
-// Programa pricipal del projecte, aquest sera el programa inicial que s'iniciara al encendre el circuit
-//	en ell el que farem sera saludar a la persona que a ences el circuit i esperar a pulsi algun boto 
-//	per accedir al menu 
-
-void Principal(void)
-{
-	char boton;
-	unsigned int x;
 	bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
-	boton=Pulsador();
-	if(Buzzer==1) Pitido();
-	if(boton!=0) 
-	{
-		Menu();		// Canviar nom de la rutina
-	}
 }
 
-//***************************************************************************************************************
-//***************************************************************************************     Menu principal
-
-
-
-
+//***********************************************************************************************************************/
+//***********************************************************************************************************************/
 
 
 //Funcion de bucle de perdida de tiempo 
@@ -160,6 +129,30 @@ void bucle_temp()
 
 //***************************************************************************************
 //***************************************************************************************
+
+
+
+// Programa pricipal del projecte, aquest sera el programa inicial que s'iniciara al encendre el circuit
+//	en ell el que farem sera saludar a la persona que a ences el circuit i esperar a pulsi algun boto 
+//	per accedir al menu 
+
+void Principal(void)
+{
+	char boton;
+	unsigned int x;
+	
+	boton=Pulsador();
+	if(Buzzer==1) Pitido();
+	if(boton!=0) 
+	{
+		Menu();		// Canviar nom de la rutina
+	}
+}
+
+//***************************************************************************************************************
+//***************************************************************************************     Menu principal
+
+
 
 // Funcion que hace sonar el pitido en el caso de que este activado en el 
 //menu del Zumbador, en caso contrario no entrara a hacer esta funcion
@@ -1076,25 +1069,6 @@ void Ara()		//Prova
 //***************************************************************************************
 //***************************************************************************************
 
-//Funcion a la que le pasas un valor y lo manda por la UART tambien
-//tiene un bucle para que el PSoC de trabajo pueda capturar el dato
-//utilizamos un protocolo de comunicaciones
-
-void Envia(char valor)
-{
-	char confirmacion;
-	
-	do
-	{	
-		UART_PutChar(valor);
-		confirmacion=UART_cGetChar();  //Esta se espera a que llegue un byte.
-		if(valor==confirmacion) UART_PutChar(5);	//verificacion de la coms 
-		else UART_PutChar(4);	//Error al comunicar
-	}while(valor!=confirmacion);
-}
-
-//***************************************************************************************
-//***************************************************************************************
 
 //Funcion en la que el PSoC Terminal se queda al empezar despues de 
 //enviar los datos y el PSoC de Trabajo esta trabajando
