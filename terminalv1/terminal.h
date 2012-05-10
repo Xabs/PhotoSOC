@@ -12,37 +12,37 @@ void Inicializacion(void);
 void Bienvenida(void);
 void Principal(void);
 void bucle_temp(void);
-void Pitido();
-char Pulsador();
+void Pitido(void);
+char Pulsador(void);
 void Reset_PdT(void);
-void Menu();
-void Sensors();
-void Entrada1();	//Barrera 1 a 12V
-void Entrada2();	//Barrera 2 a 12V
-void Entrada3();	//Digital 0/1 a 5V
-void Entrada4();	//Digital 0/1 a 5V
-void Flashes();
-void Flash1();
-void Flash2();
-void Flash3();
-void Flash4();
-void Dispar();
-void Camara1();
-void Camara2();
+void Menu(void);
+void Sensors(void);
+void Entrada1(void);	//Barrera 1 a 12V
+void Entrada2(void);	//Barrera 2 a 12V
+void Entrada3(void);	//Digital 0/1 a 5V
+void Entrada4(void);	//Digital 0/1 a 5V
+void Flashes(void);
+void Flash1(void);
+void Flash2(void);
+void Flash3(void);
+void Flash4(void);
+void Dispar(void);
+void Camara1(void);
+void Camara2(void);
 void Tipo_disp(char camara);
 void Intervalometro(char camara);
 void TimeLapse(char camara);
-char Numeros();
-char Tiempos();
-void Executar();
-void Ara();
+char Numeros(void);
+char Tiempos(void);
+void Executar(void);
+void Ara(void);
 void envio_valores(void);
-void Trabajando();
-void Resetear();
-void Sistema();
-void Reali_LCD();
-void Zumbador();
-void Ali_Led();
+void Trabajando(void);
+void Resetear(void);
+void Sistema(void);
+void Reali_LCD(void);
+void Zumbador(void);
+void Ali_Led(void);
 
 
 //Declaracion de las variables globales del PSoC Terminal
@@ -89,7 +89,7 @@ void Inicializacion(void)
 	LCD_Init();
 	
 	// Con los 1 conectamos resistencias de pull-up y evitamos reset del PdT
-	PRT0DR=	0xA4					//1010 0100 
+	PRT0DR=	0xA0;	//1010 0000 
 }
 
 //***********************************************************************************************************************/
@@ -123,7 +123,7 @@ void Bienvenida(void)
 
 //Funcion de bucle de perdida de tiempo 
 
-void bucle_temp()
+void bucle_temp(void)
 {
 	unsigned int x;
 	
@@ -160,7 +160,7 @@ void Principal(void)
 // Funcion que hace sonar el pitido en el caso de que este activado en el 
 //menu del Zumbador, en caso contrario no entrara a hacer esta funcion
 
-void Pitido()
+void Pitido(void)
 {				
 	int xx;
 
@@ -186,9 +186,9 @@ void Reset_PdT(void)
 {
 	int x;
 	
-	PRT0DR=PRT0DR & 0xFB;			//Apagado del puerto 0.2
-	for(x=0;x<500;x++);				//Bucle de tiempo
 	PRT0DR=PRT0DR | 0x04;			//Puesta a 1 del puerto 0.2
+	for(x=0;x<500;x++);				//Bucle de tiempo
+	PRT0DR=PRT0DR & 0xFB;			//Apagado del puerto 0.2
 }
 
 
@@ -202,7 +202,7 @@ void Reset_PdT(void)
 	// retorn 2 --> pulsacio curta del boto vermell
 	// retorn 4 --> pulsacio llarga del boto vermell
 
-char Pulsador()
+char Pulsador(void)
 {	
 	#define amarillo 1
 	#define rojo 2
@@ -238,7 +238,7 @@ char Pulsador()
 //	navegar per el menu i elegir entre las diferents funcions que 
 //	tindra el PhotoSoC
 
-void Menu()
+void Menu(void)
 {
 	char pulsat,index=1;
 	unsigned int x;
@@ -284,7 +284,7 @@ void Menu()
 //	navegar per el menu i elegir entre las diferents funcions que 
 //	tindra el PhotoSoC amb els seus diferents detectors
 
-void Sensors()
+void Sensors(void)
 {
 	char pulsat,menu=1;
 	unsigned int x;
@@ -328,7 +328,7 @@ void Sensors()
 //se ponga en marcha el programa en el PSoC de Trabajo
 //Entrada 0/1 de 12V para una barrera
 
-void Entrada1() 
+void Entrada1(void) 
 {
 	char pulsat;
 	unsigned int x;
@@ -362,7 +362,7 @@ void Entrada1()
 //se ponga en marcha el programa en el PSoC de Trabajo
 //Entrada 0/1 de 12V para una barrera
 
-void Entrada2() 
+void Entrada2(void) 
 {
 	char pulsat;
 	unsigned int x;
@@ -396,7 +396,7 @@ void Entrada2()
 //se ponga en marcha el programa en el PSoC de Trabajo
 //Entrada con conversor Analogico/Digital de 5V
 
-void Entrada3() 
+void Entrada3(void) 
 {
 	char pulsat;
 	unsigned int x;
@@ -430,7 +430,7 @@ void Entrada3()
 //se ponga en marcha el programa en el PSoC de Trabajo
 //Entrada 0/1 de 5V
 
-void Entrada4() 
+void Entrada4(void) 
 {
 	char pulsat;
 	unsigned int x;
@@ -464,7 +464,7 @@ void Entrada4()
 //	navegar per el menu i elegir entre las diferents funcions que 
 //	tindra el PhotoSoC per ejecutar las sortides, com opcions de dispar o flashos
 	
-void Flashes()
+void Flashes(void)
 {	
 	char pulsat,menu=1;
 	unsigned int x;
@@ -528,7 +528,7 @@ void Flashes()
 //Funcion que permite conectar el flash 1 para su funcionamiento cuando 
 //se ponga en marcha el programa en el PSoC de Trabajo
 
-void Flash1() 
+void Flash1(void) 
 {
 	char pulsat;
 	unsigned int x;
@@ -562,7 +562,7 @@ void Flash1()
 //Funcion que permite conectar el flash 2 para su funcionamiento cuando 
 //se ponga en marcha el programa en el PSoC de Trabajo
 
-void Flash2() 
+void Flash2(void) 
 {
 	char pulsat;
 	unsigned int x;
@@ -595,7 +595,7 @@ void Flash2()
 //Funcion que permite conectar el flash 3 para su funcionamiento cuando 
 //se ponga en marcha el programa en el PSoC de Trabajo
 
-void Flash3() 
+void Flash3(void) 
 {
 	char pulsat;
 	unsigned int x;
@@ -628,7 +628,7 @@ void Flash3()
 //Funcion que permite conectar el flash 4 para su funcionamiento cuando 
 //se ponga en marcha el programa en el PSoC de Trabajo
 
-void Flash4() 
+void Flash4(void) 
 {
 	char pulsat;
 	unsigned int x;
@@ -662,7 +662,7 @@ void Flash4()
 //	navegar per el menu i elegir entre las diferents funcions que 
 //	tindra el PhotoSoC para disparar las camaras
 
-void Dispar()
+void Dispar(void)
 {
 
 	char pulsat,menu=1;
@@ -702,7 +702,7 @@ void Dispar()
 //Funcion que permite conectar el camara 1 para su funcionamiento cuando 
 //se ponga en marcha el programa en el PSoC de Trabajo
 
-void Camara1() 
+void Camara1(void) 
 {
 	char pulsat;
 	unsigned int x;
@@ -736,7 +736,7 @@ void Camara1()
 //Funcion que permite conectar el camara 2 para su funcionamiento cuando 
 //se ponga en marcha el programa en el PSoC de Trabajo
 
-void Camara2() 
+void Camara2(void) 
 {
 	char pulsat;
 	unsigned int x;
@@ -942,7 +942,7 @@ void TimeLapse(char camara)
 
 //
 
-char Numeros() 
+char Numeros(void) 
 {
 	char pulsat, menu=1, mostrar, recortar, zeros;
 	unsigned int x;
@@ -984,7 +984,7 @@ char Numeros()
 
 //
 
-char Tiempos() 
+char Tiempos(void) 
 {
 	char pulsat, menu=1;
 	unsigned int x;
@@ -1024,7 +1024,7 @@ char Tiempos()
 //	navegar per el menu i activar el mode de funcionament que 
 //	tindra el PhotoSoC i que fara actualitzar i actuar el PSoC de treball
 
-void Executar()
+void Executar(void)
 {
 	char pulsat,menu=1;
 	unsigned int x;
@@ -1059,7 +1059,7 @@ void Executar()
 
 void envio_valores(void)
 {
-Reset_PdT();
+	Reset_PdT();
 	envia(Cam1);
 	envia(Cam2);
 	envia(Ent1);
@@ -1106,7 +1106,7 @@ Reset_PdT();
 //Funcion que permite empezar a enviar la infomacion al PSoC de trabajo
 //y empieza a ejecutar los sensores
 
-void Ara()		//Prova
+void Ara(void)		//Prova
 {
 	envio_valores();
 	Trabajando();
@@ -1119,7 +1119,7 @@ void Ara()		//Prova
 //Funcion en la que el PSoC Terminal se queda al empezar despues de 
 //enviar los datos y el PSoC de Trabajo esta trabajando
 
-void Trabajando()
+void Trabajando(void)
 {
 	unsigned int x;
 	char pulsat;
@@ -1161,7 +1161,7 @@ void Trabajando()
 //Funcion en la que el PSoC Terminal interrumpe el funcionamiento del programa
 //del PSoC de Trabajo y vuelve a iniciar la programacion 
 
-void Resetear()
+void Resetear(void)
 {
 	Reset_PdT();
 	Principal();
@@ -1174,7 +1174,7 @@ void Resetear()
 //	navegar per el menu i elegir entre las diferents funcions que 
 //	tindra el PhotoSoC a l'hora de modificar especificacions del sistema
 
-void Sistema()
+void Sistema(void)
 {
 	char pulsat,menu=1;
 	unsigned int x;
@@ -1215,7 +1215,7 @@ void Sistema()
 //Funcion que permite conectar la realimentacion del LCD para poder configurar a oscuras
 //Dependera de una variable global que la controlara
 
-void Reali_LCD() 
+void Reali_LCD(void) 
 {
 	char pulsat;
 	unsigned int x;
@@ -1256,7 +1256,7 @@ void Reali_LCD()
 //Funcion que permite conectar el zumbador para poder que emita un pitido al acepatr alguna opcion
 //Dependera de una variable global que la controlara
 
-void Zumbador() 
+void Zumbador(void) 
 {
 	char pulsat;
 	unsigned int x;
@@ -1289,7 +1289,7 @@ void Zumbador()
 //Funcion que permite conectar el led del interruptor de alimentacion
 //Dependera de una variable global que la controlara
 
-void Ali_Led() 
+void Ali_Led(void) 
 {
 	char pulsat;
 	unsigned int x;

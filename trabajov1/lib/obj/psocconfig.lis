@@ -1086,9 +1086,9 @@
  0000           PORT_1_INTCTRL_0:		equ 0h	;Port 1 interrupt control 0 register (PRT1IC0)
  0000           PORT_1_INTCTRL_1:		equ 0h	;Port 1 interrupt control 1 register (PRT1IC1)
  0000           PORT_2_GLOBAL_SELECT:	equ 0h	;Port 2 global select register (PRT2GS)
- 0055           PORT_2_DRIVE_0:			equ 55h	;Port 2 drive mode 0 register (PRT2DM0)
- 00AA           PORT_2_DRIVE_1:			equ aah	;Port 2 drive mode 1 register (PRT2DM1)
- 00AA           PORT_2_DRIVE_2:			equ aah	;Port 2 drive mode 2 register (PRT2DM2)
+ 007F           PORT_2_DRIVE_0:			equ 7fh	;Port 2 drive mode 0 register (PRT2DM0)
+ 0080           PORT_2_DRIVE_1:			equ 80h	;Port 2 drive mode 1 register (PRT2DM1)
+ 0080           PORT_2_DRIVE_2:			equ 80h	;Port 2 drive mode 2 register (PRT2DM2)
  0000           PORT_2_INTENABLE:		equ 0h	;Port 2 interrupt enable register (PRT2IE)
  0000           PORT_2_INTCTRL_0:		equ 0h	;Port 2 interrupt control 0 register (PRT2IC0)
  0000           PORT_2_INTCTRL_1:		equ 0h	;Port 2 interrupt control 1 register (PRT2IC1)
@@ -1134,6 +1134,13 @@
                 export _LoadConfigInit
                 export LoadConfig_trabajov1
                 export _LoadConfig_trabajov1
+                export Port_2_Data_SHADE
+                export _Port_2_Data_SHADE
+                export Port_2_DriveMode_0_SHADE
+                export _Port_2_DriveMode_0_SHADE
+                export Port_2_DriveMode_1_SHADE
+                export _Port_2_DriveMode_1_SHADE
+                
                 
                 export NO_SHADOW
                 export _NO_SHADOW
@@ -1189,9 +1196,13 @@
                    ENDIF ; RAM_USE_CLASS_4
                 
                     
- 0000 7C0004            lcall   LoadConfig_trabajov1
- 0003           
- 0003           
+ 0000 550000            mov             [Port_2_Data_SHADE], 0h
+ 0003 55017F            mov             [Port_2_DriveMode_0_SHADE], 7fh
+ 0006 550280            mov             [Port_2_DriveMode_1_SHADE], 80h
+ 0009           
+ 0009 7C000D            lcall   LoadConfig_trabajov1
+ 000C           
+ 000C           
                    IF ( RAM_USE_CLASS_4 & RAM_USE_CLASS_1 )
                    ; Nothing to do
                    ENDIF ; RAM_USE_CLASS_1
@@ -1234,29 +1245,29 @@
                    ; Nothing to do
                    ENDIF ; RAM_USE_CLASS_4
                 
- 0003 7F            ret
- 0004           
- 0004           ;---------------------------------------------------------------------------
- 0004           ; Load Configuration trabajov1
- 0004           ;
- 0004           ;    Load configuration registers for trabajov1.
- 0004           ;    IO Bank 0 registers a loaded first,then those in IO Bank 1.
- 0004           ;
- 0004           ;       INPUTS: None.
- 0004           ;      RETURNS: Nothing.
- 0004           ; SIDE EFFECTS: Registers are volatile: the CPU A and X registers may be
- 0004           ;               modified as may the Page Pointer registers!
- 0004           ;               In the large memory model currently only the page
- 0004           ;               pointer registers listed below are modified.  This does
- 0004           ;               not guarantee that in future implementations of this
- 0004           ;               function other page pointer registers will not be
- 0004           ;               modified.
- 0004           ;          
- 0004           ;               Page Pointer Registers Modified: 
- 0004           ;               CUR_PP
- 0004           ;
- 0004           _LoadConfig_trabajov1:
- 0004            LoadConfig_trabajov1:
+ 000C 7F            ret
+ 000D           
+ 000D           ;---------------------------------------------------------------------------
+ 000D           ; Load Configuration trabajov1
+ 000D           ;
+ 000D           ;    Load configuration registers for trabajov1.
+ 000D           ;    IO Bank 0 registers a loaded first,then those in IO Bank 1.
+ 000D           ;
+ 000D           ;       INPUTS: None.
+ 000D           ;      RETURNS: Nothing.
+ 000D           ; SIDE EFFECTS: Registers are volatile: the CPU A and X registers may be
+ 000D           ;               modified as may the Page Pointer registers!
+ 000D           ;               In the large memory model currently only the page
+ 000D           ;               pointer registers listed below are modified.  This does
+ 000D           ;               not guarantee that in future implementations of this
+ 000D           ;               function other page pointer registers will not be
+ 000D           ;               modified.
+ 000D           ;          
+ 000D           ;               Page Pointer Registers Modified: 
+ 000D           ;               CUR_PP
+ 000D           ;
+ 000D           _LoadConfig_trabajov1:
+ 000D            LoadConfig_trabajov1:
                    IF ( RAM_USE_CLASS_4 & RAM_USE_CLASS_1 )
                    ; Nothing to do
                    ENDIF ; RAM_USE_CLASS_1
@@ -1281,10 +1292,10 @@
                    ; Nothing to do
                    ENDIF ; RAM_USE_CLASS_4
                 
- 0004 7C0000        lcall   LoadConfigTBL_trabajov1            ; Call load config table routine
- 0007           
- 0007           
- 0007 70EF          and   F, ~FLAG_XIO_MASK
+ 000D 7C0000        lcall   LoadConfigTBL_trabajov1            ; Call load config table routine
+ 0010           
+ 0010           
+ 0010 70EF          and   F, ~FLAG_XIO_MASK
                    IF ( RAM_USE_CLASS_4 & RAM_USE_CLASS_1 )
                    ; Nothing to do
                    ENDIF ; RAM_USE_CLASS_1
@@ -1327,11 +1338,19 @@
                    ; Nothing to do
                    ENDIF ; RAM_USE_CLASS_4
                 
- 0009 7F            ret
- 000A           
- 000A           
- 000A           
+ 0012 7F            ret
+ 0013           
+ 0013           
+ 0013           
                 AREA InterruptRAM(ram, rel)
                 
  0000           NO_SHADOW:
  0000           _NO_SHADOW:
+ 0000           ; write only register shadows
+ 0000           _Port_2_Data_SHADE:
+ 0000           Port_2_Data_SHADE:      BLK     1
+ 0001           _Port_2_DriveMode_0_SHADE:
+ 0001           Port_2_DriveMode_0_SHADE:       BLK     1
+ 0002           _Port_2_DriveMode_1_SHADE:
+ 0002           Port_2_DriveMode_1_SHADE:       BLK     1
+ 0003           

@@ -1,4 +1,2 @@
-flash  7A4 SRAM   14:
- 00 5 bytes
-flash  7A8 SRAM   1A:
- 00 8 bytes
+flash 1A60 SRAM   1C:
+ 00 35 bytes

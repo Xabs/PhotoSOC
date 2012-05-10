@@ -182,11 +182,11 @@ LoadConfigTBL_trabajov1:
 ;       Instance name Segundos, Block Name TIMER16_LSB(DBB10)
 	mov	reg[30h], 00h		;Segundos_FUNC_LSB_REG(DBB10FN)
 	mov	reg[31h], 01h		;Segundos_INPUT_LSB_REG(DBB10IN)
-	mov	reg[32h], 00h		;Segundos_OUTPUT_LSB_REG(DBB10OU)
+	mov	reg[32h], 40h		;Segundos_OUTPUT_LSB_REG(DBB10OU)
 ;       Instance name Segundos, Block Name TIMER16_MSB(DBB11)
 	mov	reg[34h], 20h		;Segundos_FUNC_MSB_REG(DBB11FN)
 	mov	reg[35h], 31h		;Segundos_INPUT_MSB_REG(DBB11IN)
-	mov	reg[36h], 00h		;Segundos_OUTPUT_MSB_REG(DBB11OU)
+	mov	reg[36h], 40h		;Segundos_OUTPUT_MSB_REG(DBB11OU)
 ;  Instance name Timer8, User Module Timer8
 ;       Instance name Timer8, Block Name TIMER8(DBB00)
 	mov	reg[20h], 20h		;Timer8_FUNC_REG(DBB00FN)

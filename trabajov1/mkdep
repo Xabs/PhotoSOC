@@ -1,4 +1,5 @@
 -a -f project.dep -p./lib/obj/ -o.o -- -IC:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include -I./lib -IC:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1 -- 
+lib/lcd.asm   
 lib/psocconfig.asm   
 lib/psocconfigtbl.asm   
 lib/segundos.asm   

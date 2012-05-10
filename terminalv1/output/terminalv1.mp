@@ -1,4 +1,4 @@
-  ROM 24% full. 7828 bytes used (does not include absolute areas).
+  ROM 25% full. 8305 bytes used (does not include absolute areas).
   RAM 3% full. 55 bytes used (does not include stack usage).
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
@@ -169,49 +169,53 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                            text   0BDA   145A =   5210. bytes (rel,con,rom)
+                            text   0BDA   1637 =   5687. bytes (rel,con,rom)
 
        Addr  Global Symbol
       -----  --------------------------------
        0BDA  __text_start
-       0BDA  _bucle_temp
-       0C0E  _Pitido
-       0C3A  _Reset_PdT
-       0C76  _Pulsador
-       0D18  _Principal
-       0D60  _Menu
-       0E5D  _Sensors
-       0F3C  _Entrada1
-       0FBE  _Entrada2
-       1040  _Entrada3
-       10C2  _Entrada4
-       1144  _Flashes
-       12AB  _Flash1
-       132D  _Flash2
-       13AF  _Flash3
-       1432  _Flash4
-       14B6  _Dispar
-       1560  _Camara1
-       160D  _Camara2
-       16BA  _Tipo_disp
-       17DC  _Intervalometro
-       18DC  _TimeLapse
-       19EA  _Numeros
-       1AB9  _Tiempos
-       1B6B  _Executar
-       1BBE  _Ara
-       1C30  _Envia
-       1C63  _Trabajando
-       1D69  _Resetear
-       1D74  _Sistema
-       1E3A  _Reali_LCD
-       1EC5  _Zumbador
-       1F4A  _Ali_Led
-       1FD5  _main
-       2003  __divmodu_8X8_8
-       201B  __i_div8_block_util
-       2034  __text_end
-       203A  __xidata_end
+       0BDA  _Inicializacion
+       0BF8  _Bienvenida
+       0C24  _bucle_temp
+       0C58  _Principal
+       0C75  _Pitido
+       0CA1  _Reset_PdT
+       0CC6  _Pulsador
+       0D68  _Menu
+       0E65  _Sensors
+       0F44  _Entrada1
+       0FC6  _Entrada2
+       1048  _Entrada3
+       10CA  _Entrada4
+       114C  _Flashes
+       12B3  _Flash1
+       1335  _Flash2
+       13B7  _Flash3
+       1439  _Flash4
+       14BD  _Dispar
+       1567  _Camara1
+       1614  _Camara2
+       16C1  _Tipo_disp
+       17E3  _Intervalometro
+       18E3  _TimeLapse
+       19F1  _Numeros
+       1AC0  _Tiempos
+       1B72  _Executar
+       1BC5  _envio_valores
+       1DC2  _Ara
+       1DC7  _Trabajando
+       1ECD  _Resetear
+       1ED4  _Sistema
+       1F9A  _Reali_LCD
+       2025  _Zumbador
+       20AA  _Ali_Led
+       2135  _envia
+       2180  _recibe
+       21D3  _main
+       21E0  __divmodu_8X8_8
+       21F8  __i_div8_block_util
+       2211  __text_end
+       2217  __xidata_end
 
 Area                               Start  End    Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
@@ -271,33 +275,33 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
        Addr  Global Symbol
       -----  --------------------------------
        0000  __data_start
-       001B  _Luz_LCD
-       001C  _Buzzer
-       001D  _Alimentacion
-       001E  _Ent1
-       001F  _Ent2
-       0020  _Ent3
-       0021  _Ent4
-       0022  _Fla1
-       0023  _Fla2
-       0024  _Fla3
-       0025  _Fla4
-       0026  _Cam1
-       0027  _Int1_Tdisp
-       0028  _Int1_Tdisp_Uni
-       0029  _Int1_Ndisp
-       002A  _Cam2
-       002B  _Int2_Tdisp
-       002C  _Int2_Tdisp_Uni
-       002D  _Int2_Ndisp
-       002E  _TL2_Tfilm_Uni
-       002F  _TL2_Tfilm
+       001B  _Cam1
+       001C  _Cam2
+       001D  _Ent1
+       001E  _Ent2
+       001F  _Ent3
+       0020  _Ent4
+       0021  _Fla1
+       0022  _Fla2
+       0023  _Fla3
+       0024  _Fla4
+       0025  _Int1_Tdisp
+       0026  _Int1_Tdisp_Uni
+       0027  _Int1_Ndisp
+       0028  _Int2_Tdisp
+       0029  _Int2_Tdisp_Uni
+       002A  _Int2_Ndisp
+       002B  _TL1_Treal
+       002C  _TL1_Treal_Uni
+       002D  _TL1_Tfilm
+       002E  _TL1_Tfilm_Uni
+       002F  _TL2_Treal
        0030  _TL2_Treal_Uni
-       0031  _TL2_Treal
-       0032  _TL1_Tfilm_Uni
-       0033  _TL1_Tfilm
-       0034  _TL1_Treal_Uni
-       0035  _TL1_Treal
+       0031  _TL2_Tfilm
+       0032  _TL2_Tfilm_Uni
+       0033  _Luz_LCD
+       0034  _Buzzer
+       0035  _Alimentacion
 
 Files Linked      [ module(s) ]
 

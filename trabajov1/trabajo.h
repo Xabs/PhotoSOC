@@ -23,21 +23,21 @@ unsigned char Int2_Tdisp=0, Int2_Tdisp_Uni=0, Int2_Ndisp=0;					//Variables del 
 unsigned char TL1_Treal=0, TL1_Treal_Uni=0, TL1_Tfilm=0, TL1_Tfilm_Uni=0; 	//Variables del modo disparo Time Lapse Cámara 1
 unsigned char TL2_Treal=0, TL2_Treal_Uni=0, TL2_Tfilm=0, TL2_Tfilm_Uni=0;	//Variables del modo disparo Time Lapse Cámara 2
 
-
+char Td_int1, Td_int2, D_tl1, Td_tl1, D_t12,Td_tl2;
 
 //Prototipos de la libreria del PSoC de trabajo
-void Inicializacion();
-void Inicio();
-void Ejecucion();
-char Dato();
-void Deteccion();
-void Tipodisparo();
+void Inicializacion(void);
+void Inicio(void);
+void Ejecucion(void);
+char Dato(void);
+void Deteccion(void);
+void Tipodisparo(void);
 void Disparo_camara(char disparo_camara_numero);
 void Dispara_camaras (void);
 void Disparo_flash(char disparo_flash_numero);
-void Unico();
-void Intervalometro();
-void TimeLapse();
+void Unico(void);
+void Intervalometro(void);
+void TimeLapse(void);
 
 
 //******************************************************************************
@@ -52,26 +52,32 @@ void TimeLapse();
 /  	OTROS: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
 
-void Inicializacion()
+void Inicializacion(void)
 {
+	//Inicialización del Timer para la UART
 	Timer8_WritePeriod(156);		//Este valor es Fosc/Baudios/8
 	Timer8_WriteCompareValue(156/2);
 	Timer8_Start();
 	
+	//Inicialización de la UART en modo sin paridad
+	UART_Start(UART_PARITY_NONE);
+	
+	//Inicialización del LCD
+	LCD_Start();
+	LCD_Init();
+	
 	Segundos_WritePeriod(10000);		
 	Segundos_WriteCompareValue(0);
-	Segundos_Start();
-	
-	UART_Start(UART_PARITY_NONE);
+	Segundos_Start();	
 }	
 
-	
+/*	
 //Esta funcion esperara continuamente una informacion que le llegara por
 //la comunicacion del puerto serie que hemos incorporado al
 //proyecto, la informacion que reciba hara de selector para las tareas
 //que tiene programadas
 
-void Inicio()
+void Inicio(void)
 {	
 	char coms;
 	
@@ -90,9 +96,9 @@ void Inicio()
 //Funcion que recibira las tranmision de la UART y las asignara a las diferentes
 //variables para poderlas usar en nuestro programa
 
-void Ejecucion()
+void Ejecucion(void)
 {
-	unsigned double real, film;
+	unsigned long real, film;
 	
 	Ent1=Dato();
 	Ent2=Dato();
@@ -107,8 +113,7 @@ void Ejecucion()
 	
 	if(Cam1==2)
 	{
-		listo_int1=
-		;
+		listo_int1=1;
 		if(Int1_Tdisp_Uni==1)Td_int1=Int1_Tdisp;			//Td_int1, Int1_Tdisp, Int1_Tdisp_Uni
 		else if(Int1_Tdisp_Uni==2)Td_int1=Int1_Tdisp*60;
 		else if(Int1_Tdisp_Uni==3)Td_int1=Int1_Tdisp*3600;
@@ -162,7 +167,7 @@ void Ejecucion()
 //Funcion de soporte que devolvera lo que reciba por la UART
 //y enviara una confirmacion para que se envie el siguiente dato
 
-char Dato()
+char Dato(void)
 {
 	char recibido, confirma;
 	
@@ -182,9 +187,10 @@ char Dato()
 //se activa segun lo especificado
 //Devolvera el numero de la entrada que se haya activado
 
-void Deteccion()	
+void Deteccion(void)	
 {
 	char sensor=0;
+	unsigned char x,
 	
 	PRT0DR=0xAA;	//Activo las resistencias de pull-up de los detectores
 	
@@ -197,11 +203,11 @@ void Deteccion()
 		else if(Ent3==1)					//La entrada 3 consta de diferentes posibilidades
 		{									//laser, infrarojos, presion, etc a 5V
 			if(PRT0DR & 0x08==0x00)			
-			{
-				sensor=3;
-				PRT0DR=PRT0DR | 0x08;
-			}
-		}											
+				{
+					sensor=3;
+					PRT0DR=PRT0DR | 0x08;
+				}
+		}
 		else if(Ent4==1)					//La entrada 4 consta de diferentes posibilidades 
 		{									//laser, infrarojos, presion, etc a 5V
 			if(PRT0DR & 0x02==0x00)
@@ -222,7 +228,7 @@ void Deteccion()
 //Funcion que gestionara los tipos de disparos al activarse dependiendo de  la informacion
 //de las variables que le hemos mandado actuara de una manera u otra
 
-void Tipodisparo()
+void Tipodisparo(void)
 {
 	if(inici==1)
 	{
@@ -302,7 +308,7 @@ void Disparo_flash(char disparo_flash_numero)
 
 //Funcion de disparo unico, dispara todos los actuadores a la vez
 
-void Unico()
+void Unico(void)
 {
 	int x;
 	
@@ -319,7 +325,7 @@ void Unico()
 
 //Funcion de Intervalometro
 
-void Intervalometro()
+void Intervalometro(void)
 {
 	unsigned char intervalometro_x;
 	
@@ -338,7 +344,7 @@ void Intervalometro()
 
 //Funcion de Timelapse
 
-void TimeLapse()
+void TimeLapse(void)
 {
 	unsigned long timelapse_treal, timelapse_tclip, timelapse_disparos, timelapse_resultado;
 	unsigned int timelapse_x;
@@ -372,4 +378,4 @@ void Temporizador (void)
 }
 
 //******************************************************************************
-//******************************************************************************
+//******************************************************************************/

@@ -848,10 +848,10 @@
  0035 70EF          and   F, ~FLAG_XIO_MASK
  0037 620500            mov     reg[05h], 00h           ; Port_1_IntEn register (PRT1IE)
  003A 7110          or    F, FLAG_XIO_MASK
- 003C 620855            mov     reg[08h], 55h           ; Port_2_DriveMode_0 register (PRT2DM0)
- 003F 6209AA            mov     reg[09h], aah           ; Port_2_DriveMode_1 register (PRT2DM1)
+ 003C 62087F            mov     reg[08h], 7fh           ; Port_2_DriveMode_0 register (PRT2DM0)
+ 003F 620980            mov     reg[09h], 80h           ; Port_2_DriveMode_1 register (PRT2DM1)
  0042 70EF          and   F, ~FLAG_XIO_MASK
- 0044 620BAA            mov     reg[0bh], aah           ; Port_2_DriveMode_2 register (PRT2DM2)
+ 0044 620B80            mov     reg[0bh], 80h           ; Port_2_DriveMode_2 register (PRT2DM2)
  0047 620A00            mov     reg[0ah], 00h           ; Port_2_GlobalSelect register (PRT2GS)
  004A 7110          or    F, FLAG_XIO_MASK
  004C 620A00            mov     reg[0ah], 00h           ; Port_2_IntCtrl_0 register (PRT2IC0)
@@ -954,6 +954,7 @@
  0156 626D00            mov     reg[6dh], 00h           ; TMP_DR1 register (TMP_DR1)
  0159 626E00            mov     reg[6eh], 00h           ; TMP_DR2 register (TMP_DR2)
  015C 626F00            mov     reg[6fh], 00h           ; TMP_DR3 register (TMP_DR3)
+ 015F           ;  Instance name LCD, User Module LCD
  015F           ;  Instance name Segundos, User Module Timer16
  015F           ;       Instance name Segundos, Block Name TIMER16_LSB(DBB10)
  015F 623300            mov     reg[33h], 00h           ;Segundos_CONTROL_LSB_REG(DBB10CR0)
@@ -997,6 +998,7 @@
  01BB 62DE02            mov     reg[deh], 02h           ; OscillatorControl_4 register (OSC_CR4)
  01BE 62DD00            mov     reg[ddh], 00h           ; OscillatorGlobalBusEnableControl register (OSC_GO_EN)
  01C1 62E700            mov     reg[e7h], 00h           ; Type2Decimator_Control register (DEC_CR2)
+ 01C4           ;  Instance name LCD, User Module LCD
  01C4           ;  Instance name Segundos, User Module Timer16
  01C4           ;       Instance name Segundos, Block Name TIMER16_LSB(DBB10)
  01C4 623000            mov     reg[30h], 00h           ;Segundos_FUNC_LSB_REG(DBB10FN)

@@ -1,6 +1,0 @@
--F0x30 -g -blit:0x1a0.0x7fff 
- -bdata:0.0x6ff -bSSCParmBlk:0x00F7.0x00FF -BInterruptRAM:0 -Bvirtual_registers  
- -Btrabajo_RAM 
- -o"output/trabajo" 
- ./obj/main.o   
- I:/PhotoSOC/COMUNI~1/trabajo/lib/libPSoc.a -LC:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/lib/LMM/eightpages C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/lib/CY8C29000/cms.a C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/lib/LMM/UASW/MAC/arith.a 
