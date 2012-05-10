@@ -1,20 +1,19 @@
 //Listado de defines utilizados en la libreria
-#define on 1 (FALTA COMPROBAR)
 
-//Variables globales del PSoC de trabajo
+
+//Declaracion de las variables globales del PSoC Trabajo
 char inici;
 char listo_int1, listo_int2, listo_tl1, listo_tl2;
-char Ent1=0;	//Barrera 1 12V
-char Ent2=0;	//Barrera 2 12V
-char Ent3=0;	//Microfono A/D 5V
-char Ent4=0;	//Digital 0/1 5V
-char Fla1=0, Fla2=0, Fla3=0, Fla4=0;
-char Cam1=0;
-char Cam2=0;
-unsigned char TL1_Treal, TL1_Treal_Uni, TL1_Tfilm, TL1_Tfilm_Uni; 	//Variables del modo disparo Time Lapse Cámara 1
-unsigned char TL2_Treal, TL2_Treal_Uni, TL2_Tfilm, TL2_Tfilm_Uni;	//Variables del modo disparo Time Lapse Cámara 2
-unsigned char Int1_Tdisp=0, Int1_Tdisp_Uni=0, Int1_Ndisp=0;			//Variables del modo disparo Intervalómetro Cámara 1
-unsigned char Int2_Tdisp=0, Int2_Tdisp_Uni=0, Int2_Ndisp=0;			//Variables del modo disparo Intervalómetro Cámara 2unsigned char 
+
+char Cam1=0, Cam2=0; 					//Variables que determinan si una salida a camara esta activa o no y el tipo de disparo
+char Ent1=0, Ent2=0, Ent3=0, Ent4=0;	//Variables que determinan si una entrada esta activa o no
+char Fla1=0, Fla2=0, Fla3=0, Fla4=0;	//Variables que determinan si una salida a flash esta activa o no
+
+unsigned char Int1_Tdisp=0, Int1_Tdisp_Uni=0, Int1_Ndisp=0;					//Variables del modo disparo Intervalómetro Cámara 1
+unsigned char Int2_Tdisp=0, Int2_Tdisp_Uni=0, Int2_Ndisp=0;					//Variables del modo disparo Intervalómetro Cámara 2
+unsigned char TL1_Treal=0, TL1_Treal_Uni=0, TL1_Tfilm=0, TL1_Tfilm_Uni=0; 	//Variables del modo disparo Time Lapse Cámara 1
+unsigned char TL2_Treal=0, TL2_Treal_Uni=0, TL2_Tfilm=0, TL2_Tfilm_Uni=0;	//Variables del modo disparo Time Lapse Cámara 2
+
 
 
 //Prototipos de la libreria del PSoC de trabajo
