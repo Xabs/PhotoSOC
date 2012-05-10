@@ -36,7 +36,7 @@ char Numeros();
 char Tiempos();
 void Executar();
 void Ara();
-void Envia(char valor);
+void envio_valores(void);
 void Trabajando();
 void Resetear();
 void Sistema();
@@ -44,17 +44,20 @@ void Reali_LCD();
 void Zumbador();
 void Ali_Led();
 
+
 //Declaracion de las variables globales del PSoC Terminal
+char Cam1=0, Cam2=0; 					//Variables que determinan si una salida a camara esta activa o no y el tipo de disparo
+char Ent1=0, Ent2=0, Ent3=0, Ent4=0;	//Variables que determinan si una entrada esta activa o no
+char Fla1=0, Fla2=0, Fla3=0, Fla4=0;	//Variables que determinan si una salida a flash esta activa o no
+
+unsigned char Int1_Tdisp=0, Int1_Tdisp_Uni=0, Int1_Ndisp=0;					//Variables del modo disparo Intervalómetro Cámara 1
+unsigned char Int2_Tdisp=0, Int2_Tdisp_Uni=0, Int2_Ndisp=0;					//Variables del modo disparo Intervalómetro Cámara 2
+unsigned char TL1_Treal=0, TL1_Treal_Uni=0, TL1_Tfilm=0, TL1_Tfilm_Uni=0; 	//Variables del modo disparo Time Lapse Cámara 1
+unsigned char TL2_Treal=0, TL2_Treal_Uni=0, TL2_Tfilm=0, TL2_Tfilm_Uni=0;	//Variables del modo disparo Time Lapse Cámara 2
+
 char Luz_LCD=0;
 char Buzzer=0;
 char Alimentacion=0;
-char Ent1=0, Ent2=0, Ent3=0, Ent4=0;
-char Fla1=0, Fla2=0, Fla3=0, Fla4=0;
-char Cam1=0, Cam2=0; 
-unsigned char Int1_Tdisp=0, Int1_Tdisp_Uni=0, Int1_Ndisp=0;			//Variables del modo disparo Intervalómetro Cámara 1
-unsigned char Int2_Tdisp=0, Int2_Tdisp_Uni=0, Int2_Ndisp=0;			//Variables del modo disparo Intervalómetro Cámara 2
-unsigned char TL1_Treal, TL1_Treal_Uni, TL1_Tfilm, TL1_Tfilm_Uni; 	//Variables del modo disparo Time Lapse Cámara 1
-unsigned char TL2_Treal, TL2_Treal_Uni, TL2_Tfilm, TL2_Tfilm_Uni;	//Variables del modo disparo Time Lapse Cámara 2
 
 //***********************************************************************************************************************/
 //***********************************************************************************************************************/
@@ -1045,24 +1048,67 @@ void Executar()
 //***************************************************************************************
 //***************************************************************************************
 
+/************************************************************************************************************************
+/  	LLAMADA: envio_valores()
+/  	FUNCION: Envia al PSoC de trabajo los valores que se han seleccionado por menú
+/  	ENTRADA: void
+/  	SALIDA: void
+/	INICIALIZAR PERIFERICOS: No
+/  	OTROS: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/************************************************************************************************************************/
+
+void envio_valores(void)
+{
+Reset_PdT();
+	envia(Cam1);
+	envia(Cam2);
+	envia(Ent1);
+	envia(Ent2);
+	envia(Ent3);
+	envia(Ent4);
+	envia(Fla1);
+	envia(Fla2);
+	envia(Fla3);
+	envia(Fla4);
+	
+	if (Cam1==2)	//Intervalometro camara 1
+	envia(Int1_Tdisp);
+	envia(Int1_Tdisp_Uni);
+	envia(Int1_Ndisp);
+		
+	if (Cam2==2)	//Intervalometro camara 2
+	envia(Int2_Tdisp);
+	envia(Int2_Tdisp_Uni);
+	envia(Int2_Ndisp);
+	
+	if (Cam1==3)	//Time-lapse camara 1
+	envia(TL1_Treal);
+	envia(TL1_Treal_Uni);
+	envia(TL1_Tfilm);
+	envia(TL1_Tfilm_Uni);
+	
+	if (Cam2==3)	//Time-lapse camara 2
+	envia(TL2_Treal);
+	envia(TL2_Treal_Uni);
+	envia(TL2_Tfilm);
+	envia(TL2_Tfilm_Uni);
+	
+	if(Buzzer==1) Pitido();
+}
+
+
+//***************************************************************************************
+//***************************************************************************************
+
+
+
+
 //Funcion que permite empezar a enviar la infomacion al PSoC de trabajo
 //y empieza a ejecutar los sensores
 
 void Ara()		//Prova
 {
-	Reset_PdT();
-	Envia(9);
-	Envia(Ent1);
-	Envia(Ent2);
-	Envia(Ent3);
-	Envia(Ent4);
-	Envia(Cam1);
-	Envia(Cam2);
-	Envia(Fla1);
-	Envia(Fla2);
-	Envia(Fla3);
-	Envia(Fla4);
-	if(Buzzer==1) Pitido();
+	envio_valores();
 	Trabajando();
 }
 
