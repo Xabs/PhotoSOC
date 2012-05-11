@@ -41,7 +41,6 @@ void disparo(void);
 void dispara_camara(char disparo_camara_numero);
 void dispara_camaras (void);
 void Inicio(void);
-void Deteccion(void);
 void Disparo_flash(char disparo_flash_numero);
 
 
@@ -343,65 +342,7 @@ void Dispara_camaras (void)
 
 
 
-/*	
 
-//Funcion que recibira las tranmision de la UART y las asignara a las diferentes
-//variables para poderlas usar en nuestro programa
-
-void Ejecucion(void)
-{
-	unsigned long real, film;
-	
-		
-	if(Cam1==2)
-	{
-		listo_int1=1;
-		if(Int1_Tdisp_Uni==1)Td_int1=Int1_Tdisp;			//Td_int1, Int1_Tdisp, Int1_Tdisp_Uni
-		else if(Int1_Tdisp_Uni==2)Td_int1=Int1_Tdisp*60;
-		else if(Int1_Tdisp_Uni==3)Td_int1=Int1_Tdisp*3600;
-	}
-	else listo_int1=0;
-	if(Cam2==2)
-	{
-		listo_int2=1;
-		if(Int2_Tdisp_Uni==1)Td_int2=Int2_Tdisp;			//Td_int2, Int2_Tdisp, Int2_Tdisp_Uni
-		else if(Int2_Tdisp_Uni==2)Td_int2=Int2_Tdisp*60;
-		else if(Int2_Tdisp_Uni==3)Td_int2=Int2_Tdisp*3600;
-	}
-	else listo_int2=0;
-	if(Cam1==3)
-	{
-		listo_tl1=1;
-		if(TL1_Treal_Uni==1)real=TL1_Treal;					//TL1_Treal, TL1_Treal_Uni
-		else if(TL1_Treal_Uni==2)real=TL1_Treal*60;
-		else if(TL1_Treal_Uni==3)real=TL1_Treal*3600;
-		
-		if(TL1_Tfilm_Uni==1)film=TL1_Tfilm;					//TL1_Tfilm, TL1_Tfilm_Uni
-		else if(TL1_Tfilm_Uni==2)film=TL1_Tfilm*60;
-		else if(TL1_Tfilm_Uni==3)film=TL1_Tfilm*3600;
-		
-		D_tl1=film*25;										//D_tl1
-		Td_tl1=real/D_tl1;									//Td_tl1
-	}
-	else listo_tl1=0;
-	if(Cam2==3)
-	{
-		listo_tl2=1;
-		if(TL2_Treal_Uni==1)real=TL2_Treal;					//TL2_Treal, TL2_Treal_Uni
-		else if(TL2_Treal_Uni==2)real=TL2_Treal*60;
-		else if(TL2_Treal_Uni==3)real=TL2_Treal*3600;
-		
-		if(TL2_Tfilm_Uni==1)film=TL2_Tfilm;					//TL2_Tfilm, TL2_Tfilm_Uni
-		else if(TL2_Tfilm_Uni==2)film=TL2_Tfilm*60;
-		else if(TL2_Tfilm_Uni==3)film=TL2_Tfilm*3600;
-		
-		D_tl2=film*25;										//D_tl2
-		Td_tl2=real/D_tl2;									//Td_tl2
-	}
-	else listo_tl2=0;
-	
-	Deteccion();
-}
 
 //******************************************************************************
 //******************************************************************************
