@@ -23,7 +23,8 @@ unsigned char TL1_Treal=0, TL1_Treal_Uni=0, TL1_Tfilm=0, TL1_Tfilm_Uni=0; 	//Var
 unsigned char TL2_Treal=0, TL2_Treal_Uni=0, TL2_Tfilm=0, TL2_Tfilm_Uni=0;	//Variables del modo disparo Time Lapse Cámara 2
 
 char tocacam1=0, tocacam2=0;
-
+unsigned int dspCam1=0, dspCam2=0;		//Disparos de la camara
+unsigned long tpCam1=0, tpCam2=0;		//Tiempo entre disparos
 
 
 //Prototipos de la libreria del PSoC de trabajo
@@ -35,6 +36,7 @@ void ejecucion(void);
 void preparadisparo(void);
 unsigned long calculosegundos(char numero, char unidades);
 
+
 void disparo(void);
 void dispara_camara(char disparo_camara_numero);
 void dispara_camaras (void);
@@ -42,9 +44,8 @@ void Inicio(void);
 char Dato(void);
 void Deteccion(void);
 void Disparo_flash(char disparo_flash_numero);
-void Unico(void);
-void Intervalometro(void);
-void TimeLapse(void);
+
+
 
 //******************************************************************************
 //******************************************************************************
@@ -221,29 +222,30 @@ void ejecucion (void)
 /**********************************************************************************************************************/
 void preparadisparo(void)
 {
-	if(Cam1==1) tocacam1=on; 		//disparo unico camara 1
+	#define treal preparadisparo_tp_real
+	#define tclip preparadisparo_tp_clip
 	
-	if(Cam2==1) tocacam2=on;		//disparo unico camara 2
+	unsigned long treal, tclip;
 	
-	if(Cam1==2)
+	switch (Cam1==)				//Cámara 1
 	{
-	//Intervalometro camara 1
+		case 1:					//disparo único
+			tocacam1=on;
+			break
+		case 2:					//intervalometro
+			dspCam1=Int1_Ndisp;
+			tpCam1=calculosegundos(Int1_Tdisp, Int1_Tdisp_Uni);
+			break
+		case 3:					//Timelapse
+			treal=calculosegundos(TL1_Treal, TL1_Treal_Uni);	//Calculo en segundos del tiempo real
+			tclip=calculosegundos(TL1_Tfilm, TL1_Tfilm_Uni);	//Calculo en segundos del tiempo de clip
+			dspCam1=(tclip*25);		//25 fotogramas por segundo para Europa (PAL)
+			tpCam1=(treal/dspCam1);
+			break
 	}
+
 	
-	if(Cam1==3)
-	{
-	//Cálculo Time lapse camara 1
-	}
-	
-	if(Cam2==2)
-	{
-	//Intervalometro camara 2
-	}
-	
-	if (Cam2==3)
-	{
-	//Cálculo Time lapse camara 2
-	}
+	//Falta un switch igual para la camara 2 despues que Javi confirme la redacción
 }
 //******************************************************************************
 //******************************************************************************
@@ -269,6 +271,8 @@ unsigned long calculosegundos(char numero, char unidades)
 }
 //******************************************************************************
 //******************************************************************************
+
+
 
 
 
@@ -333,31 +337,6 @@ void Dispara_camaras (void)
 
 
 
-/************************************************************************************************************************
-/  	LLAMADA: intervalometro()
-/  	FUNCION: Rutina que desarrolla el programa de intervalometro
-/  	ENTRADA: void
-/  	SALIDA: void
-/	OTROS: nada
-/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-/**********************************************************************************************************************/
-
-void Intervalometro(void)
-{
-	unsigned char intervalometro_x, Int_Ndisp,Int_Tdisp;
-	
-	//Cálculo del tiempo entre disparos en segundos
-	
-	//Disparos
-	for (intervalometro_x=0;intervalometro_x<Int_Ndisp;intervalometro_x++)
-	{
-		Dispara_camaras();
-		Temporizador(Int_Tdisp);
-	}
-}
-
-//******************************************************************************
-//******************************************************************************
 
 
 
@@ -517,62 +496,6 @@ void Disparo_flash(char disparo_flash_numero)
 
 
 
-//Funcion de disparo unico, dispara todos los actuadores a la vez
-
-void Unico(void)
-{
-	int x;
-	
-	PRT0DR=PRT0DR | 0x55; 	//Activacion de todas las salidas del puerto 0
-	PRT2DR=PRT2DR | 0x55;	//Activacion de todas las salidas del puerto 2
-	for(x=0;x<300;x++);		//Tiempo para que actuen 
-	PRT0DR=PRT0DR & 0xAA;	//Desactivacion de las salidas del puerto 0
-	PRT2DR=PRT2DR & 0xAA;	//Desactivacion de las salidas del puerto 2
-	Reset();
-}
-
-//******************************************************************************
-//******************************************************************************
 
 
 
-//******************************************************************************
-//******************************************************************************
-
-//Funcion de Timelapse
-
-void TimeLapse(void)
-{
-	unsigned long timelapse_treal, timelapse_tclip, timelapse_disparos, timelapse_resultado;
-	unsigned int timelapse_x;
-	
-	//Cálculo del tiempo real en segundos
-	
-	//Cálculo del tiempo del clip en segundos
-	
-	//Cálculo del numero de disparos a realizar
-	timelapse_disparos=(timelapse_tclip*25); //25fotogramas por segundo para Europa (PAL)
-	
-	//Cálculo del tiempo entre disparos
-	timelapse_resultado=(timelapse_treal/timelapse_disparos);
-	
-	for (timelapse_x=0;timelapse_x<timelapse_disparos;timelapse_x++)
-	{
-		Dispara_camaras();
-		Temporizador(timelapse_resultado);
-	}
-}
-//******************************************************************************
-//******************************************************************************
-
-
-
-//Funcion de temporizador que contará X segundos
-
-void Temporizador (void)
-{
-
-}
-
-//******************************************************************************
-//******************************************************************************/
