@@ -30,12 +30,11 @@ char listo_int1, listo_int2, listo_tl1, listo_tl2;
 void inicializacion(void);
 void recibe_valores(void);
 void ejecucion(void);
-
+void tipodisparo(void);
 
 void Inicio(void);
 char Dato(void);
 void Deteccion(void);
-void Tipodisparo(void);
 void Disparo_camara(char disparo_camara_numero);
 void Dispara_camaras (void);
 void Disparo_flash(char disparo_flash_numero);
@@ -124,6 +123,8 @@ void recibe_valores(void)
 	TL2_Treal_Uni=recibe();
 	TL2_Tfilm=recibe();
 	TL2_Tfilm_Uni=recibe();
+	
+	//Faltaria programar si hay alguna variable que ha dado error
 }	
 
 //******************************************************************************
@@ -144,12 +145,75 @@ void recibe_valores(void)
 
 void ejecucion (void)
 {
-
+	tipodisparo();
 
 }	
 
 //******************************************************************************
 //******************************************************************************
+
+
+
+
+/************************************************************************************************************************
+/  	LLAMADA: tipodisparo()
+/  	FUNCION: Rutina que segun el tipo de disparo programado activa las interrupciones y prepara las variables
+/  	ENTRADA: void
+/  	SALIDA: void
+/	OTROS: nada
+/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/**********************************************************************************************************************/
+
+void tipodisparo(void)
+{
+	if(Cam1==1|Cam2==1) 
+	activar_sensores();
+	
+	if(Cam1==2)
+	{
+	//Intervalometro camara 1
+	}
+	
+	if(Cam1==3)
+	{
+	//Cálculo Time lapse camara 1
+	}
+	
+	if(Cam2==2)
+	{
+	//Intervalometro camara 2
+	}
+	
+	if (Cam2==3)
+	{
+	//Cálculo Time lapse camara 2
+	}
+}
+
+//******************************************************************************
+//******************************************************************************
+
+
+
+
+/************************************************************************************************************************
+/  	LLAMADA: activar_sensores()
+/  	FUNCION: Rutina que activa las interrupciones externas para permitir el disparo por sensor
+/  	ENTRADA: void
+/  	SALIDA: void
+/	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
+/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/**********************************************************************************************************************/
+
+void activar_sensores(void)
+{
+}
+
+//******************************************************************************
+//******************************************************************************
+
+
+
 
 
 
@@ -309,23 +373,7 @@ void Deteccion(void)
 //******************************************************************************
 //******************************************************************************
 
-//Funcion que gestionara los tipos de disparos al activarse dependiendo de  la informacion
-//de las variables que le hemos mandado actuara de una manera u otra
 
-void Tipodisparo(void)
-{
-	if(inici==1)
-	{
-		if(Cam1==1) Unico();
-		else if(Cam1==1) Unico();
-		inici=0;
-	}
-	if(listo_int1==1 && Cam1==2) Intervalometro(1);
-	if(listo_int2==1 && Cam2==2) Intervalometro(2);
-	if(listo_tl1==1 && Cam1==3) TimeLapse(1);
-	if(listo_tl2==1 && Cam2==3) TimeLapse(2);
-	if(listo_int1==0 && listo_int2==0 && listo_tl1==0 && listo_tl2==0) Reset();
-}
 
 //******************************************************************************
 //******************************************************************************
