@@ -29,10 +29,10 @@ LoadConfigTBL_trabajov1:
 	M8C_SetBank0
 	mov	reg[05h], 00h		; Port_1_IntEn register (PRT1IE)
 	M8C_SetBank1
-	mov	reg[08h], 7fh		; Port_2_DriveMode_0 register (PRT2DM0)
-	mov	reg[09h], 80h		; Port_2_DriveMode_1 register (PRT2DM1)
+	mov	reg[08h], 00h		; Port_2_DriveMode_0 register (PRT2DM0)
+	mov	reg[09h], ffh		; Port_2_DriveMode_1 register (PRT2DM1)
 	M8C_SetBank0
-	mov	reg[0bh], 80h		; Port_2_DriveMode_2 register (PRT2DM2)
+	mov	reg[0bh], ffh		; Port_2_DriveMode_2 register (PRT2DM2)
 	mov	reg[0ah], 00h		; Port_2_GlobalSelect register (PRT2GS)
 	M8C_SetBank1
 	mov	reg[0ah], 00h		; Port_2_IntCtrl_0 register (PRT2IC0)
@@ -135,7 +135,6 @@ LoadConfigTBL_trabajov1:
 	mov	reg[6dh], 00h		; TMP_DR1 register (TMP_DR1)
 	mov	reg[6eh], 00h		; TMP_DR2 register (TMP_DR2)
 	mov	reg[6fh], 00h		; TMP_DR3 register (TMP_DR3)
-;  Instance name LCD, User Module LCD
 ;  Instance name Segundos, User Module Timer16
 ;       Instance name Segundos, Block Name TIMER16_LSB(DBB10)
 	mov	reg[33h], 00h		;Segundos_CONTROL_LSB_REG(DBB10CR0)
@@ -179,7 +178,6 @@ LoadConfigTBL_trabajov1:
 	mov	reg[deh], 02h		; OscillatorControl_4 register (OSC_CR4)
 	mov	reg[ddh], 00h		; OscillatorGlobalBusEnableControl register (OSC_GO_EN)
 	mov	reg[e7h], 00h		; Type2Decimator_Control register (DEC_CR2)
-;  Instance name LCD, User Module LCD
 ;  Instance name Segundos, User Module Timer16
 ;       Instance name Segundos, Block Name TIMER16_LSB(DBB10)
 	mov	reg[30h], 00h		;Segundos_FUNC_LSB_REG(DBB10FN)

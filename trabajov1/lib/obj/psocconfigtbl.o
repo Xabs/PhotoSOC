@@ -137,57 +137,57 @@ dbline 86 153
 dbline 87 156
 dbline 88 159
 dbline 89 15C
-dbline 8D 15F
-dbline 8E 162
-dbline 8F 165
-dbline 91 168
-dbline 92 16B
-dbline 93 16E
-dbline 96 171
-dbline 97 174
-dbline 98 177
-dbline 9B 17A
-dbline 9C 17D
-dbline 9D 180
-dbline 9F 183
-dbline A0 186
-dbline A1 189
-dbline A2 18C
-dbline A4 18E
-dbline A5 191
-dbline A6 194
-dbline A7 197
-dbline A8 19A
-dbline A9 19D
-dbline AA 1A0
-dbline AB 1A3
-dbline AC 1A6
-dbline AD 1A9
-dbline AE 1AC
-dbline AF 1AF
-dbline B0 1B2
-dbline B1 1B5
-dbline B2 1B8
-dbline B3 1BB
-dbline B4 1BE
-dbline B5 1C1
-dbline B9 1C4
-dbline BA 1C7
-dbline BB 1CA
-dbline BD 1CD
-dbline BE 1D0
-dbline BF 1D3
-dbline C2 1D6
-dbline C3 1D9
-dbline C4 1DC
-dbline C7 1DF
-dbline C8 1E2
-dbline C9 1E5
-dbline CB 1E8
-dbline CC 1EB
-dbline CD 1EE
-dbline CE 1F1
-dbline CF 1F3
+dbline 8C 15F
+dbline 8D 162
+dbline 8E 165
+dbline 90 168
+dbline 91 16B
+dbline 92 16E
+dbline 95 171
+dbline 96 174
+dbline 97 177
+dbline 9A 17A
+dbline 9B 17D
+dbline 9C 180
+dbline 9E 183
+dbline 9F 186
+dbline A0 189
+dbline A1 18C
+dbline A3 18E
+dbline A4 191
+dbline A5 194
+dbline A6 197
+dbline A7 19A
+dbline A8 19D
+dbline A9 1A0
+dbline AA 1A3
+dbline AB 1A6
+dbline AC 1A9
+dbline AD 1AC
+dbline AE 1AF
+dbline AF 1B2
+dbline B0 1B5
+dbline B1 1B8
+dbline B2 1BB
+dbline B3 1BE
+dbline B4 1C1
+dbline B7 1C4
+dbline B8 1C7
+dbline B9 1CA
+dbline BB 1CD
+dbline BC 1D0
+dbline BD 1D3
+dbline C0 1D6
+dbline C1 1D9
+dbline C2 1DC
+dbline C5 1DF
+dbline C6 1E2
+dbline C7 1E5
+dbline C9 1E8
+dbline CA 1EB
+dbline CB 1EE
+dbline CC 1F1
+dbline CD 1F3
 S LoadConfigTBL_trabajov1 Def0000
 T 00 00 71 10 62 00 57 62 01 AA 70 EF 62 03 08 62
 R 00 00 00 01
@@ -197,9 +197,9 @@ T 00 1C 00 71 10 62 04 10 62 05 EF 70 EF 62 07 AF
 R 00 00 00 01
 T 00 2A 62 06 50 71 10 62 06 00 62 07 00 70 EF 62
 R 00 00 00 01
-T 00 38 05 00 71 10 62 08 7F 62 09 80 70 EF 62 0B
+T 00 38 05 00 71 10 62 08 00 62 09 FF 70 EF 62 0B
 R 00 00 00 01
-T 00 46 80 62 0A 00 71 10 62 0A 00 62 0B 00 70 EF
+T 00 46 FF 62 0A 00 71 10 62 0A 00 62 0B 00 70 EF
 R 00 00 00 01
 T 00 54 62 09 00 71 10 62 0C 00 62 0D 00 70 EF 62
 R 00 00 00 01

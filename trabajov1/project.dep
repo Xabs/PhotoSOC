@@ -1,38 +1,36 @@
 # DO NOT DELETE
 ./obj/boot.o :  C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8ssc.inc\
-   I:\PhotoSOC\TRABAJ~1\lib\GLOBAL~1.INC I:\PhotoSOC\TRABAJ~1\memory.inc
-./obj/main.o :  ./lib/LCD.h ./lib/PSoCAPI.h ./lib/Segundos.h\
-   ./lib/Timer8.h ./lib/UART.h\
-   C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.h\
+   C:\DOCUME~1\x\PhotoSOC\TRABAJ~1\lib\GLOBAL~1.INC\
+   C:\DOCUME~1\x\PhotoSOC\TRABAJ~1\memory.inc
+./obj/main.o :  ./lib/PSoCAPI.h ./lib/Segundos.h ./lib/Timer8.h\
+   ./lib/UART.h C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.h\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/_const.h\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/limits.h\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/stdlib.h\
-   I:\PhotoSOC\TRABAJ~1\COMUNI~1.H I:\PhotoSOC\TRABAJ~1\trabajo.h
-./lib/obj/lcd.o :  ./lib/LCD.inc\
-   C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc\
-   I:\PhotoSOC\TRABAJ~1\memory.inc
+   C:\DOCUME~1\x\PhotoSOC\TRABAJ~1\COMUNI~1.H\
+   C:\DOCUME~1\x\PhotoSOC\TRABAJ~1\trabajo.h
 ./lib/obj/psocconfig.o :  ./lib/GLOBAL~1.INC\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc\
-   I:\PhotoSOC\TRABAJ~1\memory.inc
+   C:\DOCUME~1\x\PhotoSOC\TRABAJ~1\memory.inc
 ./lib/obj/psocconfigtbl.o : \
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc
 ./lib/obj/segundos.o :  ./lib/Segundos.inc\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc\
-   I:\PhotoSOC\TRABAJ~1\memory.inc
+   C:\DOCUME~1\x\PhotoSOC\TRABAJ~1\memory.inc
 ./lib/obj/segundosint.o :  ./lib/Segundos.inc\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc\
-   I:\PhotoSOC\TRABAJ~1\memory.inc
+   C:\DOCUME~1\x\PhotoSOC\TRABAJ~1\memory.inc
 ./lib/obj/timer8.o :  ./lib/Timer8.inc\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc\
-   I:\PhotoSOC\TRABAJ~1\memory.inc
+   C:\DOCUME~1\x\PhotoSOC\TRABAJ~1\memory.inc
 ./lib/obj/timer8int.o :  ./lib/Timer8.inc\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc\
-   I:\PhotoSOC\TRABAJ~1\memory.inc
+   C:\DOCUME~1\x\PhotoSOC\TRABAJ~1\memory.inc
 ./lib/obj/uart.o :  ./lib/UART.inc\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc\
-   I:\PhotoSOC\TRABAJ~1\memory.inc
+   C:\DOCUME~1\x\PhotoSOC\TRABAJ~1\memory.inc
 ./lib/obj/uartint.o :  ./lib/UART.inc\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc\
-   I:\PhotoSOC\TRABAJ~1\memory.inc
+   C:\DOCUME~1\x\PhotoSOC\TRABAJ~1\memory.inc
 ./lib/obj/uartplus.o : 
