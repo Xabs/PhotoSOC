@@ -11,8 +11,6 @@
 
 
 //Declaracion de las variables globales del PSoC Trabajo
-char inici;
-char listo_int1, listo_int2, listo_tl1, listo_tl2;
 
 char Cam1=0, Cam2=0; 					//Variables que determinan si una salida a camara esta activa o no y el tipo de disparo
 char Ent1=0, Ent2=0, Ent3=0, Ent4=0;	//Variables que determinan si una entrada esta activa o no
@@ -24,9 +22,14 @@ unsigned char TL1_Treal=0, TL1_Treal_Uni=0, TL1_Tfilm=0, TL1_Tfilm_Uni=0; 	//Var
 unsigned char TL2_Treal=0, TL2_Treal_Uni=0, TL2_Tfilm=0, TL2_Tfilm_Uni=0;	//Variables del modo disparo Time Lapse Cámara 2
 
 char Td_int1, Td_int2, D_tl1, Td_tl1, D_t12,Td_tl2;
+char inici;
+char listo_int1, listo_int2, listo_tl1, listo_tl2;
+
 
 //Prototipos de la libreria del PSoC de trabajo
-void Inicializacion(void);
+void inicializacion(void);
+void recibe_valores(void);
+
 void Inicio(void);
 void Ejecucion(void);
 char Dato(void);
@@ -39,12 +42,13 @@ void Unico(void);
 void Intervalometro(void);
 void TimeLapse(void);
 
+//******************************************************************************
+//******************************************************************************
 
-//******************************************************************************
-//******************************************************************************
+
 
 /************************************************************************************************************************
-/  	LLAMADA: Inicializacion()
+/  	LLAMADA: inicializacion()
 /  	FUNCION: Inicializa todos los perifericos necesarios en el proyecto: Timers, UART, etc
 /  	ENTRADA: void
 /  	SALIDA: void
@@ -52,7 +56,7 @@ void TimeLapse(void);
 /  	OTROS: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
 
-void Inicializacion(void)
+void inicializacion(void)
 {
 	//Inicialización del Timer para la UART
 	Timer8_WritePeriod(156);		//Este valor es Fosc/Baudios/8
@@ -70,6 +74,71 @@ void Inicializacion(void)
 	Segundos_WriteCompareValue(0);
 	Segundos_Start();	
 }	
+
+//******************************************************************************
+//******************************************************************************
+
+
+
+/************************************************************************************************************************
+/  	LLAMADA: recibe_valores()
+/  	FUNCION: Recibe mediante UART los valores programados en el PSoC terminal
+/  	ENTRADA: void
+/  	SALIDA: void
+/	OTROS: necesaria libreria comunicaciones.h 
+/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/**********************************************************************************************************************/
+
+void recibe_valores(void)
+{
+	Cam1=recibe();
+	Cam2=recibe();
+	Ent1=recibe();
+	Ent2=recibe();
+	Ent3=recibe();
+	Ent4=recibe();
+	Fla1=recibe();
+	Fla2=recibe();
+	Fla3=recibe();
+	Fla4=recibe();
+	
+	if (Cam1==2)	//Intervalometro camara 1
+	Int1_Tdisp=recibe();
+	Int1_Tdisp_Uni=recibe();
+	Int1_Ndisp=recibe();
+		
+	if (Cam2==2)	//Intervalometro camara 2
+	Int2_Tdisp=recibe();
+	Int2_Tdisp_Uni=recibe();
+	Int2_Ndisp=recibe();
+	
+	if (Cam1==3)	//Time-lapse camara 1
+	TL1_Treal=recibe();
+	TL1_Treal_Uni=recibe();
+	TL1_Tfilm=recibe();
+	TL1_Tfilm_Uni=recibe();
+	
+	if (Cam2==3)	//Time-lapse camara 2
+	TL2_Treal=recibe();
+	TL2_Treal_Uni=recibe();
+	TL2_Tfilm=recibe();
+	TL2_Tfilm_Uni=recibe();
+}	
+
+//******************************************************************************
+//******************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*	
 //Esta funcion esperara continuamente una informacion que le llegara por
