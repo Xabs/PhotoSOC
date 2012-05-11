@@ -895,6 +895,26 @@ R 00 00 00 02
 .end
 .start
 XH
+H 1 areas 2 global symbols
+M psocgpioint.asm
+S MI_RSI_EXTERNA Ref0000
+A text size 4 flags 0
+dbfile lib/psocgpioint.asm
+dbfunc 0 ? 0 I
+dbline 3C 0
+dbline 43 3
+dbfile ./lib/PSoCGPIOINT.inc
+dbfunc 0 ? 0 I
+dbfile lib/psocgpioint.asm
+dbfunc 0 ? 0 I
+dbfile C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc
+dbfunc 0 ? 0 I
+S PSoC_GPIO_ISR Def0000
+T 00 00 7D 00 00 7E
+R 00 00 00 00 02 03 00 00
+.end
+.start
+XH
 H 2 areas 1 global symbols
 M psocconfigtbl.asm
 A text size 0 flags 0
@@ -1085,17 +1105,17 @@ dbline CB 1EE
 dbline CC 1F1
 dbline CD 1F3
 S LoadConfigTBL_trabajov1 Def0000
-T 00 00 71 10 62 00 57 62 01 AA 70 EF 62 03 08 62
+T 00 00 71 10 62 00 55 62 01 AA 70 EF 62 03 00 62
 R 00 00 00 01
-T 00 0E 02 00 71 10 62 02 00 62 03 00 70 EF 62 01
+T 00 0E 02 00 71 10 62 02 00 62 03 AA 70 EF 62 01
 R 00 00 00 01
-T 00 1C 00 71 10 62 04 10 62 05 EF 70 EF 62 07 AF
+T 00 1C AA 71 10 62 04 10 62 05 EF 70 EF 62 07 AF
 R 00 00 00 01
 T 00 2A 62 06 50 71 10 62 06 00 62 07 00 70 EF 62
 R 00 00 00 01
-T 00 38 05 00 71 10 62 08 00 62 09 FF 70 EF 62 0B
+T 00 38 05 00 71 10 62 08 55 62 09 AA 70 EF 62 0B
 R 00 00 00 01
-T 00 46 FF 62 0A 00 71 10 62 0A 00 62 0B 00 70 EF
+T 00 46 AA 62 0A 00 71 10 62 0A 00 62 0B 00 70 EF
 R 00 00 00 01
 T 00 54 62 09 00 71 10 62 0C 00 62 0D 00 70 EF 62
 R 00 00 00 01

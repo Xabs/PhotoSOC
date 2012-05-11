@@ -5701,11 +5701,6 @@ unsigned char Int2_Tdisp=0, Int2_Tdisp_Uni=0, Int2_Ndisp=0;
 unsigned char TL1_Treal=0, TL1_Treal_Uni=0, TL1_Tfilm=0, TL1_Tfilm_Uni=0;
 unsigned char TL2_Treal=0, TL2_Treal_Uni=0, TL2_Tfilm=0, TL2_Tfilm_Uni=0;
 
-char Td_int1, Td_int2, D_tl1, Td_tl1, D_t12,Td_tl2;
-char inici;
-char listo_int1, listo_int2, listo_tl1, listo_tl2;
-
-
 
 void inicializacion(void);
 void recibe_valores(void);
@@ -5728,7 +5723,7 @@ void TimeLapse(void);
 
 
 
-#line 58 "./trabajo.h"
+#line 53 "./trabajo.h"
 
 void inicializacion(void)
 {
@@ -5755,7 +5750,7 @@ void inicializacion(void)
 
 
 
-#line 91 "./trabajo.h"
+#line 86 "./trabajo.h"
 
 void recibe_valores(void)
 {
@@ -5803,7 +5798,7 @@ void recibe_valores(void)
 
 
 
-#line 145 "./trabajo.h"
+#line 140 "./trabajo.h"
 
 void ejecucion (void)
 {
@@ -5818,7 +5813,7 @@ void ejecucion (void)
 
 
 
-#line 166 "./trabajo.h"
+#line 161 "./trabajo.h"
 
 void tipodisparo(void)
 {
@@ -5853,9 +5848,24 @@ void tipodisparo(void)
 
 
 
-#line 207 "./trabajo.h"
+#line 202 "./trabajo.h"
 
 void activar_sensores(void)
+{
+(INT_MSK0 |=(0x20));
+}
+
+
+
+
+
+
+
+
+#line 222 "./trabajo.h"
+
+
+void disparo_sensores(void)
 {
 }
 
@@ -5866,9 +5876,7 @@ void activar_sensores(void)
 
 
 
-
-
-#line 228 "./trabajo.h"
+#line 242 "./trabajo.h"
 
 void Intervalometro(void)
 {
@@ -5894,7 +5902,7 @@ void Intervalometro(void)
 
 
 
-#line 500 "./trabajo.h"
+#line 514 "./trabajo.h"
 #line 14 "./main.c"
 #line 1 "./comunicaciones.h"
 
@@ -5955,6 +5963,14 @@ unsigned char recibe(void)
 }
 #line 15 "./main.c"
 
+
+#pragma interrupt_handler MI_RSI_EXTERNA
+
+
+void MI_RSI_EXTERNA(void)
+{
+	disparo_sensores();
+}
 
 
 void main()

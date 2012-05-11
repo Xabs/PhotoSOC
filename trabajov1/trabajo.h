@@ -21,11 +21,6 @@ unsigned char Int2_Tdisp=0, Int2_Tdisp_Uni=0, Int2_Ndisp=0;					//Variables del 
 unsigned char TL1_Treal=0, TL1_Treal_Uni=0, TL1_Tfilm=0, TL1_Tfilm_Uni=0; 	//Variables del modo disparo Time Lapse Cámara 1
 unsigned char TL2_Treal=0, TL2_Treal_Uni=0, TL2_Tfilm=0, TL2_Tfilm_Uni=0;	//Variables del modo disparo Time Lapse Cámara 2
 
-char Td_int1, Td_int2, D_tl1, Td_tl1, D_t12,Td_tl2;
-char inici;
-char listo_int1, listo_int2, listo_tl1, listo_tl2;
-
-
 //Prototipos de la libreria del PSoC de trabajo
 void inicializacion(void);
 void recibe_valores(void);
@@ -85,7 +80,7 @@ void inicializacion(void)
 /  	FUNCION: Recibe mediante UART los valores programados en el PSoC terminal
 /  	ENTRADA: void
 /  	SALIDA: void
-/	OTROS: necesaria libreria comunicaciones.h e inicializar la UART y el temporizador asociado
+/	OTROS: necesaria libreria comunicaciones.h e inicializar la UART y el Timer asociado
 /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
 
@@ -207,12 +202,31 @@ void tipodisparo(void)
 
 void activar_sensores(void)
 {
+	M8C_EnableIntMask (INT_MSK0,INT_MSK0_GPIO);
 }
 
 //******************************************************************************
 //******************************************************************************
 
 
+
+
+/************************************************************************************************************************
+/  	LLAMADA: disparo_sensores()
+/  	FUNCION: Rutina que dispara la/s camara/s cuando se ha activado algun sensor
+/  	ENTRADA: void
+/  	SALIDA: void
+/	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
+/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/**********************************************************************************************************************/
+
+
+void disparo_sensores(void)
+{
+}
+
+//******************************************************************************
+//******************************************************************************
 
 
 

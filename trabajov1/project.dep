@@ -15,6 +15,8 @@
    C:\DOCUME~1\x\PhotoSOC\TRABAJ~1\memory.inc
 ./lib/obj/psocconfigtbl.o : \
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc
+./lib/obj/psocgpioint.o :  ./lib/PSOCGP~1.INC\
+   C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc
 ./lib/obj/segundos.o :  ./lib/Segundos.inc\
    C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc\
    C:\DOCUME~1\x\PhotoSOC\TRABAJ~1\memory.inc

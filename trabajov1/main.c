@@ -14,8 +14,16 @@
 #include "comunicaciones.h" 	// Libreria de comunicaciones creada por Albert y Xavi para el proyecto
 
 
+#pragma interrupt_handler MI_RSI_EXTERNA
 
-void main()
+
+void MI_RSI_EXTERNA(void)		//Interrupción externa
+{
+	disparo_sensores();
+}
+
+
+void main()						//Programa principal
 {	
 	inicializacion ();
 	recibe_valores();	
