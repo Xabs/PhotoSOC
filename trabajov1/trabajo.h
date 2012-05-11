@@ -141,26 +141,6 @@ void recibe_valores(void)
 
 
 /*	
-//Esta funcion esperara continuamente una informacion que le llegara por
-//la comunicacion del puerto serie que hemos incorporado al
-//proyecto, la informacion que reciba hara de selector para las tareas
-//que tiene programadas
-
-void Inicio(void)
-{	
-	char coms;
-	
-	for(;;)
-	{
-		coms=Dato();
-		inici=1;
-		if(coms==9) Ejecucion();
-		//Dejo espacio en caso de querer implementar el testeo del microfo a traves de la UART
-	}
-}
-
-//******************************************************************************
-//******************************************************************************
 
 //Funcion que recibira las tranmision de la UART y las asignara a las diferentes
 //variables para poderlas usar en nuestro programa
