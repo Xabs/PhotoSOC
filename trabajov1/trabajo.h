@@ -41,7 +41,6 @@ void disparo(void);
 void dispara_camara(char disparo_camara_numero);
 void dispara_camaras (void);
 void Inicio(void);
-char Dato(void);
 void Deteccion(void);
 void Disparo_flash(char disparo_flash_numero);
 
@@ -407,71 +406,6 @@ void Ejecucion(void)
 //******************************************************************************
 //******************************************************************************
 
-//Funcion de soporte que devolvera lo que reciba por la UART
-//y enviara una confirmacion para que se envie el siguiente dato
-
-char Dato(void)
-{
-	char recibido, confirma;
-	
-	do
-	{
-		recibido=UART_cGetChar();	//Esta se espera a que llegue un byte. Ver tambien UART_cReadChar()
-		UART_PutChar(recibido);		//Devolvemos el valor para la confirmacion confirmacion
-		confirma=UART_cGetChar();	//Resultado de la confirmacion
-	}while(confirma!=5);
-	return recibido;
-}
-
-//******************************************************************************
-//******************************************************************************
-
-//Funcion de bucle que mira si alguna entrada del PSoC de trabajo 
-//se activa segun lo especificado
-//Devolvera el numero de la entrada que se haya activado
-
-void Deteccion(void)	
-{
-	char sensor=0;
-	unsigned char x,
-	
-	PRT0DR=0xAA;	//Activo las resistencias de pull-up de los detectores
-	
-	do
-	{
-		if(Ent1==1)if(PRT0DR & 0x80==0x80)sensor=1;			//La entrada 1 consta de una barrera a 12V
-															//entrada en HighZ y con un divisor de tension
-		else if(Ent2==1)if(PRT0DR & 0x20==0x20)sensor=2;	//La entrada 2 consta de una barrera a 12V
-															//entrada en HighZ y con un divisor de tension
-		else if(Ent3==1)					//La entrada 3 consta de diferentes posibilidades
-		{									//laser, infrarojos, presion, etc a 5V
-			if(PRT0DR & 0x08==0x00)			
-				{
-					sensor=3;
-					PRT0DR=PRT0DR | 0x08;
-				}
-		}
-		else if(Ent4==1)					//La entrada 4 consta de diferentes posibilidades 
-		{									//laser, infrarojos, presion, etc a 5V
-			if(PRT0DR & 0x02==0x00)
-			{
-				sensor=4;
-				PRT0DR=PRT0DR | 0x02;	//Recarga de la resistencia
-			}
-		}
-		x=UART_cReadChar();
-		if(x==99) Reset();
-	}while(sensor==0);
-	Tipodisparo();
-}
-
-//******************************************************************************
-//******************************************************************************
-
-
-
-//******************************************************************************
-//******************************************************************************
 
 //Funcion que realiza un disparo de flash
 void Disparo_flash(char disparo_flash_numero)
