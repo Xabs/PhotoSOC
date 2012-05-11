@@ -11,6 +11,7 @@
 #define off 0
 #define on 1
 
+
 //Declaracion de las variables globales del PSoC Trabajo
 
 char Cam1=0, Cam2=0; 					//Variables que determinan si una salida a camara esta activa o no y el tipo de disparo
@@ -35,15 +36,7 @@ void disparo_sensores(void);
 void ejecucion(void);
 void preparadisparo(void);
 unsigned long calculosegundos(char numero, char unidades);
-
-
 void disparo(void);
-void dispara_camara(char disparo_camara_numero);
-void dispara_camaras (void);
-void Inicio(void);
-void Disparo_flash(char disparo_flash_numero);
-
-
 
 //******************************************************************************
 //******************************************************************************
@@ -58,7 +51,6 @@ void Disparo_flash(char disparo_flash_numero);
 /	OTROS: nada
 /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
-
 void inicializacion(void)
 {
 	//Inicialización del Timer para la UART
@@ -74,7 +66,6 @@ void inicializacion(void)
 	Segundos_WriteCompareValue(0);
 	Segundos_Start();	
 }	
-
 //******************************************************************************
 //******************************************************************************
 
@@ -88,7 +79,6 @@ void inicializacion(void)
 /	OTROS: necesaria libreria comunicaciones.h e inicializar la UART y el Timer asociado
 /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
-
 void recibe_valores(void)
 {
 	Cam1=recibe();
@@ -126,7 +116,6 @@ void recibe_valores(void)
 	
 	//Faltaria programar si hay alguna variable que ha dado error
 }	
-
 //******************************************************************************
 //******************************************************************************
 
@@ -140,7 +129,6 @@ void recibe_valores(void)
 /	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
 /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
-
 void activar_sensores(void)
 {
 	if (Ent1==on || Ent2==on || Ent3==on || Ent4==on)
@@ -149,7 +137,6 @@ void activar_sensores(void)
 		M8C_EnableIntMask (INT_MSK0,INT_MSK0_GPIO);		//Permitir interrupciones externas
 	}
 }
-
 //******************************************************************************
 //******************************************************************************
 
@@ -163,7 +150,6 @@ void activar_sensores(void)
 /	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
 /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
-
 void disparo_sensores(void)
 {
 	#define sensores disparo_sensores_sensores
@@ -182,10 +168,8 @@ void disparo_sensores(void)
 	if (sensores!=0) 
 	disparo();
 }
-
 //******************************************************************************
 //******************************************************************************
-
 
 
 
@@ -197,16 +181,13 @@ void disparo_sensores(void)
 /	OTROS: nada
 /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
-
 void ejecucion (void)
 {
 	preparadisparo();
 	disparo();
 }	
-
 //******************************************************************************
 //******************************************************************************
-
 
 
 
@@ -242,12 +223,10 @@ void preparadisparo(void)
 			break
 	}
 
-	
 	//Falta un switch igual para la camara 2 despues que Javi confirme la redacción
 }
 //******************************************************************************
 //******************************************************************************
-
 
 
 
@@ -272,10 +251,6 @@ unsigned long calculosegundos(char numero, char unidades)
 
 
 
-
-
-
-
 /************************************************************************************************************************
 /  	LLAMADA: disparo()
 /  	FUNCION: Rutina que dispara la/s camara/s y/o flashes segun programación
@@ -284,93 +259,35 @@ unsigned long calculosegundos(char numero, char unidades)
 /	OTROS: nada
 /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
-
-
 void disparo(void)
 {
-	if (Cam1==1 && Cam2==1)
-	dispara_camaras();
-}
-
-//******************************************************************************
-//******************************************************************************
-
-
-//Funcion que realiza un disparo unico de camara/s
-void Disparo_camara(char disparo_camara_numero)
-{	
 	int x;
-	//Activación de las salidas
-	if (disparo_camara_numero==1)
+	//Apertura de las cámaras
+	if (tocacam1==on)
 		{
 			PRT2DR=PRT2DR | 0x01;	//activar enfoque cam1
 			PRT2DR=PRT2DR | 0x04;	//activar obturador cam1
 		}
-	if (disparo_camara_numero==2)
+	if (tocacam2==on)
 		{
 			PRT2DR=PRT2DR | 0x10;	//activar enfoque cam2
 			PRT2DR=PRT2DR | 0x40;	//activar obturador cam2
 		}
-	//Perdida de tiempo para activar salidas
-	for(x=0;x<300;x++);
-	
-	//Desactivación de las salidas
-	PRT2DR=PRT2DR & 0xFA;			//desactivar cam1
-	PRT2DR=PRT2DR & 0xAF;			//desactivar cam2
-}
-
-
-//******************************************************************************
-//******************************************************************************
-
-//Funcion que dispara las camaras segun si estan activadas o no por menú
-void Dispara_camaras (void)
-{	
-	if (Cam1==on) Disparo_camara(1);
-	if (Cam2==on) Disparo_camara(2);
-}
-//******************************************************************************
-//******************************************************************************
-
-
-
-
-
-
-
-
-
-
-
-
-
-//******************************************************************************
-//******************************************************************************
-
-
-//Funcion que realiza un disparo de flash
-void Disparo_flash(char disparo_flash_numero)
-{	
-	int x;
-	//Activación de las salidas
-	if (disparo_flash_numero==1) PRT0DR=PRT0DR | 0x01;	
-	if (disparo_flash_numero==2) PRT0DR=PRT0DR | 0x04;	
-	if (disparo_flash_numero==3) PRT0DR=PRT0DR | 0x10;	
-	if (disparo_flash_numero==4) PRT0DR=PRT0DR | 0x40;	
+	//Apertura de los flashes
+	if (Fla1==1) PRT0DR=PRT0DR | 0x01;	
+	if (Fla2==1) PRT0DR=PRT0DR | 0x04;	
+	if (Fla3==1) PRT0DR=PRT0DR | 0x10;	
+	if (Fla4==1) PRT0DR=PRT0DR | 0x40;
 	
 	//Perdida de tiempo para activar salidas
 	for(x=0;x<300;x++);
 	
-	//Desactivación de las salidas
-	PRT0DR=PRT0DR & 0xAA;
+	//Desactivación de los flashes
+	PRT0DR=PRT0DR & 0xAA;			//1010-1010
+	
+	//Desactivación de las cámaras
+	PRT2DR=PRT2DR & 0xAA;			//1010-1010
+	
 }
-
-
 //******************************************************************************
 //******************************************************************************
-
-
-
-
-
-
