@@ -8,7 +8,8 @@
 
 
 //Listado de defines utilizados en la libreria
-
+#define off 0
+#define on 1
 
 //Declaracion de las variables globales del PSoC Trabajo
 
@@ -24,14 +25,17 @@ unsigned char TL2_Treal=0, TL2_Treal_Uni=0, TL2_Tfilm=0, TL2_Tfilm_Uni=0;	//Vari
 //Prototipos de la libreria del PSoC de trabajo
 void inicializacion(void);
 void recibe_valores(void);
+void activar_sensores(void);
+void disparo_sensores(void);
+
 void ejecucion(void);
 void tipodisparo(void);
-
+void disparo(void);
+void dispara_camara(char disparo_camara_numero);
+void dispara_camaras (void);
 void Inicio(void);
 char Dato(void);
 void Deteccion(void);
-void Disparo_camara(char disparo_camara_numero);
-void Dispara_camaras (void);
 void Disparo_flash(char disparo_flash_numero);
 void Unico(void);
 void Intervalometro(void);
@@ -61,10 +65,7 @@ void inicializacion(void)
 	//Inicialización de la UART en modo sin paridad
 	UART_Start(UART_PARITY_NONE);
 	
-	//Inicialización del LCD
-	LCD_Start();
-	LCD_Init();
-	
+	//Inicialización del Timer para contar el tiempo entre disparos
 	Segundos_WritePeriod(10000);		
 	Segundos_WriteCompareValue(0);
 	Segundos_Start();	
@@ -127,6 +128,61 @@ void recibe_valores(void)
 
 
 
+/************************************************************************************************************************
+/  	LLAMADA: activar_sensores()
+/  	FUNCION: Rutina que activa las interrupciones externas para permitir el disparo por sensor
+/  	ENTRADA: void
+/  	SALIDA: void
+/	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
+/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/**********************************************************************************************************************/
+
+void activar_sensores(void)
+{
+	if (Ent1==on || Ent2==on || Ent3==on || Ent4==on)
+	{
+		M8C_EnableGInt;									//Permitir interrupciones globalmente
+		M8C_EnableIntMask (INT_MSK0,INT_MSK0_GPIO);		//Permitir interrupciones externas
+	}
+}
+
+//******************************************************************************
+//******************************************************************************
+
+
+
+/************************************************************************************************************************
+/  	LLAMADA: disparo_sensores()
+/  	FUNCION: Rutina que dispara la/s camara/s cuando se ha activado algun sensor
+/  	ENTRADA: void
+/  	SALIDA: void
+/	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
+/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/**********************************************************************************************************************/
+
+void disparo_sensores(void)
+{
+	#define sensores disparo_sensores_sensores
+	char sensores;		//Declaraciones de las variables de la rutina
+	
+	//Guardamos el estado del port que crea las interrupciones evitando los flashes
+	sensores=PRT0DR&0xAA; 					//1010-1010 
+	
+	//Evitar las entradas no activadas en la programación aunque provoquen una interrupción
+	if (Ent1==off) sensores=sensores&0x7F; 	//0111-1111
+	if (Ent2==off) sensores=sensores&0xDF: 	//1101-1111
+	if (Ent3==off) sensores=sensores&0xF7; 	//1111-0111
+	if (Ent4==off) sensores=sensores&0xFD; 	//1111-1101
+	
+	//Disparar segun tipo de disparo
+	if (sensores!=0) 
+	tipodisparo();
+}
+
+//******************************************************************************
+//******************************************************************************
+
+
 
 
 /************************************************************************************************************************
@@ -141,7 +197,7 @@ void recibe_valores(void)
 void ejecucion (void)
 {
 	tipodisparo();
-
+	disparo();
 }	
 
 //******************************************************************************
@@ -161,8 +217,11 @@ void ejecucion (void)
 
 void tipodisparo(void)
 {
-	if(Cam1==1|Cam2==1) 
-	activar_sensores();
+	if(Cam1==1)
+	//disparo unico camara 1
+	
+	if(Cam2==1) 
+	//disparo unico camara 2
 	
 	if(Cam1==2)
 	{
@@ -191,40 +250,65 @@ void tipodisparo(void)
 
 
 
+
+
+
+
+
+
 /************************************************************************************************************************
-/  	LLAMADA: activar_sensores()
-/  	FUNCION: Rutina que activa las interrupciones externas para permitir el disparo por sensor
+/  	LLAMADA: disparo()
+/  	FUNCION: Rutina que dispara la/s camara/s y/o flashes segun programación
 /  	ENTRADA: void
 /  	SALIDA: void
-/	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
+/	OTROS: nada
 /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
 
-void activar_sensores(void)
+
+void disparo(void)
 {
-	M8C_EnableIntMask (INT_MSK0,INT_MSK0_GPIO);
+	if (Cam1==1 && Cam2==1)
+	dispara_camaras();
 }
 
 //******************************************************************************
 //******************************************************************************
 
 
-
-
-/************************************************************************************************************************
-/  	LLAMADA: disparo_sensores()
-/  	FUNCION: Rutina que dispara la/s camara/s cuando se ha activado algun sensor
-/  	ENTRADA: void
-/  	SALIDA: void
-/	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
-/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-/**********************************************************************************************************************/
-
-
-void disparo_sensores(void)
-{
+//Funcion que realiza un disparo unico de camara/s
+void Disparo_camara(char disparo_camara_numero)
+{	
+	int x;
+	//Activación de las salidas
+	if (disparo_camara_numero==1)
+		{
+			PRT2DR=PRT2DR | 0x01;	//activar enfoque cam1
+			PRT2DR=PRT2DR | 0x04;	//activar obturador cam1
+		}
+	if (disparo_camara_numero==2)
+		{
+			PRT2DR=PRT2DR | 0x10;	//activar enfoque cam2
+			PRT2DR=PRT2DR | 0x40;	//activar obturador cam2
+		}
+	//Perdida de tiempo para activar salidas
+	for(x=0;x<300;x++);
+	
+	//Desactivación de las salidas
+	PRT2DR=PRT2DR & 0xFA;			//desactivar cam1
+	PRT2DR=PRT2DR & 0xAF;			//desactivar cam2
 }
 
+
+//******************************************************************************
+//******************************************************************************
+
+//Funcion que dispara las camaras segun si estan activadas o no por menú
+void Dispara_camaras (void)
+{	
+	if (Cam1==on) Disparo_camara(1);
+	if (Cam2==on) Disparo_camara(2);
+}
 //******************************************************************************
 //******************************************************************************
 
@@ -242,7 +326,7 @@ void disparo_sensores(void)
 
 void Intervalometro(void)
 {
-	unsigned char intervalometro_x;
+	unsigned char intervalometro_x, Int_Ndisp,Int_Tdisp;
 	
 	//Cálculo del tiempo entre disparos en segundos
 	
@@ -391,43 +475,6 @@ void Deteccion(void)
 
 //******************************************************************************
 //******************************************************************************
-
-//Funcion que realiza un disparo unico de camara/s
-void Disparo_camara(char disparo_camara_numero)
-{	
-	int x;
-	//Activación de las salidas
-	if (disparo_camara_numero==1)
-		{
-			PRT2DR=PRT2DR | 0x01;	//activar enfoque cam1
-			PRT2DR=PRT2DR | 0x04;	//activar obturador cam1
-		}
-	if (disparo_camara_numero==2)
-		{
-			PRT2DR=PRT2DR | 0x10;	//activar enfoque cam2
-			PRT2DR=PRT2DR | 0x40;	//activar obturador cam2
-		}
-	//Perdida de tiempo para activar salidas
-	for(x=0;x<300;x++);
-	
-	//Desactivación de las salidas
-	PRT2DR=PRT2DR & 0xFA;			//desactivar cam1
-	PRT2DR=PRT2DR & 0xAF;			//desactivar cam2
-}
-
-
-//******************************************************************************
-//******************************************************************************
-
-//Funcion que dispara las camaras segun si estan activadas o no por menú
-void Dispara_camaras (void)
-{	
-	if (Cam1==on) Disparo_camara(1);
-	if (Cam2==on) Disparo_camara(2);
-}
-//******************************************************************************
-//******************************************************************************
-
 
 //Funcion que realiza un disparo de flash
 void Disparo_flash(char disparo_flash_numero)

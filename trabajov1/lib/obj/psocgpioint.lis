@@ -1025,7 +1025,7 @@
  0000              ; Insert your custom code below this banner
  0000              ;---------------------------------------------------
  0000           
- 0000 7D0000    ljmp MI_RSI_EXTERNA
+ 0000 7D0000    ljmp _MI_RSI_EXTERNA
  0003           
  0003             ;---------------------------------------------------
  0003              ; Insert your custom code above this banner

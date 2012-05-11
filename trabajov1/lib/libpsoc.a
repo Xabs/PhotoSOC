@@ -1,5 +1,25 @@
 .start
 XH
+H 1 areas 2 global symbols
+M psocgpioint.asm
+S _MI_RSI_EXTERNA Ref0000
+A text size 4 flags 0
+dbfile lib/psocgpioint.asm
+dbfunc 0 ? 0 I
+dbline 3C 0
+dbline 43 3
+dbfile ./lib/PSoCGPIOINT.inc
+dbfunc 0 ? 0 I
+dbfile lib/psocgpioint.asm
+dbfunc 0 ? 0 I
+dbfile C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc
+dbfunc 0 ? 0 I
+S PSoC_GPIO_ISR Def0000
+T 00 00 7D 00 00 7E
+R 00 00 00 00 02 03 00 00
+.end
+.start
+XH
 H 1 areas 0 global symbols
 M uartplus.asm
 A text size 0 flags 0
@@ -892,26 +912,6 @@ T 00 46 33 FE 18 60 36 18 60 32 18 60 33 18 20 70
 R 00 00 00 02
 T 00 54 3F 71 C0 7E 5D 30 5D 36 5C 5D 32 7F
 R 00 00 00 02
-.end
-.start
-XH
-H 1 areas 2 global symbols
-M psocgpioint.asm
-S MI_RSI_EXTERNA Ref0000
-A text size 4 flags 0
-dbfile lib/psocgpioint.asm
-dbfunc 0 ? 0 I
-dbline 3C 0
-dbline 43 3
-dbfile ./lib/PSoCGPIOINT.inc
-dbfunc 0 ? 0 I
-dbfile lib/psocgpioint.asm
-dbfunc 0 ? 0 I
-dbfile C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc
-dbfunc 0 ? 0 I
-S PSoC_GPIO_ISR Def0000
-T 00 00 7D 00 00 7E
-R 00 00 00 00 02 03 00 00
 .end
 .start
 XH

@@ -1,7 +1,7 @@
 XH
 H 1 areas 2 global symbols
 M psocgpioint.asm
-S MI_RSI_EXTERNA Ref0000
+S _MI_RSI_EXTERNA Ref0000
 A text size 4 flags 0
 dbfile lib/psocgpioint.asm
 dbfunc 0 ? 0 I

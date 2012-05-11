@@ -26,7 +26,8 @@ void MI_RSI_EXTERNA(void)		//Interrupción externa
 void main()						//Programa principal
 {	
 	inicializacion ();
-	recibe_valores();	
+	recibe_valores();
+	activar_sensores();	
 	ejecucion();
 }		
 
