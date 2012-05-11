@@ -22,14 +22,19 @@ unsigned char Int2_Tdisp=0, Int2_Tdisp_Uni=0, Int2_Ndisp=0;					//Variables del 
 unsigned char TL1_Treal=0, TL1_Treal_Uni=0, TL1_Tfilm=0, TL1_Tfilm_Uni=0; 	//Variables del modo disparo Time Lapse Cámara 1
 unsigned char TL2_Treal=0, TL2_Treal_Uni=0, TL2_Tfilm=0, TL2_Tfilm_Uni=0;	//Variables del modo disparo Time Lapse Cámara 2
 
+char tocacam1=0, tocacam2=0;
+
+
+
 //Prototipos de la libreria del PSoC de trabajo
 void inicializacion(void);
 void recibe_valores(void);
 void activar_sensores(void);
 void disparo_sensores(void);
-
 void ejecucion(void);
-void tipodisparo(void);
+void preparadisparo(void);
+unsigned long calculosegundos(char numero, char unidades);
+
 void disparo(void);
 void dispara_camara(char disparo_camara_numero);
 void dispara_camaras (void);
@@ -176,7 +181,7 @@ void disparo_sensores(void)
 	
 	//Disparar segun tipo de disparo
 	if (sensores!=0) 
-	tipodisparo();
+	disparo();
 }
 
 //******************************************************************************
@@ -196,7 +201,7 @@ void disparo_sensores(void)
 
 void ejecucion (void)
 {
-	tipodisparo();
+	preparadisparo();
 	disparo();
 }	
 
@@ -207,21 +212,18 @@ void ejecucion (void)
 
 
 /************************************************************************************************************************
-/  	LLAMADA: tipodisparo()
+/  	LLAMADA: preparadisparo()
 /  	FUNCION: Rutina que segun el tipo de disparo programado activa las interrupciones y prepara las variables
 /  	ENTRADA: void
 /  	SALIDA: void
 /	OTROS: nada
 /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
-
-void tipodisparo(void)
+void preparadisparo(void)
 {
-	if(Cam1==1)
-	//disparo unico camara 1
+	if(Cam1==1) tocacam1=on; 		//disparo unico camara 1
 	
-	if(Cam2==1) 
-	//disparo unico camara 2
+	if(Cam2==1) tocacam2=on;		//disparo unico camara 2
 	
 	if(Cam1==2)
 	{
@@ -243,14 +245,30 @@ void tipodisparo(void)
 	//Cálculo Time lapse camara 2
 	}
 }
-
 //******************************************************************************
 //******************************************************************************
 
 
 
 
-
+/************************************************************************************************************************
+/  	LLAMADA: x=calculosegundos(numero,unidades)
+/  	FUNCION: Rutina que calcula los segundos en funcion de la cantidad y las unidades
+/  	ENTRADA: numero (char) y unidades (char)
+/  	SALIDA: unsigned long
+/	OTROS: nada
+/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/**********************************************************************************************************************/
+unsigned long calculosegundos(char numero, char unidades)
+{
+	unsigned long resultado;
+	if (unidades==1) resultado=numero;
+	if (unidades==2) resultado=(numero*60);
+	if (unidades==3) resultado=(numero*3600);
+	return (resultado);
+}
+//******************************************************************************
+//******************************************************************************
 
 
 
