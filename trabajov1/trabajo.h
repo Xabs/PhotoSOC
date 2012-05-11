@@ -29,9 +29,10 @@ char listo_int1, listo_int2, listo_tl1, listo_tl2;
 //Prototipos de la libreria del PSoC de trabajo
 void inicializacion(void);
 void recibe_valores(void);
+void ejecucion(void);
+
 
 void Inicio(void);
-void Ejecucion(void);
 char Dato(void);
 void Deteccion(void);
 void Tipodisparo(void);
@@ -52,8 +53,8 @@ void TimeLapse(void);
 /  	FUNCION: Inicializa todos los perifericos necesarios en el proyecto: Timers, UART, etc
 /  	ENTRADA: void
 /  	SALIDA: void
-/	INICIALIZAR PERIFERICOS: ninguno
-/  	OTROS: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/	OTROS: nada
+/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
 
 void inicializacion(void)
@@ -85,7 +86,7 @@ void inicializacion(void)
 /  	FUNCION: Recibe mediante UART los valores programados en el PSoC terminal
 /  	ENTRADA: void
 /  	SALIDA: void
-/	OTROS: necesaria libreria comunicaciones.h 
+/	OTROS: necesaria libreria comunicaciones.h e inicializar la UART y el temporizador asociado
 /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
 
@@ -132,7 +133,51 @@ void recibe_valores(void)
 
 
 
+/************************************************************************************************************************
+/  	LLAMADA: ejecucion()
+/  	FUNCION: Rutina que segun los valores recibidos ejecuta los diferentes trabajos
+/  	ENTRADA: void
+/  	SALIDA: void
+/	OTROS: nada
+/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/**********************************************************************************************************************/
 
+void ejecucion (void)
+{
+
+
+}	
+
+//******************************************************************************
+//******************************************************************************
+
+
+
+/************************************************************************************************************************
+/  	LLAMADA: intervalometro()
+/  	FUNCION: Rutina que desarrolla el programa de intervalometro
+/  	ENTRADA: void
+/  	SALIDA: void
+/	OTROS: nada
+/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/**********************************************************************************************************************/
+
+void Intervalometro(void)
+{
+	unsigned char intervalometro_x;
+	
+	//Cálculo del tiempo entre disparos en segundos
+	
+	//Disparos
+	for (intervalometro_x=0;intervalometro_x<Int_Ndisp;intervalometro_x++)
+	{
+		Dispara_camaras();
+		Temporizador(Int_Tdisp);
+	}
+}
+
+//******************************************************************************
+//******************************************************************************
 
 
 
@@ -149,17 +194,7 @@ void Ejecucion(void)
 {
 	unsigned long real, film;
 	
-	Ent1=Dato();
-	Ent2=Dato();
-	Ent3=Dato();
-	Ent4=Dato();
-	Cam1=Dato();
-	Cam2=Dato();
-	Fla1=Dato();
-	Fla2=Dato();
-	Fla3=Dato();
-	Fla4=Dato();
-	
+		
 	if(Cam1==2)
 	{
 		listo_int1=1;
@@ -372,21 +407,7 @@ void Unico(void)
 //******************************************************************************
 //******************************************************************************
 
-//Funcion de Intervalometro
 
-void Intervalometro(void)
-{
-	unsigned char intervalometro_x;
-	
-	//Cálculo del tiempo entre disparos en segundos
-	
-	//Disparos
-	for (intervalometro_x=0;intervalometro_x<Int_Ndisp;intervalometro_x++)
-	{
-		Dispara_camaras();
-		Temporizador(Int_Tdisp);
-	}
-}
 
 //******************************************************************************
 //******************************************************************************

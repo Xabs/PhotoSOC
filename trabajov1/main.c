@@ -17,14 +17,8 @@
 
 void main()
 {	
-	unsigned int temp1;
-	
 	inicializacion ();
 	recibe_valores();	
-	
-	
-	
-
-	//for(;;) Inicio();
+	ejecucion();
 }		
 
