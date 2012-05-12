@@ -27,9 +27,10 @@ char tocacam1=0, tocacam2=0;
 unsigned int dspCam1=0, dspCam2=0;		//Disparos de la camara
 unsigned long tpCam1=0, tpCam2=0;		//Tiempo entre disparos
 
-unsigned char fintrabajo=0;				//Variable que controla si ha finalizado el trabajo
+unsigned char fintrabajo=0;									//Variable que controla si ha finalizado el trabajo
 unsigned long contador_trabajo1=0,contador_trabajo2=0;		//Contadores de segundos
-unsigned int contadorsdspCam1=0, contadorsdspCam2=0;
+char chivato1=off, chivato2=off;							//chivatos para la rutina de interrupción por tiempo
+unsigned int contadorsdspCam1=0, contadorsdspCam2=0;		//Contadores de los disparos realizados
 
 //Prototipos de la libreria del PSoC de trabajo
 void inicializacion(void);
@@ -276,7 +277,13 @@ void bucle(void)
 	do
 	{
 		disparo();
-		
+		if (Cam1!=1 || Cam2!=1)
+		{
+			Segundos_WritePeriod (1000);	//Seleccionamos el WritePeriod
+			Segundos_Start();				//Iniciamos el timer
+			Segundos_EnableInt();			//Permitimos la interrupción del timer
+			M8C_EnableGInt;					//Permitimos las interrupciones globalmente
+		}
 		//Start de los contadores de trabajo
 		
 		if (bucle_acaba1==off)
@@ -284,7 +291,7 @@ void bucle(void)
 			if (Cam1==1) bucle_acaba1=on;
 			else
 			{
-				if (contador_trabajo1==tpCam1) 
+				if (chivato1==on) 
 				{
 					tocacam1=on;
 					contador_trabajo1=0;
@@ -302,7 +309,7 @@ void bucle(void)
 			if (Cam2==1) bucle_acaba2=on;
 			else
 			{
-				if (contador_trabajo2==tpCam2) 
+				if (chivato2==on) 
 				{
 					tocacam2=on;
 					contador_trabajo2=0;
@@ -367,6 +374,9 @@ void disparo(void)
 }
 //******************************************************************************
 //******************************************************************************
+
+
+
 
 /************************************************************************************************************************
 /  	LLAMADA: envia_fintrabajo()
