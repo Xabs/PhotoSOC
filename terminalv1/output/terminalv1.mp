@@ -1,4 +1,4 @@
-  ROM 25% full. 8305 bytes used (does not include absolute areas).
+  ROM 25% full. 8089 bytes used (does not include absolute areas).
   RAM 3% full. 55 bytes used (does not include stack usage).
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
@@ -169,53 +169,53 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                            text   0BDA   1637 =   5687. bytes (rel,con,rom)
+                            text   0BDA   155F =   5471. bytes (rel,con,rom)
 
        Addr  Global Symbol
       -----  --------------------------------
+       0BDA  _envia
        0BDA  __text_start
-       0BDA  _Inicializacion
-       0BF8  _Bienvenida
-       0C24  _bucle_temp
-       0C58  _Principal
-       0C75  _Pitido
-       0CA1  _Reset_PdT
-       0CC6  _Pulsador
-       0D68  _Menu
-       0E65  _Sensors
-       0F44  _Entrada1
-       0FC6  _Entrada2
-       1048  _Entrada3
-       10CA  _Entrada4
-       114C  _Flashes
-       12B3  _Flash1
-       1335  _Flash2
-       13B7  _Flash3
-       1439  _Flash4
-       14BD  _Dispar
-       1567  _Camara1
-       1614  _Camara2
-       16C1  _Tipo_disp
-       17E3  _Intervalometro
-       18E3  _TimeLapse
-       19F1  _Numeros
-       1AC0  _Tiempos
-       1B72  _Executar
-       1BC5  _envio_valores
-       1DC2  _Ara
-       1DC7  _Trabajando
-       1ECD  _Resetear
-       1ED4  _Sistema
-       1F9A  _Reali_LCD
-       2025  _Zumbador
-       20AA  _Ali_Led
-       2135  _envia
-       2180  _recibe
-       21D3  _main
-       21E0  __divmodu_8X8_8
-       21F8  __i_div8_block_util
-       2211  __text_end
-       2217  __xidata_end
+       0C25  _recibe
+       0C78  _Inicializacion
+       0C96  _Bienvenida
+       0CC2  _bucle_temp
+       0CF6  _Principal
+       0D13  _Pitido
+       0D3F  _Reset_PdT
+       0D64  _Pulsador
+       0E06  _Menu
+       0F03  _Sensors
+       0FE2  _Entrada1
+       1064  _Entrada2
+       10E6  _Entrada3
+       1168  _Entrada4
+       11EA  _Flashes
+       1351  _Flash1
+       13D3  _Flash2
+       1455  _Flash3
+       14D7  _Flash4
+       155B  _Dispar
+       1605  _Camara1
+       16B2  _Camara2
+       175F  _Tipo_disp
+       1881  _Intervalometro
+       1981  _TimeLapse
+       1A8F  _Numeros
+       1B5E  _Tiempos
+       1C10  _Executar
+       1C63  _envio_valores
+       1D88  _Ara
+       1D8D  _Trabajando
+       1E93  _Resetear
+       1E9A  _Sistema
+       1F60  _Reali_LCD
+       1FEB  _Zumbador
+       2070  _Ali_Led
+       20FB  _main
+       2108  __divmodu_8X8_8
+       2120  __i_div8_block_util
+       2139  __text_end
+       213F  __xidata_end
 
 Area                               Start  End    Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------

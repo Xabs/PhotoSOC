@@ -29,10 +29,10 @@ LoadConfigTBL_terminalv1:
 	M8C_SetBank0
 	mov	reg[05h], 00h		; Port_1_IntEn register (PRT1IE)
 	M8C_SetBank1
-	mov	reg[08h], ffh		; Port_2_DriveMode_0 register (PRT2DM0)
-	mov	reg[09h], 00h		; Port_2_DriveMode_1 register (PRT2DM1)
+	mov	reg[08h], 7fh		; Port_2_DriveMode_0 register (PRT2DM0)
+	mov	reg[09h], 80h		; Port_2_DriveMode_1 register (PRT2DM1)
 	M8C_SetBank0
-	mov	reg[0bh], 00h		; Port_2_DriveMode_2 register (PRT2DM2)
+	mov	reg[0bh], 80h		; Port_2_DriveMode_2 register (PRT2DM2)
 	mov	reg[0ah], 00h		; Port_2_GlobalSelect register (PRT2GS)
 	M8C_SetBank1
 	mov	reg[0ah], 00h		; Port_2_IntCtrl_0 register (PRT2IC0)

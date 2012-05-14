@@ -6,21 +6,22 @@
 //              Libreria de rutinas para el PSoC terminal		  //
 //----------------------------------------------------------------//
 
+#include "comunicaciones.h" 	// Libreria de comunicaciones creada por Albert y Xavi para el proyecto
 
 //Listado de prototipos
 void Inicializacion(void);
 void Bienvenida(void);
-void Principal(void);
 void bucle_temp(void);
+void Principal(void);
 void Pitido(void);
-char Pulsador(void);
 void Reset_PdT(void);
+char Pulsador(void);
 void Menu(void);
 void Sensors(void);
-void Entrada1(void);	//Barrera 1 a 12V
-void Entrada2(void);	//Barrera 2 a 12V
-void Entrada3(void);	//Digital 0/1 a 5V
-void Entrada4(void);	//Digital 0/1 a 5V
+void Entrada1(void);	//Menú entrada Barrera 1 0/1 a 12V
+void Entrada2(void);	//Menú entrada Barrera 2 0/1 a 12V
+void Entrada3(void);	//Menú entrada Sensor digital 0/1 a 5V
+void Entrada4(void);	//Menú entrada Sensor digital 0/1 a 5V
 void Flashes(void);
 void Flash1(void);
 void Flash2(void);
@@ -35,8 +36,8 @@ void TimeLapse(char camara);
 char Numeros(void);
 char Tiempos(void);
 void Executar(void);
-void Ara(void);
 void envio_valores(void);
+void Ara(void);
 void Trabajando(void);
 void Resetear(void);
 void Sistema(void);
@@ -55,9 +56,9 @@ unsigned char Int2_Tdisp=0, Int2_Tdisp_Uni=0, Int2_Ndisp=0;					//Variables del 
 unsigned char TL1_Treal=0, TL1_Treal_Uni=0, TL1_Tfilm=0, TL1_Tfilm_Uni=0; 	//Variables del modo disparo Time Lapse Cámara 1
 unsigned char TL2_Treal=0, TL2_Treal_Uni=0, TL2_Tfilm=0, TL2_Tfilm_Uni=0;	//Variables del modo disparo Time Lapse Cámara 2
 
-char Luz_LCD=0;
-char Buzzer=0;
-char Alimentacion=0;
+char Luz_LCD=0;			//Variable que determina si la luz de retroalimentación esta activa o no
+char Buzzer=0;			//Variable que determina si el buzzer se activa al pulsar
+char Alimentacion=0;	//Variable que determina si el LED de encendido esta activo o no
 
 //***********************************************************************************************************************/
 //***********************************************************************************************************************/
@@ -1124,14 +1125,12 @@ void Trabajando(void)
 	unsigned int x;
 	char pulsat;
 	
-
 	LCD_Control(0x01);	//Borrat de pantalla
 	LCD_PrCString("PhotoSOC activo");
 	for(x=0;x<60000;x++);
 
 	for(;;)
 	{
-		
 		LCD_Control(0x08);	//LCD off
 		LCD_Control(0x01);	//Borrat de pantalla
 		
