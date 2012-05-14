@@ -217,8 +217,8 @@ void preparadisparo(void)
 	#define tclip preparadisparo_tp_clip
 	
 	unsigned long treal, tclip;
-	tocacam1=on;
-	tocacam2=on;
+	tocacam1=on;				//Activa el disparo de la cámara 1 para hacer el primer disparo o si es disparo único
+	tocacam2=on;				//Activa el disparo de la cámara 2 para hacer el segundo disparo o si es disparo único
 	switch (Cam1)				//Cámara 1
 	{
 		case 2:					//intervalometro
@@ -232,8 +232,19 @@ void preparadisparo(void)
 			tpCam1=(treal/dspCam1);
 			break;
 	}
-
-	//Falta un switch igual para la camara 2 despues que Javi confirme la redacción
+	switch (Cam2)				//Cámara 2
+	{
+		case 2:					//intervalometro
+			dspCam2=Int2_Ndisp;
+			tpCam2=calculosegundos(Int2_Tdisp, Int2_Tdisp_Uni);
+			break;
+		case 3:					//Timelapse
+			treal=calculosegundos(TL2_Treal, TL2_Treal_Uni);	//Calculo en segundos del tiempo real
+			tclip=calculosegundos(TL2_Tfilm, TL2_Tfilm_Uni);	//Calculo en segundos del tiempo de clip
+			dspCam2=(tclip*25);		//25 fotogramas por segundo para Europa (PAL)
+			tpCam2=(treal/dspCam2);
+			break;
+	}
 }
 //******************************************************************************
 //******************************************************************************
