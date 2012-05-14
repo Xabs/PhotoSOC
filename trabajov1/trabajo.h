@@ -344,25 +344,34 @@ void disparo(void)
 	int x;
 	//Apertura de las cámaras
 	if (tocacam1==on)
-		{
-			PRT2DR=PRT2DR | 0x01;	//activar enfoque cam1
-			PRT2DR=PRT2DR | 0x04;	//activar obturador cam1
-			tocacam1==off;
-			contadorsdspCam1++;
-		}
+	{
+		PRT2DR=PRT2DR | 0x01;	//activar enfoque cam1
+		PRT2DR=PRT2DR | 0x04;	//activar obturador cam1
+		tocacam1==off;
+		contadorsdspCam1++;
+	}
 	if (tocacam2==on)
-		{
-			PRT2DR=PRT2DR | 0x10;	//activar enfoque cam2
-			PRT2DR=PRT2DR | 0x40;	//activar obturador cam2
-			tocacam2==off;
-			contadorsdspCam2++;
-		}
+	{
+		PRT2DR=PRT2DR | 0x10;	//activar enfoque cam2
+		PRT2DR=PRT2DR | 0x40;	//activar obturador cam2
+		tocacam2==off;
+		contadorsdspCam2++;
+	}
 	//Apertura de los flashes
-	if (Fla1==1) PRT0DR=PRT0DR | 0x01;	
-	if (Fla2==1) PRT0DR=PRT0DR | 0x04;	
-	if (Fla3==1) PRT0DR=PRT0DR | 0x10;	
-	if (Fla4==1) PRT0DR=PRT0DR | 0x40;
-	
+	if (tocacam1==on)
+	{
+		if (Fla1==1 || Fla1==3) PRT0DR=PRT0DR | 0x01;	
+		if (Fla2==1 || Fla2==3) PRT0DR=PRT0DR | 0x04;	
+		if (Fla3==1 || Fla3==3) PRT0DR=PRT0DR | 0x10;	
+		if (Fla4==1 || Fla4==3) PRT0DR=PRT0DR | 0x40;
+	}
+	if (tocacam2==on)
+	{
+		if (Fla1==2 || Fla1==3) PRT0DR=PRT0DR | 0x01;	
+		if (Fla2==2 || Fla2==3) PRT0DR=PRT0DR | 0x04;	
+		if (Fla3==2 || Fla3==3) PRT0DR=PRT0DR | 0x10;	
+		if (Fla4==2 || Fla4==3) PRT0DR=PRT0DR | 0x40;
+	}	
 	//Perdida de tiempo para activar salidas
 	for(x=0;x<300;x++);
 	
