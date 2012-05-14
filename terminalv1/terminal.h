@@ -27,6 +27,7 @@ void Flash1(void);
 void Flash2(void);
 void Flash3(void);
 void Flash4(void);
+void Tipo_fla(char flash);
 void Dispar(void);
 void Camara1(void);
 void Camara2(void);
@@ -528,8 +529,7 @@ void Flashes(void)
 
 //Funcion que permite conectar el flash 1 para su funcionamiento cuando 
 //se ponga en marcha el programa en el PSoC de Trabajo
-
-void Flash1(void) 
+void Flash1() 
 {
 	char pulsat;
 	unsigned int x;
@@ -539,8 +539,10 @@ void Flash1(void)
 		LCD_Control(0x01);	//Borrat de pantalla
 		LCD_PrCString(">Flash 1");
 		LCD_Position(1,0);
-		if(Fla1==0) LCD_PrCString("OFF");
-		else LCD_PrCString("ON");
+		if(Fla1==0) LCD_PrCString("Apagado");
+		else if(Fla1==1) LCD_PrCString("Camara 1");
+		else if(Fla1==2) LCD_PrCString("Camara 2");
+		else if(Fla1==3) LCD_PrCString("Ambas");
 		bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
 		pulsat=Pulsador();
 		if(Buzzer==1) Pitido();
@@ -550,8 +552,7 @@ void Flash1(void)
 		}
 		else if(pulsat==3)
 		{
-			if(Fla1==0) Fla1=1;	
-			else Fla1=0;
+			Tipo_fla(1);
 		}
 	}while(pulsat!=4);
 }
@@ -563,7 +564,7 @@ void Flash1(void)
 //Funcion que permite conectar el flash 2 para su funcionamiento cuando 
 //se ponga en marcha el programa en el PSoC de Trabajo
 
-void Flash2(void) 
+void Flash2() 
 {
 	char pulsat;
 	unsigned int x;
@@ -573,8 +574,10 @@ void Flash2(void)
 		LCD_Control(0x01);	//Borrat de pantalla
 		LCD_PrCString(">Flash 2");
 		LCD_Position(1,0);
-		if(Fla2==0) LCD_PrCString("OFF");
-		else LCD_PrCString("ON");
+		if(Fla1==0) LCD_PrCString("Apagado");
+		else if(Fla1==1) LCD_PrCString("Camara 1");
+		else if(Fla1==2) LCD_PrCString("Camara 2");
+		else if(Fla1==3) LCD_PrCString("Ambas");
 		bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
 		pulsat=Pulsador();
 		if(Buzzer==1) Pitido();
@@ -584,8 +587,7 @@ void Flash2(void)
 		}
 		else if(pulsat==3)
 		{
-			if(Fla2==0) Fla2=1;	
-			else Fla2=0;
+			Tipo_fla(2);
 		}
 	}while(pulsat!=4);
 }
@@ -596,7 +598,7 @@ void Flash2(void)
 //Funcion que permite conectar el flash 3 para su funcionamiento cuando 
 //se ponga en marcha el programa en el PSoC de Trabajo
 
-void Flash3(void) 
+void Flash3() 
 {
 	char pulsat;
 	unsigned int x;
@@ -606,8 +608,10 @@ void Flash3(void)
 		LCD_Control(0x01);	//Borrat de pantalla
 		LCD_PrCString(">Flash 3");
 		LCD_Position(1,0);
-		if(Fla3==0) LCD_PrCString("OFF");
-		else LCD_PrCString("ON");
+		if(Fla1==0) LCD_PrCString("Apagado");
+		else if(Fla1==1) LCD_PrCString("Camara 1");
+		else if(Fla1==2) LCD_PrCString("Camara 2");
+		else if(Fla1==3) LCD_PrCString("Ambas");
 		bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
 		pulsat=Pulsador();
 		if(Buzzer==1) Pitido();
@@ -617,8 +621,7 @@ void Flash3(void)
 		}
 		else if(pulsat==3)
 		{
-			if(Fla3==0) Fla3=1;	
-			else Fla3=0;
+			Tipo_fla(3);
 		}
 	}while(pulsat!=4);
 }
@@ -628,8 +631,7 @@ void Flash3(void)
 
 //Funcion que permite conectar el flash 4 para su funcionamiento cuando 
 //se ponga en marcha el programa en el PSoC de Trabajo
-
-void Flash4(void) 
+void Flash4() 
 {
 	char pulsat;
 	unsigned int x;
@@ -639,8 +641,10 @@ void Flash4(void)
 		LCD_Control(0x01);	//Borrat de pantalla
 		LCD_PrCString(">Flash 4");
 		LCD_Position(1,0);
-		if(Fla4==0) LCD_PrCString("OFF");
-		else LCD_PrCString("ON");
+		if(Fla1==0) LCD_PrCString("Apagado");
+		else if(Fla1==1) LCD_PrCString("Camara 1");
+		else if(Fla1==2) LCD_PrCString("Camara 2");
+		else if(Fla1==3) LCD_PrCString("Ambas");
 		bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
 		pulsat=Pulsador();
 		if(Buzzer==1) Pitido();
@@ -650,14 +654,62 @@ void Flash4(void)
 		}
 		else if(pulsat==3)
 		{
-			if(Fla4==0) Fla4=1;	
-			else Fla4=0;
+			Tipo_fla(4);
 		}
 	}while(pulsat!=4);
 }
 
 //***************************************************************************************************************
 //***************************************************************************************         Disparo
+
+
+
+
+void Tipo_fla(char flash)
+{
+	char pulsat, menu;
+	unsigned int x;
+	
+	if(flash==1) menu=Fla1+1;
+	else if(flash==2) menu=Fla2+1;
+	else if(flash==3) menu=Fla3+1;
+	else if(flash==4) menu=Fla4+1;
+			
+	do
+	{
+		LCD_Control(0x01);	//Borrat de pantalla
+		LCD_PrCString(">Asignacion");
+		LCD_Position(1,0);
+		if(menu==1) LCD_PrCString("Apagado");
+		else if(menu==2) LCD_PrCString("Camara 1");
+		else if(menu==3) LCD_PrCString("Camara 2");
+		else if(menu==4) LCD_PrCString("Ambas");
+		bucle_temp();	//Bucle perdida de tiempo para canvio de menu
+		pulsat=Pulsador();
+		if(Buzzer==1) Pitido();
+		if(pulsat==1)
+		{
+			if(menu+1>4)	menu=1;
+			else	menu++;
+		}
+		else if(pulsat==3)
+		{
+			if(flash==1)Fla1=menu-1;
+			else if(flash==2) Fla2=menu-1;
+			else if(flash==3) Fla3=menu-1;
+			else if(flash==4) Fla4=menu-1;
+			pulsat=4;
+		}
+		else if(pulsat==2)
+		{	
+			if(menu-1<1)	menu=4;
+			else	menu--;
+		}
+	}while(pulsat!=4);
+}
+
+
+
 
 // Programa del submenu Disparo aquest programa sera el que permetra
 //	navegar per el menu i elegir entre las diferents funcions que 
