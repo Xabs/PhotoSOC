@@ -1,25 +1,5 @@
 .start
 XH
-H 1 areas 2 global symbols
-M psocgpioint.asm
-S _MI_RSI_EXTERNA Ref0000
-A text size 4 flags 0
-dbfile lib/psocgpioint.asm
-dbfunc 0 ? 0 I
-dbline 3C 0
-dbline 43 3
-dbfile ./lib/PSoCGPIOINT.inc
-dbfunc 0 ? 0 I
-dbfile lib/psocgpioint.asm
-dbfunc 0 ? 0 I
-dbfile C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc
-dbfunc 0 ? 0 I
-S PSoC_GPIO_ISR Def0000
-T 00 00 7D 00 00 7E
-R 00 00 00 00 02 03 00 00
-.end
-.start
-XH
 H 1 areas 0 global symbols
 M uartplus.asm
 A text size 0 flags 0
@@ -744,8 +724,9 @@ R 00 00 00 02
 .end
 .start
 XH
-H 3 areas 1 global symbols
+H 3 areas 2 global symbols
 M segundosint.asm
+S _MI_RSI_DEL_TIMER Ref0000
 A text size 0 flags 0
 dbfile lib/segundosint.asm
 dbfunc 0 ? 0 I
@@ -764,13 +745,14 @@ dbfunc 0 ? 0 I
 dbfile C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc
 dbfunc 0 ? 0 I
 A InterruptRAM size 0 flags 20
-A UserModules size 1 flags 0
+A UserModules size 4 flags 0
 dbfile lib/segundosint.asm
 dbfunc 0 ? 0 I
-dbline 4C 0
+dbline 46 0
+dbline 4C 3
 S _Segundos_ISR Def0000
-T 00 00 7E
-R 00 00 00 02
+T 00 00 7D 00 00 7E
+R 00 00 00 02 02 03 00 00
 .end
 .start
 XH
@@ -912,6 +894,26 @@ T 00 46 33 FE 18 60 36 18 60 32 18 60 33 18 20 70
 R 00 00 00 02
 T 00 54 3F 71 C0 7E 5D 30 5D 36 5C 5D 32 7F
 R 00 00 00 02
+.end
+.start
+XH
+H 1 areas 2 global symbols
+M psocgpioint.asm
+S _MI_RSI_EXTERNA Ref0000
+A text size 4 flags 0
+dbfile lib/psocgpioint.asm
+dbfunc 0 ? 0 I
+dbline 3C 0
+dbline 43 3
+dbfile ./lib/PSoCGPIOINT.inc
+dbfunc 0 ? 0 I
+dbfile lib/psocgpioint.asm
+dbfunc 0 ? 0 I
+dbfile C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc
+dbfunc 0 ? 0 I
+S PSoC_GPIO_ISR Def0000
+T 00 00 7D 00 00 7E
+R 00 00 00 00 02 03 00 00
 .end
 .start
 XH
@@ -1167,7 +1169,7 @@ T 01 96 00 62 62 00 62 67 33 62 68 33 62 63 00 62
 R 00 00 00 01
 T 01 A4 66 00 62 D1 00 62 D3 00 62 D0 00 62 D2 00
 R 00 00 00 01
-T 01 B2 62 E1 0B 62 E2 00 62 DF C7 62 DE 02 62 DD
+T 01 B2 62 E1 9B 62 E2 00 62 DF C7 62 DE 02 62 DD
 R 00 00 00 01
 T 01 C0 00 62 E7 00 62 30 00 62 31 01 62 32 40 62
 R 00 00 00 01

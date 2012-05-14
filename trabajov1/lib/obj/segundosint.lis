@@ -1906,13 +1906,13 @@
  0000              ;---------------------------------------------------
  0000              ;   NOTE: interrupt service routines must preserve
  0000              ;   the values of the A and X CPU registers.
- 0000           
- 0000              ;---------------------------------------------------
- 0000              ; Insert your custom code above this banner
- 0000              ;---------------------------------------------------
- 0000              ;@PSoC_UserCode_END@ (Do not change this line.)
- 0000           
- 0000 7E           reti
- 0001           
- 0001           
- 0001           ; end of file SegundosINT.asm
+ 0000 7D0000    ljmp _MI_RSI_DEL_TIMER
+ 0003              ;---------------------------------------------------
+ 0003              ; Insert your custom code above this banner
+ 0003              ;---------------------------------------------------
+ 0003              ;@PSoC_UserCode_END@ (Do not change this line.)
+ 0003           
+ 0003 7E           reti
+ 0004           
+ 0004           
+ 0004           ; end of file SegundosINT.asm

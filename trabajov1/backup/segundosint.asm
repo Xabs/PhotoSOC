@@ -67,7 +67,7 @@ _Segundos_ISR:
    ;---------------------------------------------------
    ;   NOTE: interrupt service routines must preserve
    ;   the values of the A and X CPU registers.
-
+ljmp _MI_RSI_DEL_TIMER
    ;---------------------------------------------------
    ; Insert your custom code above this banner
    ;---------------------------------------------------

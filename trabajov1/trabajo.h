@@ -1,11 +1,13 @@
-//----------------------------------------------------------------//
-//     Proyecto de GS Desarrollo Productos Electronicos EPSS	  //
-//                   By Albert Sagol & Xavi Vicient			      //
-//                 PhotoSoC - Controlador fotográfico		  	  //
-//----------------------------------------------------------------//
-//              Libreria de rutinas para el PSoC trabajo		  //
-//----------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------//
+// 								Proyecto de GS Desarrollo Productos Electronicos EPSS	  									//
+//         									By Albert Sagol & Xavi Vicient			      									//
+//     									  PhotoSoC - Controlador fotográfico		  	  									//
+//--------------------------------------------------------------------------------------------------------------------------//
+//     								Libreria de rutinas para el PSoC trabajo   	  							   				//
+//--------------------------------------------------------------------------------------------------------------------------//
 
+//Listado de includes necesarios para la libreria
+#include "comunicaciones.h" 	// Libreria de comunicaciones creada por Albert y Xavi para el proyecto
 
 //Listado de defines utilizados en la libreria
 #define off 0
@@ -13,7 +15,6 @@
 
 
 //Declaracion de las variables globales del PSoC Trabajo
-
 char Cam1=0, Cam2=0; 					//Variables que determinan si una salida a camara esta activa o no y el tipo de disparo
 char Ent1=0, Ent2=0, Ent3=0, Ent4=0;	//Variables que determinan si una entrada esta activa o no
 char Fla1=0, Fla2=0, Fla3=0, Fla4=0;	//Variables que determinan si una salida a flash esta activa o no
@@ -30,7 +31,7 @@ unsigned long tpCam1=0, tpCam2=0;		//Tiempo entre disparos
 unsigned char fintrabajo=0;									//Variable que controla si ha finalizado el trabajo
 unsigned long contador_trabajo1=0,contador_trabajo2=0;		//Contadores de segundos
 char chivato1=off, chivato2=off;							//chivatos para la rutina de interrupción por tiempo
-unsigned int contadorsdspCam1=0, contadorsdspCam2=0;		//Contadores de los disparos realizados
+unsigned int contadordspCam1=0, contadordspCam2=0;			//Contadores de los disparos realizados
 
 //Prototipos de la libreria del PSoC de trabajo
 void inicializacion(void);
@@ -45,8 +46,8 @@ void disparo(void);
 void envia_fintrabajo(void);
 
 
-//******************************************************************************
-//******************************************************************************
+//***********************************************************************************************************************
+//***********************************************************************************************************************
 
 
 
@@ -57,7 +58,7 @@ void envia_fintrabajo(void);
 /  	SALIDA: void
 /	OTROS: nada
 /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-/**********************************************************************************************************************/
+/***********************************************************************************************************************/
 void inicializacion(void)
 {
 	//Inicialización del Timer para la UART
@@ -167,7 +168,7 @@ void disparo_sensores(void)
 	
 	//Evitar las entradas no activadas en la programación aunque provoquen una interrupción
 	if (Ent1==off) sensores=sensores&0x7F; 	//0111-1111
-	if (Ent2==off) sensores=sensores&0xDF: 	//1101-1111
+	if (Ent2==off) sensores=sensores&0xDF; 	//1101-1111
 	if (Ent3==off) sensores=sensores&0xF7; 	//1111-0111
 	if (Ent4==off) sensores=sensores&0xFD; 	//1111-1101
 	
@@ -307,7 +308,7 @@ void bucle(void)
 					tocacam1=on;
 					contador_trabajo1=0;
 				}
-				if (contadorsdspCam1==dspCam1)
+				if (contadordspCam1==dspCam1)
 				{
 					bucle_acaba1=on;
 					fintrabajo1=255;
@@ -325,7 +326,7 @@ void bucle(void)
 					tocacam2=on;
 					contador_trabajo2=0;
 				}
-				if (contadorsdspCam2==dspCam2)
+				if (contadordspCam2==dspCam2)
 				{
 					bucle_acaba2=on;
 					fintrabajo2=255;
@@ -358,15 +359,15 @@ void disparo(void)
 	{
 		PRT2DR=PRT2DR | 0x01;	//activar enfoque cam1
 		PRT2DR=PRT2DR | 0x04;	//activar obturador cam1
-		tocacam1==off;
-		contadorsdspCam1++;
+		tocacam1=off;
+		contadordspCam1++;
 	}
 	if (tocacam2==on)
 	{
 		PRT2DR=PRT2DR | 0x10;	//activar enfoque cam2
 		PRT2DR=PRT2DR | 0x40;	//activar obturador cam2
-		tocacam2==off;
-		contadorsdspCam2++;
+		tocacam2=off;
+		contadordspCam2++;
 	}
 	//Apertura de los flashes
 	if (tocacam1==on)
@@ -406,9 +407,13 @@ void disparo(void)
 /	OTROS: Necesaria la UART y el Timer asociado como periféricos
 /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
 /**********************************************************************************************************************/
-void bucle(void)
+void envia_fintrabajo(void)
 {
-
+	//Rutina de envio
+	if (fintrabajo=255)
+	{
+	envia (fintrabajo);
+	}
 }
 //******************************************************************************
 //******************************************************************************

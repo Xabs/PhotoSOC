@@ -1,6 +1,7 @@
 XH
-H 3 areas 1 global symbols
+H 3 areas 2 global symbols
 M segundosint.asm
+S _MI_RSI_DEL_TIMER Ref0000
 A text size 0 flags 0
 dbfile lib/segundosint.asm
 dbfunc 0 ? 0 I
@@ -19,10 +20,11 @@ dbfunc 0 ? 0 I
 dbfile C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/include/CY8C29~1/m8c.inc
 dbfunc 0 ? 0 I
 A InterruptRAM size 0 flags 20
-A UserModules size 1 flags 0
+A UserModules size 4 flags 0
 dbfile lib/segundosint.asm
 dbfunc 0 ? 0 I
-dbline 4C 0
+dbline 46 0
+dbline 4C 3
 S _Segundos_ISR Def0000
-T 00 00 7E
-R 00 00 00 02
+T 00 00 7D 00 00 7E
+R 00 00 00 02 02 03 00 00

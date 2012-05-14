@@ -10,7 +10,6 @@
 #include "PSoCAPI.h"   	 		// PSoC API definitions for all User Modules
 #include "stdlib.h"
 #include "trabajo.h"			// Libreria creada para el PSoc de trabajo por Albert y Xavi para el proyecto
-#include "comunicaciones.h" 	// Libreria de comunicaciones creada por Albert y Xavi para el proyecto
 
 #pragma interrupt_handler MI_RSI_EXTERNA
 #pragma interrupt_handler MI_RSI_DEL_TIMER
@@ -23,9 +22,9 @@ void MI_RSI_EXTERNA(void)		//Interrupción externa
 void MI_RSI_DEL_TIMER (void)	//Interrupción del timer Segundos
 {
 	contador_trabajo1++;
-	if (contador_trabajo1== ) chivato1=on;
+	if (contador_trabajo1==tpCam1) chivato1=on;
 	contador_trabajo2++;
-	if (contador_trabajo2== ) chivato2=on;
+	if (contador_trabajo2==tpCam2) chivato2=on;
 }
 
 

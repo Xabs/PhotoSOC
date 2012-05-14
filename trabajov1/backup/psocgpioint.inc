@@ -93,6 +93,16 @@ Flash4_IntCtrl_0_ADDR:	equ	102h
 Flash4_IntCtrl_1_ADDR:	equ	103h
 Flash4_IntEn_ADDR:	equ	1h
 Flash4_MASK:	equ	40h
+; _ address and mask equates
+__Data_ADDR:	equ	4h
+__DriveMode_0_ADDR:	equ	104h
+__DriveMode_1_ADDR:	equ	105h
+__DriveMode_2_ADDR:	equ	7h
+__GlobalSelect_ADDR:	equ	6h
+__IntCtrl_0_ADDR:	equ	106h
+__IntCtrl_1_ADDR:	equ	107h
+__IntEn_ADDR:	equ	5h
+__MASK:	equ	1h
 ; UART_TX address and mask equates
 UART_TX_Data_ADDR:	equ	4h
 UART_TX_DriveMode_0_ADDR:	equ	104h

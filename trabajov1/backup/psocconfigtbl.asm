@@ -7,7 +7,7 @@ AREA psoc_config(rom, rel)
 LoadConfigTBL_trabajov1:
 ;  Ordered Global Register values
 	M8C_SetBank1
-	mov	reg[00h], 7fh		; Port_0_DriveMode_0 register (PRT0DM0)
+	mov	reg[00h], 55h		; Port_0_DriveMode_0 register (PRT0DM0)
 	mov	reg[01h], aah		; Port_0_DriveMode_1 register (PRT0DM1)
 	M8C_SetBank0
 	mov	reg[03h], 00h		; Port_0_DriveMode_2 register (PRT0DM2)
@@ -29,10 +29,10 @@ LoadConfigTBL_trabajov1:
 	M8C_SetBank0
 	mov	reg[05h], 00h		; Port_1_IntEn register (PRT1IE)
 	M8C_SetBank1
-	mov	reg[08h], 00h		; Port_2_DriveMode_0 register (PRT2DM0)
-	mov	reg[09h], ffh		; Port_2_DriveMode_1 register (PRT2DM1)
+	mov	reg[08h], 55h		; Port_2_DriveMode_0 register (PRT2DM0)
+	mov	reg[09h], aah		; Port_2_DriveMode_1 register (PRT2DM1)
 	M8C_SetBank0
-	mov	reg[0bh], ffh		; Port_2_DriveMode_2 register (PRT2DM2)
+	mov	reg[0bh], aah		; Port_2_DriveMode_2 register (PRT2DM2)
 	mov	reg[0ah], 00h		; Port_2_GlobalSelect register (PRT2GS)
 	M8C_SetBank1
 	mov	reg[0ah], 00h		; Port_2_IntCtrl_0 register (PRT2IC0)

@@ -158,6 +158,24 @@ BYTE			Flash4_IntCtrl_1_ADDR;
 #pragma	ioport	Flash4_IntEn_ADDR:	0x1
 BYTE			Flash4_IntEn_ADDR;
 #define Flash4_MASK 0x40
+// _ address and mask defines
+#pragma	ioport	__Data_ADDR:	0x4
+BYTE			__Data_ADDR;
+#pragma	ioport	__DriveMode_0_ADDR:	0x104
+BYTE			__DriveMode_0_ADDR;
+#pragma	ioport	__DriveMode_1_ADDR:	0x105
+BYTE			__DriveMode_1_ADDR;
+#pragma	ioport	__DriveMode_2_ADDR:	0x7
+BYTE			__DriveMode_2_ADDR;
+#pragma	ioport	__GlobalSelect_ADDR:	0x6
+BYTE			__GlobalSelect_ADDR;
+#pragma	ioport	__IntCtrl_0_ADDR:	0x106
+BYTE			__IntCtrl_0_ADDR;
+#pragma	ioport	__IntCtrl_1_ADDR:	0x107
+BYTE			__IntCtrl_1_ADDR;
+#pragma	ioport	__IntEn_ADDR:	0x5
+BYTE			__IntEn_ADDR;
+#define __MASK 0x1
 // UART_TX address and mask defines
 #pragma	ioport	UART_TX_Data_ADDR:	0x4
 BYTE			UART_TX_Data_ADDR;

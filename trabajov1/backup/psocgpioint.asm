@@ -57,7 +57,7 @@ PSoC_GPIO_ISR:
    ; Insert your custom code below this banner
    ;---------------------------------------------------
 
-ljmp_MI_RSI_EXTERNA
+ljmp _MI_RSI_EXTERNA
 
   ;---------------------------------------------------
    ; Insert your custom code above this banner
