@@ -405,7 +405,7 @@ _Alimentacion::
 	.dbfunc e Inicializacion _Inicializacion fV
 _Inicializacion::
 	.dbline -1
-	.dbline 79
+	.dbline 80
 ; }
 ; }
 ; }
@@ -418,41 +418,42 @@ _Inicializacion::
 ; }
 ; }
 ; }
-	.dbline 81
+; }
+	.dbline 82
 ; }
 ; }
 	push X
 	mov A,-100
 	xcall _Timer8_WritePeriod
-	.dbline 82
+	.dbline 83
 ; }
 	mov A,78
 	xcall _Timer8_WriteCompareValue
-	.dbline 83
+	.dbline 84
 ; }
 	xcall _Timer8_Start
-	.dbline 86
+	.dbline 87
 ; }
 ; }
 ; }
 	mov A,0
 	xcall _UART_Start
-	.dbline 89
+	.dbline 90
 ; }
 ; }
 ; }
 	xcall _LCD_Start
-	.dbline 90
+	.dbline 91
 ; }
 	xcall _LCD_Init
 	pop X
-	.dbline 93
+	.dbline 94
 ; }
 ; }
 ; }
 	mov REG[ 0],-96
 	.dbline -2
-	.dbline 94
+	.dbline 95
 ; }
 L17:
 	.dbline 0 ; func end
@@ -461,36 +462,36 @@ L17:
 	.dbfunc e Bienvenida _Bienvenida fV
 _Bienvenida::
 	.dbline -1
-	.dbline 112
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
 	.dbline 113
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+	.dbline 114
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 114
+	.dbline 115
 ; }
 	mov X,1
 	mov A,0
 	xcall _LCD_Position
-	.dbline 115
+	.dbline 116
 ; }
 	mov A,>L19
 	push A
@@ -498,12 +499,12 @@ _Bienvenida::
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 116
+	.dbline 117
 ; }
 	mov X,3
 	mov A,1
 	xcall _LCD_Position
-	.dbline 117
+	.dbline 118
 ; }
 	mov A,>L20
 	push A
@@ -512,11 +513,11 @@ _Bienvenida::
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	.dbline 118
+	.dbline 119
 ; }
 	xcall _bucle_temp
 	.dbline -2
-	.dbline 119
+	.dbline 120
 ; }
 L18:
 	.dbline 0 ; func end
@@ -529,7 +530,7 @@ _bucle_temp::
 	push X
 	mov X,SP
 	add SP,2
-	.dbline 128
+	.dbline 129
 ; }
 ; }
 ; }
@@ -539,18 +540,18 @@ _bucle_temp::
 ; }
 ; }
 ; }
-	.dbline 131
+	.dbline 132
 	mov [X+1],0
 	mov [X+0],0
 	xjmp L25
 L22:
-	.dbline 131
+	.dbline 132
 L23:
-	.dbline 131
+	.dbline 132
 	inc [X+1]
 	adc [X+0],0
 L25:
-	.dbline 131
+	.dbline 132
 ; }
 ; }
 ; }
@@ -571,7 +572,7 @@ L25:
 	jc L22
 X0:
 	.dbline -2
-	.dbline 132
+	.dbline 133
 ; }
 L21:
 	add SP,-2
@@ -588,7 +589,7 @@ _Principal::
 	push X
 	mov X,SP
 	add SP,3
-	.dbline 144
+	.dbline 145
 ; }
 ; }
 ; }
@@ -601,31 +602,31 @@ _Principal::
 ; }
 ; }
 ; }
-	.dbline 148
+	.dbline 149
 ; }
 ; }
 ; }
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 149
+	.dbline 150
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
 	jnz L27
-	.dbline 149
+	.dbline 150
 	xcall _Pitido
 L27:
-	.dbline 150
+	.dbline 151
 	cmp [X+0],0
 	jz L29
-	.dbline 151
 	.dbline 152
-	xcall _Menu
 	.dbline 153
+	xcall _Menu
+	.dbline 154
 L29:
 	.dbline -2
-	.dbline 154
+	.dbline 155
 ; }
 ; }
 ; }
@@ -646,7 +647,7 @@ _Pitido::
 	push X
 	mov X,SP
 	add SP,2
-	.dbline 165
+	.dbline 166
 ; }
 ; }
 ; }
@@ -658,25 +659,25 @@ _Pitido::
 ; }
 ; }
 ; }
-	.dbline 168
+	.dbline 169
 ; }
 ; }
 ; }
 	or REG[ 0],8
-	.dbline 169
+	.dbline 170
 	mov [X+1],0
 	mov [X+0],0
 L32:
-	.dbline 169
+	.dbline 170
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
 	mov REG[ 0],A
 L33:
-	.dbline 169
+	.dbline 170
 ; }
 	inc [X+1]
 	adc [X+0],0
-	.dbline 169
+	.dbline 170
 	mov A,[X+1]
 	sub A,-96
 	mov A,[X+0]
@@ -684,11 +685,11 @@ L33:
 	sbb A,(15 ^ 0x80)
 	jc L32
 X1:
-	.dbline 170
+	.dbline 171
 ; }
 	and REG[ 0],-9
 	.dbline -2
-	.dbline 171
+	.dbline 172
 ; }
 L31:
 	add SP,-2
@@ -704,7 +705,7 @@ _Reset_PdT::
 	push X
 	mov X,SP
 	add SP,2
-	.dbline 187
+	.dbline 188
 ; }
 ; }
 ; }
@@ -721,34 +722,34 @@ _Reset_PdT::
 ; }
 ; }
 ; }
-	.dbline 190
+	.dbline 191
 ; }
 ; }
 ; }
 	or REG[ 0],4
-	.dbline 191
+	.dbline 192
 	mov [X+1],0
 	mov [X+0],0
 L37:
-	.dbline 191
+	.dbline 192
 L38:
-	.dbline 191
+	.dbline 192
 ; }
 	inc [X+1]
 	adc [X+0],0
-	.dbline 191
+	.dbline 192
 	mov A,[X+1]
-	sub A,-12
+	sub A,-18
 	mov A,[X+0]
 	xor A,-128
-	sbb A,(1 ^ 0x80)
+	sbb A,(2 ^ 0x80)
 	jc L37
 X2:
-	.dbline 192
+	.dbline 193
 ; }
 	and REG[ 0],-5
 	.dbline -2
-	.dbline 193
+	.dbline 194
 ; }
 L36:
 	add SP,-2
@@ -766,7 +767,7 @@ _Pulsador::
 	push X
 	mov X,SP
 	add SP,4
-	.dbline 207
+	.dbline 208
 ; }
 ; }
 ; }
@@ -781,32 +782,32 @@ _Pulsador::
 ; }
 ; }
 ; }
-	.dbline 211
+	.dbline 212
 ; }
 ; }
 ; }
 ; }
 	mov [X+2],0
 L42:
-	.dbline 215
-; }
-; }
-; }
-; }
 	.dbline 216
+; }
+; }
+; }
+; }
+	.dbline 217
 ; }
 	push X
 	xcall _UART_cReadChar
 	mov REG[0xd0],>__r0
 	pop X
 	mov [X+3],A
-	.dbline 217
+	.dbline 218
 ; }
 	cmp [X+3],-1
 	jnz L45
-	.dbline 217
-L45:
 	.dbline 218
+L45:
+	.dbline 219
 ; }
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
@@ -814,10 +815,10 @@ L45:
 	and [__r0],-96
 	cmp [__r0],32
 	jnz L47
-	.dbline 218
+	.dbline 219
 	mov [X+2],1
 L47:
-	.dbline 219
+	.dbline 220
 ; }
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
@@ -825,27 +826,27 @@ L47:
 	and [__r0],-96
 	cmp [__r0],-128
 	jnz L49
-	.dbline 219
+	.dbline 220
 	mov [X+2],2
 L49:
-	.dbline 220
+	.dbline 221
 ; }
 	cmp [X+2],0
 	jz L51
-	.dbline 221
-; }
 	.dbline 222
+; }
+	.dbline 223
 	mov [X+1],0
 	mov [X+0],0
 	xjmp L56
 L53:
-	.dbline 222
+	.dbline 223
 L54:
-	.dbline 222
+	.dbline 223
 	inc [X+1]
 	adc [X+0],0
 L56:
-	.dbline 222
+	.dbline 223
 ; }
 	mov A,[X+1]
 	sub A,100
@@ -853,15 +854,15 @@ L56:
 	sbb A,0
 	jc L53
 X3:
-	.dbline 223
+	.dbline 224
 ; }
 	mov [X+1],0
 	mov [X+0],0
 	xjmp L60
 L57:
-	.dbline 224
-; }
 	.dbline 225
+; }
+	.dbline 226
 ; }
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
@@ -869,34 +870,34 @@ L57:
 	and [__r0],-96
 	cmp [__r0],-96
 	jnz L61
-	.dbline 225
+	.dbline 226
 	mov A,[X+2]
 	xjmp L41
 L61:
-	.dbline 226
-	or REG[ 0],-96
 	.dbline 227
+	or REG[ 0],-96
+	.dbline 228
 L58:
-	.dbline 223
+	.dbline 224
 	inc [X+1]
 	adc [X+0],0
 L60:
-	.dbline 223
+	.dbline 224
 	mov A,[X+1]
 	sub A,48
 	mov A,[X+0]
 	sbb A,117
 	jc L57
 X4:
-	.dbline 228
+	.dbline 229
 ; }
 ; }
 ; }
 	add [X+2],2
-	.dbline 229
+	.dbline 230
 ; }
 L51:
-	.dbline 230
+	.dbline 231
 ; }
 	push X
 	xcall _UART_cReadChar
@@ -904,16 +905,16 @@ L51:
 	pop X
 	cmp A,-5
 	jnz L63
-	.dbline 230
+	.dbline 231
 	xcall _Principal
 L63:
-	.dbline 231
+	.dbline 232
 L43:
-	.dbline 231
+	.dbline 232
 ; }
 	cmp [X+2],0
 	jz L42
-	.dbline 232
+	.dbline 233
 ; }
 	mov A,[X+2]
 	mov REG[0xd0],>__r0
@@ -936,33 +937,33 @@ _Menu::
 	push X
 	mov X,SP
 	add SP,4
-	.dbline 243
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
 	.dbline 244
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+	.dbline 245
 ; }
 	mov [X+0],1
 L66:
-	.dbline 248
-; }
-; }
-; }
-; }
 	.dbline 249
+; }
+; }
+; }
+; }
+	.dbline 250
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 250
+	.dbline 251
 ; }
 	mov A,>L69
 	push A
@@ -970,17 +971,17 @@ L66:
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 251
+	.dbline 252
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 252
+	.dbline 253
 ; }
 	cmp [X+0],1
 	jnz L70
-	.dbline 252
+	.dbline 253
 	push X
 	mov A,>L72
 	push A
@@ -991,11 +992,11 @@ L66:
 	pop X
 	xjmp L71
 L70:
-	.dbline 253
+	.dbline 254
 ; }
 	cmp [X+0],2
 	jnz L73
-	.dbline 253
+	.dbline 254
 	push X
 	mov A,>L75
 	push A
@@ -1006,11 +1007,11 @@ L70:
 	pop X
 	xjmp L74
 L73:
-	.dbline 254
+	.dbline 255
 ; }
 	cmp [X+0],3
 	jnz L76
-	.dbline 254
+	.dbline 255
 	push X
 	mov A,>L78
 	push A
@@ -1021,11 +1022,11 @@ L73:
 	pop X
 	xjmp L77
 L76:
-	.dbline 255
+	.dbline 256
 ; }
 	cmp [X+0],4
 	jnz L79
-	.dbline 255
+	.dbline 256
 	push X
 	mov A,>L81
 	push A
@@ -1036,11 +1037,11 @@ L76:
 	pop X
 	xjmp L80
 L79:
-	.dbline 256
+	.dbline 257
 ; }
 	cmp [X+0],5
 	jnz L82
-	.dbline 256
+	.dbline 257
 	push X
 	mov A,>L84
 	push A
@@ -1054,28 +1055,28 @@ L80:
 L77:
 L74:
 L71:
-	.dbline 257
+	.dbline 258
 ; }
 	xcall _bucle_temp
-	.dbline 258
+	.dbline 259
 ; }
 	xcall _Pulsador
 	mov [X+1],A
-	.dbline 259
+	.dbline 260
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
 	jnz L85
-	.dbline 259
+	.dbline 260
 	xcall _Pitido
 L85:
-	.dbline 260
+	.dbline 261
 ; }
 	cmp [X+1],1
 	jnz L87
-	.dbline 261
-; }
 	.dbline 262
+; }
+	.dbline 263
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+0]
@@ -1085,72 +1086,72 @@ L85:
 	cmp A,[__r0]
 	jnc L89
 X5:
-	.dbline 262
+	.dbline 263
 	mov [X+0],1
 	xjmp L88
 L89:
-	.dbline 263
+	.dbline 264
 ; }
 	inc [X+0]
-	.dbline 264
+	.dbline 265
 ; }
 	xjmp L88
 L87:
-	.dbline 265
+	.dbline 266
 ; }
 	cmp [X+1],3
 	jnz L91
-	.dbline 266
-; }
 	.dbline 267
+; }
+	.dbline 268
 ; }
 	cmp [X+0],1
 	jnz L93
-	.dbline 267
+	.dbline 268
 	xcall _Sensors
 	xjmp L92
 L93:
-	.dbline 268
+	.dbline 269
 ; }
 	cmp [X+0],2
 	jnz L95
-	.dbline 268
+	.dbline 269
 	xcall _Flashes
 	xjmp L92
 L95:
-	.dbline 269
+	.dbline 270
 ; }
 	cmp [X+0],3
 	jnz L97
-	.dbline 269
+	.dbline 270
 	xcall _Dispar
 	xjmp L92
 L97:
-	.dbline 270
+	.dbline 271
 ; }
 	cmp [X+0],4
 	jnz L99
-	.dbline 270
+	.dbline 271
 	xcall _Executar
 	xjmp L92
 L99:
-	.dbline 271
+	.dbline 272
 ; }
 	cmp [X+0],5
 	jnz L92
-	.dbline 271
-	xcall _Sistema
 	.dbline 272
+	xcall _Sistema
+	.dbline 273
 ; }
 	xjmp L92
 L91:
-	.dbline 273
+	.dbline 274
 ; }
 	cmp [X+1],2
 	jnz L103
-	.dbline 274
-; }
 	.dbline 275
+; }
+	.dbline 276
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+0]
@@ -1158,27 +1159,27 @@ L91:
 	cmp A,1
 	jnc L105
 X6:
-	.dbline 275
+	.dbline 276
 	mov [X+0],5
 	xjmp L106
 L105:
-	.dbline 276
+	.dbline 277
 ; }
 	dec [X+0]
 L106:
-	.dbline 277
+	.dbline 278
 ; }
 L103:
 L92:
 L88:
-	.dbline 278
+	.dbline 279
 L67:
-	.dbline 278
+	.dbline 279
 ; }
 	cmp [X+1],4
 	jnz L66
 	.dbline -2
-	.dbline 279
+	.dbline 280
 ; }
 L65:
 	add SP,-4
@@ -1198,32 +1199,32 @@ _Sensors::
 	push X
 	mov X,SP
 	add SP,4
-	.dbline 289
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
 	.dbline 290
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+	.dbline 291
 ; }
 	mov [X+1],1
 L108:
-	.dbline 294
-; }
-; }
-; }
-; }
 	.dbline 295
+; }
+; }
+; }
+; }
+	.dbline 296
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 296
+	.dbline 297
 ; }
 	mov A,>L111
 	push A
@@ -1231,17 +1232,17 @@ L108:
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 297
+	.dbline 298
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 298
+	.dbline 299
 ; }
 	cmp [X+1],1
 	jnz L112
-	.dbline 298
+	.dbline 299
 	push X
 	mov A,>L114
 	push A
@@ -1252,11 +1253,11 @@ L108:
 	pop X
 	xjmp L113
 L112:
-	.dbline 299
+	.dbline 300
 ; }
 	cmp [X+1],2
 	jnz L115
-	.dbline 299
+	.dbline 300
 	push X
 	mov A,>L117
 	push A
@@ -1267,11 +1268,11 @@ L112:
 	pop X
 	xjmp L116
 L115:
-	.dbline 300
+	.dbline 301
 ; }
 	cmp [X+1],3
 	jnz L118
-	.dbline 300
+	.dbline 301
 	push X
 	mov A,>L120
 	push A
@@ -1282,11 +1283,11 @@ L115:
 	pop X
 	xjmp L119
 L118:
-	.dbline 301
+	.dbline 302
 ; }
 	cmp [X+1],4
 	jnz L121
-	.dbline 301
+	.dbline 302
 	push X
 	mov A,>L123
 	push A
@@ -1299,28 +1300,28 @@ L121:
 L119:
 L116:
 L113:
-	.dbline 302
+	.dbline 303
 ; }
 	xcall _bucle_temp
-	.dbline 303
+	.dbline 304
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 304
+	.dbline 305
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
 	jnz L124
-	.dbline 304
+	.dbline 305
 	xcall _Pitido
 L124:
-	.dbline 305
+	.dbline 306
 ; }
 	cmp [X+0],1
 	jnz L126
-	.dbline 306
-; }
 	.dbline 307
+; }
+	.dbline 308
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
@@ -1330,64 +1331,64 @@ L124:
 	cmp A,[__r0]
 	jnc L128
 X7:
-	.dbline 307
+	.dbline 308
 	mov [X+1],1
 	xjmp L127
 L128:
-	.dbline 308
+	.dbline 309
 ; }
 	inc [X+1]
-	.dbline 309
+	.dbline 310
 ; }
 	xjmp L127
 L126:
-	.dbline 310
+	.dbline 311
 ; }
 	cmp [X+0],3
 	jnz L130
-	.dbline 311
-; }
 	.dbline 312
+; }
+	.dbline 313
 ; }
 	cmp [X+1],1
 	jnz L132
-	.dbline 312
+	.dbline 313
 	xcall _Entrada1
 	xjmp L131
 L132:
-	.dbline 313
+	.dbline 314
 ; }
 	cmp [X+1],2
 	jnz L134
-	.dbline 313
+	.dbline 314
 	xcall _Entrada2
 	xjmp L131
 L134:
-	.dbline 314
+	.dbline 315
 ; }
 	cmp [X+1],3
 	jnz L136
-	.dbline 314
+	.dbline 315
 	xcall _Entrada3
 	xjmp L131
 L136:
-	.dbline 315
+	.dbline 316
 ; }
 	cmp [X+1],4
 	jnz L131
-	.dbline 315
-	xcall _Entrada4
 	.dbline 316
+	xcall _Entrada4
+	.dbline 317
 ; }
 	xjmp L131
 L130:
-	.dbline 317
+	.dbline 318
 ; }
 	cmp [X+0],2
 	jnz L140
-	.dbline 318
-; }
 	.dbline 319
+; }
+	.dbline 320
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
@@ -1395,27 +1396,27 @@ L130:
 	cmp A,1
 	jnc L142
 X8:
-	.dbline 319
+	.dbline 320
 	mov [X+1],4
 	xjmp L143
 L142:
-	.dbline 320
+	.dbline 321
 ; }
 	dec [X+1]
 L143:
-	.dbline 321
+	.dbline 322
 ; }
 L140:
 L131:
 L127:
-	.dbline 322
+	.dbline 323
 L109:
-	.dbline 322
+	.dbline 323
 ; }
 	cmp [X+0],4
 	jnz L108
 	.dbline -2
-	.dbline 323
+	.dbline 324
 ; }
 L107:
 	add SP,-4
@@ -1434,7 +1435,7 @@ _Entrada1::
 	push X
 	mov X,SP
 	add SP,3
-	.dbline 333
+	.dbline 334
 ; }
 ; }
 ; }
@@ -1446,18 +1447,18 @@ _Entrada1::
 ; }
 ; }
 L145:
-	.dbline 338
-; }
-; }
-; }
-; }
-; }
 	.dbline 339
+; }
+; }
+; }
+; }
+; }
+	.dbline 340
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 340
+	.dbline 341
 ; }
 	mov A,>L148
 	push A
@@ -1465,18 +1466,18 @@ L145:
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 341
+	.dbline 342
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 342
+	.dbline 343
 ; }
 	mov REG[0xd0],>_Ent1
 	cmp [_Ent1],0
 	jnz L149
-	.dbline 342
+	.dbline 343
 	push X
 	mov A,>L151
 	push A
@@ -1487,7 +1488,7 @@ L145:
 	pop X
 	xjmp L150
 L149:
-	.dbline 343
+	.dbline 344
 ; }
 	push X
 	mov A,>L152
@@ -1498,71 +1499,71 @@ L149:
 	xcall _LCD_PrCString
 	pop X
 L150:
-	.dbline 344
+	.dbline 345
 ; }
 	xcall _bucle_temp
-	.dbline 345
+	.dbline 346
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 346
+	.dbline 347
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
 	jnz L153
-	.dbline 346
+	.dbline 347
 	xcall _Pitido
 L153:
-	.dbline 347
+	.dbline 348
 ; }
 	cmp [X+0],1
 	jz L157
 	cmp [X+0],2
 	jnz L155
 L157:
-	.dbline 348
-; }
 	.dbline 349
+; }
+	.dbline 350
 ; }
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
 	mov REG[ 0],A
-	.dbline 350
+	.dbline 351
 ; }
 	xjmp L156
 L155:
-	.dbline 351
+	.dbline 352
 ; }
 	cmp [X+0],3
 	jnz L158
-	.dbline 352
-; }
 	.dbline 353
+; }
+	.dbline 354
 ; }
 	mov REG[0xd0],>_Ent1
 	cmp [_Ent1],0
 	jnz L160
-	.dbline 353
+	.dbline 354
 	mov [_Ent1],1
 	xjmp L161
 L160:
-	.dbline 354
+	.dbline 355
 ; }
 	mov REG[0xd0],>_Ent1
 	mov [_Ent1],0
 L161:
-	.dbline 355
+	.dbline 356
 ; }
 L158:
 L156:
-	.dbline 356
+	.dbline 357
 L146:
-	.dbline 356
+	.dbline 357
 ; }
 	cmp [X+0],4
 	jnz L145
 	.dbline -2
-	.dbline 357
+	.dbline 358
 ; }
 L144:
 	add SP,-3
@@ -1580,7 +1581,7 @@ _Entrada2::
 	push X
 	mov X,SP
 	add SP,3
-	.dbline 367
+	.dbline 368
 ; }
 ; }
 ; }
@@ -1592,18 +1593,18 @@ _Entrada2::
 ; }
 ; }
 L163:
-	.dbline 372
-; }
-; }
-; }
-; }
-; }
 	.dbline 373
+; }
+; }
+; }
+; }
+; }
+	.dbline 374
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 374
+	.dbline 375
 ; }
 	mov A,>L166
 	push A
@@ -1611,18 +1612,18 @@ L163:
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 375
+	.dbline 376
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 376
+	.dbline 377
 ; }
 	mov REG[0xd0],>_Ent2
 	cmp [_Ent2],0
 	jnz L167
-	.dbline 376
+	.dbline 377
 	push X
 	mov A,>L151
 	push A
@@ -1633,7 +1634,7 @@ L163:
 	pop X
 	xjmp L168
 L167:
-	.dbline 377
+	.dbline 378
 ; }
 	push X
 	mov A,>L152
@@ -1644,71 +1645,71 @@ L167:
 	xcall _LCD_PrCString
 	pop X
 L168:
-	.dbline 378
+	.dbline 379
 ; }
 	xcall _bucle_temp
-	.dbline 379
+	.dbline 380
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 380
+	.dbline 381
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
 	jnz L169
-	.dbline 380
+	.dbline 381
 	xcall _Pitido
 L169:
-	.dbline 381
+	.dbline 382
 ; }
 	cmp [X+0],1
 	jz L173
 	cmp [X+0],2
 	jnz L171
 L173:
-	.dbline 382
-; }
 	.dbline 383
+; }
+	.dbline 384
 ; }
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
 	mov REG[ 0],A
-	.dbline 384
+	.dbline 385
 ; }
 	xjmp L172
 L171:
-	.dbline 385
+	.dbline 386
 ; }
 	cmp [X+0],3
 	jnz L174
-	.dbline 386
-; }
 	.dbline 387
+; }
+	.dbline 388
 ; }
 	mov REG[0xd0],>_Ent2
 	cmp [_Ent2],0
 	jnz L176
-	.dbline 387
+	.dbline 388
 	mov [_Ent2],1
 	xjmp L177
 L176:
-	.dbline 388
+	.dbline 389
 ; }
 	mov REG[0xd0],>_Ent2
 	mov [_Ent2],0
 L177:
-	.dbline 389
+	.dbline 390
 ; }
 L174:
 L172:
-	.dbline 390
+	.dbline 391
 L164:
-	.dbline 390
+	.dbline 391
 ; }
 	cmp [X+0],4
 	jnz L163
 	.dbline -2
-	.dbline 391
+	.dbline 392
 ; }
 L162:
 	add SP,-3
@@ -1726,7 +1727,7 @@ _Entrada3::
 	push X
 	mov X,SP
 	add SP,3
-	.dbline 401
+	.dbline 402
 ; }
 ; }
 ; }
@@ -1738,18 +1739,18 @@ _Entrada3::
 ; }
 ; }
 L179:
-	.dbline 406
-; }
-; }
-; }
-; }
-; }
 	.dbline 407
+; }
+; }
+; }
+; }
+; }
+	.dbline 408
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 408
+	.dbline 409
 ; }
 	mov A,>L182
 	push A
@@ -1757,18 +1758,18 @@ L179:
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 409
+	.dbline 410
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 410
+	.dbline 411
 ; }
 	mov REG[0xd0],>_Ent3
 	cmp [_Ent3],0
 	jnz L183
-	.dbline 410
+	.dbline 411
 	push X
 	mov A,>L151
 	push A
@@ -1779,7 +1780,7 @@ L179:
 	pop X
 	xjmp L184
 L183:
-	.dbline 411
+	.dbline 412
 ; }
 	push X
 	mov A,>L152
@@ -1790,71 +1791,71 @@ L183:
 	xcall _LCD_PrCString
 	pop X
 L184:
-	.dbline 412
+	.dbline 413
 ; }
 	xcall _bucle_temp
-	.dbline 413
+	.dbline 414
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 414
+	.dbline 415
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
 	jnz L185
-	.dbline 414
+	.dbline 415
 	xcall _Pitido
 L185:
-	.dbline 415
+	.dbline 416
 ; }
 	cmp [X+0],1
 	jz L189
 	cmp [X+0],2
 	jnz L187
 L189:
-	.dbline 416
-; }
 	.dbline 417
+; }
+	.dbline 418
 ; }
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
 	mov REG[ 0],A
-	.dbline 418
+	.dbline 419
 ; }
 	xjmp L188
 L187:
-	.dbline 419
+	.dbline 420
 ; }
 	cmp [X+0],3
 	jnz L190
-	.dbline 420
-; }
 	.dbline 421
+; }
+	.dbline 422
 ; }
 	mov REG[0xd0],>_Ent3
 	cmp [_Ent3],0
 	jnz L192
-	.dbline 421
+	.dbline 422
 	mov [_Ent3],1
 	xjmp L193
 L192:
-	.dbline 422
+	.dbline 423
 ; }
 	mov REG[0xd0],>_Ent3
 	mov [_Ent3],0
 L193:
-	.dbline 423
+	.dbline 424
 ; }
 L190:
 L188:
-	.dbline 424
+	.dbline 425
 L180:
-	.dbline 424
+	.dbline 425
 ; }
 	cmp [X+0],4
 	jnz L179
 	.dbline -2
-	.dbline 425
+	.dbline 426
 ; }
 L178:
 	add SP,-3
@@ -1872,7 +1873,7 @@ _Entrada4::
 	push X
 	mov X,SP
 	add SP,3
-	.dbline 435
+	.dbline 436
 ; }
 ; }
 ; }
@@ -1884,18 +1885,18 @@ _Entrada4::
 ; }
 ; }
 L195:
-	.dbline 440
-; }
-; }
-; }
-; }
-; }
 	.dbline 441
+; }
+; }
+; }
+; }
+; }
+	.dbline 442
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 442
+	.dbline 443
 ; }
 	mov A,>L198
 	push A
@@ -1903,18 +1904,18 @@ L195:
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 443
+	.dbline 444
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 444
+	.dbline 445
 ; }
 	mov REG[0xd0],>_Ent4
 	cmp [_Ent4],0
 	jnz L199
-	.dbline 444
+	.dbline 445
 	push X
 	mov A,>L151
 	push A
@@ -1925,7 +1926,7 @@ L195:
 	pop X
 	xjmp L200
 L199:
-	.dbline 445
+	.dbline 446
 ; }
 	push X
 	mov A,>L152
@@ -1936,71 +1937,71 @@ L199:
 	xcall _LCD_PrCString
 	pop X
 L200:
-	.dbline 446
+	.dbline 447
 ; }
 	xcall _bucle_temp
-	.dbline 447
+	.dbline 448
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 448
+	.dbline 449
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
 	jnz L201
-	.dbline 448
+	.dbline 449
 	xcall _Pitido
 L201:
-	.dbline 449
+	.dbline 450
 ; }
 	cmp [X+0],1
 	jz L205
 	cmp [X+0],2
 	jnz L203
 L205:
-	.dbline 450
-; }
 	.dbline 451
+; }
+	.dbline 452
 ; }
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
 	mov REG[ 0],A
-	.dbline 452
+	.dbline 453
 ; }
 	xjmp L204
 L203:
-	.dbline 453
+	.dbline 454
 ; }
 	cmp [X+0],3
 	jnz L206
-	.dbline 454
-; }
 	.dbline 455
+; }
+	.dbline 456
 ; }
 	mov REG[0xd0],>_Ent4
 	cmp [_Ent4],0
 	jnz L208
-	.dbline 455
+	.dbline 456
 	mov [_Ent4],1
 	xjmp L209
 L208:
-	.dbline 456
+	.dbline 457
 ; }
 	mov REG[0xd0],>_Ent4
 	mov [_Ent4],0
 L209:
-	.dbline 457
+	.dbline 458
 ; }
 L206:
 L204:
-	.dbline 458
+	.dbline 459
 L196:
-	.dbline 458
+	.dbline 459
 ; }
 	cmp [X+0],4
 	jnz L195
 	.dbline -2
-	.dbline 459
+	.dbline 460
 ; }
 L194:
 	add SP,-3
@@ -2019,32 +2020,32 @@ _Flashes::
 	push X
 	mov X,SP
 	add SP,4
-	.dbline 469
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
-; }
 	.dbline 470
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+	.dbline 471
 ; }
 	mov [X+1],1
 L211:
-	.dbline 474
-; }
-; }
-; }
-; }
 	.dbline 475
+; }
+; }
+; }
+; }
+	.dbline 476
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 476
+	.dbline 477
 ; }
 	mov A,>L214
 	push A
@@ -2052,19 +2053,19 @@ L211:
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 477
+	.dbline 478
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 478
+	.dbline 479
 ; }
 	cmp [X+1],1
 	jnz L215
-	.dbline 479
-; }
 	.dbline 480
+; }
+	.dbline 481
 ; }
 	push X
 	mov A,>L217
@@ -2074,12 +2075,12 @@ L211:
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	.dbline 481
+	.dbline 482
 ; }
 	mov REG[0xd0],>_Fla1
 	cmp [_Fla1],0
 	jnz L218
-	.dbline 481
+	.dbline 482
 	push X
 	mov A,>L220
 	push A
@@ -2090,7 +2091,7 @@ L211:
 	pop X
 	xjmp L216
 L218:
-	.dbline 482
+	.dbline 483
 ; }
 	push X
 	mov A,>L221
@@ -2100,17 +2101,17 @@ L218:
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	.dbline 483
+	.dbline 484
 ; }
 	xjmp L216
 L215:
-	.dbline 484
+	.dbline 485
 ; }
 	cmp [X+1],2
 	jnz L222
-	.dbline 485
-; }
 	.dbline 486
+; }
+	.dbline 487
 ; }
 	push X
 	mov A,>L224
@@ -2120,12 +2121,12 @@ L215:
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	.dbline 487
+	.dbline 488
 ; }
 	mov REG[0xd0],>_Fla2
 	cmp [_Fla2],0
 	jnz L225
-	.dbline 487
+	.dbline 488
 	push X
 	mov A,>L220
 	push A
@@ -2136,7 +2137,7 @@ L215:
 	pop X
 	xjmp L223
 L225:
-	.dbline 488
+	.dbline 489
 ; }
 	push X
 	mov A,>L221
@@ -2146,17 +2147,17 @@ L225:
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	.dbline 489
+	.dbline 490
 ; }
 	xjmp L223
 L222:
-	.dbline 490
+	.dbline 491
 ; }
 	cmp [X+1],3
 	jnz L227
-	.dbline 491
+	.dbline 492
 ; }
-	.dbline 493
+	.dbline 494
 ; }
 ; }
 	push X
@@ -2167,12 +2168,12 @@ L222:
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	.dbline 494
+	.dbline 495
 ; }
 	mov REG[0xd0],>_Fla3
 	cmp [_Fla3],0
 	jnz L230
-	.dbline 494
+	.dbline 495
 	push X
 	mov A,>L220
 	push A
@@ -2183,7 +2184,7 @@ L222:
 	pop X
 	xjmp L228
 L230:
-	.dbline 495
+	.dbline 496
 ; }
 	push X
 	mov A,>L221
@@ -2193,17 +2194,17 @@ L230:
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	.dbline 496
+	.dbline 497
 ; }
 	xjmp L228
 L227:
-	.dbline 497
+	.dbline 498
 ; }
 	cmp [X+1],4
 	jnz L232
-	.dbline 498
-; }
 	.dbline 499
+; }
+	.dbline 500
 ; }
 	push X
 	mov A,>L234
@@ -2213,12 +2214,12 @@ L227:
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	.dbline 500
+	.dbline 501
 ; }
 	mov REG[0xd0],>_Fla4
 	cmp [_Fla4],0
 	jnz L235
-	.dbline 500
+	.dbline 501
 	push X
 	mov A,>L237
 	push A
@@ -2229,7 +2230,7 @@ L227:
 	pop X
 	xjmp L236
 L235:
-	.dbline 501
+	.dbline 502
 ; }
 	push X
 	mov A,>L221
@@ -2240,34 +2241,34 @@ L235:
 	xcall _LCD_PrCString
 	pop X
 L236:
-	.dbline 502
+	.dbline 503
 ; }
 L232:
 L228:
 L223:
 L216:
-	.dbline 503
+	.dbline 504
 ; }
 	xcall _bucle_temp
-	.dbline 504
+	.dbline 505
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 505
+	.dbline 506
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
 	jnz L238
-	.dbline 505
+	.dbline 506
 	xcall _Pitido
 L238:
-	.dbline 506
+	.dbline 507
 ; }
 	cmp [X+0],1
 	jnz L240
-	.dbline 507
-; }
 	.dbline 508
+; }
+	.dbline 509
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
@@ -2277,64 +2278,64 @@ L238:
 	cmp A,[__r0]
 	jnc L242
 X9:
-	.dbline 508
+	.dbline 509
 	mov [X+1],1
 	xjmp L241
 L242:
-	.dbline 509
+	.dbline 510
 ; }
 	inc [X+1]
-	.dbline 510
+	.dbline 511
 ; }
 	xjmp L241
 L240:
-	.dbline 511
+	.dbline 512
 ; }
 	cmp [X+0],3
 	jnz L244
-	.dbline 512
-; }
 	.dbline 513
+; }
+	.dbline 514
 ; }
 	cmp [X+1],1
 	jnz L246
-	.dbline 513
+	.dbline 514
 	xcall _Flash1
 	xjmp L245
 L246:
-	.dbline 514
+	.dbline 515
 ; }
 	cmp [X+1],2
 	jnz L248
-	.dbline 514
+	.dbline 515
 	xcall _Flash2
 	xjmp L245
 L248:
-	.dbline 515
+	.dbline 516
 ; }
 	cmp [X+1],3
 	jnz L250
-	.dbline 515
+	.dbline 516
 	xcall _Flash3
 	xjmp L245
 L250:
-	.dbline 516
+	.dbline 517
 ; }
 	cmp [X+1],4
 	jnz L245
-	.dbline 516
-	xcall _Flash4
 	.dbline 517
+	xcall _Flash4
+	.dbline 518
 ; }
 	xjmp L245
 L244:
-	.dbline 518
+	.dbline 519
 ; }
 	cmp [X+0],2
 	jnz L254
-	.dbline 519
-; }
 	.dbline 520
+; }
+	.dbline 521
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
@@ -2342,27 +2343,27 @@ L244:
 	cmp A,1
 	jnc L256
 X10:
-	.dbline 520
+	.dbline 521
 	mov [X+1],4
 	xjmp L257
 L256:
-	.dbline 521
+	.dbline 522
 ; }
 	dec [X+1]
 L257:
-	.dbline 522
+	.dbline 523
 ; }
 L254:
 L245:
 L241:
-	.dbline 523
+	.dbline 524
 L212:
-	.dbline 523
+	.dbline 524
 ; }
 	cmp [X+0],4
 	jnz L211
 	.dbline -2
-	.dbline 524
+	.dbline 525
 ; }
 L210:
 	add SP,-4
@@ -2382,7 +2383,6 @@ _Flash1::
 	mov X,SP
 	add SP,3
 	.dbline 533
-; }
 ; }
 ; }
 ; }
@@ -2424,9 +2424,9 @@ L259:
 	jnz L263
 	.dbline 542
 	push X
-	mov A,>L151
+	mov A,>L265
 	push A
-	mov A,<L151
+	mov A,<L265
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
@@ -2435,80 +2435,111 @@ L259:
 L263:
 	.dbline 543
 ; }
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],1
+	jnz L266
+	.dbline 543
 	push X
-	mov A,>L152
+	mov A,>L268
 	push A
-	mov A,<L152
+	mov A,<L268
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-L264:
+	xjmp L267
+L266:
 	.dbline 544
 ; }
-	xcall _bucle_temp
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],2
+	jnz L269
+	.dbline 544
+	push X
+	mov A,>L271
+	push A
+	mov A,<L271
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	xjmp L270
+L269:
 	.dbline 545
+; }
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],3
+	jnz L272
+	.dbline 545
+	push X
+	mov A,>L274
+	push A
+	mov A,<L274
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+L272:
+L270:
+L267:
+L264:
+	.dbline 546
+; }
+	xcall _bucle_temp
+	.dbline 547
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 546
+	.dbline 548
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L265
-	.dbline 546
+	jnz L275
+	.dbline 548
 	xcall _Pitido
-L265:
-	.dbline 547
+L275:
+	.dbline 549
 ; }
 	cmp [X+0],1
-	jz L269
+	jz L279
 	cmp [X+0],2
-	jnz L267
-L269:
-	.dbline 548
+	jnz L277
+L279:
+	.dbline 550
 ; }
-	.dbline 549
+	.dbline 551
 ; }
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
 	mov REG[ 0],A
-	.dbline 550
-; }
-	xjmp L268
-L267:
-	.dbline 551
-; }
-	cmp [X+0],3
-	jnz L270
 	.dbline 552
 ; }
+	xjmp L278
+L277:
 	.dbline 553
 ; }
-	mov REG[0xd0],>_Fla1
-	cmp [_Fla1],0
-	jnz L272
-	.dbline 553
-	mov [_Fla1],1
-	xjmp L273
-L272:
+	cmp [X+0],3
+	jnz L280
 	.dbline 554
 ; }
-	mov REG[0xd0],>_Fla1
-	mov [_Fla1],0
-L273:
 	.dbline 555
 ; }
-L270:
-L268:
+	mov A,1
+	push A
+	xcall _Tipo_fla
+	add SP,-1
 	.dbline 556
+; }
+L280:
+L278:
+	.dbline 557
 L260:
-	.dbline 556
+	.dbline 557
 ; }
 	cmp [X+0],4
 	jnz L259
 	.dbline -2
-	.dbline 557
+	.dbline 558
 ; }
 L258:
 	add SP,-3
@@ -2526,7 +2557,7 @@ _Flash2::
 	push X
 	mov X,SP
 	add SP,3
-	.dbline 567
+	.dbline 568
 ; }
 ; }
 ; }
@@ -2537,126 +2568,157 @@ _Flash2::
 ; }
 ; }
 ; }
-L275:
-	.dbline 572
-; }
-; }
-; }
-; }
-; }
+L283:
 	.dbline 573
+; }
+; }
+; }
+; }
+; }
+	.dbline 574
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 574
+	.dbline 575
 ; }
-	mov A,>L278
+	mov A,>L286
 	push A
-	mov A,<L278
+	mov A,<L286
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 575
+	.dbline 576
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 576
-; }
-	mov REG[0xd0],>_Fla2
-	cmp [_Fla2],0
-	jnz L279
-	.dbline 576
-	push X
-	mov A,>L151
-	push A
-	mov A,<L151
-	mov X,A
-	pop A
-	xcall _LCD_PrCString
-	pop X
-	xjmp L280
-L279:
 	.dbline 577
 ; }
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],0
+	jnz L287
+	.dbline 577
 	push X
-	mov A,>L152
+	mov A,>L265
 	push A
-	mov A,<L152
+	mov A,<L265
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-L280:
+	xjmp L288
+L287:
 	.dbline 578
 ; }
-	xcall _bucle_temp
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],1
+	jnz L289
+	.dbline 578
+	push X
+	mov A,>L268
+	push A
+	mov A,<L268
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	xjmp L290
+L289:
 	.dbline 579
+; }
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],2
+	jnz L291
+	.dbline 579
+	push X
+	mov A,>L271
+	push A
+	mov A,<L271
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	xjmp L292
+L291:
+	.dbline 580
+; }
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],3
+	jnz L293
+	.dbline 580
+	push X
+	mov A,>L274
+	push A
+	mov A,<L274
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+L293:
+L292:
+L290:
+L288:
+	.dbline 581
+; }
+	xcall _bucle_temp
+	.dbline 582
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 580
+	.dbline 583
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L281
-	.dbline 580
+	jnz L295
+	.dbline 583
 	xcall _Pitido
-L281:
-	.dbline 581
+L295:
+	.dbline 584
 ; }
 	cmp [X+0],1
-	jz L285
+	jz L299
 	cmp [X+0],2
-	jnz L283
-L285:
-	.dbline 582
+	jnz L297
+L299:
+	.dbline 585
 ; }
-	.dbline 583
+	.dbline 586
 ; }
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
 	mov REG[ 0],A
-	.dbline 584
-; }
-	xjmp L284
-L283:
-	.dbline 585
-; }
-	cmp [X+0],3
-	jnz L286
-	.dbline 586
-; }
 	.dbline 587
 ; }
-	mov REG[0xd0],>_Fla2
-	cmp [_Fla2],0
-	jnz L288
-	.dbline 587
-	mov [_Fla2],1
-	xjmp L289
-L288:
+	xjmp L298
+L297:
 	.dbline 588
 ; }
-	mov REG[0xd0],>_Fla2
-	mov [_Fla2],0
-L289:
+	cmp [X+0],3
+	jnz L300
 	.dbline 589
 ; }
-L286:
-L284:
-	.dbline 590
-L276:
 	.dbline 590
 ; }
-	cmp [X+0],4
-	jnz L275
-	.dbline -2
+	mov A,2
+	push A
+	xcall _Tipo_fla
+	add SP,-1
 	.dbline 591
 ; }
-L274:
+L300:
+L298:
+	.dbline 592
+L284:
+	.dbline 592
+; }
+	cmp [X+0],4
+	jnz L283
+	.dbline -2
+	.dbline 593
+; }
+L282:
 	add SP,-3
 	pop X
 	.dbline 0 ; func end
@@ -2672,7 +2734,7 @@ _Flash3::
 	push X
 	mov X,SP
 	add SP,3
-	.dbline 600
+	.dbline 602
 ; }
 ; }
 ; }
@@ -2682,126 +2744,157 @@ _Flash3::
 ; }
 ; }
 ; }
-L291:
-	.dbline 605
+L303:
+	.dbline 607
 ; }
 ; }
 ; }
 ; }
 ; }
-	.dbline 606
+	.dbline 608
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 607
+	.dbline 609
 ; }
-	mov A,>L294
+	mov A,>L306
 	push A
-	mov A,<L294
+	mov A,<L306
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 608
+	.dbline 610
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 609
-; }
-	mov REG[0xd0],>_Fla3
-	cmp [_Fla3],0
-	jnz L295
-	.dbline 609
-	push X
-	mov A,>L151
-	push A
-	mov A,<L151
-	mov X,A
-	pop A
-	xcall _LCD_PrCString
-	pop X
-	xjmp L296
-L295:
-	.dbline 610
-; }
-	push X
-	mov A,>L152
-	push A
-	mov A,<L152
-	mov X,A
-	pop A
-	xcall _LCD_PrCString
-	pop X
-L296:
 	.dbline 611
 ; }
-	xcall _bucle_temp
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],0
+	jnz L307
+	.dbline 611
+	push X
+	mov A,>L265
+	push A
+	mov A,<L265
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	xjmp L308
+L307:
 	.dbline 612
+; }
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],1
+	jnz L309
+	.dbline 612
+	push X
+	mov A,>L268
+	push A
+	mov A,<L268
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	xjmp L310
+L309:
+	.dbline 613
+; }
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],2
+	jnz L311
+	.dbline 613
+	push X
+	mov A,>L271
+	push A
+	mov A,<L271
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	xjmp L312
+L311:
+	.dbline 614
+; }
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],3
+	jnz L313
+	.dbline 614
+	push X
+	mov A,>L274
+	push A
+	mov A,<L274
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+L313:
+L312:
+L310:
+L308:
+	.dbline 615
+; }
+	xcall _bucle_temp
+	.dbline 616
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 613
+	.dbline 617
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L297
-	.dbline 613
-	xcall _Pitido
-L297:
-	.dbline 614
-; }
-	cmp [X+0],1
-	jz L301
-	cmp [X+0],2
-	jnz L299
-L301:
-	.dbline 615
-; }
-	.dbline 616
-; }
-	mov A,REG[ 0]
-	mov REG[0xd0],>__r0
-	mov REG[ 0],A
+	jnz L315
 	.dbline 617
-; }
-	xjmp L300
-L299:
+	xcall _Pitido
+L315:
 	.dbline 618
 ; }
-	cmp [X+0],3
-	jnz L302
+	cmp [X+0],1
+	jz L319
+	cmp [X+0],2
+	jnz L317
+L319:
 	.dbline 619
 ; }
 	.dbline 620
 ; }
-	mov REG[0xd0],>_Fla3
-	cmp [_Fla3],0
-	jnz L304
-	.dbline 620
-	mov [_Fla3],1
-	xjmp L305
-L304:
+	mov A,REG[ 0]
+	mov REG[0xd0],>__r0
+	mov REG[ 0],A
 	.dbline 621
 ; }
-	mov REG[0xd0],>_Fla3
-	mov [_Fla3],0
-L305:
+	xjmp L318
+L317:
 	.dbline 622
 ; }
-L302:
-L300:
-	.dbline 623
-L292:
+	cmp [X+0],3
+	jnz L320
 	.dbline 623
 ; }
-	cmp [X+0],4
-	jnz L291
-	.dbline -2
 	.dbline 624
 ; }
-L290:
+	mov A,3
+	push A
+	xcall _Tipo_fla
+	add SP,-1
+	.dbline 625
+; }
+L320:
+L318:
+	.dbline 626
+L304:
+	.dbline 626
+; }
+	cmp [X+0],4
+	jnz L303
+	.dbline -2
+	.dbline 627
+; }
+L302:
 	add SP,-3
 	pop X
 	.dbline 0 ; func end
@@ -2817,7 +2910,7 @@ _Flash4::
 	push X
 	mov X,SP
 	add SP,3
-	.dbline 633
+	.dbline 635
 ; }
 ; }
 ; }
@@ -2826,133 +2919,465 @@ _Flash4::
 ; }
 ; }
 ; }
-; }
-L307:
-	.dbline 638
-; }
+L323:
+	.dbline 640
 ; }
 ; }
 ; }
 ; }
-	.dbline 639
+; }
+	.dbline 641
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 640
+	.dbline 642
 ; }
-	mov A,>L310
+	mov A,>L326
 	push A
-	mov A,<L310
+	mov A,<L326
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 641
+	.dbline 643
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 642
-; }
-	mov REG[0xd0],>_Fla4
-	cmp [_Fla4],0
-	jnz L311
-	.dbline 642
-	push X
-	mov A,>L151
-	push A
-	mov A,<L151
-	mov X,A
-	pop A
-	xcall _LCD_PrCString
-	pop X
-	xjmp L312
-L311:
-	.dbline 643
-; }
-	push X
-	mov A,>L152
-	push A
-	mov A,<L152
-	mov X,A
-	pop A
-	xcall _LCD_PrCString
-	pop X
-L312:
 	.dbline 644
 ; }
-	xcall _bucle_temp
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],0
+	jnz L327
+	.dbline 644
+	push X
+	mov A,>L265
+	push A
+	mov A,<L265
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	xjmp L328
+L327:
 	.dbline 645
+; }
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],1
+	jnz L329
+	.dbline 645
+	push X
+	mov A,>L268
+	push A
+	mov A,<L268
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	xjmp L330
+L329:
+	.dbline 646
+; }
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],2
+	jnz L331
+	.dbline 646
+	push X
+	mov A,>L271
+	push A
+	mov A,<L271
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	xjmp L332
+L331:
+	.dbline 647
+; }
+	mov REG[0xd0],>_Fla1
+	cmp [_Fla1],3
+	jnz L333
+	.dbline 647
+	push X
+	mov A,>L274
+	push A
+	mov A,<L274
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+L333:
+L332:
+L330:
+L328:
+	.dbline 648
+; }
+	xcall _bucle_temp
+	.dbline 649
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 646
+	.dbline 650
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L313
-	.dbline 646
-	xcall _Pitido
-L313:
-	.dbline 647
-; }
-	cmp [X+0],1
-	jz L317
-	cmp [X+0],2
-	jnz L315
-L317:
-	.dbline 648
-; }
-	.dbline 649
-; }
-	mov A,REG[ 0]
-	mov REG[0xd0],>__r0
-	mov REG[ 0],A
+	jnz L335
 	.dbline 650
-; }
-	xjmp L316
-L315:
+	xcall _Pitido
+L335:
 	.dbline 651
 ; }
-	cmp [X+0],3
-	jnz L318
+	cmp [X+0],1
+	jz L339
+	cmp [X+0],2
+	jnz L337
+L339:
 	.dbline 652
 ; }
 	.dbline 653
 ; }
-	mov REG[0xd0],>_Fla4
-	cmp [_Fla4],0
-	jnz L320
-	.dbline 653
-	mov [_Fla4],1
-	xjmp L321
-L320:
+	mov A,REG[ 0]
+	mov REG[0xd0],>__r0
+	mov REG[ 0],A
 	.dbline 654
 ; }
-	mov REG[0xd0],>_Fla4
-	mov [_Fla4],0
-L321:
+	xjmp L338
+L337:
 	.dbline 655
 ; }
-L318:
-L316:
-	.dbline 656
-L308:
+	cmp [X+0],3
+	jnz L340
 	.dbline 656
 ; }
-	cmp [X+0],4
-	jnz L307
-	.dbline -2
 	.dbline 657
 ; }
-L306:
+	mov A,4
+	push A
+	xcall _Tipo_fla
+	add SP,-1
+	.dbline 658
+; }
+L340:
+L338:
+	.dbline 659
+L324:
+	.dbline 659
+; }
+	cmp [X+0],4
+	jnz L323
+	.dbline -2
+	.dbline 660
+; }
+L322:
 	add SP,-3
 	pop X
 	.dbline 0 ; func end
 	ret
 	.dbsym l x 1 i
 	.dbsym l pulsat 0 c
+	.dbend
+	.dbfunc e Tipo_fla _Tipo_fla fV
+;              x -> X+2
+;           menu -> X+1
+;         pulsat -> X+0
+;          flash -> X-4
+_Tipo_fla::
+	.dbline -1
+	push X
+	mov X,SP
+	add SP,4
+	.dbline 669
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+; }
+	.dbline 673
+; }
+; }
+; }
+; }
+	cmp [X-4],1
+	jnz L343
+	.dbline 673
+	mov REG[0xd0],>_Fla1
+	mov A,[_Fla1]
+	add A,1
+	mov [X+1],A
+	xjmp L344
+L343:
+	.dbline 674
+; }
+	cmp [X-4],2
+	jnz L345
+	.dbline 674
+	mov REG[0xd0],>_Fla2
+	mov A,[_Fla2]
+	add A,1
+	mov [X+1],A
+	xjmp L346
+L345:
+	.dbline 675
+; }
+	cmp [X-4],3
+	jnz L347
+	.dbline 675
+	mov REG[0xd0],>_Fla3
+	mov A,[_Fla3]
+	add A,1
+	mov [X+1],A
+	xjmp L348
+L347:
+	.dbline 676
+; }
+	cmp [X-4],4
+	jnz L349
+	.dbline 676
+	mov REG[0xd0],>_Fla4
+	mov A,[_Fla4]
+	add A,1
+	mov [X+1],A
+L349:
+L348:
+L346:
+L344:
+L351:
+	.dbline 679
+; }
+; }
+; }
+	.dbline 680
+; }
+	push X
+	mov A,1
+	xcall _LCD_Control
+	.dbline 681
+; }
+	mov A,>L354
+	push A
+	mov A,<L354
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	.dbline 682
+; }
+	mov X,0
+	mov A,1
+	xcall _LCD_Position
+	pop X
+	.dbline 683
+; }
+	cmp [X+1],1
+	jnz L355
+	.dbline 683
+	push X
+	mov A,>L265
+	push A
+	mov A,<L265
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	xjmp L356
+L355:
+	.dbline 684
+; }
+	cmp [X+1],2
+	jnz L357
+	.dbline 684
+	push X
+	mov A,>L268
+	push A
+	mov A,<L268
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	xjmp L358
+L357:
+	.dbline 685
+; }
+	cmp [X+1],3
+	jnz L359
+	.dbline 685
+	push X
+	mov A,>L271
+	push A
+	mov A,<L271
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	xjmp L360
+L359:
+	.dbline 686
+; }
+	cmp [X+1],4
+	jnz L361
+	.dbline 686
+	push X
+	mov A,>L274
+	push A
+	mov A,<L274
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+L361:
+L360:
+L358:
+L356:
+	.dbline 687
+; }
+	xcall _bucle_temp
+	.dbline 688
+; }
+	xcall _Pulsador
+	mov [X+0],A
+	.dbline 689
+; }
+	mov REG[0xd0],>_Buzzer
+	cmp [_Buzzer],1
+	jnz L363
+	.dbline 689
+	xcall _Pitido
+L363:
+	.dbline 690
+; }
+	cmp [X+0],1
+	jnz L365
+	.dbline 691
+; }
+	.dbline 692
+; }
+	mov REG[0xd0],>__r0
+	mov A,[X+1]
+	add A,1
+	mov [__r0],A
+	mov A,4
+	cmp A,[__r0]
+	jnc L367
+X11:
+	.dbline 692
+	mov [X+1],1
+	xjmp L366
+L367:
+	.dbline 693
+; }
+	inc [X+1]
+	.dbline 694
+; }
+	xjmp L366
+L365:
+	.dbline 695
+; }
+	cmp [X+0],3
+	jnz L369
+	.dbline 696
+; }
+	.dbline 697
+; }
+	cmp [X-4],1
+	jnz L371
+	.dbline 697
+	mov A,[X+1]
+	sub A,1
+	mov REG[0xd0],>_Fla1
+	mov [_Fla1],A
+	xjmp L372
+L371:
+	.dbline 698
+; }
+	cmp [X-4],2
+	jnz L373
+	.dbline 698
+	mov A,[X+1]
+	sub A,1
+	mov REG[0xd0],>_Fla2
+	mov [_Fla2],A
+	xjmp L374
+L373:
+	.dbline 699
+; }
+	cmp [X-4],3
+	jnz L375
+	.dbline 699
+	mov A,[X+1]
+	sub A,1
+	mov REG[0xd0],>_Fla3
+	mov [_Fla3],A
+	xjmp L376
+L375:
+	.dbline 700
+; }
+	cmp [X-4],4
+	jnz L377
+	.dbline 700
+	mov A,[X+1]
+	sub A,1
+	mov REG[0xd0],>_Fla4
+	mov [_Fla4],A
+L377:
+L376:
+L374:
+L372:
+	.dbline 701
+; }
+	mov [X+0],4
+	.dbline 702
+; }
+	xjmp L370
+L369:
+	.dbline 703
+; }
+	cmp [X+0],2
+	jnz L379
+	.dbline 704
+; }
+	.dbline 705
+; }
+	mov REG[0xd0],>__r0
+	mov A,[X+1]
+	sub A,1
+	cmp A,1
+	jnc L381
+X12:
+	.dbline 705
+	mov [X+1],4
+	xjmp L382
+L381:
+	.dbline 706
+; }
+	dec [X+1]
+L382:
+	.dbline 707
+; }
+L379:
+L370:
+L366:
+	.dbline 708
+L352:
+	.dbline 708
+; }
+	cmp [X+0],4
+	jnz L351
+	.dbline -2
+	.dbline 709
+; }
+L342:
+	add SP,-4
+	pop X
+	.dbline 0 ; func end
+	ret
+	.dbsym l x 2 i
+	.dbsym l menu 1 c
+	.dbsym l pulsat 0 c
+	.dbsym l flash -4 c
 	.dbend
 	.dbfunc e Dispar _Dispar fV
 ;              x -> X+2
@@ -2963,7 +3388,7 @@ _Dispar::
 	push X
 	mov X,SP
 	add SP,4
-	.dbline 667
+	.dbline 719
 ; }
 ; }
 ; }
@@ -2974,87 +3399,87 @@ _Dispar::
 ; }
 ; }
 ; }
-	.dbline 669
+	.dbline 721
 ; }
 ; }
 	mov [X+1],1
-L323:
-	.dbline 673
+L384:
+	.dbline 725
 ; }
 ; }
 ; }
 ; }
-	.dbline 674
+	.dbline 726
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 675
+	.dbline 727
 ; }
-	mov A,>L326
+	mov A,>L387
 	push A
-	mov A,<L326
+	mov A,<L387
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 676
+	.dbline 728
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 677
+	.dbline 729
 ; }
 	cmp [X+1],1
-	jnz L327
-	.dbline 677
+	jnz L388
+	.dbline 729
 	push X
-	mov A,>L329
+	mov A,>L390
 	push A
-	mov A,<L329
+	mov A,<L390
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L328
-L327:
-	.dbline 678
+	xjmp L389
+L388:
+	.dbline 730
 ; }
 	cmp [X+1],2
-	jnz L330
-	.dbline 678
+	jnz L391
+	.dbline 730
 	push X
-	mov A,>L332
+	mov A,>L393
 	push A
-	mov A,<L332
+	mov A,<L393
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-L330:
-L328:
-	.dbline 679
+L391:
+L389:
+	.dbline 731
 ; }
 	xcall _bucle_temp
-	.dbline 680
+	.dbline 732
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 681
+	.dbline 733
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L333
-	.dbline 681
+	jnz L394
+	.dbline 733
 	xcall _Pitido
-L333:
-	.dbline 682
+L394:
+	.dbline 734
 ; }
 	cmp [X+0],1
-	jnz L335
-	.dbline 683
+	jnz L396
+	.dbline 735
 ; }
-	.dbline 684
+	.dbline 736
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
@@ -3062,80 +3487,80 @@ L333:
 	mov [__r0],A
 	mov A,2
 	cmp A,[__r0]
-	jnc L337
-X11:
-	.dbline 684
+	jnc L398
+X13:
+	.dbline 736
 	mov [X+1],1
-	xjmp L336
-L337:
-	.dbline 685
+	xjmp L397
+L398:
+	.dbline 737
 ; }
 	inc [X+1]
-	.dbline 686
+	.dbline 738
 ; }
-	xjmp L336
-L335:
-	.dbline 687
+	xjmp L397
+L396:
+	.dbline 739
 ; }
 	cmp [X+0],3
-	jnz L339
-	.dbline 688
+	jnz L400
+	.dbline 740
 ; }
-	.dbline 689
+	.dbline 741
 ; }
 	cmp [X+1],1
-	jnz L341
-	.dbline 689
+	jnz L402
+	.dbline 741
 	xcall _Camara1
-	xjmp L340
-L341:
-	.dbline 690
+	xjmp L401
+L402:
+	.dbline 742
 ; }
 	cmp [X+1],2
-	jnz L340
-	.dbline 690
+	jnz L401
+	.dbline 742
 	xcall _Camara2
-	.dbline 691
+	.dbline 743
 ; }
-	xjmp L340
-L339:
-	.dbline 692
+	xjmp L401
+L400:
+	.dbline 744
 ; }
 	cmp [X+0],2
-	jnz L345
-	.dbline 693
+	jnz L406
+	.dbline 745
 ; }
-	.dbline 694
+	.dbline 746
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
 	sub A,1
 	cmp A,1
-	jnc L347
-X12:
-	.dbline 694
+	jnc L408
+X14:
+	.dbline 746
 	mov [X+1],2
-	xjmp L348
-L347:
-	.dbline 695
+	xjmp L409
+L408:
+	.dbline 747
 ; }
 	dec [X+1]
-L348:
-	.dbline 696
+L409:
+	.dbline 748
 ; }
-L345:
-L340:
-L336:
-	.dbline 697
-L324:
-	.dbline 697
+L406:
+L401:
+L397:
+	.dbline 749
+L385:
+	.dbline 749
 ; }
 	cmp [X+0],4
-	jnz L323
+	jnz L384
 	.dbline -2
-	.dbline 698
+	.dbline 750
 ; }
-L322:
+L383:
 	add SP,-4
 	pop X
 	.dbline 0 ; func end
@@ -3152,7 +3577,7 @@ _Camara1::
 	push X
 	mov X,SP
 	add SP,3
-	.dbline 707
+	.dbline 759
 ; }
 ; }
 ; }
@@ -3162,157 +3587,157 @@ _Camara1::
 ; }
 ; }
 ; }
-L350:
-	.dbline 712
+L411:
+	.dbline 764
 ; }
 ; }
 ; }
 ; }
 ; }
-	.dbline 713
+	.dbline 765
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 714
+	.dbline 766
 ; }
-	mov A,>L353
+	mov A,>L414
 	push A
-	mov A,<L353
+	mov A,<L414
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 715
+	.dbline 767
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 716
+	.dbline 768
 ; }
 	mov REG[0xd0],>_Cam1
 	cmp [_Cam1],0
-	jnz L354
-	.dbline 716
+	jnz L415
+	.dbline 768
 	push X
-	mov A,>L356
+	mov A,>L417
 	push A
-	mov A,<L356
+	mov A,<L417
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L355
-L354:
-	.dbline 717
+	xjmp L416
+L415:
+	.dbline 769
 ; }
 	mov REG[0xd0],>_Cam1
 	cmp [_Cam1],1
-	jnz L357
-	.dbline 717
+	jnz L418
+	.dbline 769
 	push X
-	mov A,>L359
+	mov A,>L420
 	push A
-	mov A,<L359
+	mov A,<L420
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L358
-L357:
-	.dbline 718
+	xjmp L419
+L418:
+	.dbline 770
 ; }
 	mov REG[0xd0],>_Cam1
 	cmp [_Cam1],2
-	jnz L360
-	.dbline 718
+	jnz L421
+	.dbline 770
 	push X
-	mov A,>L362
+	mov A,>L423
 	push A
-	mov A,<L362
+	mov A,<L423
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L361
-L360:
-	.dbline 719
+	xjmp L422
+L421:
+	.dbline 771
 ; }
 	mov REG[0xd0],>_Cam1
 	cmp [_Cam1],3
-	jnz L363
-	.dbline 719
+	jnz L424
+	.dbline 771
 	push X
-	mov A,>L365
+	mov A,>L426
 	push A
-	mov A,<L365
+	mov A,<L426
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-L363:
-L361:
-L358:
-L355:
-	.dbline 720
+L424:
+L422:
+L419:
+L416:
+	.dbline 772
 ; }
 	xcall _bucle_temp
-	.dbline 721
+	.dbline 773
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 722
+	.dbline 774
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L366
-	.dbline 722
+	jnz L427
+	.dbline 774
 	xcall _Pitido
-L366:
-	.dbline 723
+L427:
+	.dbline 775
 ; }
 	cmp [X+0],1
-	jz L370
+	jz L431
 	cmp [X+0],2
-	jnz L368
-L370:
-	.dbline 724
+	jnz L429
+L431:
+	.dbline 776
 ; }
-	.dbline 725
+	.dbline 777
 ; }
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
 	mov REG[ 0],A
-	.dbline 726
+	.dbline 778
 ; }
-	xjmp L369
-L368:
-	.dbline 727
+	xjmp L430
+L429:
+	.dbline 779
 ; }
 	cmp [X+0],3
-	jnz L371
-	.dbline 728
+	jnz L432
+	.dbline 780
 ; }
-	.dbline 729
+	.dbline 781
 ; }
 	mov A,1
 	push A
 	xcall _Tipo_disp
 	add SP,-1
-	.dbline 730
+	.dbline 782
 ; }
-L371:
-L369:
-	.dbline 731
-L351:
-	.dbline 731
+L432:
+L430:
+	.dbline 783
+L412:
+	.dbline 783
 ; }
 	cmp [X+0],4
-	jnz L350
+	jnz L411
 	.dbline -2
-	.dbline 732
+	.dbline 784
 ; }
-L349:
+L410:
 	add SP,-3
 	pop X
 	.dbline 0 ; func end
@@ -3328,7 +3753,7 @@ _Camara2::
 	push X
 	mov X,SP
 	add SP,3
-	.dbline 741
+	.dbline 793
 ; }
 ; }
 ; }
@@ -3338,157 +3763,157 @@ _Camara2::
 ; }
 ; }
 ; }
-L374:
-	.dbline 746
+L435:
+	.dbline 798
 ; }
 ; }
 ; }
 ; }
 ; }
-	.dbline 747
+	.dbline 799
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 748
+	.dbline 800
 ; }
-	mov A,>L377
+	mov A,>L438
 	push A
-	mov A,<L377
+	mov A,<L438
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 749
+	.dbline 801
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 750
+	.dbline 802
 ; }
 	mov REG[0xd0],>_Cam2
 	cmp [_Cam2],0
-	jnz L378
-	.dbline 750
+	jnz L439
+	.dbline 802
 	push X
-	mov A,>L356
+	mov A,>L417
 	push A
-	mov A,<L356
+	mov A,<L417
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L379
-L378:
-	.dbline 751
+	xjmp L440
+L439:
+	.dbline 803
 ; }
 	mov REG[0xd0],>_Cam2
 	cmp [_Cam2],1
-	jnz L380
-	.dbline 751
+	jnz L441
+	.dbline 803
 	push X
-	mov A,>L359
+	mov A,>L420
 	push A
-	mov A,<L359
+	mov A,<L420
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L381
-L380:
-	.dbline 752
+	xjmp L442
+L441:
+	.dbline 804
 ; }
 	mov REG[0xd0],>_Cam2
 	cmp [_Cam2],2
-	jnz L382
-	.dbline 752
+	jnz L443
+	.dbline 804
 	push X
-	mov A,>L362
+	mov A,>L423
 	push A
-	mov A,<L362
+	mov A,<L423
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L383
-L382:
-	.dbline 753
+	xjmp L444
+L443:
+	.dbline 805
 ; }
 	mov REG[0xd0],>_Cam2
 	cmp [_Cam2],3
-	jnz L384
-	.dbline 753
+	jnz L445
+	.dbline 805
 	push X
-	mov A,>L365
+	mov A,>L426
 	push A
-	mov A,<L365
+	mov A,<L426
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-L384:
-L383:
-L381:
-L379:
-	.dbline 754
+L445:
+L444:
+L442:
+L440:
+	.dbline 806
 ; }
 	xcall _bucle_temp
-	.dbline 755
+	.dbline 807
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 756
+	.dbline 808
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L386
-	.dbline 756
+	jnz L447
+	.dbline 808
 	xcall _Pitido
-L386:
-	.dbline 757
+L447:
+	.dbline 809
 ; }
 	cmp [X+0],1
-	jz L390
+	jz L451
 	cmp [X+0],2
-	jnz L388
-L390:
-	.dbline 758
+	jnz L449
+L451:
+	.dbline 810
 ; }
-	.dbline 759
+	.dbline 811
 ; }
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
 	mov REG[ 0],A
-	.dbline 760
+	.dbline 812
 ; }
-	xjmp L389
-L388:
-	.dbline 761
+	xjmp L450
+L449:
+	.dbline 813
 ; }
 	cmp [X+0],3
-	jnz L391
-	.dbline 762
+	jnz L452
+	.dbline 814
 ; }
-	.dbline 763
+	.dbline 815
 ; }
 	mov A,2
 	push A
 	xcall _Tipo_disp
 	add SP,-1
-	.dbline 764
+	.dbline 816
 ; }
-L391:
-L389:
-	.dbline 765
-L375:
-	.dbline 765
+L452:
+L450:
+	.dbline 817
+L436:
+	.dbline 817
 ; }
 	cmp [X+0],4
-	jnz L374
+	jnz L435
 	.dbline -2
-	.dbline 766
+	.dbline 818
 ; }
-L373:
+L434:
 	add SP,-3
 	pop X
 	.dbline 0 ; func end
@@ -3506,7 +3931,7 @@ _Tipo_disp::
 	push X
 	mov X,SP
 	add SP,4
-	.dbline 776
+	.dbline 828
 ; }
 ; }
 ; }
@@ -3517,139 +3942,139 @@ _Tipo_disp::
 ; }
 ; }
 ; }
-	.dbline 780
+	.dbline 832
 ; }
 ; }
 ; }
 ; }
 	cmp [X-4],1
-	jnz L394
-	.dbline 780
+	jnz L455
+	.dbline 832
 	mov REG[0xd0],>_Cam1
 	mov A,[_Cam1]
 	add A,1
 	mov [X+1],A
-	xjmp L395
-L394:
-	.dbline 781
+	xjmp L456
+L455:
+	.dbline 833
 ; }
 	cmp [X-4],2
-	jnz L396
-	.dbline 781
+	jnz L457
+	.dbline 833
 	mov REG[0xd0],>_Cam2
 	mov A,[_Cam2]
 	add A,1
 	mov [X+1],A
-L396:
-L395:
-L398:
-	.dbline 784
+L457:
+L456:
+L459:
+	.dbline 836
 ; }
 ; }
 ; }
-	.dbline 785
+	.dbline 837
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 786
+	.dbline 838
 ; }
-	mov A,>L401
+	mov A,>L462
 	push A
-	mov A,<L401
+	mov A,<L462
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 787
+	.dbline 839
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 788
+	.dbline 840
 ; }
 	cmp [X+1],1
-	jnz L402
-	.dbline 788
+	jnz L463
+	.dbline 840
 	push X
-	mov A,>L356
+	mov A,>L417
 	push A
-	mov A,<L356
+	mov A,<L417
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L403
-L402:
-	.dbline 789
+	xjmp L464
+L463:
+	.dbline 841
 ; }
 	cmp [X+1],2
-	jnz L404
-	.dbline 789
+	jnz L465
+	.dbline 841
 	push X
-	mov A,>L359
+	mov A,>L420
 	push A
-	mov A,<L359
+	mov A,<L420
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L405
-L404:
-	.dbline 790
+	xjmp L466
+L465:
+	.dbline 842
 ; }
 	cmp [X+1],3
-	jnz L406
-	.dbline 790
+	jnz L467
+	.dbline 842
 	push X
-	mov A,>L362
+	mov A,>L423
 	push A
-	mov A,<L362
+	mov A,<L423
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L407
-L406:
-	.dbline 791
+	xjmp L468
+L467:
+	.dbline 843
 ; }
 	cmp [X+1],4
-	jnz L408
-	.dbline 791
+	jnz L469
+	.dbline 843
 	push X
-	mov A,>L365
+	mov A,>L426
 	push A
-	mov A,<L365
+	mov A,<L426
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-L408:
-L407:
-L405:
-L403:
-	.dbline 792
+L469:
+L468:
+L466:
+L464:
+	.dbline 844
 ; }
 	xcall _bucle_temp
-	.dbline 793
+	.dbline 845
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 794
+	.dbline 846
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L410
-	.dbline 794
+	jnz L471
+	.dbline 846
 	xcall _Pitido
-L410:
-	.dbline 795
+L471:
+	.dbline 847
 ; }
 	cmp [X+0],1
-	jnz L412
-	.dbline 796
+	jnz L473
+	.dbline 848
 ; }
-	.dbline 797
+	.dbline 849
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
@@ -3657,125 +4082,125 @@ L410:
 	mov [__r0],A
 	mov A,4
 	cmp A,[__r0]
-	jnc L414
-X13:
-	.dbline 797
+	jnc L475
+X15:
+	.dbline 849
 	mov [X+1],1
-	xjmp L413
-L414:
-	.dbline 798
+	xjmp L474
+L475:
+	.dbline 850
 ; }
 	inc [X+1]
-	.dbline 799
+	.dbline 851
 ; }
-	xjmp L413
-L412:
-	.dbline 800
+	xjmp L474
+L473:
+	.dbline 852
 ; }
 	cmp [X+0],3
-	jnz L416
-	.dbline 801
+	jnz L477
+	.dbline 853
 ; }
-	.dbline 802
+	.dbline 854
 ; }
 	cmp [X+1],1
-	jz L420
+	jz L481
 	cmp [X+1],2
-	jnz L418
-L420:
-	.dbline 803
+	jnz L479
+L481:
+	.dbline 855
 ; }
-	.dbline 804
+	.dbline 856
 ; }
 	cmp [X-4],1
-	jnz L421
-	.dbline 804
+	jnz L482
+	.dbline 856
 	mov A,[X+1]
 	sub A,1
 	mov REG[0xd0],>_Cam1
 	mov [_Cam1],A
-	xjmp L419
-L421:
-	.dbline 805
+	xjmp L480
+L482:
+	.dbline 857
 ; }
 	cmp [X-4],2
-	jnz L419
-	.dbline 805
+	jnz L480
+	.dbline 857
 	mov A,[X+1]
 	sub A,1
 	mov REG[0xd0],>_Cam2
 	mov [_Cam2],A
-	.dbline 806
+	.dbline 858
 ; }
-	xjmp L419
-L418:
-	.dbline 807
+	xjmp L480
+L479:
+	.dbline 859
 ; }
 	cmp [X+1],3
-	jnz L425
-	.dbline 807
+	jnz L486
+	.dbline 859
 	mov A,[X-4]
 	push A
 	xcall _Intervalometro
 	add SP,-1
-	xjmp L426
-L425:
-	.dbline 808
+	xjmp L487
+L486:
+	.dbline 860
 ; }
 	cmp [X+1],4
-	jnz L427
-	.dbline 808
+	jnz L488
+	.dbline 860
 	mov A,[X-4]
 	push A
 	xcall _TimeLapse
 	add SP,-1
-L427:
-L426:
-L419:
-	.dbline 809
+L488:
+L487:
+L480:
+	.dbline 861
 ; }
 	mov [X+0],4
-	.dbline 810
+	.dbline 862
 ; }
-	xjmp L417
-L416:
-	.dbline 811
+	xjmp L478
+L477:
+	.dbline 863
 ; }
 	cmp [X+0],2
-	jnz L429
-	.dbline 812
+	jnz L490
+	.dbline 864
 ; }
-	.dbline 813
+	.dbline 865
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
 	sub A,1
 	cmp A,1
-	jnc L431
-X14:
-	.dbline 813
+	jnc L492
+X16:
+	.dbline 865
 	mov [X+1],4
-	xjmp L432
-L431:
-	.dbline 814
+	xjmp L493
+L492:
+	.dbline 866
 ; }
 	dec [X+1]
-L432:
-	.dbline 815
+L493:
+	.dbline 867
 ; }
-L429:
-L417:
-L413:
-	.dbline 816
-L399:
-	.dbline 816
+L490:
+L478:
+L474:
+	.dbline 868
+L460:
+	.dbline 868
 ; }
 	cmp [X+0],4
-	jnz L398
+	jnz L459
 	.dbline -2
-	.dbline 817
+	.dbline 869
 ; }
-L393:
+L454:
 	add SP,-4
 	pop X
 	.dbline 0 ; func end
@@ -3795,7 +4220,7 @@ _Intervalometro::
 	push X
 	mov X,SP
 	add SP,4
-	.dbline 825
+	.dbline 877
 ; }
 ; }
 ; }
@@ -3804,104 +4229,104 @@ _Intervalometro::
 ; }
 ; }
 ; }
-	.dbline 826
+	.dbline 878
 ; }
 	mov [X+1],1
-	.dbline 829
+	.dbline 881
 ; }
 ; }
 ; }
 	cmp [X-4],1
-	jnz L434
-	.dbline 829
+	jnz L495
+	.dbline 881
 	mov REG[0xd0],>_Cam1
 	mov [_Cam1],2
-	xjmp L435
-L434:
-	.dbline 830
+	xjmp L496
+L495:
+	.dbline 882
 ; }
 	cmp [X-4],2
-	jnz L436
-	.dbline 830
+	jnz L497
+	.dbline 882
 	mov REG[0xd0],>_Cam2
 	mov [_Cam2],2
-L436:
-L435:
-L438:
-	.dbline 832
+L497:
+L496:
+L499:
+	.dbline 884
 ; }
 ; }
-	.dbline 833
+	.dbline 885
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 834
+	.dbline 886
 ; }
-	mov A,>L441
+	mov A,>L502
 	push A
-	mov A,<L441
+	mov A,<L502
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 835
+	.dbline 887
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 836
+	.dbline 888
 ; }
 	cmp [X+1],1
-	jnz L442
-	.dbline 836
+	jnz L503
+	.dbline 888
 	push X
-	mov A,>L444
+	mov A,>L505
 	push A
-	mov A,<L444
+	mov A,<L505
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L443
-L442:
-	.dbline 837
+	xjmp L504
+L503:
+	.dbline 889
 ; }
 	cmp [X+1],2
-	jnz L445
-	.dbline 837
+	jnz L506
+	.dbline 889
 	push X
-	mov A,>L447
+	mov A,>L508
 	push A
-	mov A,<L447
+	mov A,<L508
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-L445:
-L443:
-	.dbline 838
+L506:
+L504:
+	.dbline 890
 ; }
 	xcall _bucle_temp
-	.dbline 839
+	.dbline 891
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 840
+	.dbline 892
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L448
-	.dbline 840
+	jnz L509
+	.dbline 892
 	xcall _Pitido
-L448:
-	.dbline 841
+L509:
+	.dbline 893
 ; }
 	cmp [X+0],1
-	jnz L450
-	.dbline 842
+	jnz L511
+	.dbline 894
 ; }
-	.dbline 843
+	.dbline 895
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
@@ -3909,141 +4334,141 @@ L448:
 	mov [__r0],A
 	mov A,2
 	cmp A,[__r0]
-	jnc L452
-X15:
-	.dbline 843
+	jnc L513
+X17:
+	.dbline 895
 	mov [X+1],1
-	xjmp L451
-L452:
-	.dbline 844
+	xjmp L512
+L513:
+	.dbline 896
 ; }
 	inc [X+1]
-	.dbline 845
+	.dbline 897
 ; }
-	xjmp L451
-L450:
-	.dbline 846
+	xjmp L512
+L511:
+	.dbline 898
 ; }
 	cmp [X+0],3
-	jnz L454
-	.dbline 847
+	jnz L515
+	.dbline 899
 ; }
-	.dbline 848
+	.dbline 900
 ; }
 	cmp [X+1],1
-	jnz L456
-	.dbline 849
+	jnz L517
+	.dbline 901
 ; }
-	.dbline 850
+	.dbline 902
 ; }
 	cmp [X-4],1
-	jnz L458
-	.dbline 851
+	jnz L519
+	.dbline 903
 ; }
-	.dbline 852
+	.dbline 904
 ; }
 	xcall _Numeros
 	mov REG[0xd0],>_Int1_Tdisp
 	mov [_Int1_Tdisp],A
-	.dbline 853
+	.dbline 905
 ; }
 	xcall _Tiempos
 	mov REG[0xd0],>_Int1_Tdisp_Uni
 	mov [_Int1_Tdisp_Uni],A
-	.dbline 854
+	.dbline 906
 ; }
-	xjmp L455
-L458:
-	.dbline 855
+	xjmp L516
+L519:
+	.dbline 907
 ; }
 	cmp [X-4],2
-	jnz L455
-	.dbline 856
+	jnz L516
+	.dbline 908
 ; }
-	.dbline 857
+	.dbline 909
 ; }
 	xcall _Numeros
 	mov REG[0xd0],>_Int2_Tdisp
 	mov [_Int2_Tdisp],A
-	.dbline 858
+	.dbline 910
 ; }
 	xcall _Tiempos
 	mov REG[0xd0],>_Int2_Tdisp_Uni
 	mov [_Int2_Tdisp_Uni],A
-	.dbline 859
+	.dbline 911
 ; }
-	.dbline 860
+	.dbline 912
 ; }
-	xjmp L455
-L456:
-	.dbline 861
+	xjmp L516
+L517:
+	.dbline 913
 ; }
 	cmp [X+1],2
-	jnz L455
-	.dbline 862
+	jnz L516
+	.dbline 914
 ; }
-	.dbline 863
+	.dbline 915
 ; }
 	cmp [X-4],1
-	jnz L464
-	.dbline 863
+	jnz L525
+	.dbline 915
 	xcall _Numeros
 	mov REG[0xd0],>_Int1_Ndisp
 	mov [_Int1_Ndisp],A
-	xjmp L455
-L464:
-	.dbline 864
+	xjmp L516
+L525:
+	.dbline 916
 ; }
 	cmp [X-4],2
-	jnz L455
-	.dbline 864
+	jnz L516
+	.dbline 916
 	xcall _Numeros
 	mov REG[0xd0],>_Int2_Ndisp
 	mov [_Int2_Ndisp],A
-	.dbline 865
+	.dbline 917
 ; }
-	.dbline 866
+	.dbline 918
 ; }
-	xjmp L455
-L454:
-	.dbline 867
+	xjmp L516
+L515:
+	.dbline 919
 ; }
 	cmp [X+0],2
-	jnz L468
-	.dbline 868
+	jnz L529
+	.dbline 920
 ; }
-	.dbline 869
+	.dbline 921
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
 	sub A,1
 	cmp A,1
-	jnc L470
-X16:
-	.dbline 869
+	jnc L531
+X18:
+	.dbline 921
 	mov [X+1],2
-	xjmp L471
-L470:
-	.dbline 870
+	xjmp L532
+L531:
+	.dbline 922
 ; }
 	dec [X+1]
-L471:
-	.dbline 871
+L532:
+	.dbline 923
 ; }
-L468:
-L455:
-L451:
-	.dbline 872
-L439:
-	.dbline 872
+L529:
+L516:
+L512:
+	.dbline 924
+L500:
+	.dbline 924
 ; }
 	cmp [X+0],4
-	jnz L438
+	jnz L499
 	.dbline -2
-	.dbline 874
+	.dbline 926
 ; }
 ; }
-L433:
+L494:
 	add SP,-4
 	pop X
 	.dbline 0 ; func end
@@ -4063,7 +4488,7 @@ _TimeLapse::
 	push X
 	mov X,SP
 	add SP,4
-	.dbline 882
+	.dbline 934
 ; }
 ; }
 ; }
@@ -4072,104 +4497,104 @@ _TimeLapse::
 ; }
 ; }
 ; }
-	.dbline 883
+	.dbline 935
 ; }
 	mov [X+1],1
-	.dbline 886
+	.dbline 938
 ; }
 ; }
 ; }
 	cmp [X-4],1
-	jnz L473
-	.dbline 886
+	jnz L534
+	.dbline 938
 	mov REG[0xd0],>_Cam1
 	mov [_Cam1],3
-	xjmp L474
-L473:
-	.dbline 887
+	xjmp L535
+L534:
+	.dbline 939
 ; }
 	cmp [X-4],2
-	jnz L475
-	.dbline 887
+	jnz L536
+	.dbline 939
 	mov REG[0xd0],>_Cam2
 	mov [_Cam2],3
-L475:
-L474:
-L477:
-	.dbline 889
+L536:
+L535:
+L538:
+	.dbline 941
 ; }
 ; }
-	.dbline 890
+	.dbline 942
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 891
+	.dbline 943
 ; }
-	mov A,>L480
+	mov A,>L541
 	push A
-	mov A,<L480
+	mov A,<L541
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 892
+	.dbline 944
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 893
+	.dbline 945
 ; }
 	cmp [X+1],1
-	jnz L481
-	.dbline 893
+	jnz L542
+	.dbline 945
 	push X
-	mov A,>L483
+	mov A,>L544
 	push A
-	mov A,<L483
+	mov A,<L544
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L482
-L481:
-	.dbline 894
+	xjmp L543
+L542:
+	.dbline 946
 ; }
 	cmp [X+1],2
-	jnz L484
-	.dbline 894
+	jnz L545
+	.dbline 946
 	push X
-	mov A,>L486
+	mov A,>L547
 	push A
-	mov A,<L486
+	mov A,<L547
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-L484:
-L482:
-	.dbline 895
+L545:
+L543:
+	.dbline 947
 ; }
 	xcall _bucle_temp
-	.dbline 896
+	.dbline 948
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 897
+	.dbline 949
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L487
-	.dbline 897
+	jnz L548
+	.dbline 949
 	xcall _Pitido
-L487:
-	.dbline 898
+L548:
+	.dbline 950
 ; }
 	cmp [X+0],1
-	jnz L489
-	.dbline 899
+	jnz L550
+	.dbline 951
 ; }
-	.dbline 900
+	.dbline 952
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
@@ -4177,161 +4602,161 @@ L487:
 	mov [__r0],A
 	mov A,2
 	cmp A,[__r0]
-	jnc L491
-X17:
-	.dbline 900
+	jnc L552
+X19:
+	.dbline 952
 	mov [X+1],1
-	xjmp L490
-L491:
-	.dbline 901
+	xjmp L551
+L552:
+	.dbline 953
 ; }
 	inc [X+1]
-	.dbline 902
+	.dbline 954
 ; }
-	xjmp L490
-L489:
-	.dbline 903
+	xjmp L551
+L550:
+	.dbline 955
 ; }
 	cmp [X+0],3
-	jnz L493
-	.dbline 904
+	jnz L554
+	.dbline 956
 ; }
-	.dbline 905
+	.dbline 957
 ; }
 	cmp [X+1],1
-	jnz L495
-	.dbline 906
+	jnz L556
+	.dbline 958
 ; }
-	.dbline 907
+	.dbline 959
 ; }
 	cmp [X-4],1
-	jnz L497
-	.dbline 908
+	jnz L558
+	.dbline 960
 ; }
-	.dbline 909
+	.dbline 961
 ; }
 	xcall _Numeros
 	mov REG[0xd0],>_TL1_Treal
 	mov [_TL1_Treal],A
-	.dbline 910
+	.dbline 962
 ; }
 	xcall _Tiempos
 	mov REG[0xd0],>_TL1_Treal_Uni
 	mov [_TL1_Treal_Uni],A
-	.dbline 911
+	.dbline 963
 ; }
-	xjmp L494
-L497:
-	.dbline 912
+	xjmp L555
+L558:
+	.dbline 964
 ; }
 	cmp [X-4],2
-	jnz L494
-	.dbline 913
+	jnz L555
+	.dbline 965
 ; }
-	.dbline 914
+	.dbline 966
 ; }
 	xcall _Numeros
 	mov REG[0xd0],>_TL2_Treal
 	mov [_TL2_Treal],A
-	.dbline 915
+	.dbline 967
 ; }
 	xcall _Tiempos
 	mov REG[0xd0],>_TL2_Treal_Uni
 	mov [_TL2_Treal_Uni],A
-	.dbline 916
+	.dbline 968
 ; }
-	.dbline 917
+	.dbline 969
 ; }
-	xjmp L494
-L495:
-	.dbline 918
+	xjmp L555
+L556:
+	.dbline 970
 ; }
 	cmp [X+1],2
-	jnz L494
-	.dbline 919
+	jnz L555
+	.dbline 971
 ; }
-	.dbline 920
+	.dbline 972
 ; }
 	cmp [X-4],1
-	jnz L503
-	.dbline 921
+	jnz L564
+	.dbline 973
 ; }
-	.dbline 922
+	.dbline 974
 ; }
 	xcall _Numeros
 	mov REG[0xd0],>_TL1_Tfilm
 	mov [_TL1_Tfilm],A
-	.dbline 923
+	.dbline 975
 ; }
 	xcall _Tiempos
 	mov REG[0xd0],>_TL1_Tfilm_Uni
 	mov [_TL1_Tfilm_Uni],A
-	.dbline 924
+	.dbline 976
 ; }
-	xjmp L494
-L503:
-	.dbline 925
+	xjmp L555
+L564:
+	.dbline 977
 ; }
 	cmp [X-4],2
-	jnz L494
-	.dbline 926
+	jnz L555
+	.dbline 978
 ; }
-	.dbline 927
+	.dbline 979
 ; }
 	xcall _Numeros
 	mov REG[0xd0],>_TL2_Tfilm
 	mov [_TL2_Tfilm],A
-	.dbline 928
+	.dbline 980
 ; }
 	xcall _Tiempos
 	mov REG[0xd0],>_TL2_Tfilm_Uni
 	mov [_TL2_Tfilm_Uni],A
-	.dbline 929
+	.dbline 981
 ; }
-	.dbline 930
+	.dbline 982
 ; }
-	.dbline 931
+	.dbline 983
 ; }
-	xjmp L494
-L493:
-	.dbline 932
+	xjmp L555
+L554:
+	.dbline 984
 ; }
 	cmp [X+0],2
-	jnz L507
-	.dbline 933
+	jnz L568
+	.dbline 985
 ; }
-	.dbline 934
+	.dbline 986
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
 	sub A,1
 	cmp A,1
-	jnc L509
-X18:
-	.dbline 934
+	jnc L570
+X20:
+	.dbline 986
 	mov [X+1],2
-	xjmp L510
-L509:
-	.dbline 935
+	xjmp L571
+L570:
+	.dbline 987
 ; }
 	dec [X+1]
-L510:
-	.dbline 936
+L571:
+	.dbline 988
 ; }
-L507:
-L494:
-L490:
-	.dbline 937
-L478:
-	.dbline 937
+L568:
+L555:
+L551:
+	.dbline 989
+L539:
+	.dbline 989
 ; }
 	cmp [X+0],4
-	jnz L477
+	jnz L538
 	.dbline -2
-	.dbline 939
+	.dbline 991
 ; }
 ; }
-L472:
+L533:
 	add SP,-4
 	pop X
 	.dbline 0 ; func end
@@ -4353,7 +4778,7 @@ _Numeros::
 	push X
 	mov X,SP
 	add SP,7
-	.dbline 947
+	.dbline 999
 ; }
 ; }
 ; }
@@ -4362,45 +4787,45 @@ _Numeros::
 ; }
 ; }
 ; }
-	.dbline 948
+	.dbline 1000
 ; }
 	mov [X+6],1
-L512:
-	.dbline 952
+L573:
+	.dbline 1004
 ; }
 ; }
 ; }
 ; }
-	.dbline 953
+	.dbline 1005
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 954
+	.dbline 1006
 ; }
-	mov A,>L515
+	mov A,>L576
 	push A
-	mov A,<L515
+	mov A,<L576
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 955
+	.dbline 1007
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 956
+	.dbline 1008
 ; }
 	mov [X+3],0
 	mov [X+2],0
 	mov [X+0],100
 	mov A,[X+6]
 	mov [X+1],A
-	xjmp L519
-L516:
-	.dbline 957
-	.dbline 958
+	xjmp L580
+L577:
+	.dbline 1009
+	.dbline 1010
 	mov A,[X+0]
 	push A
 	mov A,[X+1]
@@ -4410,7 +4835,7 @@ L516:
 	pop A
 	mov [X+4],A
 	add SP,-1
-	.dbline 959
+	.dbline 1011
 	mov A,[X+0]
 	push A
 	mov A,[X+1]
@@ -4419,7 +4844,7 @@ L516:
 	add SP,-1
 	pop A
 	mov [X+1],A
-	.dbline 960
+	.dbline 1012
 	mov A,10
 	push A
 	mov A,[X+0]
@@ -4428,26 +4853,26 @@ L516:
 	pop A
 	mov [X+0],A
 	add SP,-1
-	.dbline 961
+	.dbline 1013
 	mov A,[X+4]
 	add A,48
 	push X
 	xcall _LCD_WriteData
 	pop X
-	.dbline 962
-L517:
-	.dbline 956
+	.dbline 1014
+L578:
+	.dbline 1008
 	inc [X+3]
 	adc [X+2],0
-L519:
-	.dbline 956
+L580:
+	.dbline 1008
 	mov A,[X+3]
 	sub A,3
 	mov A,[X+2]
 	sbb A,0
-	jc L516
-X19:
-	.dbline 963
+	jc L577
+X21:
+	.dbline 1015
 ; }
 ; }
 ; }
@@ -4456,25 +4881,25 @@ X19:
 ; }
 ; }
 	xcall _bucle_temp
-	.dbline 964
+	.dbline 1016
 ; }
 	xcall _Pulsador
 	mov [X+5],A
-	.dbline 965
+	.dbline 1017
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L520
-	.dbline 965
+	jnz L581
+	.dbline 1017
 	xcall _Pitido
-L520:
-	.dbline 966
+L581:
+	.dbline 1018
 ; }
 	cmp [X+5],1
-	jnz L522
-	.dbline 967
+	jnz L583
+	.dbline 1019
 ; }
-	.dbline 968
+	.dbline 1020
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+6]
@@ -4482,68 +4907,68 @@ L520:
 	mov [__r0],A
 	mov A,100
 	cmp A,[__r0]
-	jnc L524
-X20:
-	.dbline 968
+	jnc L585
+X22:
+	.dbline 1020
 	mov [X+6],1
-	xjmp L523
-L524:
-	.dbline 969
+	xjmp L584
+L585:
+	.dbline 1021
 ; }
 	inc [X+6]
-	.dbline 970
+	.dbline 1022
 ; }
-	xjmp L523
-L522:
-	.dbline 971
+	xjmp L584
+L583:
+	.dbline 1023
 ; }
 	cmp [X+5],3
-	jnz L526
-	.dbline 972
+	jnz L587
+	.dbline 1024
 ; }
-	.dbline 973
+	.dbline 1025
 ; }
 	mov A,[X+6]
 	mov REG[0xd0],>__r0
-	xjmp L511
-L526:
-	.dbline 975
+	xjmp L572
+L587:
+	.dbline 1027
 ; }
 ; }
 	cmp [X+5],2
-	jnz L528
-	.dbline 976
+	jnz L589
+	.dbline 1028
 ; }
-	.dbline 977
+	.dbline 1029
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+6]
 	sub A,1
 	cmp A,1
-	jnc L530
-X21:
-	.dbline 977
+	jnc L591
+X23:
+	.dbline 1029
 	mov [X+6],100
-	xjmp L531
-L530:
-	.dbline 978
+	xjmp L592
+L591:
+	.dbline 1030
 ; }
 	dec [X+6]
-L531:
-	.dbline 979
+L592:
+	.dbline 1031
 ; }
-L528:
-L523:
-	.dbline 980
-L513:
-	.dbline 980
+L589:
+L584:
+	.dbline 1032
+L574:
+	.dbline 1032
 ; }
 	cmp [X+5],5
-	jnz L512
+	jnz L573
 	.dbline -2
-	.dbline 981
+	.dbline 1033
 ; }
-L511:
+L572:
 	add SP,-7
 	pop X
 	.dbline 0 ; func end
@@ -4564,7 +4989,7 @@ _Tiempos::
 	push X
 	mov X,SP
 	add SP,4
-	.dbline 989
+	.dbline 1041
 ; }
 ; }
 ; }
@@ -4573,102 +4998,102 @@ _Tiempos::
 ; }
 ; }
 ; }
-	.dbline 990
+	.dbline 1042
 ; }
 	mov [X+1],1
-L533:
-	.dbline 994
+L594:
+	.dbline 1046
 ; }
 ; }
 ; }
 ; }
-	.dbline 995
+	.dbline 1047
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 996
+	.dbline 1048
 ; }
-	mov A,>L536
+	mov A,>L597
 	push A
-	mov A,<L536
+	mov A,<L597
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 997
+	.dbline 1049
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 998
+	.dbline 1050
 ; }
 	cmp [X+1],1
-	jnz L537
-	.dbline 998
+	jnz L598
+	.dbline 1050
 	push X
-	mov A,>L539
+	mov A,>L600
 	push A
-	mov A,<L539
+	mov A,<L600
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L538
-L537:
-	.dbline 999
+	xjmp L599
+L598:
+	.dbline 1051
 ; }
 	cmp [X+1],2
-	jnz L540
-	.dbline 999
+	jnz L601
+	.dbline 1051
 	push X
-	mov A,>L542
+	mov A,>L603
 	push A
-	mov A,<L542
+	mov A,<L603
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L541
-L540:
-	.dbline 1000
+	xjmp L602
+L601:
+	.dbline 1052
 ; }
 	cmp [X+1],3
-	jnz L543
-	.dbline 1000
+	jnz L604
+	.dbline 1052
 	push X
-	mov A,>L545
+	mov A,>L606
 	push A
-	mov A,<L545
+	mov A,<L606
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-L543:
-L541:
-L538:
-	.dbline 1001
+L604:
+L602:
+L599:
+	.dbline 1053
 ; }
 	xcall _bucle_temp
-	.dbline 1002
+	.dbline 1054
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 1003
+	.dbline 1055
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L546
-	.dbline 1003
+	jnz L607
+	.dbline 1055
 	xcall _Pitido
-L546:
-	.dbline 1004
+L607:
+	.dbline 1056
 ; }
 	cmp [X+0],1
-	jnz L548
-	.dbline 1005
+	jnz L609
+	.dbline 1057
 ; }
-	.dbline 1006
+	.dbline 1058
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
@@ -4676,68 +5101,68 @@ L546:
 	mov [__r0],A
 	mov A,3
 	cmp A,[__r0]
-	jnc L550
-X22:
-	.dbline 1006
+	jnc L611
+X24:
+	.dbline 1058
 	mov [X+1],1
-	xjmp L549
-L550:
-	.dbline 1007
+	xjmp L610
+L611:
+	.dbline 1059
 ; }
 	inc [X+1]
-	.dbline 1008
+	.dbline 1060
 ; }
-	xjmp L549
-L548:
-	.dbline 1009
+	xjmp L610
+L609:
+	.dbline 1061
 ; }
 	cmp [X+0],3
-	jnz L552
-	.dbline 1010
+	jnz L613
+	.dbline 1062
 ; }
-	.dbline 1011
+	.dbline 1063
 ; }
 	mov A,[X+1]
 	mov REG[0xd0],>__r0
-	xjmp L532
-L552:
-	.dbline 1013
+	xjmp L593
+L613:
+	.dbline 1065
 ; }
 ; }
 	cmp [X+0],2
-	jnz L554
-	.dbline 1014
+	jnz L615
+	.dbline 1066
 ; }
-	.dbline 1015
+	.dbline 1067
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
 	sub A,1
 	cmp A,1
-	jnc L556
-X23:
-	.dbline 1015
+	jnc L617
+X25:
+	.dbline 1067
 	mov [X+1],3
-	xjmp L557
-L556:
-	.dbline 1016
+	xjmp L618
+L617:
+	.dbline 1068
 ; }
 	dec [X+1]
-L557:
-	.dbline 1017
+L618:
+	.dbline 1069
 ; }
-L554:
-L549:
-	.dbline 1018
-L534:
-	.dbline 1018
+L615:
+L610:
+	.dbline 1070
+L595:
+	.dbline 1070
 ; }
 	cmp [X+0],5
-	jnz L533
+	jnz L594
 	.dbline -2
-	.dbline 1019
+	.dbline 1071
 ; }
-L532:
+L593:
 	add SP,-4
 	pop X
 	.dbline 0 ; func end
@@ -4755,7 +5180,7 @@ _Executar::
 	push X
 	mov X,SP
 	add SP,4
-	.dbline 1029
+	.dbline 1081
 ; }
 ; }
 ; }
@@ -4766,85 +5191,85 @@ _Executar::
 ; }
 ; }
 ; }
-	.dbline 1030
+	.dbline 1082
 ; }
 	mov [X+1],1
-L559:
-	.dbline 1034
+L620:
+	.dbline 1086
 ; }
 ; }
 ; }
 ; }
-	.dbline 1035
+	.dbline 1087
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 1036
+	.dbline 1088
 ; }
-	mov A,>L562
+	mov A,>L623
 	push A
-	mov A,<L562
+	mov A,<L623
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 1037
+	.dbline 1089
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
-	.dbline 1038
+	.dbline 1090
 ; }
-	mov A,>L563
+	mov A,>L624
 	push A
-	mov A,<L563
+	mov A,<L624
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	.dbline 1039
+	.dbline 1091
 ; }
 	xcall _bucle_temp
-	.dbline 1040
+	.dbline 1092
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 1041
+	.dbline 1093
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L564
-	.dbline 1041
+	jnz L625
+	.dbline 1093
 	xcall _Pitido
-	xjmp L565
-L564:
-	.dbline 1042
+	xjmp L626
+L625:
+	.dbline 1094
 ; }
 	cmp [X+0],3
-	jnz L566
-	.dbline 1043
+	jnz L627
+	.dbline 1095
 ; }
-	.dbline 1044
+	.dbline 1096
 ; }
 	cmp [X+1],1
-	jnz L568
-	.dbline 1044
+	jnz L629
+	.dbline 1096
 	xcall _Ara
-L568:
-	.dbline 1045
+L629:
+	.dbline 1097
 ; }
-L566:
-L565:
-	.dbline 1046
-L560:
-	.dbline 1046
+L627:
+L626:
+	.dbline 1098
+L621:
+	.dbline 1098
 ; }
 	cmp [X+0],4
-	jnz L559
+	jnz L620
 	.dbline -2
-	.dbline 1047
+	.dbline 1099
 ; }
-L558:
+L619:
 	add SP,-4
 	pop X
 	.dbline 0 ; func end
@@ -4856,7 +5281,7 @@ L558:
 	.dbfunc e envio_valores _envio_valores fV
 _envio_valores::
 	.dbline -1
-	.dbline 1062
+	.dbline 1114
 ; }
 ; }
 ; }
@@ -4872,216 +5297,313 @@ _envio_valores::
 ; }
 ; }
 ; }
-	.dbline 1063
+	.dbline 1115
 ; }
 	xcall _Reset_PdT
-	.dbline 1064
+	.dbline 1116
+; }
+	push X
+	mov A,1
+	xcall _LCD_Control
+	pop X
+	.dbline 1117
 ; }
 	mov REG[0xd0],>_Cam1
 	mov A,[_Cam1]
 	push A
 	xcall _envia
-	.dbline 1065
+	add SP,-1
+	.dbline 1118
+; }
+	push X
+	mov A,1
+	xcall _LCD_Control
+	.dbline 1119
+; }
+	mov A,>L632
+	push A
+	mov A,<L632
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	.dbline 1120
 ; }
 	mov REG[0xd0],>_Cam2
 	mov A,[_Cam2]
 	push A
 	xcall _envia
-	add SP,-2
-	.dbline 1066
+	add SP,-1
+	.dbline 1121
+; }
+	push X
+	mov A,1
+	xcall _LCD_Control
+	.dbline 1122
+; }
+	mov A,>L633
+	push A
+	mov A,<L633
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	.dbline 1123
 ; }
 	mov REG[0xd0],>_Ent1
 	mov A,[_Ent1]
 	push A
 	xcall _envia
-	.dbline 1067
+	add SP,-1
+	.dbline 1124
+; }
+	push X
+	mov A,1
+	xcall _LCD_Control
+	.dbline 1125
+; }
+	mov A,>L634
+	push A
+	mov A,<L634
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	.dbline 1126
 ; }
 	mov REG[0xd0],>_Ent2
 	mov A,[_Ent2]
 	push A
 	xcall _envia
-	add SP,-2
-	.dbline 1068
+	add SP,-1
+	.dbline 1127
+; }
+	push X
+	mov A,1
+	xcall _LCD_Control
+	.dbline 1128
+; }
+	mov A,>L635
+	push A
+	mov A,<L635
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	.dbline 1129
 ; }
 	mov REG[0xd0],>_Ent3
 	mov A,[_Ent3]
 	push A
 	xcall _envia
-	.dbline 1069
+	add SP,-1
+	.dbline 1130
+; }
+	push X
+	mov A,1
+	xcall _LCD_Control
+	.dbline 1131
+; }
+	mov A,>L636
+	push A
+	mov A,<L636
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	.dbline 1132
 ; }
 	mov REG[0xd0],>_Ent4
 	mov A,[_Ent4]
 	push A
 	xcall _envia
-	add SP,-2
-	.dbline 1070
+	add SP,-1
+	.dbline 1133
+; }
+	push X
+	mov A,1
+	xcall _LCD_Control
+	.dbline 1134
+; }
+	mov A,>L637
+	push A
+	mov A,<L637
+	mov X,A
+	pop A
+	xcall _LCD_PrCString
+	pop X
+	.dbline 1135
 ; }
 	mov REG[0xd0],>_Fla1
 	mov A,[_Fla1]
 	push A
 	xcall _envia
-	.dbline 1071
+	.dbline 1136
 ; }
 	mov REG[0xd0],>_Fla2
 	mov A,[_Fla2]
 	push A
 	xcall _envia
 	add SP,-2
-	.dbline 1072
+	.dbline 1137
 ; }
 	mov REG[0xd0],>_Fla3
 	mov A,[_Fla3]
 	push A
 	xcall _envia
-	.dbline 1073
+	.dbline 1138
 ; }
 	mov REG[0xd0],>_Fla4
 	mov A,[_Fla4]
 	push A
 	xcall _envia
 	add SP,-2
-	.dbline 1075
+	.dbline 1142
+; }
+; }
 ; }
 ; }
 	mov REG[0xd0],>_Cam1
 	cmp [_Cam1],2
-	jnz L571
-	.dbline 1076
+	jnz L638
+	.dbline 1143
 ; }
 	mov REG[0xd0],>_Int1_Tdisp
 	mov A,[_Int1_Tdisp]
 	push A
 	xcall _envia
 	add SP,-1
-L571:
-	.dbline 1077
+L638:
+	.dbline 1144
 ; }
 	mov REG[0xd0],>_Int1_Tdisp_Uni
 	mov A,[_Int1_Tdisp_Uni]
 	push A
 	xcall _envia
-	.dbline 1078
+	.dbline 1145
 ; }
 	mov REG[0xd0],>_Int1_Ndisp
 	mov A,[_Int1_Ndisp]
 	push A
 	xcall _envia
 	add SP,-2
-	.dbline 1080
+	.dbline 1147
 ; }
 ; }
 	mov REG[0xd0],>_Cam2
 	cmp [_Cam2],2
-	jnz L573
-	.dbline 1081
+	jnz L640
+	.dbline 1148
 ; }
 	mov REG[0xd0],>_Int2_Tdisp
 	mov A,[_Int2_Tdisp]
 	push A
 	xcall _envia
 	add SP,-1
-L573:
-	.dbline 1082
+L640:
+	.dbline 1149
 ; }
 	mov REG[0xd0],>_Int2_Tdisp_Uni
 	mov A,[_Int2_Tdisp_Uni]
 	push A
 	xcall _envia
-	.dbline 1083
+	.dbline 1150
 ; }
 	mov REG[0xd0],>_Int2_Ndisp
 	mov A,[_Int2_Ndisp]
 	push A
 	xcall _envia
 	add SP,-2
-	.dbline 1085
+	.dbline 1152
 ; }
 ; }
 	mov REG[0xd0],>_Cam1
 	cmp [_Cam1],3
-	jnz L575
-	.dbline 1086
+	jnz L642
+	.dbline 1153
 ; }
 	mov REG[0xd0],>_TL1_Treal
 	mov A,[_TL1_Treal]
 	push A
 	xcall _envia
 	add SP,-1
-L575:
-	.dbline 1087
+L642:
+	.dbline 1154
 ; }
 	mov REG[0xd0],>_TL1_Treal_Uni
 	mov A,[_TL1_Treal_Uni]
 	push A
 	xcall _envia
 	add SP,-1
-	.dbline 1088
+	.dbline 1155
 ; }
 	mov REG[0xd0],>_TL1_Tfilm
 	mov A,[_TL1_Tfilm]
 	push A
 	xcall _envia
-	.dbline 1089
+	.dbline 1156
 ; }
 	mov REG[0xd0],>_TL1_Tfilm_Uni
 	mov A,[_TL1_Tfilm_Uni]
 	push A
 	xcall _envia
 	add SP,-2
-	.dbline 1091
+	.dbline 1158
 ; }
 ; }
 	mov REG[0xd0],>_Cam2
 	cmp [_Cam2],3
-	jnz L577
-	.dbline 1092
+	jnz L644
+	.dbline 1159
 ; }
 	mov REG[0xd0],>_TL2_Treal
 	mov A,[_TL2_Treal]
 	push A
 	xcall _envia
 	add SP,-1
-L577:
-	.dbline 1093
+L644:
+	.dbline 1160
 	mov REG[0xd0],>_TL2_Treal_Uni
 	mov A,[_TL2_Treal_Uni]
 	push A
 	xcall _envia
 	add SP,-1
-	.dbline 1094
+	.dbline 1161
 	mov REG[0xd0],>_TL2_Tfilm
 	mov A,[_TL2_Tfilm]
 	push A
 	xcall _envia
-	.dbline 1095
+	.dbline 1162
 	mov REG[0xd0],>_TL2_Tfilm_Uni
 	mov A,[_TL2_Tfilm_Uni]
 	push A
 	xcall _envia
 	add SP,-2
-	.dbline 1097
+	.dbline 1164
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L579
-	.dbline 1097
+	jnz L646
+	.dbline 1164
 	xcall _Pitido
-L579:
+L646:
 	.dbline -2
-	.dbline 1098
+	.dbline 1167
 ; }
 ; }
 ; }
 ; }
 ; }
 ; }
-L570:
+; }
+; }
+L631:
 	.dbline 0 ; func end
 	ret
 	.dbend
 	.dbfunc e Ara _Ara fV
 _Ara::
 	.dbline -1
-	.dbline 1111
+	.dbline 1180
 ; }
 ; }
 ; }
@@ -5095,16 +5617,16 @@ _Ara::
 ; }
 ; }
 ; }
-	.dbline 1112
+	.dbline 1181
 ; }
 	xcall _envio_valores
-	.dbline 1113
+	.dbline 1182
 ; }
 	xcall _Trabajando
 	.dbline -2
-	.dbline 1114
+	.dbline 1183
 ; }
-L581:
+L648:
 	.dbline 0 ; func end
 	ret
 	.dbend
@@ -5116,7 +5638,7 @@ _Trabajando::
 	push X
 	mov X,SP
 	add SP,3
-	.dbline 1124
+	.dbline 1193
 ; }
 ; }
 ; }
@@ -5127,7 +5649,7 @@ _Trabajando::
 ; }
 ; }
 ; }
-	.dbline 1128
+	.dbline 1197
 ; }
 ; }
 ; }
@@ -5135,27 +5657,27 @@ _Trabajando::
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 1129
+	.dbline 1198
 ; }
-	mov A,>L583
+	mov A,>L650
 	push A
-	mov A,<L583
+	mov A,<L650
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	.dbline 1130
+	.dbline 1199
 	mov [X+1],0
 	mov [X+0],0
-	xjmp L587
-L584:
-	.dbline 1130
-L585:
-	.dbline 1130
+	xjmp L654
+L651:
+	.dbline 1199
+L652:
+	.dbline 1199
 	inc [X+1]
 	adc [X+0],0
-L587:
-	.dbline 1130
+L654:
+	.dbline 1199
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
@@ -5171,87 +5693,87 @@ L587:
 	mov A,0
 	xor A,-128
 	sbb A,(0 ^ 0x80)
-	jc L584
-X25:
-	.dbline 1132
+	jc L651
+X27:
+	.dbline 1201
 ; }
 ; }
-L588:
-	.dbline 1133
+L655:
+	.dbline 1202
 ; }
-	.dbline 1134
+	.dbline 1203
 ; }
 	push X
 	mov A,8
 	xcall _LCD_Control
-	.dbline 1135
+	.dbline 1204
 ; }
 	mov A,1
 	xcall _LCD_Control
 	pop X
-	.dbline 1137
+	.dbline 1206
 ; }
 ; }
 	xcall _Pulsador
 	mov [X+2],A
-	.dbline 1138
+	.dbline 1207
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L592
-	.dbline 1138
+	jnz L659
+	.dbline 1207
 	xcall _Pitido
-L592:
-	.dbline 1139
+L659:
+	.dbline 1208
 ; }
 	cmp [X+2],1
-	jz L597
+	jz L664
 	cmp [X+2],2
-	jz L597
+	jz L664
 	cmp [X+2],4
-	jnz L594
-L597:
-	.dbline 1140
+	jnz L661
+L664:
+	.dbline 1209
 ; }
-	.dbline 1141
+	.dbline 1210
 ; }
 	push X
 	mov A,14
 	xcall _LCD_Control
-	.dbline 1142
+	.dbline 1211
 ; }
-	mov A,>L598
+	mov A,>L665
 	push A
-	mov A,<L598
+	mov A,<L665
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 1143
+	.dbline 1212
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
-	.dbline 1144
+	.dbline 1213
 ; }
-	mov A,>L599
+	mov A,>L666
 	push A
-	mov A,<L599
+	mov A,<L666
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	.dbline 1145
+	.dbline 1214
 	mov [X+1],0
 	mov [X+0],0
-	xjmp L603
-L600:
-	.dbline 1145
-L601:
-	.dbline 1145
+	xjmp L670
+L667:
+	.dbline 1214
+L668:
+	.dbline 1214
 	inc [X+1]
 	adc [X+0],0
-L603:
-	.dbline 1145
+L670:
+	.dbline 1214
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
@@ -5267,44 +5789,44 @@ L603:
 	mov A,0
 	xor A,-128
 	sbb A,(0 ^ 0x80)
-	jc L600
-X26:
-	.dbline 1146
+	jc L667
+X28:
+	.dbline 1215
 ; }
-	xjmp L588
-L594:
-	.dbline 1147
+	xjmp L655
+L661:
+	.dbline 1216
 ; }
 	cmp [X+2],3
-	jnz L588
-	.dbline 1148
+	jnz L655
+	.dbline 1217
 ; }
-	.dbline 1149
+	.dbline 1218
 ; }
 	push X
 	mov A,14
 	xcall _LCD_Control
-	.dbline 1150
+	.dbline 1219
 ; }
-	mov A,>L606
+	mov A,>L673
 	push A
-	mov A,<L606
+	mov A,<L673
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	.dbline 1151
+	.dbline 1220
 	mov [X+1],0
 	mov [X+0],0
-	xjmp L610
-L607:
-	.dbline 1151
-L608:
-	.dbline 1151
+	xjmp L677
+L674:
+	.dbline 1220
+L675:
+	.dbline 1220
 	inc [X+1]
 	adc [X+0],0
-L610:
-	.dbline 1151
+L677:
+	.dbline 1220
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
 	mov [__r3],A
@@ -5319,18 +5841,18 @@ L610:
 	mov A,0
 	xor A,-128
 	sbb A,(0 ^ 0x80)
-	jc L607
-X27:
-	.dbline 1152
+	jc L674
+X29:
+	.dbline 1221
 	xcall _Resetear
-	.dbline 1153
-	.dbline 1154
-	.dbline 1132
-	.dbline 1132
-	xjmp L588
-X24:
+	.dbline 1222
+	.dbline 1223
+	.dbline 1201
+	.dbline 1201
+	xjmp L655
+X26:
 	.dbline -2
-L582:
+L649:
 	add SP,-3
 	pop X
 	.dbline 0 ; func end
@@ -5341,7 +5863,7 @@ L582:
 	.dbfunc e Resetear _Resetear fV
 _Resetear::
 	.dbline -1
-	.dbline 1164
+	.dbline 1233
 ; }
 ; }
 ; }
@@ -5356,16 +5878,16 @@ _Resetear::
 ; }
 ; }
 ; }
-	.dbline 1165
+	.dbline 1234
 ; }
 	xcall _Reset_PdT
-	.dbline 1166
+	.dbline 1235
 ; }
 	xcall _Principal
 	.dbline -2
-	.dbline 1167
+	.dbline 1236
 ; }
-L611:
+L678:
 	.dbline 0 ; func end
 	ret
 	.dbend
@@ -5378,7 +5900,7 @@ _Sistema::
 	push X
 	mov X,SP
 	add SP,4
-	.dbline 1177
+	.dbline 1246
 ; }
 ; }
 ; }
@@ -5389,102 +5911,102 @@ _Sistema::
 ; }
 ; }
 ; }
-	.dbline 1178
+	.dbline 1247
 ; }
 	mov [X+1],1
-L613:
-	.dbline 1182
+L680:
+	.dbline 1251
 ; }
 ; }
 ; }
 ; }
-	.dbline 1183
+	.dbline 1252
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 1184
+	.dbline 1253
 ; }
-	mov A,>L616
+	mov A,>L683
 	push A
-	mov A,<L616
+	mov A,<L683
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 1185
+	.dbline 1254
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 1186
+	.dbline 1255
 ; }
 	cmp [X+1],1
-	jnz L617
-	.dbline 1186
+	jnz L684
+	.dbline 1255
 	push X
-	mov A,>L619
+	mov A,>L686
 	push A
-	mov A,<L619
+	mov A,<L686
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L618
-L617:
-	.dbline 1187
+	xjmp L685
+L684:
+	.dbline 1256
 ; }
 	cmp [X+1],2
-	jnz L620
-	.dbline 1187
+	jnz L687
+	.dbline 1256
 	push X
-	mov A,>L622
+	mov A,>L689
 	push A
-	mov A,<L622
+	mov A,<L689
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L621
-L620:
-	.dbline 1188
+	xjmp L688
+L687:
+	.dbline 1257
 ; }
 	cmp [X+1],3
-	jnz L623
-	.dbline 1188
+	jnz L690
+	.dbline 1257
 	push X
-	mov A,>L625
+	mov A,>L692
 	push A
-	mov A,<L625
+	mov A,<L692
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
 	pop X
-L623:
-L621:
-L618:
-	.dbline 1189
+L690:
+L688:
+L685:
+	.dbline 1258
 ; }
 	xcall _bucle_temp
-	.dbline 1190
+	.dbline 1259
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 1191
+	.dbline 1260
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L626
-	.dbline 1191
+	jnz L693
+	.dbline 1260
 	xcall _Pitido
-L626:
-	.dbline 1192
+L693:
+	.dbline 1261
 ; }
 	cmp [X+0],1
-	jnz L628
-	.dbline 1193
+	jnz L695
+	.dbline 1262
 ; }
-	.dbline 1194
+	.dbline 1263
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
@@ -5492,88 +6014,88 @@ L626:
 	mov [__r0],A
 	mov A,3
 	cmp A,[__r0]
-	jnc L630
-X28:
-	.dbline 1194
+	jnc L697
+X30:
+	.dbline 1263
 	mov [X+1],1
-	xjmp L629
-L630:
-	.dbline 1195
+	xjmp L696
+L697:
+	.dbline 1264
 ; }
 	inc [X+1]
-	.dbline 1196
+	.dbline 1265
 ; }
-	xjmp L629
-L628:
-	.dbline 1197
+	xjmp L696
+L695:
+	.dbline 1266
 ; }
 	cmp [X+0],3
-	jnz L632
-	.dbline 1198
+	jnz L699
+	.dbline 1267
 ; }
-	.dbline 1199
+	.dbline 1268
 ; }
 	cmp [X+1],1
-	jnz L634
-	.dbline 1199
+	jnz L701
+	.dbline 1268
 	xcall _Reali_LCD
-	xjmp L633
-L634:
-	.dbline 1200
+	xjmp L700
+L701:
+	.dbline 1269
 ; }
 	cmp [X+1],2
-	jnz L636
-	.dbline 1200
+	jnz L703
+	.dbline 1269
 	xcall _Zumbador
-	xjmp L633
-L636:
-	.dbline 1201
+	xjmp L700
+L703:
+	.dbline 1270
 ; }
 	cmp [X+1],3
-	jnz L633
-	.dbline 1201
+	jnz L700
+	.dbline 1270
 	xcall _Ali_Led
-	.dbline 1202
+	.dbline 1271
 ; }
-	xjmp L633
-L632:
-	.dbline 1203
+	xjmp L700
+L699:
+	.dbline 1272
 ; }
 	cmp [X+0],2
-	jnz L640
-	.dbline 1204
+	jnz L707
+	.dbline 1273
 ; }
-	.dbline 1205
+	.dbline 1274
 ; }
 	mov REG[0xd0],>__r0
 	mov A,[X+1]
 	sub A,1
 	cmp A,1
-	jnc L642
-X29:
-	.dbline 1205
+	jnc L709
+X31:
+	.dbline 1274
 	mov [X+1],3
-	xjmp L643
-L642:
-	.dbline 1206
+	xjmp L710
+L709:
+	.dbline 1275
 ; }
 	dec [X+1]
-L643:
-	.dbline 1207
+L710:
+	.dbline 1276
 ; }
-L640:
-L633:
-L629:
-	.dbline 1208
-L614:
-	.dbline 1208
+L707:
+L700:
+L696:
+	.dbline 1277
+L681:
+	.dbline 1277
 ; }
 	cmp [X+0],4
-	jnz L613
+	jnz L680
 	.dbline -2
-	.dbline 1209
+	.dbline 1278
 ; }
-L612:
+L679:
 	add SP,-4
 	pop X
 	.dbline 0 ; func end
@@ -5590,7 +6112,7 @@ _Reali_LCD::
 	push X
 	mov X,SP
 	add SP,3
-	.dbline 1218
+	.dbline 1287
 ; }
 ; }
 ; }
@@ -5600,38 +6122,38 @@ _Reali_LCD::
 ; }
 ; }
 ; }
-L645:
-	.dbline 1223
+L712:
+	.dbline 1292
 ; }
 ; }
 ; }
 ; }
 ; }
-	.dbline 1224
+	.dbline 1293
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 1225
+	.dbline 1294
 ; }
-	mov A,>L648
+	mov A,>L715
 	push A
-	mov A,<L648
+	mov A,<L715
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 1226
+	.dbline 1295
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 1227
+	.dbline 1296
 ; }
 	mov REG[0xd0],>_Luz_LCD
 	cmp [_Luz_LCD],0
-	jnz L649
-	.dbline 1227
+	jnz L716
+	.dbline 1296
 	push X
 	mov A,>L151
 	push A
@@ -5640,9 +6162,9 @@ L645:
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L650
-L649:
-	.dbline 1228
+	xjmp L717
+L716:
+	.dbline 1297
 ; }
 	push X
 	mov A,>L152
@@ -5652,90 +6174,90 @@ L649:
 	pop A
 	xcall _LCD_PrCString
 	pop X
-L650:
-	.dbline 1229
+L717:
+	.dbline 1298
 ; }
 	xcall _bucle_temp
-	.dbline 1230
+	.dbline 1299
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 1231
+	.dbline 1300
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L651
-	.dbline 1231
+	jnz L718
+	.dbline 1300
 	xcall _Pitido
-L651:
-	.dbline 1232
+L718:
+	.dbline 1301
 ; }
 	cmp [X+0],1
-	jz L655
+	jz L722
 	cmp [X+0],2
-	jnz L653
-L655:
-	.dbline 1233
+	jnz L720
+L722:
+	.dbline 1302
 ; }
-	.dbline 1234
+	.dbline 1303
 ; }
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
 	mov REG[ 0],A
-	.dbline 1235
+	.dbline 1304
 ; }
-	xjmp L654
-L653:
-	.dbline 1236
+	xjmp L721
+L720:
+	.dbline 1305
 ; }
 	cmp [X+0],3
-	jnz L656
-	.dbline 1237
+	jnz L723
+	.dbline 1306
 ; }
-	.dbline 1238
+	.dbline 1307
 ; }
 	mov REG[0xd0],>_Luz_LCD
 	cmp [_Luz_LCD],0
-	jnz L658
-	.dbline 1239
+	jnz L725
+	.dbline 1308
 ; }
-	.dbline 1240
+	.dbline 1309
 ; }
 	or REG[ 0],2
-	.dbline 1241
+	.dbline 1310
 ; }
 	mov [_Luz_LCD],1
-	.dbline 1242
+	.dbline 1311
 ; }
-	xjmp L659
-L658:
-	.dbline 1244
+	xjmp L726
+L725:
+	.dbline 1313
 ; }
 ; }
-	.dbline 1245
+	.dbline 1314
 ; }
 	and REG[ 0],-3
-	.dbline 1246
+	.dbline 1315
 ; }
 	mov REG[0xd0],>_Luz_LCD
 	mov [_Luz_LCD],0
-	.dbline 1247
+	.dbline 1316
 ; }
-L659:
-	.dbline 1248
+L726:
+	.dbline 1317
 ; }
-L656:
-L654:
-	.dbline 1249
-L646:
-	.dbline 1249
+L723:
+L721:
+	.dbline 1318
+L713:
+	.dbline 1318
 ; }
 	cmp [X+0],4
-	jnz L645
+	jnz L712
 	.dbline -2
-	.dbline 1250
+	.dbline 1319
 ; }
-L644:
+L711:
 	add SP,-3
 	pop X
 	.dbline 0 ; func end
@@ -5751,7 +6273,7 @@ _Zumbador::
 	push X
 	mov X,SP
 	add SP,3
-	.dbline 1259
+	.dbline 1328
 ; }
 ; }
 ; }
@@ -5761,38 +6283,38 @@ _Zumbador::
 ; }
 ; }
 ; }
-L661:
-	.dbline 1264
+L728:
+	.dbline 1333
 ; }
 ; }
 ; }
 ; }
 ; }
-	.dbline 1265
+	.dbline 1334
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 1266
+	.dbline 1335
 ; }
-	mov A,>L664
+	mov A,>L731
 	push A
-	mov A,<L664
+	mov A,<L731
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 1267
+	.dbline 1336
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 1268
+	.dbline 1337
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],0
-	jnz L665
-	.dbline 1268
+	jnz L732
+	.dbline 1337
 	push X
 	mov A,>L151
 	push A
@@ -5801,9 +6323,9 @@ L661:
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L666
-L665:
-	.dbline 1269
+	xjmp L733
+L732:
+	.dbline 1338
 ; }
 	push X
 	mov A,>L152
@@ -5813,74 +6335,74 @@ L665:
 	pop A
 	xcall _LCD_PrCString
 	pop X
-L666:
-	.dbline 1270
+L733:
+	.dbline 1339
 ; }
 	xcall _bucle_temp
-	.dbline 1271
+	.dbline 1340
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 1272
+	.dbline 1341
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L667
-	.dbline 1272
+	jnz L734
+	.dbline 1341
 	xcall _Pitido
-L667:
-	.dbline 1273
+L734:
+	.dbline 1342
 ; }
 	cmp [X+0],1
-	jz L671
+	jz L738
 	cmp [X+0],2
-	jnz L669
-L671:
-	.dbline 1274
+	jnz L736
+L738:
+	.dbline 1343
 ; }
-	.dbline 1275
+	.dbline 1344
 ; }
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
 	mov REG[ 0],A
-	.dbline 1276
+	.dbline 1345
 ; }
-	xjmp L670
-L669:
-	.dbline 1277
+	xjmp L737
+L736:
+	.dbline 1346
 ; }
 	cmp [X+0],3
-	jnz L672
-	.dbline 1278
+	jnz L739
+	.dbline 1347
 ; }
-	.dbline 1279
+	.dbline 1348
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],0
-	jnz L674
-	.dbline 1279
+	jnz L741
+	.dbline 1348
 	mov [_Buzzer],1
-	xjmp L675
-L674:
-	.dbline 1280
+	xjmp L742
+L741:
+	.dbline 1349
 ; }
 	mov REG[0xd0],>_Buzzer
 	mov [_Buzzer],0
-L675:
-	.dbline 1281
+L742:
+	.dbline 1350
 ; }
-L672:
-L670:
-	.dbline 1282
-L662:
-	.dbline 1282
+L739:
+L737:
+	.dbline 1351
+L729:
+	.dbline 1351
 ; }
 	cmp [X+0],4
-	jnz L661
+	jnz L728
 	.dbline -2
-	.dbline 1283
+	.dbline 1352
 ; }
-L660:
+L727:
 	add SP,-3
 	pop X
 	.dbline 0 ; func end
@@ -5896,7 +6418,7 @@ _Ali_Led::
 	push X
 	mov X,SP
 	add SP,3
-	.dbline 1292
+	.dbline 1361
 ; }
 ; }
 ; }
@@ -5906,38 +6428,38 @@ _Ali_Led::
 ; }
 ; }
 ; }
-L677:
-	.dbline 1297
+L744:
+	.dbline 1366
 ; }
 ; }
 ; }
 ; }
 ; }
-	.dbline 1298
+	.dbline 1367
 ; }
 	push X
 	mov A,1
 	xcall _LCD_Control
-	.dbline 1299
+	.dbline 1368
 ; }
-	mov A,>L680
+	mov A,>L747
 	push A
-	mov A,<L680
+	mov A,<L747
 	mov X,A
 	pop A
 	xcall _LCD_PrCString
-	.dbline 1300
+	.dbline 1369
 ; }
 	mov X,0
 	mov A,1
 	xcall _LCD_Position
 	pop X
-	.dbline 1301
+	.dbline 1370
 ; }
 	mov REG[0xd0],>_Alimentacion
 	cmp [_Alimentacion],0
-	jnz L681
-	.dbline 1301
+	jnz L748
+	.dbline 1370
 	push X
 	mov A,>L151
 	push A
@@ -5946,9 +6468,9 @@ L677:
 	pop A
 	xcall _LCD_PrCString
 	pop X
-	xjmp L682
-L681:
-	.dbline 1302
+	xjmp L749
+L748:
+	.dbline 1371
 ; }
 	push X
 	mov A,>L152
@@ -5958,90 +6480,90 @@ L681:
 	pop A
 	xcall _LCD_PrCString
 	pop X
-L682:
-	.dbline 1303
+L749:
+	.dbline 1372
 ; }
 	xcall _bucle_temp
-	.dbline 1304
+	.dbline 1373
 ; }
 	xcall _Pulsador
 	mov [X+0],A
-	.dbline 1305
+	.dbline 1374
 ; }
 	mov REG[0xd0],>_Buzzer
 	cmp [_Buzzer],1
-	jnz L683
-	.dbline 1305
+	jnz L750
+	.dbline 1374
 	xcall _Pitido
-L683:
-	.dbline 1306
+L750:
+	.dbline 1375
 ; }
 	cmp [X+0],1
-	jz L687
+	jz L754
 	cmp [X+0],2
-	jnz L685
-L687:
-	.dbline 1307
+	jnz L752
+L754:
+	.dbline 1376
 ; }
-	.dbline 1308
+	.dbline 1377
 ; }
 	mov A,REG[ 0]
 	mov REG[0xd0],>__r0
 	mov REG[ 0],A
-	.dbline 1309
+	.dbline 1378
 ; }
-	xjmp L686
-L685:
-	.dbline 1310
+	xjmp L753
+L752:
+	.dbline 1379
 ; }
 	cmp [X+0],3
-	jnz L688
-	.dbline 1311
+	jnz L755
+	.dbline 1380
 ; }
-	.dbline 1312
+	.dbline 1381
 ; }
 	mov REG[0xd0],>_Alimentacion
 	cmp [_Alimentacion],0
-	jnz L690
-	.dbline 1313
+	jnz L757
+	.dbline 1382
 ; }
-	.dbline 1314
+	.dbline 1383
 ; }
 	or REG[ 0],16
-	.dbline 1315
+	.dbline 1384
 ; }
 	mov [_Alimentacion],1
-	.dbline 1316
+	.dbline 1385
 ; }
-	xjmp L691
-L690:
-	.dbline 1318
+	xjmp L758
+L757:
+	.dbline 1387
 ; }
 ; }
-	.dbline 1319
+	.dbline 1388
 ; }
 	and REG[ 0],-17
-	.dbline 1320
+	.dbline 1389
 ; }
 	mov REG[0xd0],>_Alimentacion
 	mov [_Alimentacion],0
-	.dbline 1321
+	.dbline 1390
 ; }
-L691:
-	.dbline 1322
+L758:
+	.dbline 1391
 ; }
-L688:
-L686:
-	.dbline 1323
-L678:
-	.dbline 1323
+L755:
+L753:
+	.dbline 1392
+L745:
+	.dbline 1392
 ; }
 	cmp [X+0],4
-	jnz L677
+	jnz L744
 	.dbline -2
-	.dbline 1324
+	.dbline 1393
 ; }
-L676:
+L743:
 	add SP,-3
 	pop X
 	.dbline 0 ; func end
@@ -6059,95 +6581,117 @@ _main::
 	.dbline 17
 	xcall _Bienvenida
 	.dbline 18
-L693:
+L760:
 	.dbline 18
 	xcall _Principal
 	.dbline 18
 	.dbline 18
-	xjmp L693
-X30:
+	xjmp L760
+X32:
 	.dbline -2
-L692:
+L759:
 	.dbline 0 ; func end
 	jmp .
 	.dbend
 	.area lit(rom, con, rel)
-L680:
+L747:
 	.byte 62,'L,'e,'d,32,'d,'e,32,'m,'a,'r,'c,'h,'a,0
-L664:
+L731:
 	.byte 62,'P,'i,'t,'i,'d,'o,32,'i,'n,'t,'e,'r,'n,'o,0
-L648:
+L715:
 	.byte 62,'L,'u,'z,32,'L,'C,'D,0
-L625:
+L692:
 	.byte 51,45,'L,'e,'d,32,'d,'e,32,'m,'a,'r,'c,'h,'a,0
-L622:
+L689:
 	.byte 50,45,'P,'i,'t,'i,'d,'o,32,'i,'n,'t,'e,'r,'n,'o
 	.byte 0
-L619:
+L686:
 	.byte 49,45,'L,'u,'z,32,'L,'C,'D,0
-L616:
+L683:
 	.byte 62,'C,'o,'n,'f,46,32,'S,'i,'s,'t,'e,'m,'a,0
-L606:
+L673:
 	.byte 'T,'r,'a,'b,'a,'j,'o,32,'p,'a,'r,'a,'d,'o,0
-L599:
+L666:
 	.byte 'M,'a,'n,'t,'e,'n,'e,'r,32,'A,'m,'a,'r,'i,'l,'l
 	.byte 'o,0
-L598:
+L665:
 	.byte 'Q,'u,'i,'e,'r,'e,32,'p,'a,'r,'a,'r,'l,'o,63,0
-L583:
+L650:
 	.byte 'P,'h,'o,'t,'o,'S,'O,'C,32,'a,'c,'t,'i,'v,'o,0
-L563:
+L637:
+	.byte 'a,'r,'r,'i,'b,'a,32,'E,'n,'t,52,0
+L636:
+	.byte 'a,'r,'r,'i,'b,'a,32,'E,'n,'t,51,0
+L635:
+	.byte 'a,'r,'r,'i,'b,'a,32,'E,'n,'t,50,0
+L634:
+	.byte 'a,'r,'r,'i,'b,'a,32,'E,'n,'t,49,0
+L633:
+	.byte 'a,'r,'r,'i,'b,'a,32,'c,'a,'m,50,0
+L632:
+	.byte 'a,'r,'r,'i,'b,'a,32,'c,'a,'m,49,0
+L624:
 	.byte 49,45,'A,'h,'o,'r,'a,0
-L562:
+L623:
 	.byte 62,'E,'j,'e,'c,'u,'t,'a,'r,0
-L545:
+L606:
 	.byte 'H,'o,'r,'a,'s,0
-L542:
+L603:
 	.byte 'M,'i,'n,'u,'t,'o,'s,0
-L539:
+L600:
 	.byte 'S,'e,'g,'u,'n,'d,'o,'s,0
-L536:
+L597:
 	.byte 62,'U,'n,'i,46,32,'d,'e,32,'t,'i,'e,'m,'p,'o,0
-L515:
+L576:
 	.byte 62,'N,'u,'m,'e,'r,'o,32,49,45,49,48,48,0
-L486:
+L547:
 	.byte 'T,'i,'e,'m,'p,'o,32,'v,'i,'d,'e,'o,0
-L483:
+L544:
 	.byte 'T,'i,'e,'m,'p,'o,32,'r,'e,'a,'l,0
-L480:
+L541:
 	.byte 62,'T,'i,'m,'e,32,'L,'a,'p,'s,'e,0
-L447:
+L508:
 	.byte 'N,'u,'m,'e,'r,'o,32,'d,'e,32,'f,'o,'t,'o,'s,0
-L444:
+L505:
 	.byte 'T,32,'e,'n,'t,'r,'e,32,'f,'o,'t,'o,0
-L441:
+L502:
 	.byte 62,'I,'n,'t,'e,'r,'v,'a,'l,'o,'m,'e,'t,'r,'o,0
-L401:
+L462:
 	.byte 62,'T,'i,'p,'o,32,'d,'e,32,'d,'i,'s,'p,46,0
-L377:
+L438:
 	.byte 62,'C,'a,'m,'a,'r,'a,32,50,0
-L365:
+L426:
 	.byte 'T,'i,'m,'e,32,'L,'a,'p,'s,'e,0
-L362:
+L423:
 	.byte 'I,'n,'t,'e,'r,'v,'a,'l,'o,'m,'e,'t,'r,'o,0
-L359:
+L420:
 	.byte 'D,'i,'s,'p,46,32,'U,'n,'i,'c,'o,0
-L356:
+L417:
 	.byte 'N,'o,32,'d,'i,'s,'p,'a,'r,'a,0
-L353:
+L414:
 	.byte 62,'C,'a,'m,'a,'r,'a,32,49,0
-L332:
+L393:
 	.byte 50,45,'C,'a,'m,'a,'r,'a,32,50,0
-L329:
+L390:
 	.byte 49,45,'C,'a,'m,'a,'r,'a,32,49,0
-L326:
+L387:
 	.byte 62,'C,'o,'n,'f,46,32,'D,'i,'s,'p,'a,'r,'o,0
-L310:
+L354:
+	.byte 62,'A,'s,'i,'g,'n,'a,'c,'i,'o,'n,0
+L326:
 	.byte 62,'F,'l,'a,'s,'h,32,52,0
-L294:
+L306:
 	.byte 62,'F,'l,'a,'s,'h,32,51,0
-L278:
+L286:
 	.byte 62,'F,'l,'a,'s,'h,32,50,0
+L274:
+	.byte 'A,'m,'b,'a,'s,0
+L271:
+	.byte 'C,'a,'m,'a,'r,'a,32,50,0
+L268:
+	.byte 'C,'a,'m,'a,'r,'a,32,49,0
+L265:
+	.byte 'A,'p,'a,'g,'a,'d,'o,0
 L262:
 	.byte 62,'F,'l,'a,'s,'h,32,49,0
 L237:

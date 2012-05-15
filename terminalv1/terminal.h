@@ -189,7 +189,7 @@ void Reset_PdT(void)
 	int x;
 	
 	PRT0DR=PRT0DR | 0x04;			//Puesta a 1 del puerto 0.2
-	for(x=0;x<500;x++);				//Bucle de tiempo
+	for(x=0;x<750;x++);				//Bucle de tiempo
 	PRT0DR=PRT0DR & 0xFB;			//Apagado del puerto 0.2
 }
 
@@ -197,7 +197,7 @@ void Reset_PdT(void)
 //***************************************************************************************
 //***************************************************************************************
 
-// Funcio per detectar si un pulsador ha sigut pitjat la cual retornara un valor entre 0 i 3
+// Funcio per detectar si un pulsador ha estat pitjat la cual retornara un valor entre 0 i 3
 //  que farem correspondre amb una accio o una altre.
 	// retorn 1 --> pulsacio curta del boto groc
 	// retorn 3 --> pulsacio llarga del boto groc
@@ -1113,16 +1113,31 @@ void Executar(void)
 void envio_valores(void)
 {
 	Reset_PdT();
+	LCD_Control(0x01);	//Borrat de pantalla
 	envia(Cam1);
+	LCD_Control(0x01);	//Borrat de pantalla
+	LCD_PrCString("arriba cam1");
 	envia(Cam2);
+	LCD_Control(0x01);	//Borrat de pantalla
+	LCD_PrCString("arriba cam2");
 	envia(Ent1);
+	LCD_Control(0x01);	//Borrat de pantalla
+	LCD_PrCString("arriba Ent1");
 	envia(Ent2);
+	LCD_Control(0x01);	//Borrat de pantalla
+	LCD_PrCString("arriba Ent2");
 	envia(Ent3);
+	LCD_Control(0x01);	//Borrat de pantalla
+	LCD_PrCString("arriba Ent3");
 	envia(Ent4);
+	LCD_Control(0x01);	//Borrat de pantalla
+	LCD_PrCString("arriba Ent4");
 	envia(Fla1);
 	envia(Fla2);
 	envia(Fla3);
 	envia(Fla4);
+	
+	
 	
 	if (Cam1==2)	//Intervalometro camara 1
 	envia(Int1_Tdisp);
@@ -1147,6 +1162,8 @@ void envio_valores(void)
 	envia(TL2_Tfilm_Uni);
 	
 	if(Buzzer==1) Pitido();
+	
+	
 }
 
 
