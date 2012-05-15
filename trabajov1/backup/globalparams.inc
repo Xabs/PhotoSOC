@@ -59,15 +59,15 @@ WATCHDOG_ENABLE:		equ 0	;Watchdog Enable 1 = Enable
 CLOCK_DIV_VC1:			equ	0h	;VC1 clock divider
 CLOCK_DIV_VC1_MASK:		equ	f0h	;VC1 clock divider mask
 CLOCK_DIV_VC1_JUST:		equ	0h	;VC1 clock divider justified
-CLOCK_DIV_VC2:			equ	bh	;VC2 clock divider
+CLOCK_DIV_VC2:			equ	0h	;VC2 clock divider
 CLOCK_DIV_VC2_MASK:		equ	fh	;VC2 clock divider mask
-CLOCK_DIV_VC2_JUST:		equ	bh	;VC2 clock divider justified
-CLOCK_INPUT_VC3:		equ	2h	;VC3 clock source
+CLOCK_DIV_VC2_JUST:		equ	0h	;VC2 clock divider justified
+CLOCK_INPUT_VC3:		equ	0h	;VC3 clock source
 CLOCK_INPUT_VC3_MASK:	equ	3h	;VC3 clock source mask
-CLOCK_INPUT_VC3_JUST:	equ	2h	;VC3 clock source justified
-CLOCK_DIV_VC3:			equ	c7h	;VC3 clock divider
+CLOCK_INPUT_VC3_JUST:	equ	0h	;VC3 clock source justified
+CLOCK_DIV_VC3:			equ	0h	;VC3 clock divider
 CLOCK_DIV_VC3_MASK:		equ	ffh	;VC3 clock divider mask
-CLOCK_DIV_VC3_JUST:		equ	c7h	;VC3 clock divider justified
+CLOCK_DIV_VC3_JUST:		equ	0h	;VC3 clock divider justified
 ANALOG_BUFFER_PWR:		equ	0h	;Analog buffer power level
 ANALOG_BUFFER_PWR_MASK:	equ	1h	;Analog buffer power level mask
 ANALOG_BUFFER_PWR_JUST:	equ	0h	;Analog buffer power level justified
@@ -98,8 +98,8 @@ PORT_0_DRIVE_0:			equ 55h	;Port 0 drive mode 0 register (PRT0DM0)
 PORT_0_DRIVE_1:			equ aah	;Port 0 drive mode 1 register (PRT0DM1)
 PORT_0_DRIVE_2:			equ 0h	;Port 0 drive mode 2 register (PRT0DM2)
 PORT_0_INTENABLE:		equ aah	;Port 0 interrupt enable register (PRT0IE)
-PORT_0_INTCTRL_0:		equ 0h	;Port 0 interrupt control 0 register (PRT0IC0)
-PORT_0_INTCTRL_1:		equ aah	;Port 0 interrupt control 1 register (PRT0IC1)
+PORT_0_INTCTRL_0:		equ aah	;Port 0 interrupt control 0 register (PRT0IC0)
+PORT_0_INTCTRL_1:		equ 0h	;Port 0 interrupt control 1 register (PRT0IC1)
 PORT_1_GLOBAL_SELECT:	equ 50h	;Port 1 global select register (PRT1GS)
 PORT_1_DRIVE_0:			equ 10h	;Port 1 drive mode 0 register (PRT1DM0)
 PORT_1_DRIVE_1:			equ efh	;Port 1 drive mode 1 register (PRT1DM1)

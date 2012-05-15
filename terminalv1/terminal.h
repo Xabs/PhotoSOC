@@ -1113,25 +1113,27 @@ void Executar(void)
 void envio_valores(void)
 {
 	Reset_PdT();
-	LCD_Control(0x01);	//Borrat de pantalla
+	//LCD_Control(0x01);	//Borrat de pantalla
+	//LCD_PrCString("arriba reset");
+	//LCD_Control(0x01);	//Borrat de pantalla
 	envia(Cam1);
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("arriba cam1");
+	//LCD_Control(0x01);	//Borrat de pantalla
+	//LCD_PrCString("arriba cam1");
 	envia(Cam2);
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("arriba cam2");
+	//LCD_Control(0x01);	//Borrat de pantalla
+	//LCD_PrCString("arriba cam2");
 	envia(Ent1);
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("arriba Ent1");
+	//LCD_Control(0x01);	//Borrat de pantalla
+	//LCD_PrCString("arriba Ent1");
 	envia(Ent2);
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("arriba Ent2");
+	//LCD_Control(0x01);	//Borrat de pantalla
+	//LCD_PrCString("arriba Ent2");
 	envia(Ent3);
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("arriba Ent3");
+	//LCD_Control(0x01);	//Borrat de pantalla
+	//LCD_PrCString("arriba Ent3");
 	envia(Ent4);
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("arriba Ent4");
+	//LCD_Control(0x01);	//Borrat de pantalla
+	//LCD_PrCString("arriba Ent4");
 	envia(Fla1);
 	envia(Fla2);
 	envia(Fla3);
@@ -1197,7 +1199,9 @@ void Trabajando(void)
 	LCD_Control(0x01);	//Borrat de pantalla
 	LCD_PrCString("PhotoSOC activo");
 	for(x=0;x<60000;x++);
-
+	for(x=0;x<60000;x++);
+	for(x=0;x<60000;x++);
+	
 	for(;;)
 	{
 		LCD_Control(0x08);	//LCD off
@@ -1208,9 +1212,11 @@ void Trabajando(void)
 		if(pulsat==1||pulsat==2||pulsat==4)
 		{
 			LCD_Control(0x0E);	//LCD on
-			LCD_PrCString("Quiere pararlo?");
+			LCD_Position(0,1);
+			LCD_PrCString("Parar trabajo?");
 			LCD_Position(1,0);
-			LCD_PrCString("Mantener Amarillo");
+			LCD_PrCString("Manten Amarillo");
+			for(x=0;x<50000;x++);
 			for(x=0;x<50000;x++);
 		}	
 		else if(pulsat==3)

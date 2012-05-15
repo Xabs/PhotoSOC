@@ -16,7 +16,11 @@
 
 void MI_RSI_EXTERNA(void)		//Interrupción externa
 {
-	disparo_sensores();
+	PRT0DR=PRT0DR|0x01; //0000-0001
+	for (tempo=0;tempo<5000;tempo++) ;
+	PRT0DR=PRT0DR&0xFE;
+	
+	//disparo_sensores();
 }
 
 void MI_RSI_DEL_TIMER (void)	//Interrupción del timer Segundos
@@ -33,6 +37,9 @@ void main()						//Programa principal
 	inicializacion ();
 	recibe_valores();
 	activar_sensores();	
+	
+	
+	
 	ejecucion();
 	envia_fintrabajo();
 }		

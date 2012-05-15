@@ -13,6 +13,7 @@
 #define off 0
 #define on 1
 
+unsigned int tempo; 		//Para debuggar
 
 //Declaracion de las variables globales del PSoC Trabajo
 char Cam1=0, Cam2=0; 					//Variables que determinan si una salida a camara esta activa o no y el tipo de disparo

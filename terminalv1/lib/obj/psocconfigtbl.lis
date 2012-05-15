@@ -983,10 +983,10 @@
  0197 62D300            mov     reg[d3h], 00h           ; GlobalDigitalInterconnect_Drive_Even_Output register (GDI_E_OU)
  019A 62D000            mov     reg[d0h], 00h           ; GlobalDigitalInterconnect_Drive_Odd_Input register (GDI_O_IN)
  019D 62D200            mov     reg[d2h], 00h           ; GlobalDigitalInterconnect_Drive_Odd_Output register (GDI_O_OU)
- 01A0 62E10B            mov     reg[e1h], 0bh           ; OscillatorControl_1 register (OSC_CR1)
+ 01A0 62E100            mov     reg[e1h], 00h           ; OscillatorControl_1 register (OSC_CR1)
  01A3 62E200            mov     reg[e2h], 00h           ; OscillatorControl_2 register (OSC_CR2)
- 01A6 62DFC7            mov     reg[dfh], c7h           ; OscillatorControl_3 register (OSC_CR3)
- 01A9 62DE02            mov     reg[deh], 02h           ; OscillatorControl_4 register (OSC_CR4)
+ 01A6 62DF00            mov     reg[dfh], 00h           ; OscillatorControl_3 register (OSC_CR3)
+ 01A9 62DE00            mov     reg[deh], 00h           ; OscillatorControl_4 register (OSC_CR4)
  01AC 62DD00            mov     reg[ddh], 00h           ; OscillatorGlobalBusEnableControl register (OSC_GO_EN)
  01AF 62E700            mov     reg[e7h], 00h           ; Type2Decimator_Control register (DEC_CR2)
  01B2           ;  Instance name LCD, User Module LCD

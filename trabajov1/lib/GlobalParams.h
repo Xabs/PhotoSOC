@@ -27,18 +27,18 @@
 										//				0x09 = 3.3V / 12MHz
 #define WATCHDOG_ENABLE        0x0     //Watchdog Enable 1 = Enable
 
-#define CLOCK_DIV_VC1          0x9     // VC1 clock divider 
+#define CLOCK_DIV_VC1          0x0     // VC1 clock divider 
 #define CLOCK_DIV_VC1_MASK     0xf0    // VC1 clock divider mask
-#define CLOCK_DIV_VC1_JUST     0x90    // jVC1 clock divider ustified
-#define CLOCK_DIV_VC2          0xb     // VC2 clock divider 
+#define CLOCK_DIV_VC1_JUST     0x0     // jVC1 clock divider ustified
+#define CLOCK_DIV_VC2          0x0     // VC2 clock divider 
 #define CLOCK_DIV_VC2_MASK     0xf     // VC2 clock divider mask
-#define CLOCK_DIV_VC2_JUST     0xb     // VC2 clock divider justified
-#define CLOCK_INPUT_VC3        0x2     // VC3 clock source
+#define CLOCK_DIV_VC2_JUST     0x0     // VC2 clock divider justified
+#define CLOCK_INPUT_VC3        0x0     // VC3 clock source
 #define CLOCK_INPUT_VC3_MASK   0x3     // VC3 clock source mask
-#define CLOCK_INPUT_VC3_JUST   0x2     // VC3 clock source justified
-#define CLOCK_DIV_VC3          0xc7    // VC3 clock divider
+#define CLOCK_INPUT_VC3_JUST   0x0     // VC3 clock source justified
+#define CLOCK_DIV_VC3          0x0     // VC3 clock divider
 #define CLOCK_DIV_VC3_MASK     0xff    // VC3 clock divider mask
-#define CLOCK_DIV_VC3_JUST     0xc7    // VC3 clock divider justified
+#define CLOCK_DIV_VC3_JUST     0x0     // VC3 clock divider justified
 #define ANALOG_BUFFER_PWR      0x0     // Analog buffer power level
 #define ANALOG_BUFFER_PWR_MASK 0x1     // Analog buffer power level mask
 #define ANALOG_BUFFER_PWR_JUST 0x0     // Analog buffer power level justified
