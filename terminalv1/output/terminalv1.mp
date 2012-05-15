@@ -1,4 +1,4 @@
-  ROM 27% full. 8913 bytes used (does not include absolute areas).
+  ROM 27% full. 8964 bytes used (does not include absolute areas).
   RAM 3% full. 55 bytes used (does not include stack usage).
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
@@ -169,7 +169,7 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                            text   0C58   1819 =   6169. bytes (rel,con,rom)
+                            text   0C58   184C =   6220. bytes (rel,con,rom)
 
        Addr  Global Symbol
       -----  --------------------------------
@@ -207,16 +207,16 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
        1EC1  _envio_valores
        2068  _Ara
        206D  _Trabajando
-       21CB  _Resetear
-       21D2  _Sistema
-       2298  _Reali_LCD
-       2323  _Zumbador
-       23A8  _Ali_Led
-       2433  _main
-       2440  __divmodu_8X8_8
-       2458  __i_div8_block_util
-       2471  __text_end
-       2477  __xidata_end
+       21FE  _Resetear
+       2205  _Sistema
+       22CB  _Reali_LCD
+       2356  _Zumbador
+       23DB  _Ali_Led
+       2466  _main
+       2473  __divmodu_8X8_8
+       248B  __i_div8_block_util
+       24A4  __text_end
+       24AA  __xidata_end
 
 Area                               Start  End    Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------

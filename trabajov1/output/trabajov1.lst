@@ -950,19 +950,19 @@ FILE: lib\psocconfigtbl.asm
 034B: 62 D3 00 MOV   REG[211],0    (0172) 	mov	reg[d3h], 00h		; GlobalDigitalInterconnect_Drive_Even_Output register (GDI_E_OU)
 034E: 62 D0 00 MOV   REG[208],0    (0173) 	mov	reg[d0h], 00h		; GlobalDigitalInterconnect_Drive_Odd_Input register (GDI_O_IN)
 0351: 62 D2 00 MOV   REG[210],0    (0174) 	mov	reg[d2h], 00h		; GlobalDigitalInterconnect_Drive_Odd_Output register (GDI_O_OU)
-0354: 62 E1 00 MOV   REG[225],0    (0175) 	mov	reg[e1h], 00h		; OscillatorControl_1 register (OSC_CR1)
+0354: 62 E1 0F MOV   REG[225],15   (0175) 	mov	reg[e1h], 0fh		; OscillatorControl_1 register (OSC_CR1)
 0357: 62 E2 00 MOV   REG[226],0    (0176) 	mov	reg[e2h], 00h		; OscillatorControl_2 register (OSC_CR2)
-035A: 62 DF 00 MOV   REG[223],0    (0177) 	mov	reg[dfh], 00h		; OscillatorControl_3 register (OSC_CR3)
-035D: 62 DE 00 MOV   REG[222],0    (0178) 	mov	reg[deh], 00h		; OscillatorControl_4 register (OSC_CR4)
+035A: 62 DF 95 MOV   REG[223],149  (0177) 	mov	reg[dfh], 95h		; OscillatorControl_3 register (OSC_CR3)
+035D: 62 DE 02 MOV   REG[222],2    (0178) 	mov	reg[deh], 02h		; OscillatorControl_4 register (OSC_CR4)
 0360: 62 DD 00 MOV   REG[221],0    (0179) 	mov	reg[ddh], 00h		; OscillatorGlobalBusEnableControl register (OSC_GO_EN)
 0363: 62 E7 00 MOV   REG[231],0    (0180) 	mov	reg[e7h], 00h		; Type2Decimator_Control register (DEC_CR2)
                                    (0181) ;  Instance name Segundos, User Module Timer16
                                    (0182) ;       Instance name Segundos, Block Name TIMER16_LSB(DBB10)
-0366: 62 30 00 MOV   REG[48],0     (0183) 	mov	reg[30h], 00h		;Segundos_FUNC_LSB_REG(DBB10FN)
+0366: 62 30 10 MOV   REG[48],16    (0183) 	mov	reg[30h], 10h		;Segundos_FUNC_LSB_REG(DBB10FN)
 0369: 62 31 01 MOV   REG[49],1     (0184) 	mov	reg[31h], 01h		;Segundos_INPUT_LSB_REG(DBB10IN)
 036C: 62 32 40 MOV   REG[50],64    (0185) 	mov	reg[32h], 40h		;Segundos_OUTPUT_LSB_REG(DBB10OU)
                                    (0186) ;       Instance name Segundos, Block Name TIMER16_MSB(DBB11)
-036F: 62 34 20 MOV   REG[52],32    (0187) 	mov	reg[34h], 20h		;Segundos_FUNC_MSB_REG(DBB11FN)
+036F: 62 34 30 MOV   REG[52],48    (0187) 	mov	reg[34h], 30h		;Segundos_FUNC_MSB_REG(DBB11FN)
 0372: 62 35 31 MOV   REG[53],49    (0188) 	mov	reg[35h], 31h		;Segundos_INPUT_MSB_REG(DBB11IN)
 0375: 62 36 40 MOV   REG[54],64    (0189) 	mov	reg[36h], 40h		;Segundos_OUTPUT_MSB_REG(DBB11OU)
                                    (0190) ;  Instance name Timer8, User Module Timer8
@@ -974,11 +974,11 @@ FILE: lib\psocconfigtbl.asm
                                    (0196) ;       Instance name UART, Block Name RX(DCB03)
 0381: 62 2C 05 MOV   REG[44],5     (0197) 	mov	reg[2ch], 05h		;UART_RX_FUNC_REG   (DCB03FN)
 0384: 62 2D E9 MOV   REG[45],233   (0198) 	mov	reg[2dh], e9h		;UART_RX_INPUT_REG  (DCB03IN)
-0387: 62 2E 00 MOV   REG[46],0     (0199) 	mov	reg[2eh], 00h		;UART_RX_OUTPUT_REG (DCB03OU)
+0387: 62 2E 40 MOV   REG[46],64    (0199) 	mov	reg[2eh], 40h		;UART_RX_OUTPUT_REG (DCB03OU)
                                    (0200) ;       Instance name UART, Block Name TX(DCB02)
 038A: 62 28 0D MOV   REG[40],13    (0201) 	mov	reg[28h], 0dh		;UART_TX_FUNC_REG   (DCB02FN)
 038D: 62 29 09 MOV   REG[41],9     (0202) 	mov	reg[29h], 09h		;UART_TX_INPUT_REG  (DCB02IN)
-0390: 62 2A 04 MOV   REG[42],4     (0203) 	mov	reg[2ah], 04h		;UART_TX_OUTPUT_REG (DCB02OU)
+0390: 62 2A 44 MOV   REG[42],68    (0203) 	mov	reg[2ah], 44h		;UART_TX_OUTPUT_REG (DCB02OU)
 0393: 70 EF    AND   F,239         (0204) 	M8C_SetBank0
 0395: 7F       RET                 (0205) 	ret
 
@@ -3977,162 +3977,160 @@ _inicializacion:
 (0076) 	Segundos_Start();	
 076B: 7C 06 55 LCALL 0x0655
 076E: 20       POP   X
-(0077) 	
-(0078) 	
-(0079) }	
+(0077) }	
 076F: 7F       RET   
-(0080) //******************************************************************************
-(0081) //******************************************************************************
+(0078) //******************************************************************************
+(0079) //******************************************************************************
+(0080) 
+(0081) 
 (0082) 
-(0083) 
-(0084) 
-(0085) /************************************************************************************************************************
-(0086) /  	LLAMADA: recibe_valores()
-(0087) /  	FUNCION: Recibe mediante UART los valores programados en el PSoC terminal
-(0088) /  	ENTRADA: void
-(0089) /  	SALIDA: void
-(0090) /	OTROS: necesaria libreria comunicaciones.h e inicializar la UART y el Timer asociado
-(0091) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-(0092) /**********************************************************************************************************************/
-(0093) void recibe_valores(void)
-(0094) {
-(0095) 	Cam1=recibe();
+(0083) /************************************************************************************************************************
+(0084) /  	LLAMADA: recibe_valores()
+(0085) /  	FUNCION: Recibe mediante UART los valores programados en el PSoC terminal
+(0086) /  	ENTRADA: void
+(0087) /  	SALIDA: void
+(0088) /	OTROS: necesaria libreria comunicaciones.h e inicializar la UART y el Timer asociado
+(0089) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+(0090) /**********************************************************************************************************************/
+(0091) void recibe_valores(void)
+(0092) {
+(0093) 	Cam1=recibe();
 _recibe_valores:
 0770: 9F 86    CALL  _recibe
 0772: 62 D0 00 MOV   REG[208],0
 0775: 53 48    MOV   [Cam1],A
-(0096) 	Cam2=recibe();
+(0094) 	Cam2=recibe();
 0777: 9F 7F    CALL  _recibe
 0779: 62 D0 00 MOV   REG[208],0
 077C: 53 49    MOV   [Cam2],A
-(0097) 	Ent1=recibe();
+(0095) 	Ent1=recibe();
 077E: 9F 78    CALL  _recibe
 0780: 62 D0 00 MOV   REG[208],0
 0783: 53 4A    MOV   [Ent1],A
-(0098) 	Ent2=recibe();
+(0096) 	Ent2=recibe();
 0785: 9F 71    CALL  _recibe
 0787: 62 D0 00 MOV   REG[208],0
 078A: 53 4B    MOV   [Ent2],A
-(0099) 	Ent3=recibe();
+(0097) 	Ent3=recibe();
 078C: 9F 6A    CALL  _recibe
 078E: 62 D0 00 MOV   REG[208],0
 0791: 53 4C    MOV   [Ent3],A
-(0100) 	Ent4=recibe();
+(0098) 	Ent4=recibe();
 0793: 9F 63    CALL  _recibe
 0795: 62 D0 00 MOV   REG[208],0
 0798: 53 4D    MOV   [Ent4],A
-(0101) 	Fla1=recibe();
+(0099) 	Fla1=recibe();
 079A: 9F 5C    CALL  _recibe
 079C: 62 D0 00 MOV   REG[208],0
 079F: 53 4E    MOV   [Fla1],A
-(0102) 	Fla2=recibe();
+(0100) 	Fla2=recibe();
 07A1: 9F 55    CALL  _recibe
 07A3: 62 D0 00 MOV   REG[208],0
 07A6: 53 4F    MOV   [Fla2],A
-(0103) 	Fla3=recibe();
+(0101) 	Fla3=recibe();
 07A8: 9F 4E    CALL  _recibe
 07AA: 62 D0 00 MOV   REG[208],0
 07AD: 53 50    MOV   [Fla3],A
-(0104) 	Fla4=recibe();
+(0102) 	Fla4=recibe();
 07AF: 9F 47    CALL  _recibe
 07B1: 62 D0 00 MOV   REG[208],0
 07B4: 53 33    MOV   [Fla4],A
-(0105) 	
-(0106) 	if (Cam1==2)	//Intervalometro camara 1
+(0103) 	
+(0104) 	if (Cam1==2)	//Intervalometro camara 1
 07B6: 62 D0 00 MOV   REG[208],0
 07B9: 3C 48 02 CMP   [Cam1],2
 07BC: B0 08    JNZ   0x07C5
-(0107) 	Int1_Tdisp=recibe();
+(0105) 	Int1_Tdisp=recibe();
 07BE: 9F 38    CALL  _recibe
 07C0: 62 D0 00 MOV   REG[208],0
 07C3: 53 34    MOV   [Int1_Tdisp],A
-(0108) 	Int1_Tdisp_Uni=recibe();
+(0106) 	Int1_Tdisp_Uni=recibe();
 07C5: 9F 31    CALL  _recibe
 07C7: 62 D0 00 MOV   REG[208],0
 07CA: 53 35    MOV   [Int1_Tdisp_Uni],A
-(0109) 	Int1_Ndisp=recibe();
+(0107) 	Int1_Ndisp=recibe();
 07CC: 9F 2A    CALL  _recibe
 07CE: 62 D0 00 MOV   REG[208],0
 07D1: 53 36    MOV   [Int1_Ndisp],A
-(0110) 		
-(0111) 	if (Cam2==2)	//Intervalometro camara 2
+(0108) 		
+(0109) 	if (Cam2==2)	//Intervalometro camara 2
 07D3: 62 D0 00 MOV   REG[208],0
 07D6: 3C 49 02 CMP   [Cam2],2
 07D9: B0 08    JNZ   0x07E2
-(0112) 	Int2_Tdisp=recibe();
+(0110) 	Int2_Tdisp=recibe();
 07DB: 9F 1B    CALL  _recibe
 07DD: 62 D0 00 MOV   REG[208],0
 07E0: 53 37    MOV   [Int2_Tdisp],A
-(0113) 	Int2_Tdisp_Uni=recibe();
+(0111) 	Int2_Tdisp_Uni=recibe();
 07E2: 9F 14    CALL  _recibe
 07E4: 62 D0 00 MOV   REG[208],0
 07E7: 53 38    MOV   [Int2_Tdisp_Uni],A
-(0114) 	Int2_Ndisp=recibe();
+(0112) 	Int2_Ndisp=recibe();
 07E9: 9F 0D    CALL  _recibe
 07EB: 62 D0 00 MOV   REG[208],0
 07EE: 53 39    MOV   [Int2_Ndisp],A
-(0115) 	
-(0116) 	if (Cam1==3)	//Time-lapse camara 1
+(0113) 	
+(0114) 	if (Cam1==3)	//Time-lapse camara 1
 07F0: 62 D0 00 MOV   REG[208],0
 07F3: 3C 48 03 CMP   [Cam1],3
 07F6: B0 08    JNZ   0x07FF
-(0117) 	TL1_Treal=recibe();
+(0115) 	TL1_Treal=recibe();
 07F8: 9E FE    CALL  _recibe
 07FA: 62 D0 00 MOV   REG[208],0
 07FD: 53 3A    MOV   [TL1_Treal],A
-(0118) 	TL1_Treal_Uni=recibe();
+(0116) 	TL1_Treal_Uni=recibe();
 07FF: 9E F7    CALL  _recibe
 0801: 62 D0 00 MOV   REG[208],0
 0804: 53 46    MOV   [TL1_Treal_Uni],A
-(0119) 	TL1_Tfilm=recibe();
+(0117) 	TL1_Tfilm=recibe();
 0806: 9E F0    CALL  _recibe
 0808: 62 D0 00 MOV   REG[208],0
 080B: 53 3B    MOV   [TL1_Tfilm],A
-(0120) 	TL1_Tfilm_Uni=recibe();
+(0118) 	TL1_Tfilm_Uni=recibe();
 080D: 9E E9    CALL  _recibe
 080F: 62 D0 00 MOV   REG[208],0
 0812: 53 3C    MOV   [TL1_Tfilm_Uni],A
-(0121) 	
-(0122) 	if (Cam2==3)	//Time-lapse camara 2
+(0119) 	
+(0120) 	if (Cam2==3)	//Time-lapse camara 2
 0814: 62 D0 00 MOV   REG[208],0
 0817: 3C 49 03 CMP   [Cam2],3
 081A: B0 08    JNZ   0x0823
-(0123) 	TL2_Treal=recibe();
+(0121) 	TL2_Treal=recibe();
 081C: 9E DA    CALL  _recibe
 081E: 62 D0 00 MOV   REG[208],0
 0821: 53 3D    MOV   [TL2_Treal],A
-(0124) 	TL2_Treal_Uni=recibe();
+(0122) 	TL2_Treal_Uni=recibe();
 0823: 9E D3    CALL  _recibe
 0825: 62 D0 00 MOV   REG[208],0
 0828: 53 3E    MOV   [TL2_Treal_Uni],A
-(0125) 	TL2_Tfilm=recibe();
+(0123) 	TL2_Tfilm=recibe();
 082A: 9E CC    CALL  _recibe
 082C: 62 D0 00 MOV   REG[208],0
 082F: 53 3F    MOV   [TL2_Tfilm],A
-(0126) 	TL2_Tfilm_Uni=recibe();
+(0124) 	TL2_Tfilm_Uni=recibe();
 0831: 9E C5    CALL  _recibe
 0833: 62 D0 00 MOV   REG[208],0
 0836: 53 40    MOV   [TL2_Tfilm_Uni],A
-(0127) 	
-(0128) 	//Faltaria programar si hay alguna variable que ha dado error
-(0129) }	
+(0125) 	
+(0126) 	//Faltaria programar si hay alguna variable que ha dado error
+(0127) }	
 0838: 7F       RET   
-(0130) //******************************************************************************
-(0131) //******************************************************************************
+(0128) //******************************************************************************
+(0129) //******************************************************************************
+(0130) 
+(0131) 
 (0132) 
-(0133) 
-(0134) 
-(0135) /************************************************************************************************************************
-(0136) /  	LLAMADA: activar_sensores()
-(0137) /  	FUNCION: Rutina que activa las interrupciones externas para permitir el disparo por sensor
-(0138) /  	ENTRADA: void
-(0139) /  	SALIDA: void
-(0140) /	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
-(0141) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-(0142) /**********************************************************************************************************************/
-(0143) void activar_sensores(void)
-(0144) {
-(0145) 	if (Ent1==on || Ent2==on || Ent3==on || Ent4==on)
+(0133) /************************************************************************************************************************
+(0134) /  	LLAMADA: activar_sensores()
+(0135) /  	FUNCION: Rutina que activa las interrupciones externas para permitir el disparo por sensor
+(0136) /  	ENTRADA: void
+(0137) /  	SALIDA: void
+(0138) /	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
+(0139) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+(0140) /**********************************************************************************************************************/
+(0141) void activar_sensores(void)
+(0142) {
+(0143) 	if (Ent1==on || Ent2==on || Ent3==on || Ent4==on)
 _activar_sensores:
 0839: 62 D0 00 MOV   REG[208],0
 083C: 3C 4A 01 CMP   [Ent1],1
@@ -4146,138 +4144,138 @@ _activar_sensores:
 0851: 62 D0 00 MOV   REG[208],0
 0854: 3C 4D 01 CMP   [Ent4],1
 0857: B0 06    JNZ   0x085E
-(0146) 	{
-(0147) 		M8C_EnableGInt;									//Permitir interrupciones globalmente
+(0144) 	{
+(0145) 		M8C_EnableGInt;									//Permitir interrupciones globalmente
 0859: 71 01    OR    F,1
-(0148) 		M8C_EnableIntMask (INT_MSK0,INT_MSK0_GPIO);		//Permitir interrupciones externas
+(0146) 		M8C_EnableIntMask (INT_MSK0,INT_MSK0_GPIO);		//Permitir interrupciones externas
 085B: 43 E0 20 OR    REG[224],32
-(0149) 	}
-(0150) }
+(0147) 	}
+(0148) }
 085E: 7F       RET   
-(0151) //******************************************************************************
-(0152) //******************************************************************************
+(0149) //******************************************************************************
+(0150) //******************************************************************************
+(0151) 
+(0152) 
 (0153) 
-(0154) 
-(0155) 
-(0156) /************************************************************************************************************************
-(0157) /  	LLAMADA: disparo_sensores()
-(0158) /  	FUNCION: Rutina que dispara la/s camara/s cuando se ha activado algun sensor
-(0159) /  	ENTRADA: void
-(0160) /  	SALIDA: void
-(0161) /	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
-(0162) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-(0163) /**********************************************************************************************************************/
-(0164) void disparo_sensores(void)
-(0165) {
+(0154) /************************************************************************************************************************
+(0155) /  	LLAMADA: disparo_sensores()
+(0156) /  	FUNCION: Rutina que dispara la/s camara/s cuando se ha activado algun sensor
+(0157) /  	ENTRADA: void
+(0158) /  	SALIDA: void
+(0159) /	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
+(0160) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+(0161) /**********************************************************************************************************************/
+(0162) void disparo_sensores(void)
+(0163) {
 _disparo_sensores:
   disparo_sensores_sensores --> X+0
 085F: 10       PUSH  X
 0860: 4F       MOV   X,SP
 0861: 38 01    ADD   SP,1
-(0166) 	#define sensores disparo_sensores_sensores
-(0167) 	char sensores;		//Declaraciones de las variables de la rutina
-(0168) 	
-(0169) 	//Guardamos el estado del port que crea las interrupciones evitando los flashes
-(0170) 	sensores=PRT0DR&0xAA; 					//1010-1010 
+(0164) 	#define sensores disparo_sensores_sensores
+(0165) 	char sensores;		//Declaraciones de las variables de la rutina
+(0166) 	
+(0167) 	//Guardamos el estado del port que crea las interrupciones evitando los flashes
+(0168) 	sensores=PRT0DR&0xAA; 					//1010-1010 
 0863: 5D 00    MOV   A,REG[0]
 0865: 21 AA    AND   A,170
 0867: 54 00    MOV   [X+0],A
-(0171) 	
-(0172) 	//Evitar las entradas no activadas en la programación aunque provoquen una interrupción
-(0173) 	if (Ent1==off) sensores=sensores&0x7F; 	//0111-1111
+(0169) 	
+(0170) 	//Evitar las entradas no activadas en la programación aunque provoquen una interrupción
+(0171) 	if (Ent1==off) sensores=sensores&0x7F; 	//0111-1111
 0869: 62 D0 00 MOV   REG[208],0
 086C: 3C 4A 00 CMP   [Ent1],0
 086F: B0 04    JNZ   0x0874
 0871: 27 00 7F AND   [X+0],127
-(0174) 	if (Ent2==off) sensores=sensores&0xDF; 	//1101-1111
+(0172) 	if (Ent2==off) sensores=sensores&0xDF; 	//1101-1111
 0874: 62 D0 00 MOV   REG[208],0
 0877: 3C 4B 00 CMP   [Ent2],0
 087A: B0 04    JNZ   0x087F
 087C: 27 00 DF AND   [X+0],223
-(0175) 	if (Ent3==off) sensores=sensores&0xF7; 	//1111-0111
+(0173) 	if (Ent3==off) sensores=sensores&0xF7; 	//1111-0111
 087F: 62 D0 00 MOV   REG[208],0
 0882: 3C 4C 00 CMP   [Ent3],0
 0885: B0 04    JNZ   0x088A
 0887: 27 00 F7 AND   [X+0],247
-(0176) 	if (Ent4==off) sensores=sensores&0xFD; 	//1111-1101
+(0174) 	if (Ent4==off) sensores=sensores&0xFD; 	//1111-1101
 088A: 62 D0 00 MOV   REG[208],0
 088D: 3C 4D 00 CMP   [Ent4],0
 0890: B0 04    JNZ   0x0895
 0892: 27 00 FD AND   [X+0],253
-(0177) 	
-(0178) 	//Disparar segun tipo de disparo
-(0179) 	if (sensores!=0) 
+(0175) 	
+(0176) 	//Disparar segun tipo de disparo
+(0177) 	if (sensores!=0) 
 0895: 3D 00 00 CMP   [X+0],0
 0898: A0 03    JZ    0x089C
-(0180) 	bucle();
+(0178) 	bucle();
 089A: 92 F8    CALL  _bucle
-(0181) }
+(0179) }
 089C: 38 FF    ADD   SP,255
 089E: 20       POP   X
 089F: 7F       RET   
-(0182) //******************************************************************************
-(0183) //******************************************************************************
+(0180) //******************************************************************************
+(0181) //******************************************************************************
+(0182) 
+(0183) 
 (0184) 
-(0185) 
-(0186) 
-(0187) /************************************************************************************************************************
-(0188) /  	LLAMADA: ejecucion()
-(0189) /  	FUNCION: Rutina que segun los valores recibidos ejecuta los diferentes trabajos
-(0190) /  	ENTRADA: void
-(0191) /  	SALIDA: void
-(0192) /	OTROS: nada
-(0193) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-(0194) /**********************************************************************************************************************/
-(0195) void ejecucion (void)
-(0196) {
-(0197) 	preparadisparo();
+(0185) /************************************************************************************************************************
+(0186) /  	LLAMADA: ejecucion()
+(0187) /  	FUNCION: Rutina que segun los valores recibidos ejecuta los diferentes trabajos
+(0188) /  	ENTRADA: void
+(0189) /  	SALIDA: void
+(0190) /	OTROS: nada
+(0191) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+(0192) /**********************************************************************************************************************/
+(0193) void ejecucion (void)
+(0194) {
+(0195) 	preparadisparo();
 _ejecucion:
 08A0: 90 0D    CALL  _preparadisparo
-(0198) 	do
-(0199) 	{
-(0200) 		bucle();
+(0196) 	do
+(0197) 	{
+(0198) 		bucle();
 08A2: 92 F0    CALL  _bucle
-(0201) 	}
-(0202) 	while(fintrabajo!=255);
+(0199) 	}
+(0200) 	while(fintrabajo!=255);
 08A4: 62 D0 00 MOV   REG[208],0
 08A7: 3C 43 FF CMP   [fintrabajo],255
 08AA: BF F7    JNZ   0x08A2
-(0203) 	envia_fintrabajo();
+(0201) 	envia_fintrabajo();
 08AC: 94 B8    CALL  _envia_fintrabajo
-(0204) }	
+(0202) }	
 08AE: 7F       RET   
-(0205) //******************************************************************************
-(0206) //******************************************************************************
+(0203) //******************************************************************************
+(0204) //******************************************************************************
+(0205) 
+(0206) 
 (0207) 
-(0208) 
-(0209) 
-(0210) /************************************************************************************************************************
-(0211) /  	LLAMADA: preparadisparo()
-(0212) /  	FUNCION: Rutina que segun el tipo de disparo programado activa las interrupciones y prepara las variables
-(0213) /  	ENTRADA: void
-(0214) /  	SALIDA: void
-(0215) /	OTROS: nada
-(0216) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-(0217) /**********************************************************************************************************************/
-(0218) void preparadisparo(void)
-(0219) {
+(0208) /************************************************************************************************************************
+(0209) /  	LLAMADA: preparadisparo()
+(0210) /  	FUNCION: Rutina que segun el tipo de disparo programado activa las interrupciones y prepara las variables
+(0211) /  	ENTRADA: void
+(0212) /  	SALIDA: void
+(0213) /	OTROS: nada
+(0214) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+(0215) /**********************************************************************************************************************/
+(0216) void preparadisparo(void)
+(0217) {
 _preparadisparo:
   preparadisparo_tp_clip --> X+4
   preparadisparo_tp_real --> X+0
 08AF: 10       PUSH  X
 08B0: 4F       MOV   X,SP
 08B1: 38 0C    ADD   SP,12
-(0220) 	#define treal preparadisparo_tp_real
-(0221) 	#define tclip preparadisparo_tp_clip
-(0222) 	
-(0223) 	unsigned long treal, tclip;
-(0224) 	tocacam1=on;				//Activa el disparo de la cámara 1 para hacer el primer disparo o si es disparo único
+(0218) 	#define treal preparadisparo_tp_real
+(0219) 	#define tclip preparadisparo_tp_clip
+(0220) 	
+(0221) 	unsigned long treal, tclip;
+(0222) 	tocacam1=on;				//Activa el disparo de la cámara 1 para hacer el primer disparo o si es disparo único
 08B3: 62 D0 00 MOV   REG[208],0
 08B6: 55 41 01 MOV   [tocacam1],1
-(0225) 	tocacam2=on;				//Activa el disparo de la cámara 2 para hacer el segundo disparo o si es disparo único
+(0223) 	tocacam2=on;				//Activa el disparo de la cámara 2 para hacer el segundo disparo o si es disparo único
 08B9: 62 D0 00 MOV   REG[208],0
 08BC: 55 42 01 MOV   [tocacam2],1
-(0226) 	switch (Cam1)				//Cámara 1
+(0224) 	switch (Cam1)				//Cámara 1
 08BF: 62 D0 00 MOV   REG[208],0
 08C2: 51 48    MOV   A,[Cam1]
 08C4: 54 09    MOV   [X+9],A
@@ -4291,9 +4289,9 @@ _preparadisparo:
 08D8: 3D 09 03 CMP   [X+9],3
 08DB: A0 40    JZ    0x091C
 08DD: 80 F3    JMP   0x09D1
-(0227) 	{
-(0228) 		case 2:					//intervalometro
-(0229) 			dspCam1=Int1_Ndisp;
+(0225) 	{
+(0226) 		case 2:					//intervalometro
+(0227) 			dspCam1=Int1_Ndisp;
 08DF: 62 D0 00 MOV   REG[208],0
 08E2: 51 36    MOV   A,[Int1_Ndisp]
 08E4: 08       PUSH  A
@@ -4301,7 +4299,7 @@ _preparadisparo:
 08E8: 55 2D 00 MOV   [dspCam1],0
 08EB: 18       POP   A
 08EC: 53 2E    MOV   [dspCam1+1],A
-(0230) 			tpCam1=calculosegundos(Int1_Tdisp, Int1_Tdisp_Uni);
+(0228) 			tpCam1=calculosegundos(Int1_Tdisp, Int1_Tdisp_Uni);
 08EE: 62 D0 00 MOV   REG[208],0
 08F1: 51 35    MOV   A,[Int1_Tdisp_Uni]
 08F3: 08       PUSH  A
@@ -4326,10 +4324,10 @@ _preparadisparo:
 0915: 53 1E    MOV   [tpCam1+1],A
 0917: 18       POP   A
 0918: 53 1D    MOV   [tpCam1],A
-(0231) 			break;
+(0229) 			break;
 091A: 80 B6    JMP   0x09D1
-(0232) 		case 3:					//Timelapse
-(0233) 			treal=calculosegundos(TL1_Treal, TL1_Treal_Uni);	//Calculo en segundos del tiempo real
+(0230) 		case 3:					//Timelapse
+(0231) 			treal=calculosegundos(TL1_Treal, TL1_Treal_Uni);	//Calculo en segundos del tiempo real
 091C: 62 D0 00 MOV   REG[208],0
 091F: 51 46    MOV   A,[TL1_Treal_Uni]
 0921: 08       PUSH  A
@@ -4346,7 +4344,7 @@ _preparadisparo:
 0937: 54 02    MOV   [X+2],A
 0939: 51 15    MOV   A,[__r3]
 093B: 54 03    MOV   [X+3],A
-(0234) 			tclip=calculosegundos(TL1_Tfilm, TL1_Tfilm_Uni);	//Calculo en segundos del tiempo de clip
+(0232) 			tclip=calculosegundos(TL1_Tfilm, TL1_Tfilm_Uni);	//Calculo en segundos del tiempo de clip
 093D: 62 D0 00 MOV   REG[208],0
 0940: 51 3C    MOV   A,[TL1_Tfilm_Uni]
 0942: 08       PUSH  A
@@ -4364,7 +4362,7 @@ _preparadisparo:
 095A: 54 06    MOV   [X+6],A
 095C: 51 15    MOV   A,[__r3]
 095E: 54 07    MOV   [X+7],A
-(0235) 			dspCam1=(tclip*25);		//25 fotogramas por segundo para Europa (PAL)
+(0233) 			dspCam1=(tclip*25);		//25 fotogramas por segundo para Europa (PAL)
 0960: 52 04    MOV   A,[X+4]
 0962: 08       PUSH  A
 0963: 52 05    MOV   A,[X+5]
@@ -4398,7 +4396,7 @@ _preparadisparo:
 0991: 53 2D    MOV   [dspCam1],A
 0993: 18       POP   A
 0994: 53 2E    MOV   [dspCam1+1],A
-(0236) 			tpCam1=(treal/dspCam1);
+(0234) 			tpCam1=(treal/dspCam1);
 0996: 51 2E    MOV   A,[dspCam1+1]
 0998: 62 D0 00 MOV   REG[208],0
 099B: 53 15    MOV   [__r3],A
@@ -4432,9 +4430,9 @@ _preparadisparo:
 09CC: 18       POP   A
 09CD: 53 1D    MOV   [tpCam1],A
 09CF: 38 FC    ADD   SP,252
-(0237) 			break;
-(0238) 	}
-(0239) 	switch (Cam2)				//Cámara 2
+(0235) 			break;
+(0236) 	}
+(0237) 	switch (Cam2)				//Cámara 2
 09D1: 62 D0 00 MOV   REG[208],0
 09D4: 51 49    MOV   A,[Cam2]
 09D6: 54 0B    MOV   [X+11],A
@@ -4448,9 +4446,9 @@ _preparadisparo:
 09EA: 3D 0B 03 CMP   [X+11],3
 09ED: A0 40    JZ    0x0A2E
 09EF: 80 F3    JMP   0x0AE3
-(0240) 	{
-(0241) 		case 2:					//intervalometro
-(0242) 			dspCam2=Int2_Ndisp;
+(0238) 	{
+(0239) 		case 2:					//intervalometro
+(0240) 			dspCam2=Int2_Ndisp;
 09F1: 62 D0 00 MOV   REG[208],0
 09F4: 51 39    MOV   A,[Int2_Ndisp]
 09F6: 08       PUSH  A
@@ -4458,7 +4456,7 @@ _preparadisparo:
 09FA: 55 29 00 MOV   [dspCam2],0
 09FD: 18       POP   A
 09FE: 53 2A    MOV   [dspCam2+1],A
-(0243) 			tpCam2=calculosegundos(Int2_Tdisp, Int2_Tdisp_Uni);
+(0241) 			tpCam2=calculosegundos(Int2_Tdisp, Int2_Tdisp_Uni);
 0A00: 62 D0 00 MOV   REG[208],0
 0A03: 51 38    MOV   A,[Int2_Tdisp_Uni]
 0A05: 08       PUSH  A
@@ -4483,10 +4481,10 @@ _preparadisparo:
 0A27: 53 1A    MOV   [tpCam2+1],A
 0A29: 18       POP   A
 0A2A: 53 19    MOV   [tpCam2],A
-(0244) 			break;
+(0242) 			break;
 0A2C: 80 B6    JMP   0x0AE3
-(0245) 		case 3:					//Timelapse
-(0246) 			treal=calculosegundos(TL2_Treal, TL2_Treal_Uni);	//Calculo en segundos del tiempo real
+(0243) 		case 3:					//Timelapse
+(0244) 			treal=calculosegundos(TL2_Treal, TL2_Treal_Uni);	//Calculo en segundos del tiempo real
 0A2E: 62 D0 00 MOV   REG[208],0
 0A31: 51 3E    MOV   A,[TL2_Treal_Uni]
 0A33: 08       PUSH  A
@@ -4503,7 +4501,7 @@ _preparadisparo:
 0A49: 54 02    MOV   [X+2],A
 0A4B: 51 15    MOV   A,[__r3]
 0A4D: 54 03    MOV   [X+3],A
-(0247) 			tclip=calculosegundos(TL2_Tfilm, TL2_Tfilm_Uni);	//Calculo en segundos del tiempo de clip
+(0245) 			tclip=calculosegundos(TL2_Tfilm, TL2_Tfilm_Uni);	//Calculo en segundos del tiempo de clip
 0A4F: 62 D0 00 MOV   REG[208],0
 0A52: 51 40    MOV   A,[TL2_Tfilm_Uni]
 0A54: 08       PUSH  A
@@ -4521,7 +4519,7 @@ _preparadisparo:
 0A6C: 54 06    MOV   [X+6],A
 0A6E: 51 15    MOV   A,[__r3]
 0A70: 54 07    MOV   [X+7],A
-(0248) 			dspCam2=(tclip*25);		//25 fotogramas por segundo para Europa (PAL)
+(0246) 			dspCam2=(tclip*25);		//25 fotogramas por segundo para Europa (PAL)
 0A72: 52 04    MOV   A,[X+4]
 0A74: 08       PUSH  A
 0A75: 52 05    MOV   A,[X+5]
@@ -4555,7 +4553,7 @@ _preparadisparo:
 0AA3: 53 29    MOV   [dspCam2],A
 0AA5: 18       POP   A
 0AA6: 53 2A    MOV   [dspCam2+1],A
-(0249) 			tpCam2=(treal/dspCam2);
+(0247) 			tpCam2=(treal/dspCam2);
 0AA8: 51 2A    MOV   A,[dspCam2+1]
 0AAA: 62 D0 00 MOV   REG[208],0
 0AAD: 53 15    MOV   [__r3],A
@@ -4589,27 +4587,27 @@ _preparadisparo:
 0ADE: 18       POP   A
 0ADF: 53 19    MOV   [tpCam2],A
 0AE1: 38 FC    ADD   SP,252
-(0250) 			break;
-(0251) 	}
-(0252) }
+(0248) 			break;
+(0249) 	}
+(0250) }
 0AE3: 38 F4    ADD   SP,244
 0AE5: 20       POP   X
 0AE6: 7F       RET   
-(0253) //******************************************************************************
-(0254) //******************************************************************************
+(0251) //******************************************************************************
+(0252) //******************************************************************************
+(0253) 
+(0254) 
 (0255) 
-(0256) 
-(0257) 
-(0258) /************************************************************************************************************************
-(0259) /  	LLAMADA: x=calculosegundos(numero,unidades)
-(0260) /  	FUNCION: Rutina que calcula los segundos en funcion de la cantidad y las unidades
-(0261) /  	ENTRADA: numero (char) y unidades (char)
-(0262) /  	SALIDA: unsigned long
-(0263) /	OTROS: nada
-(0264) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-(0265) /**********************************************************************************************************************/
-(0266) unsigned long calculosegundos(char numero, char unidades)
-(0267) {
+(0256) /************************************************************************************************************************
+(0257) /  	LLAMADA: x=calculosegundos(numero,unidades)
+(0258) /  	FUNCION: Rutina que calcula los segundos en funcion de la cantidad y las unidades
+(0259) /  	ENTRADA: numero (char) y unidades (char)
+(0260) /  	SALIDA: unsigned long
+(0261) /	OTROS: nada
+(0262) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+(0263) /**********************************************************************************************************************/
+(0264) unsigned long calculosegundos(char numero, char unidades)
+(0265) {
 _calculosegundos:
   resultado            --> X+0
   unidades             --> X-5
@@ -4617,8 +4615,8 @@ _calculosegundos:
 0AE7: 10       PUSH  X
 0AE8: 4F       MOV   X,SP
 0AE9: 38 04    ADD   SP,4
-(0268) 	unsigned long resultado;
-(0269) 	if (unidades==1) resultado=numero;
+(0266) 	unsigned long resultado;
+(0267) 	if (unidades==1) resultado=numero;
 0AEB: 3D FB 01 CMP   [X-5],1
 0AEE: B0 0E    JNZ   0x0AFD
 0AF0: 52 FC    MOV   A,[X-4]
@@ -4626,7 +4624,7 @@ _calculosegundos:
 0AF4: 56 02 00 MOV   [X+2],0
 0AF7: 56 01 00 MOV   [X+1],0
 0AFA: 56 00 00 MOV   [X+0],0
-(0270) 	if (unidades==2) resultado=(numero*60);
+(0268) 	if (unidades==2) resultado=(numero*60);
 0AFD: 3D FB 02 CMP   [X-5],2
 0B00: B0 3C    JNZ   0x0B3D
 0B02: 62 D0 00 MOV   REG[208],0
@@ -4657,7 +4655,7 @@ _calculosegundos:
 0B35: 80 07    JMP   0x0B3D
 0B37: 56 01 00 MOV   [X+1],0
 0B3A: 56 00 00 MOV   [X+0],0
-(0271) 	if (unidades==3) resultado=(numero*3600);
+(0269) 	if (unidades==3) resultado=(numero*3600);
 0B3D: 3D FB 03 CMP   [X-5],3
 0B40: B0 3C    JNZ   0x0B7D
 0B42: 62 D0 00 MOV   REG[208],0
@@ -4688,7 +4686,7 @@ _calculosegundos:
 0B75: 80 07    JMP   0x0B7D
 0B77: 56 01 00 MOV   [X+1],0
 0B7A: 56 00 00 MOV   [X+0],0
-(0272) 	return (resultado);
+(0270) 	return (resultado);
 0B7D: 62 D0 00 MOV   REG[208],0
 0B80: 52 00    MOV   A,[X+0]
 0B82: 53 18    MOV   [__r0],A
@@ -4701,22 +4699,22 @@ _calculosegundos:
 0B90: 38 FC    ADD   SP,252
 0B92: 20       POP   X
 0B93: 7F       RET   
-(0273) }
-(0274) //******************************************************************************
-(0275) //******************************************************************************
+(0271) }
+(0272) //******************************************************************************
+(0273) //******************************************************************************
+(0274) 
+(0275) 
 (0276) 
-(0277) 
-(0278) 
-(0279) /************************************************************************************************************************
-(0280) /  	LLAMADA: bucle()
-(0281) /  	FUNCION: Rutina que decide cuando se deben disparar las cámaras/flashes
-(0282) /  	ENTRADA: void
-(0283) /  	SALIDA: void
-(0284) /	OTROS: nada
-(0285) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-(0286) /**********************************************************************************************************************/
-(0287) void bucle(void)
-(0288) {	
+(0277) /************************************************************************************************************************
+(0278) /  	LLAMADA: bucle()
+(0279) /  	FUNCION: Rutina que decide cuando se deben disparar las cámaras/flashes
+(0280) /  	ENTRADA: void
+(0281) /  	SALIDA: void
+(0282) /	OTROS: nada
+(0283) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+(0284) /**********************************************************************************************************************/
+(0285) void bucle(void)
+(0286) {	
 _bucle:
   fintrabajo2          --> X+3
   fintrabajo1          --> X+2
@@ -4725,68 +4723,68 @@ _bucle:
 0B94: 10       PUSH  X
 0B95: 4F       MOV   X,SP
 0B96: 38 04    ADD   SP,4
-(0289) 	char bucle_acaba1=0, bucle_acaba2=0;
+(0287) 	char bucle_acaba1=0, bucle_acaba2=0;
 0B98: 56 00 00 MOV   [X+0],0
 0B9B: 56 01 00 MOV   [X+1],0
-(0290) 	char fintrabajo1=0, fintrabajo2=0;
+(0288) 	char fintrabajo1=0, fintrabajo2=0;
 0B9E: 56 02 00 MOV   [X+2],0
 0BA1: 56 03 00 MOV   [X+3],0
-(0291) 	
-(0292) 	do
-(0293) 	{
-(0294) 		disparo();
+(0289) 	
+(0290) 	do
+(0291) 	{
+(0292) 		disparo();
 0BA4: 90 D9    CALL  _disparo
-(0295) 		if (Cam1!=1 || Cam2!=1)
+(0293) 		if (Cam1!=1 || Cam2!=1)
 0BA6: 62 D0 00 MOV   REG[208],0
 0BA9: 3C 48 01 CMP   [Cam1],1
 0BAC: B0 09    JNZ   0x0BB6
 0BAE: 62 D0 00 MOV   REG[208],0
 0BB1: 3C 49 01 CMP   [Cam2],1
 0BB4: A0 12    JZ    0x0BC7
-(0296) 		{
-(0297) 			Segundos_WritePeriod (1000);	//Seleccionamos el WritePeriod
+(0294) 		{
+(0295) 			Segundos_WritePeriod (1000);	//Seleccionamos el WritePeriod
 0BB6: 10       PUSH  X
 0BB7: 57 03    MOV   X,3
 0BB9: 50 E8    MOV   A,232
 0BBB: 7C 06 5D LCALL 0x065D
-(0298) 			Segundos_Start();				//Iniciamos el timer
+(0296) 			Segundos_Start();				//Iniciamos el timer
 0BBE: 7C 06 55 LCALL 0x0655
-(0299) 			Segundos_EnableInt();			//Permitimos la interrupción del timer
+(0297) 			Segundos_EnableInt();			//Permitimos la interrupción del timer
 0BC1: 7C 06 4D LCALL 0x064D
 0BC4: 20       POP   X
-(0300) 			M8C_EnableGInt;					//Permitimos las interrupciones globalmente
+(0298) 			M8C_EnableGInt;					//Permitimos las interrupciones globalmente
 0BC5: 71 01    OR    F,1
-(0301) 		}
-(0302) 		//Start de los contadores de trabajo
-(0303) 		
-(0304) 		if (bucle_acaba1==off)
+(0299) 		}
+(0300) 		//Start de los contadores de trabajo
+(0301) 		
+(0302) 		if (bucle_acaba1==off)
 0BC7: 3D 00 00 CMP   [X+0],0
 0BCA: B0 49    JNZ   0x0C14
-(0305) 		{
-(0306) 			if (Cam1==1) bucle_acaba1=on;
+(0303) 		{
+(0304) 			if (Cam1==1) bucle_acaba1=on;
 0BCC: 62 D0 00 MOV   REG[208],0
 0BCF: 3C 48 01 CMP   [Cam1],1
 0BD2: B0 06    JNZ   0x0BD9
 0BD4: 56 00 01 MOV   [X+0],1
 0BD7: 80 3C    JMP   0x0C14
-(0307) 			else
-(0308) 			{
-(0309) 				if (chivato1==on) 
+(0305) 			else
+(0306) 			{
+(0307) 				if (chivato1==on) 
 0BD9: 62 D0 00 MOV   REG[208],0
 0BDC: 3C 44 01 CMP   [chivato1],1
 0BDF: B0 16    JNZ   0x0BF6
-(0310) 				{
-(0311) 					tocacam1=on;
+(0308) 				{
+(0309) 					tocacam1=on;
 0BE1: 62 D0 00 MOV   REG[208],0
 0BE4: 55 41 01 MOV   [tocacam1],1
-(0312) 					contador_trabajo1=0;
+(0310) 					contador_trabajo1=0;
 0BE7: 62 D0 00 MOV   REG[208],0
 0BEA: 55 25 00 MOV   [contador_trabajo1],0
 0BED: 55 26 00 MOV   [contador_trabajo1+1],0
 0BF0: 55 27 00 MOV   [contador_trabajo1+2],0
 0BF3: 55 28 00 MOV   [contador_trabajo1+3],0
-(0313) 				}
-(0314) 				if (contadordspCam1==dspCam1)
+(0311) 				}
+(0312) 				if (contadordspCam1==dspCam1)
 0BF6: 62 D0 00 MOV   REG[208],0
 0BF9: 51 2F    MOV   A,[contadordspCam1]
 0BFB: 62 D0 00 MOV   REG[208],0
@@ -4797,43 +4795,43 @@ _bucle:
 0C07: 62 D0 00 MOV   REG[208],0
 0C0A: 3A 2E    CMP   A,[dspCam1+1]
 0C0C: B0 07    JNZ   0x0C14
-(0315) 				{
-(0316) 					bucle_acaba1=on;
+(0313) 				{
+(0314) 					bucle_acaba1=on;
 0C0E: 56 00 01 MOV   [X+0],1
-(0317) 					fintrabajo1=255;
+(0315) 					fintrabajo1=255;
 0C11: 56 02 FF MOV   [X+2],255
-(0318) 				}
-(0319) 			}
-(0320) 		}
-(0321) 		
-(0322) 		if (bucle_acaba2==off)
+(0316) 				}
+(0317) 			}
+(0318) 		}
+(0319) 		
+(0320) 		if (bucle_acaba2==off)
 0C14: 3D 01 00 CMP   [X+1],0
 0C17: B0 49    JNZ   0x0C61
-(0323) 		{
-(0324) 			if (Cam2==1) bucle_acaba2=on;
+(0321) 		{
+(0322) 			if (Cam2==1) bucle_acaba2=on;
 0C19: 62 D0 00 MOV   REG[208],0
 0C1C: 3C 49 01 CMP   [Cam2],1
 0C1F: B0 06    JNZ   0x0C26
 0C21: 56 01 01 MOV   [X+1],1
 0C24: 80 3C    JMP   0x0C61
-(0325) 			else
-(0326) 			{
-(0327) 				if (chivato2==on) 
+(0323) 			else
+(0324) 			{
+(0325) 				if (chivato2==on) 
 0C26: 62 D0 00 MOV   REG[208],0
 0C29: 3C 45 01 CMP   [chivato2],1
 0C2C: B0 16    JNZ   0x0C43
-(0328) 				{
-(0329) 					tocacam2=on;
+(0326) 				{
+(0327) 					tocacam2=on;
 0C2E: 62 D0 00 MOV   REG[208],0
 0C31: 55 42 01 MOV   [tocacam2],1
-(0330) 					contador_trabajo2=0;
+(0328) 					contador_trabajo2=0;
 0C34: 62 D0 00 MOV   REG[208],0
 0C37: 55 21 00 MOV   [contador_trabajo2],0
 0C3A: 55 22 00 MOV   [contador_trabajo2+1],0
 0C3D: 55 23 00 MOV   [contador_trabajo2+2],0
 0C40: 55 24 00 MOV   [contador_trabajo2+3],0
-(0331) 				}
-(0332) 				if (contadordspCam2==dspCam2)
+(0329) 				}
+(0330) 				if (contadordspCam2==dspCam2)
 0C43: 62 D0 00 MOV   REG[208],0
 0C46: 51 31    MOV   A,[contadordspCam2]
 0C48: 62 D0 00 MOV   REG[208],0
@@ -4844,157 +4842,157 @@ _bucle:
 0C54: 62 D0 00 MOV   REG[208],0
 0C57: 3A 2A    CMP   A,[dspCam2+1]
 0C59: B0 07    JNZ   0x0C61
-(0333) 				{
-(0334) 					bucle_acaba2=on;
+(0331) 				{
+(0332) 					bucle_acaba2=on;
 0C5B: 56 01 01 MOV   [X+1],1
-(0335) 					fintrabajo2=255;
+(0333) 					fintrabajo2=255;
 0C5E: 56 03 FF MOV   [X+3],255
-(0336) 				}
-(0337) 			}
-(0338) 		}	
-(0339) 	}
-(0340) 	while (bucle_acaba1==off || bucle_acaba2==off);
+(0334) 				}
+(0335) 			}
+(0336) 		}	
+(0337) 	}
+(0338) 	while (bucle_acaba1==off || bucle_acaba2==off);
 0C61: 3D 00 00 CMP   [X+0],0
 0C64: AF 3F    JZ    0x0BA4
 0C66: 3D 01 00 CMP   [X+1],0
 0C69: AF 3A    JZ    0x0BA4
-(0341) 	
-(0342) 	if (fintrabajo1==255 && fintrabajo2==255) fintrabajo=255;
+(0339) 	
+(0340) 	if (fintrabajo1==255 && fintrabajo2==255) fintrabajo=255;
 0C6B: 3D 02 FF CMP   [X+2],255
 0C6E: B0 0C    JNZ   0x0C7B
 0C70: 3D 03 FF CMP   [X+3],255
 0C73: B0 07    JNZ   0x0C7B
 0C75: 62 D0 00 MOV   REG[208],0
 0C78: 55 43 FF MOV   [fintrabajo],255
-(0343) }
+(0341) }
 0C7B: 38 FC    ADD   SP,252
 0C7D: 20       POP   X
 0C7E: 7F       RET   
-(0344) //******************************************************************************
-(0345) //******************************************************************************
+(0342) //******************************************************************************
+(0343) //******************************************************************************
+(0344) 
+(0345) 
 (0346) 
-(0347) 
-(0348) 
-(0349) /************************************************************************************************************************
-(0350) /  	LLAMADA: disparo()
-(0351) /  	FUNCION: Rutina que dispara la/s camara/s y/o flashes segun programación
-(0352) /  	ENTRADA: void
-(0353) /  	SALIDA: void
-(0354) /	OTROS: nada
-(0355) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-(0356) /**********************************************************************************************************************/
-(0357) void disparo(void)
-(0358) {
+(0347) /************************************************************************************************************************
+(0348) /  	LLAMADA: disparo()
+(0349) /  	FUNCION: Rutina que dispara la/s camara/s y/o flashes segun programación
+(0350) /  	ENTRADA: void
+(0351) /  	SALIDA: void
+(0352) /	OTROS: nada
+(0353) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+(0354) /**********************************************************************************************************************/
+(0355) void disparo(void)
+(0356) {
 _disparo:
   x                    --> X+0
 0C7F: 10       PUSH  X
 0C80: 4F       MOV   X,SP
 0C81: 38 02    ADD   SP,2
-(0359) 	int x;
-(0360) 	//Apertura de las cámaras
-(0361) 	if (tocacam1==on)
+(0357) 	int x;
+(0358) 	//Apertura de las cámaras
+(0359) 	if (tocacam1==on)
 0C83: 62 D0 00 MOV   REG[208],0
 0C86: 3C 41 01 CMP   [tocacam1],1
 0C89: B0 12    JNZ   0x0C9C
-(0362) 	{
-(0363) 		PRT2DR=PRT2DR | 0x01;	//activar enfoque cam1
+(0360) 	{
+(0361) 		PRT2DR=PRT2DR | 0x01;	//activar enfoque cam1
 0C8B: 43 08 01 OR    REG[8],1
-(0364) 		PRT2DR=PRT2DR | 0x04;	//activar obturador cam1
+(0362) 		PRT2DR=PRT2DR | 0x04;	//activar obturador cam1
 0C8E: 43 08 04 OR    REG[8],4
-(0365) 		tocacam1=off;
+(0363) 		tocacam1=off;
 0C91: 55 41 00 MOV   [tocacam1],0
-(0366) 		contadordspCam1++;
+(0364) 		contadordspCam1++;
 0C94: 62 D0 00 MOV   REG[208],0
 0C97: 76 30    INC   [contadordspCam1+1]
 0C99: 0E 2F 00 ADC   [contadordspCam1],0
-(0367) 	}
-(0368) 	if (tocacam2==on)
+(0365) 	}
+(0366) 	if (tocacam2==on)
 0C9C: 62 D0 00 MOV   REG[208],0
 0C9F: 3C 42 01 CMP   [tocacam2],1
 0CA2: B0 12    JNZ   0x0CB5
-(0369) 	{
-(0370) 		PRT2DR=PRT2DR | 0x10;	//activar enfoque cam2
+(0367) 	{
+(0368) 		PRT2DR=PRT2DR | 0x10;	//activar enfoque cam2
 0CA4: 43 08 10 OR    REG[8],16
-(0371) 		PRT2DR=PRT2DR | 0x40;	//activar obturador cam2
+(0369) 		PRT2DR=PRT2DR | 0x40;	//activar obturador cam2
 0CA7: 43 08 40 OR    REG[8],64
-(0372) 		tocacam2=off;
+(0370) 		tocacam2=off;
 0CAA: 55 42 00 MOV   [tocacam2],0
-(0373) 		contadordspCam2++;
+(0371) 		contadordspCam2++;
 0CAD: 62 D0 00 MOV   REG[208],0
 0CB0: 76 32    INC   [contadordspCam2+1]
 0CB2: 0E 31 00 ADC   [contadordspCam2],0
-(0374) 	}
-(0375) 	//Apertura de los flashes
-(0376) 	if (tocacam1==on)
+(0372) 	}
+(0373) 	//Apertura de los flashes
+(0374) 	if (tocacam1==on)
 0CB5: 62 D0 00 MOV   REG[208],0
 0CB8: 3C 41 01 CMP   [tocacam1],1
 0CBB: B0 41    JNZ   0x0CFD
-(0377) 	{
-(0378) 		if (Fla1==1 || Fla1==3) PRT0DR=PRT0DR | 0x01;	
+(0375) 	{
+(0376) 		if (Fla1==1 || Fla1==3) PRT0DR=PRT0DR | 0x01;	
 0CBD: 62 D0 00 MOV   REG[208],0
 0CC0: 3C 4E 01 CMP   [Fla1],1
 0CC3: A0 06    JZ    0x0CCA
 0CC5: 3C 4E 03 CMP   [Fla1],3
 0CC8: B0 04    JNZ   0x0CCD
 0CCA: 43 00 01 OR    REG[0],1
-(0379) 		if (Fla2==1 || Fla2==3) PRT0DR=PRT0DR | 0x04;	
+(0377) 		if (Fla2==1 || Fla2==3) PRT0DR=PRT0DR | 0x04;	
 0CCD: 62 D0 00 MOV   REG[208],0
 0CD0: 3C 4F 01 CMP   [Fla2],1
 0CD3: A0 06    JZ    0x0CDA
 0CD5: 3C 4F 03 CMP   [Fla2],3
 0CD8: B0 04    JNZ   0x0CDD
 0CDA: 43 00 04 OR    REG[0],4
-(0380) 		if (Fla3==1 || Fla3==3) PRT0DR=PRT0DR | 0x10;	
+(0378) 		if (Fla3==1 || Fla3==3) PRT0DR=PRT0DR | 0x10;	
 0CDD: 62 D0 00 MOV   REG[208],0
 0CE0: 3C 50 01 CMP   [Fla3],1
 0CE3: A0 06    JZ    0x0CEA
 0CE5: 3C 50 03 CMP   [Fla3],3
 0CE8: B0 04    JNZ   0x0CED
 0CEA: 43 00 10 OR    REG[0],16
-(0381) 		if (Fla4==1 || Fla4==3) PRT0DR=PRT0DR | 0x40;
+(0379) 		if (Fla4==1 || Fla4==3) PRT0DR=PRT0DR | 0x40;
 0CED: 62 D0 00 MOV   REG[208],0
 0CF0: 3C 33 01 CMP   [Fla4],1
 0CF3: A0 06    JZ    0x0CFA
 0CF5: 3C 33 03 CMP   [Fla4],3
 0CF8: B0 04    JNZ   0x0CFD
 0CFA: 43 00 40 OR    REG[0],64
-(0382) 	}
-(0383) 	if (tocacam2==on)
+(0380) 	}
+(0381) 	if (tocacam2==on)
 0CFD: 62 D0 00 MOV   REG[208],0
 0D00: 3C 42 01 CMP   [tocacam2],1
 0D03: B0 41    JNZ   0x0D45
-(0384) 	{
-(0385) 		if (Fla1==2 || Fla1==3) PRT0DR=PRT0DR | 0x01;	
+(0382) 	{
+(0383) 		if (Fla1==2 || Fla1==3) PRT0DR=PRT0DR | 0x01;	
 0D05: 62 D0 00 MOV   REG[208],0
 0D08: 3C 4E 02 CMP   [Fla1],2
 0D0B: A0 06    JZ    0x0D12
 0D0D: 3C 4E 03 CMP   [Fla1],3
 0D10: B0 04    JNZ   0x0D15
 0D12: 43 00 01 OR    REG[0],1
-(0386) 		if (Fla2==2 || Fla2==3) PRT0DR=PRT0DR | 0x04;	
+(0384) 		if (Fla2==2 || Fla2==3) PRT0DR=PRT0DR | 0x04;	
 0D15: 62 D0 00 MOV   REG[208],0
 0D18: 3C 4F 02 CMP   [Fla2],2
 0D1B: A0 06    JZ    0x0D22
 0D1D: 3C 4F 03 CMP   [Fla2],3
 0D20: B0 04    JNZ   0x0D25
 0D22: 43 00 04 OR    REG[0],4
-(0387) 		if (Fla3==2 || Fla3==3) PRT0DR=PRT0DR | 0x10;	
+(0385) 		if (Fla3==2 || Fla3==3) PRT0DR=PRT0DR | 0x10;	
 0D25: 62 D0 00 MOV   REG[208],0
 0D28: 3C 50 02 CMP   [Fla3],2
 0D2B: A0 06    JZ    0x0D32
 0D2D: 3C 50 03 CMP   [Fla3],3
 0D30: B0 04    JNZ   0x0D35
 0D32: 43 00 10 OR    REG[0],16
-(0388) 		if (Fla4==2 || Fla4==3) PRT0DR=PRT0DR | 0x40;
+(0386) 		if (Fla4==2 || Fla4==3) PRT0DR=PRT0DR | 0x40;
 0D35: 62 D0 00 MOV   REG[208],0
 0D38: 3C 33 02 CMP   [Fla4],2
 0D3B: A0 06    JZ    0x0D42
 0D3D: 3C 33 03 CMP   [Fla4],3
 0D40: B0 04    JNZ   0x0D45
 0D42: 43 00 40 OR    REG[0],64
-(0389) 	}	
-(0390) 	//Perdida de tiempo para activar salidas
-(0391) 	for(x=0;x<300;x++);
+(0387) 	}	
+(0388) 	//Perdida de tiempo para activar salidas
+(0389) 	for(x=0;x<300;x++);
 0D45: 56 01 00 MOV   [X+1],0
 0D48: 56 00 00 MOV   [X+0],0
 0D4B: 77 01    INC   [X+1]
@@ -5005,36 +5003,36 @@ _disparo:
 0D56: 31 80    XOR   A,128
 0D58: 19 81    SBB   A,129
 0D5A: CF F0    JC    0x0D4B
-(0392) 	
-(0393) 	//Desactivación de los flashes
-(0394) 	PRT0DR=PRT0DR & 0xAA;			//1010-1010
+(0390) 	
+(0391) 	//Desactivación de los flashes
+(0392) 	PRT0DR=PRT0DR & 0xAA;			//1010-1010
 0D5C: 41 00 AA AND   REG[0],170
-(0395) 	
-(0396) 	//Desactivación de las cámaras
-(0397) 	PRT2DR=PRT2DR & 0xAA;			//1010-1010
+(0393) 	
+(0394) 	//Desactivación de las cámaras
+(0395) 	PRT2DR=PRT2DR & 0xAA;			//1010-1010
 0D5F: 41 08 AA AND   REG[8],170
-(0398) }
+(0396) }
 0D62: 38 FE    ADD   SP,254
 0D64: 20       POP   X
 0D65: 7F       RET   
-(0399) //******************************************************************************
-(0400) //******************************************************************************
+(0397) //******************************************************************************
+(0398) //******************************************************************************
+(0399) 
+(0400) 
 (0401) 
 (0402) 
-(0403) 
-(0404) 
-(0405) /************************************************************************************************************************
-(0406) /  	LLAMADA: envia_fintrabajo()
-(0407) /  	FUNCION: Rutina que envia mediante UART un 255 para indicar al PSoC que ha finalizado el trabajo
-(0408) /  	ENTRADA: void
-(0409) /  	SALIDA: void
-(0410) /	OTROS: Necesaria la UART y el Timer asociado como periféricos
-(0411) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-(0412) /**********************************************************************************************************************/
-(0413) void envia_fintrabajo(void)
-(0414) {
-(0415) 	//Rutina de envio
-(0416) 	if (fintrabajo=255)
+(0403) /************************************************************************************************************************
+(0404) /  	LLAMADA: envia_fintrabajo()
+(0405) /  	FUNCION: Rutina que envia mediante UART un 255 para indicar al PSoC que ha finalizado el trabajo
+(0406) /  	ENTRADA: void
+(0407) /  	SALIDA: void
+(0408) /	OTROS: Necesaria la UART y el Timer asociado como periféricos
+(0409) /  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+(0410) /**********************************************************************************************************************/
+(0411) void envia_fintrabajo(void)
+(0412) {
+(0413) 	//Rutina de envio
+(0414) 	if (fintrabajo=255)
 _envia_fintrabajo:
 0D66: 62 D0 00 MOV   REG[208],0
 0D69: 55 43 FF MOV   [fintrabajo],255
@@ -5042,15 +5040,15 @@ _envia_fintrabajo:
 0D6F: 55 18 FF MOV   [__r0],255
 0D72: 3C 18 00 CMP   [__r0],0
 0D75: A0 0B    JZ    0x0D81
-(0417) 	{
-(0418) 	envia (fintrabajo);
+(0415) 	{
+(0416) 	envia (fintrabajo);
 0D77: 62 D0 00 MOV   REG[208],0
 0D7A: 51 43    MOV   A,[fintrabajo]
 0D7C: 08       PUSH  A
 0D7D: 99 2E    CALL  __text_start
 0D7F: 38 FF    ADD   SP,255
-(0419) 	}
-(0420) }
+(0417) 	}
+(0418) }
 0D81: 7F       RET   
 
 FILE: .\main.c
@@ -5182,14 +5180,11 @@ _main:
 0E44: 99 2A    CALL  _recibe_valores
 (0039) 	activar_sensores();	
 0E46: 99 F1    CALL  _activar_sensores
-(0040) 	
-(0041) 	
-(0042) 	
-(0043) 	ejecucion();
+(0040) 	ejecucion();
 0E48: 9A 56    CALL  _ejecucion
-(0044) 	envia_fintrabajo();
+(0041) 	envia_fintrabajo();
 0E4A: 9F 1A    CALL  _envia_fintrabajo
-(0045) }		
+(0042) }		
 0E4C: 8F FF    JMP   0x0E4C
 
 FILE: lib\psocgpioint.asm

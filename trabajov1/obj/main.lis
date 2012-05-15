@@ -121,11 +121,11 @@
  004F           ;       inicializacion ();
  004F           ;       recibe_valores();
  004F           ;       activar_sensores();     
- 004F           ;       
- 004F           ;       
- 004F           ;       
  004F           ;       ejecucion();
  004F           ;       envia_fintrabajo();
+ 004F           ; }             
+ 004F           ; }             
+ 004F           ; }             
  004F           ; }             
  004F           ; }             
  004F           ; }             
@@ -509,9 +509,7 @@
  00BE 7C0000            xcall _Segundos_Start
  00C1 20                pop X
  00C2                   .dbline -2
- 00C2                   .dbline 79
- 00C2           ; }             
- 00C2           ; }             
+ 00C2                   .dbline 77
  00C2           ; }             
  00C2           L17:
  00C2                   .dbline 0 ; func end
@@ -520,7 +518,7 @@
  00C3                   .dbfunc e recibe_valores _recibe_valores fV
  00C3           _recibe_valores::
  00C3                   .dbline -1
- 00C3                   .dbline 94
+ 00C3                   .dbline 92
  00C3           ; }             
  00C3           ; }             
  00C3           ; }             
@@ -536,156 +534,156 @@
  00C3           ; }             
  00C3           ; }             
  00C3           ; }             
- 00C3                   .dbline 95
+ 00C3                   .dbline 93
  00C3           ; }             
  00C3 9F86              xcall _recibe
  00C5 62D000            mov REG[0xd0],>_Cam1
  00C8 5300              mov [_Cam1],A
- 00CA                   .dbline 96
+ 00CA                   .dbline 94
  00CA           ; }             
  00CA 9F7F              xcall _recibe
  00CC 62D000            mov REG[0xd0],>_Cam2
  00CF 5300              mov [_Cam2],A
- 00D1                   .dbline 97
+ 00D1                   .dbline 95
  00D1           ; }             
  00D1 9F78              xcall _recibe
  00D3 62D000            mov REG[0xd0],>_Ent1
  00D6 5300              mov [_Ent1],A
- 00D8                   .dbline 98
+ 00D8                   .dbline 96
  00D8           ; }             
  00D8 9F71              xcall _recibe
  00DA 62D000            mov REG[0xd0],>_Ent2
  00DD 5300              mov [_Ent2],A
- 00DF                   .dbline 99
+ 00DF                   .dbline 97
  00DF           ; }             
  00DF 9F6A              xcall _recibe
  00E1 62D000            mov REG[0xd0],>_Ent3
  00E4 5300              mov [_Ent3],A
- 00E6                   .dbline 100
+ 00E6                   .dbline 98
  00E6           ; }             
  00E6 9F63              xcall _recibe
  00E8 62D000            mov REG[0xd0],>_Ent4
  00EB 5300              mov [_Ent4],A
- 00ED                   .dbline 101
+ 00ED                   .dbline 99
  00ED           ; }             
  00ED 9F5C              xcall _recibe
  00EF 62D000            mov REG[0xd0],>_Fla1
  00F2 5300              mov [_Fla1],A
- 00F4                   .dbline 102
+ 00F4                   .dbline 100
  00F4           ; }             
  00F4 9F55              xcall _recibe
  00F6 62D000            mov REG[0xd0],>_Fla2
  00F9 5300              mov [_Fla2],A
- 00FB                   .dbline 103
+ 00FB                   .dbline 101
  00FB           ; }             
  00FB 9F4E              xcall _recibe
  00FD 62D000            mov REG[0xd0],>_Fla3
  0100 5300              mov [_Fla3],A
- 0102                   .dbline 104
+ 0102                   .dbline 102
  0102           ; }             
  0102 9F47              xcall _recibe
  0104 62D000            mov REG[0xd0],>_Fla4
  0107 5300              mov [_Fla4],A
- 0109                   .dbline 106
+ 0109                   .dbline 104
  0109           ; }             
  0109           ; }             
  0109 62D000            mov REG[0xd0],>_Cam1
  010C 3C0002            cmp [_Cam1],2
  010F B008              jnz L19
- 0111                   .dbline 107
+ 0111                   .dbline 105
  0111           ; }             
  0111 9F38              xcall _recibe
  0113 62D000            mov REG[0xd0],>_Int1_Tdisp
  0116 5300              mov [_Int1_Tdisp],A
  0118           L19:
- 0118                   .dbline 108
+ 0118                   .dbline 106
  0118           ; }             
  0118 9F31              xcall _recibe
  011A 62D000            mov REG[0xd0],>_Int1_Tdisp_Uni
  011D 5300              mov [_Int1_Tdisp_Uni],A
- 011F                   .dbline 109
+ 011F                   .dbline 107
  011F           ; }             
  011F 9F2A              xcall _recibe
  0121 62D000            mov REG[0xd0],>_Int1_Ndisp
  0124 5300              mov [_Int1_Ndisp],A
- 0126                   .dbline 111
+ 0126                   .dbline 109
  0126           ; }             
  0126           ; }             
  0126 62D000            mov REG[0xd0],>_Cam2
  0129 3C0002            cmp [_Cam2],2
  012C B008              jnz L21
- 012E                   .dbline 112
+ 012E                   .dbline 110
  012E           ; }             
  012E 9F1B              xcall _recibe
  0130 62D000            mov REG[0xd0],>_Int2_Tdisp
  0133 5300              mov [_Int2_Tdisp],A
  0135           L21:
- 0135                   .dbline 113
+ 0135                   .dbline 111
  0135           ; }             
  0135 9F14              xcall _recibe
  0137 62D000            mov REG[0xd0],>_Int2_Tdisp_Uni
  013A 5300              mov [_Int2_Tdisp_Uni],A
- 013C                   .dbline 114
+ 013C                   .dbline 112
  013C           ; }             
  013C 9F0D              xcall _recibe
  013E 62D000            mov REG[0xd0],>_Int2_Ndisp
  0141 5300              mov [_Int2_Ndisp],A
- 0143                   .dbline 116
+ 0143                   .dbline 114
  0143           ; }             
  0143           ; }             
  0143 62D000            mov REG[0xd0],>_Cam1
  0146 3C0003            cmp [_Cam1],3
  0149 B008              jnz L23
- 014B                   .dbline 117
+ 014B                   .dbline 115
  014B           ; }             
  014B 9EFE              xcall _recibe
  014D 62D000            mov REG[0xd0],>_TL1_Treal
  0150 5300              mov [_TL1_Treal],A
  0152           L23:
- 0152                   .dbline 118
+ 0152                   .dbline 116
  0152           ; }             
  0152 9EF7              xcall _recibe
  0154 62D000            mov REG[0xd0],>_TL1_Treal_Uni
  0157 5300              mov [_TL1_Treal_Uni],A
- 0159                   .dbline 119
+ 0159                   .dbline 117
  0159           ; }             
  0159 9EF0              xcall _recibe
  015B 62D000            mov REG[0xd0],>_TL1_Tfilm
  015E 5300              mov [_TL1_Tfilm],A
- 0160                   .dbline 120
+ 0160                   .dbline 118
  0160           ; }             
  0160 9EE9              xcall _recibe
  0162 62D000            mov REG[0xd0],>_TL1_Tfilm_Uni
  0165 5300              mov [_TL1_Tfilm_Uni],A
- 0167                   .dbline 122
+ 0167                   .dbline 120
  0167           ; }             
  0167           ; }             
  0167 62D000            mov REG[0xd0],>_Cam2
  016A 3C0003            cmp [_Cam2],3
  016D B008              jnz L25
- 016F                   .dbline 123
+ 016F                   .dbline 121
  016F           ; }             
  016F 9EDA              xcall _recibe
  0171 62D000            mov REG[0xd0],>_TL2_Treal
  0174 5300              mov [_TL2_Treal],A
  0176           L25:
- 0176                   .dbline 124
+ 0176                   .dbline 122
  0176           ; }             
  0176 9ED3              xcall _recibe
  0178 62D000            mov REG[0xd0],>_TL2_Treal_Uni
  017B 5300              mov [_TL2_Treal_Uni],A
- 017D                   .dbline 125
+ 017D                   .dbline 123
  017D           ; }             
  017D 9ECC              xcall _recibe
  017F 62D000            mov REG[0xd0],>_TL2_Tfilm
  0182 5300              mov [_TL2_Tfilm],A
- 0184                   .dbline 126
+ 0184                   .dbline 124
  0184           ; }             
  0184 9EC5              xcall _recibe
  0186 62D000            mov REG[0xd0],>_TL2_Tfilm_Uni
  0189 5300              mov [_TL2_Tfilm_Uni],A
  018B                   .dbline -2
- 018B                   .dbline 129
+ 018B                   .dbline 127
  018B           ; }             
  018B           ; }             
  018B           ; }             
@@ -696,7 +694,7 @@
  018C                   .dbfunc e activar_sensores _activar_sensores fV
  018C           _activar_sensores::
  018C                   .dbline -1
- 018C                   .dbline 144
+ 018C                   .dbline 142
  018C           ; }             
  018C           ; }             
  018C           ; }             
@@ -712,7 +710,7 @@
  018C           ; }             
  018C           ; }             
  018C           ; }             
- 018C                   .dbline 145
+ 018C                   .dbline 143
  018C           ; }             
  018C 62D000            mov REG[0xd0],>_Ent1
  018F 3C0001            cmp [_Ent1],1
@@ -727,16 +725,16 @@
  01A7 3C0001            cmp [_Ent4],1
  01AA B006              jnz L28
  01AC           L32:
- 01AC                   .dbline 146
- 01AC                   .dbline 147
+ 01AC                   .dbline 144
+ 01AC                   .dbline 145
  01AC 7101                      or  F, 01h
  01AE           
- 01AE                   .dbline 148
+ 01AE                   .dbline 146
  01AE 43E020            or REG[0xe0],32
- 01B1                   .dbline 149
+ 01B1                   .dbline 147
  01B1           L28:
  01B1                   .dbline -2
- 01B1                   .dbline 150
+ 01B1                   .dbline 148
  01B1           ; }             
  01B1           ; }             
  01B1           ; }             
@@ -753,7 +751,7 @@
  01B2 10                push X
  01B3 4F                mov X,SP
  01B4 3801              add SP,1
- 01B6                   .dbline 165
+ 01B6                   .dbline 163
  01B6           ; }             
  01B6           ; }             
  01B6           ; }             
@@ -769,7 +767,7 @@
  01B6           ; }             
  01B6           ; }             
  01B6           ; }             
- 01B6                   .dbline 170
+ 01B6                   .dbline 168
  01B6           ; }             
  01B6           ; }             
  01B6           ; }             
@@ -778,48 +776,48 @@
  01B6 5D00              mov A,REG[ 0]
  01B8 21AA              and A,-86
  01BA 5400              mov [X+0],A
- 01BC                   .dbline 173
+ 01BC                   .dbline 171
  01BC           ; }             
  01BC           ; }             
  01BC           ; }             
  01BC 62D000            mov REG[0xd0],>_Ent1
  01BF 3C0000            cmp [_Ent1],0
  01C2 B004              jnz L34
- 01C4                   .dbline 173
+ 01C4                   .dbline 171
  01C4 27007F            and [X+0],127
  01C7           L34:
- 01C7                   .dbline 174
+ 01C7                   .dbline 172
  01C7           ; }             
  01C7 62D000            mov REG[0xd0],>_Ent2
  01CA 3C0000            cmp [_Ent2],0
  01CD B004              jnz L36
- 01CF                   .dbline 174
+ 01CF                   .dbline 172
  01CF 2700DF            and [X+0],-33
  01D2           L36:
- 01D2                   .dbline 175
+ 01D2                   .dbline 173
  01D2           ; }             
  01D2 62D000            mov REG[0xd0],>_Ent3
  01D5 3C0000            cmp [_Ent3],0
  01D8 B004              jnz L38
- 01DA                   .dbline 175
+ 01DA                   .dbline 173
  01DA 2700F7            and [X+0],-9
  01DD           L38:
- 01DD                   .dbline 176
+ 01DD                   .dbline 174
  01DD           ; }             
  01DD 62D000            mov REG[0xd0],>_Ent4
  01E0 3C0000            cmp [_Ent4],0
  01E3 B004              jnz L40
- 01E5                   .dbline 176
+ 01E5                   .dbline 174
  01E5 2700FD            and [X+0],-3
  01E8           L40:
- 01E8                   .dbline 179
+ 01E8                   .dbline 177
  01E8 3D0000            cmp [X+0],0
  01EB A003              jz L42
- 01ED                   .dbline 180
+ 01ED                   .dbline 178
  01ED 92F8              xcall _bucle
  01EF           L42:
  01EF                   .dbline -2
- 01EF                   .dbline 181
+ 01EF                   .dbline 179
  01EF           ; }             
  01EF           ; }             
  01EF           ; }             
@@ -835,7 +833,7 @@
  01F3                   .dbfunc e ejecucion _ejecucion fV
  01F3           _ejecucion::
  01F3                   .dbline -1
- 01F3                   .dbline 196
+ 01F3                   .dbline 194
  01F3           ; }             
  01F3           ; }             
  01F3           ; }             
@@ -851,29 +849,29 @@
  01F3           ; }             
  01F3           ; }             
  01F3           ; }             
- 01F3                   .dbline 197
+ 01F3                   .dbline 195
  01F3           ; }             
  01F3 900D              xcall _preparadisparo
  01F5           L45:
- 01F5                   .dbline 199
+ 01F5                   .dbline 197
  01F5           ; }             
  01F5           ; }             
- 01F5                   .dbline 200
+ 01F5                   .dbline 198
  01F5           ; }             
  01F5 92F0              xcall _bucle
- 01F7                   .dbline 201
+ 01F7                   .dbline 199
  01F7           ; }             
  01F7           L46:
- 01F7                   .dbline 202
+ 01F7                   .dbline 200
  01F7           ; }             
  01F7 62D000            mov REG[0xd0],>_fintrabajo
  01FA 3C00FF            cmp [_fintrabajo],-1
  01FD BFF7              jnz L45
- 01FF                   .dbline 203
+ 01FF                   .dbline 201
  01FF           ; }             
  01FF 94B8              xcall _envia_fintrabajo
  0201                   .dbline -2
- 0201                   .dbline 204
+ 0201                   .dbline 202
  0201           ; }             
  0201           L44:
  0201                   .dbline 0 ; func end
@@ -887,7 +885,7 @@
  0202 10                push X
  0203 4F                mov X,SP
  0204 380C              add SP,12
- 0206                   .dbline 219
+ 0206                   .dbline 217
  0206           ; }             
  0206           ; }             
  0206           ; }             
@@ -903,7 +901,7 @@
  0206           ; }             
  0206           ; }             
  0206           ; }             
- 0206                   .dbline 224
+ 0206                   .dbline 222
  0206           ; }             
  0206           ; }             
  0206           ; }             
@@ -911,11 +909,11 @@
  0206           ; }             
  0206 62D000            mov REG[0xd0],>_tocacam1
  0209 550001            mov [_tocacam1],1
- 020C                   .dbline 225
+ 020C                   .dbline 223
  020C           ; }             
  020C 62D000            mov REG[0xd0],>_tocacam2
  020F 550001            mov [_tocacam2],1
- 0212                   .dbline 226
+ 0212                   .dbline 224
  0212           ; }             
  0212 62D000            mov REG[0xd0],>_Cam1
  0215 5100              mov A,[_Cam1]
@@ -933,10 +931,10 @@
  0230           X3:
  0230 80F3              xjmp L49
  0232           X0:
- 0232                   .dbline 227
+ 0232                   .dbline 225
  0232           ; }             
  0232           L52:
- 0232                   .dbline 229
+ 0232                   .dbline 227
  0232           ; }             
  0232           ; }             
  0232 62D000            mov REG[0xd0],>_Int1_Ndisp
@@ -946,7 +944,7 @@
  023B 550000            mov [_dspCam1],0
  023E 18                pop A
  023F 5301              mov [_dspCam1+1],A
- 0241                   .dbline 230
+ 0241                   .dbline 228
  0241           ; }             
  0241 62D000            mov REG[0xd0],>_Int1_Tdisp_Uni
  0244 5100              mov A,[_Int1_Tdisp_Uni]
@@ -972,11 +970,11 @@
  0268 5301              mov [_tpCam1+1],A
  026A 18                pop A
  026B 5300              mov [_tpCam1],A
- 026D                   .dbline 231
+ 026D                   .dbline 229
  026D           ; }             
  026D 80B6              xjmp L50
  026F           L53:
- 026F                   .dbline 233
+ 026F                   .dbline 231
  026F           ; }             
  026F           ; }             
  026F 62D000            mov REG[0xd0],>_TL1_Treal_Uni
@@ -995,7 +993,7 @@
  028A 5402              mov [X+2],A
  028C 5100              mov A,[__r3]
  028E 5403              mov [X+3],A
- 0290                   .dbline 234
+ 0290                   .dbline 232
  0290           ; }             
  0290 62D000            mov REG[0xd0],>_TL1_Tfilm_Uni
  0293 5100              mov A,[_TL1_Tfilm_Uni]
@@ -1014,7 +1012,7 @@
  02AD 5406              mov [X+6],A
  02AF 5100              mov A,[__r3]
  02B1 5407              mov [X+7],A
- 02B3                   .dbline 235
+ 02B3                   .dbline 233
  02B3           ; }             
  02B3 5204              mov A,[X+4]
  02B5 08                push A
@@ -1049,7 +1047,7 @@
  02E4 5300              mov [_dspCam1],A
  02E6 18                pop A
  02E7 5301              mov [_dspCam1+1],A
- 02E9                   .dbline 236
+ 02E9                   .dbline 234
  02E9           ; }             
  02E9 5101              mov A,[_dspCam1+1]
  02EB 62D000            mov REG[0xd0],>__r0
@@ -1084,11 +1082,11 @@
  031F 18                pop A
  0320 5300              mov [_tpCam1],A
  0322 38FC              add SP,-4
- 0324                   .dbline 237
+ 0324                   .dbline 235
  0324           ; }             
  0324           L49:
  0324           L50:
- 0324                   .dbline 239
+ 0324                   .dbline 237
  0324           ; }             
  0324           ; }             
  0324 62D000            mov REG[0xd0],>_Cam2
@@ -1107,10 +1105,10 @@
  0342           X5:
  0342 80F3              xjmp L54
  0344           X1:
- 0344                   .dbline 240
+ 0344                   .dbline 238
  0344           ; }             
  0344           L57:
- 0344                   .dbline 242
+ 0344                   .dbline 240
  0344           ; }             
  0344           ; }             
  0344 62D000            mov REG[0xd0],>_Int2_Ndisp
@@ -1120,7 +1118,7 @@
  034D 550000            mov [_dspCam2],0
  0350 18                pop A
  0351 5301              mov [_dspCam2+1],A
- 0353                   .dbline 243
+ 0353                   .dbline 241
  0353           ; }             
  0353 62D000            mov REG[0xd0],>_Int2_Tdisp_Uni
  0356 5100              mov A,[_Int2_Tdisp_Uni]
@@ -1146,11 +1144,11 @@
  037A 5301              mov [_tpCam2+1],A
  037C 18                pop A
  037D 5300              mov [_tpCam2],A
- 037F                   .dbline 244
+ 037F                   .dbline 242
  037F           ; }             
  037F 80B6              xjmp L55
  0381           L58:
- 0381                   .dbline 246
+ 0381                   .dbline 244
  0381           ; }             
  0381           ; }             
  0381 62D000            mov REG[0xd0],>_TL2_Treal_Uni
@@ -1169,7 +1167,7 @@
  039C 5402              mov [X+2],A
  039E 5100              mov A,[__r3]
  03A0 5403              mov [X+3],A
- 03A2                   .dbline 247
+ 03A2                   .dbline 245
  03A2           ; }             
  03A2 62D000            mov REG[0xd0],>_TL2_Tfilm_Uni
  03A5 5100              mov A,[_TL2_Tfilm_Uni]
@@ -1188,7 +1186,7 @@
  03BF 5406              mov [X+6],A
  03C1 5100              mov A,[__r3]
  03C3 5407              mov [X+7],A
- 03C5                   .dbline 248
+ 03C5                   .dbline 246
  03C5           ; }             
  03C5 5204              mov A,[X+4]
  03C7 08                push A
@@ -1223,7 +1221,7 @@
  03F6 5300              mov [_dspCam2],A
  03F8 18                pop A
  03F9 5301              mov [_dspCam2+1],A
- 03FB                   .dbline 249
+ 03FB                   .dbline 247
  03FB           ; }             
  03FB 5101              mov A,[_dspCam2+1]
  03FD 62D000            mov REG[0xd0],>__r0
@@ -1258,12 +1256,12 @@
  0431 18                pop A
  0432 5300              mov [_tpCam2],A
  0434 38FC              add SP,-4
- 0436                   .dbline 250
+ 0436                   .dbline 248
  0436           ; }             
  0436           L54:
  0436           L55:
  0436                   .dbline -2
- 0436                   .dbline 252
+ 0436                   .dbline 250
  0436           ; }             
  0436           ; }             
  0436           L48:
@@ -1283,39 +1281,39 @@
  043A 10                push X
  043B 4F                mov X,SP
  043C 3804              add SP,4
+ 043E                   .dbline 265
+ 043E           ; }             
+ 043E           ; }             
+ 043E           ; }             
+ 043E           ; }             
+ 043E           ; }             
+ 043E           ; }             
+ 043E           ; }             
+ 043E           ; }             
+ 043E           ; }             
+ 043E           ; }             
+ 043E           ; }             
+ 043E           ; }             
+ 043E           ; }             
+ 043E           ; }             
+ 043E           ; }             
  043E                   .dbline 267
- 043E           ; }             
- 043E           ; }             
- 043E           ; }             
- 043E           ; }             
- 043E           ; }             
- 043E           ; }             
- 043E           ; }             
- 043E           ; }             
- 043E           ; }             
- 043E           ; }             
- 043E           ; }             
- 043E           ; }             
- 043E           ; }             
- 043E           ; }             
- 043E           ; }             
- 043E                   .dbline 269
  043E           ; }             
  043E           ; }             
  043E 3DFB01            cmp [X-5],1
  0441 B00E              jnz L60
- 0443                   .dbline 269
+ 0443                   .dbline 267
  0443 52FC              mov A,[X-4]
  0445 5403              mov [X+3],A
  0447 560200            mov [X+2],0
  044A 560100            mov [X+1],0
  044D 560000            mov [X+0],0
  0450           L60:
- 0450                   .dbline 270
+ 0450                   .dbline 268
  0450           ; }             
  0450 3DFB02            cmp [X-5],2
  0453 B03C              jnz L62
- 0455                   .dbline 270
+ 0455                   .dbline 268
  0455 62D000            mov REG[0xd0],>__r0
  0458 52FC              mov A,[X-4]
  045A 5300              mov [__r1],A
@@ -1347,11 +1345,11 @@
  048D 560000            mov [X+0],0
  0490           X7:
  0490           L62:
- 0490                   .dbline 271
+ 0490                   .dbline 269
  0490           ; }             
  0490 3DFB03            cmp [X-5],3
  0493 B03C              jnz L64
- 0495                   .dbline 271
+ 0495                   .dbline 269
  0495 62D000            mov REG[0xd0],>__r0
  0498 52FC              mov A,[X-4]
  049A 5300              mov [__r1],A
@@ -1383,7 +1381,7 @@
  04CD 560000            mov [X+0],0
  04D0           X9:
  04D0           L64:
- 04D0                   .dbline 272
+ 04D0                   .dbline 270
  04D0           ; }             
  04D0 62D000            mov REG[0xd0],>__r0
  04D3 5200              mov A,[X+0]
@@ -1414,7 +1412,7 @@
  04E7 10                push X
  04E8 4F                mov X,SP
  04E9 3804              add SP,4
- 04EB                   .dbline 288
+ 04EB                   .dbline 286
  04EB           ; }             
  04EB           ; }             
  04EB           ; }             
@@ -1431,25 +1429,25 @@
  04EB           ; }             
  04EB           ; }             
  04EB           ; }             
- 04EB                   .dbline 289
+ 04EB                   .dbline 287
  04EB           ; }             
  04EB 560000            mov [X+0],0
- 04EE                   .dbline 289
+ 04EE                   .dbline 287
  04EE 560100            mov [X+1],0
- 04F1                   .dbline 290
+ 04F1                   .dbline 288
  04F1           ; }             
  04F1 560200            mov [X+2],0
- 04F4                   .dbline 290
+ 04F4                   .dbline 288
  04F4 560300            mov [X+3],0
  04F7           L67:
- 04F7                   .dbline 293
+ 04F7                   .dbline 291
  04F7           ; }             
  04F7           ; }             
  04F7           ; }             
- 04F7                   .dbline 294
+ 04F7                   .dbline 292
  04F7           ; }             
  04F7 90D9              xcall _disparo
- 04F9                   .dbline 295
+ 04F9                   .dbline 293
  04F9           ; }             
  04F9 62D000            mov REG[0xd0],>_Cam1
  04FC 3C0001            cmp [_Cam1],1
@@ -1458,70 +1456,70 @@
  0504 3C0001            cmp [_Cam2],1
  0507 A012              jz L70
  0509           L72:
- 0509                   .dbline 296
+ 0509                   .dbline 294
  0509           ; }             
- 0509                   .dbline 297
+ 0509                   .dbline 295
  0509           ; }             
  0509 10                push X
  050A 5703              mov X,3
  050C 50E8              mov A,-24
  050E 7C0000            xcall _Segundos_WritePeriod
- 0511                   .dbline 298
+ 0511                   .dbline 296
  0511           ; }             
  0511 7C0000            xcall _Segundos_Start
- 0514                   .dbline 299
+ 0514                   .dbline 297
  0514           ; }             
  0514 7C0000            xcall _Segundos_EnableInt
  0517 20                pop X
- 0518                   .dbline 300
+ 0518                   .dbline 298
  0518           ; }             
  0518 7101                      or  F, 01h
  051A           
- 051A                   .dbline 301
+ 051A                   .dbline 299
  051A           ; }             
  051A           L70:
- 051A                   .dbline 304
+ 051A                   .dbline 302
  051A           ; }             
  051A           ; }             
  051A           ; }             
  051A 3D0000            cmp [X+0],0
  051D B049              jnz L73
- 051F                   .dbline 305
+ 051F                   .dbline 303
  051F           ; }             
- 051F                   .dbline 306
+ 051F                   .dbline 304
  051F           ; }             
  051F 62D000            mov REG[0xd0],>_Cam1
  0522 3C0001            cmp [_Cam1],1
  0525 B006              jnz L75
- 0527                   .dbline 306
+ 0527                   .dbline 304
  0527 560001            mov [X+0],1
  052A 803C              xjmp L76
  052C           L75:
- 052C                   .dbline 308
+ 052C                   .dbline 306
  052C           ; }             
  052C           ; }             
- 052C                   .dbline 309
+ 052C                   .dbline 307
  052C           ; }             
  052C 62D000            mov REG[0xd0],>_chivato1
  052F 3C0001            cmp [_chivato1],1
  0532 B016              jnz L77
- 0534                   .dbline 310
+ 0534                   .dbline 308
  0534           ; }             
- 0534                   .dbline 311
+ 0534                   .dbline 309
  0534           ; }             
  0534 62D000            mov REG[0xd0],>_tocacam1
  0537 550001            mov [_tocacam1],1
- 053A                   .dbline 312
+ 053A                   .dbline 310
  053A           ; }             
  053A 62D000            mov REG[0xd0],>_contador_trabajo1
  053D 550000            mov [_contador_trabajo1],0
  0540 550100            mov [_contador_trabajo1+1],0
  0543 550200            mov [_contador_trabajo1+2],0
  0546 550300            mov [_contador_trabajo1+3],0
- 0549                   .dbline 313
+ 0549                   .dbline 311
  0549           ; }             
  0549           L77:
- 0549                   .dbline 314
+ 0549                   .dbline 312
  0549           ; }             
  0549 62D000            mov REG[0xd0],>_contadordspCam1
  054C 5100              mov A,[_contadordspCam1]
@@ -1534,64 +1532,64 @@
  055D 3A01              cmp A,[_dspCam1+1]
  055F B007              jnz L79
  0561           X10:
- 0561                   .dbline 315
+ 0561                   .dbline 313
  0561           ; }             
- 0561                   .dbline 316
+ 0561                   .dbline 314
  0561           ; }             
  0561 560001            mov [X+0],1
- 0564                   .dbline 317
+ 0564                   .dbline 315
  0564           ; }             
  0564 5602FF            mov [X+2],-1
- 0567                   .dbline 318
+ 0567                   .dbline 316
  0567           ; }             
  0567           L79:
- 0567                   .dbline 319
+ 0567                   .dbline 317
  0567           ; }             
  0567           L76:
- 0567                   .dbline 320
+ 0567                   .dbline 318
  0567           ; }             
  0567           L73:
- 0567                   .dbline 322
+ 0567                   .dbline 320
  0567           ; }             
  0567           ; }             
  0567 3D0100            cmp [X+1],0
  056A B049              jnz L81
- 056C                   .dbline 323
+ 056C                   .dbline 321
  056C           ; }             
- 056C                   .dbline 324
+ 056C                   .dbline 322
  056C           ; }             
  056C 62D000            mov REG[0xd0],>_Cam2
  056F 3C0001            cmp [_Cam2],1
  0572 B006              jnz L83
- 0574                   .dbline 324
+ 0574                   .dbline 322
  0574 560101            mov [X+1],1
  0577 803C              xjmp L84
  0579           L83:
- 0579                   .dbline 326
+ 0579                   .dbline 324
  0579           ; }             
  0579           ; }             
- 0579                   .dbline 327
+ 0579                   .dbline 325
  0579           ; }             
  0579 62D000            mov REG[0xd0],>_chivato2
  057C 3C0001            cmp [_chivato2],1
  057F B016              jnz L85
- 0581                   .dbline 328
+ 0581                   .dbline 326
  0581           ; }             
- 0581                   .dbline 329
+ 0581                   .dbline 327
  0581           ; }             
  0581 62D000            mov REG[0xd0],>_tocacam2
  0584 550001            mov [_tocacam2],1
- 0587                   .dbline 330
+ 0587                   .dbline 328
  0587           ; }             
  0587 62D000            mov REG[0xd0],>_contador_trabajo2
  058A 550000            mov [_contador_trabajo2],0
  058D 550100            mov [_contador_trabajo2+1],0
  0590 550200            mov [_contador_trabajo2+2],0
  0593 550300            mov [_contador_trabajo2+3],0
- 0596                   .dbline 331
+ 0596                   .dbline 329
  0596           ; }             
  0596           L85:
- 0596                   .dbline 332
+ 0596                   .dbline 330
  0596           ; }             
  0596 62D000            mov REG[0xd0],>_contadordspCam2
  0599 5100              mov A,[_contadordspCam2]
@@ -1604,42 +1602,42 @@
  05AA 3A01              cmp A,[_dspCam2+1]
  05AC B007              jnz L87
  05AE           X11:
- 05AE                   .dbline 333
+ 05AE                   .dbline 331
  05AE           ; }             
- 05AE                   .dbline 334
+ 05AE                   .dbline 332
  05AE           ; }             
  05AE 560101            mov [X+1],1
- 05B1                   .dbline 335
+ 05B1                   .dbline 333
  05B1           ; }             
  05B1 5603FF            mov [X+3],-1
- 05B4                   .dbline 336
+ 05B4                   .dbline 334
  05B4           ; }             
  05B4           L87:
- 05B4                   .dbline 337
+ 05B4                   .dbline 335
  05B4           ; }             
  05B4           L84:
- 05B4                   .dbline 338
+ 05B4                   .dbline 336
  05B4           ; }             
  05B4           L81:
- 05B4                   .dbline 339
+ 05B4                   .dbline 337
  05B4           ; }             
  05B4           L68:
- 05B4                   .dbline 340
+ 05B4                   .dbline 338
  05B4 3D0000            cmp [X+0],0
  05B7 AF3F              jz L67
  05B9 3D0100            cmp [X+1],0
  05BC AF3A              jz L67
- 05BE                   .dbline 342
+ 05BE                   .dbline 340
  05BE 3D02FF            cmp [X+2],-1
  05C1 B00C              jnz L89
  05C3 3D03FF            cmp [X+3],-1
  05C6 B007              jnz L89
- 05C8                   .dbline 342
+ 05C8                   .dbline 340
  05C8 62D000            mov REG[0xd0],>_fintrabajo
  05CB 5500FF            mov [_fintrabajo],-1
  05CE           L89:
  05CE                   .dbline -2
- 05CE                   .dbline 343
+ 05CE                   .dbline 341
  05CE           ; }             
  05CE           ; }             
  05CE           ; }             
@@ -1661,7 +1659,7 @@
  05D2 10                push X
  05D3 4F                mov X,SP
  05D4 3802              add SP,2
- 05D6                   .dbline 358
+ 05D6                   .dbline 356
  05D6           ; }             
  05D6           ; }             
  05D6           ; }             
@@ -1677,177 +1675,177 @@
  05D6           ; }             
  05D6           ; }             
  05D6           ; }             
- 05D6                   .dbline 361
+ 05D6                   .dbline 359
  05D6           ; }             
  05D6           ; }             
  05D6           ; }             
  05D6 62D000            mov REG[0xd0],>_tocacam1
  05D9 3C0001            cmp [_tocacam1],1
  05DC B012              jnz L92
- 05DE                   .dbline 362
+ 05DE                   .dbline 360
  05DE           ; }             
- 05DE                   .dbline 363
+ 05DE                   .dbline 361
  05DE           ; }             
  05DE 430801            or REG[0x8],1
- 05E1                   .dbline 364
+ 05E1                   .dbline 362
  05E1           ; }             
  05E1 430804            or REG[0x8],4
- 05E4                   .dbline 365
+ 05E4                   .dbline 363
  05E4           ; }             
  05E4 550000            mov [_tocacam1],0
- 05E7                   .dbline 366
+ 05E7                   .dbline 364
  05E7           ; }             
  05E7 62D000            mov REG[0xd0],>_contadordspCam1
  05EA 7601              inc [_contadordspCam1+1]
  05EC 0E0000            adc [_contadordspCam1],0
- 05EF                   .dbline 367
+ 05EF                   .dbline 365
  05EF           ; }             
  05EF           L92:
- 05EF                   .dbline 368
+ 05EF                   .dbline 366
  05EF           ; }             
  05EF 62D000            mov REG[0xd0],>_tocacam2
  05F2 3C0001            cmp [_tocacam2],1
  05F5 B012              jnz L94
- 05F7                   .dbline 369
+ 05F7                   .dbline 367
  05F7           ; }             
- 05F7                   .dbline 370
+ 05F7                   .dbline 368
  05F7           ; }             
  05F7 430810            or REG[0x8],16
- 05FA                   .dbline 371
+ 05FA                   .dbline 369
  05FA           ; }             
  05FA 430840            or REG[0x8],64
- 05FD                   .dbline 372
+ 05FD                   .dbline 370
  05FD           ; }             
  05FD 550000            mov [_tocacam2],0
- 0600                   .dbline 373
+ 0600                   .dbline 371
  0600           ; }             
  0600 62D000            mov REG[0xd0],>_contadordspCam2
  0603 7601              inc [_contadordspCam2+1]
  0605 0E0000            adc [_contadordspCam2],0
- 0608                   .dbline 374
+ 0608                   .dbline 372
  0608           ; }             
  0608           L94:
- 0608                   .dbline 376
+ 0608                   .dbline 374
  0608           ; }             
  0608           ; }             
  0608 62D000            mov REG[0xd0],>_tocacam1
  060B 3C0001            cmp [_tocacam1],1
  060E B041              jnz L96
- 0610                   .dbline 377
+ 0610                   .dbline 375
  0610           ; }             
- 0610                   .dbline 378
+ 0610                   .dbline 376
  0610 62D000            mov REG[0xd0],>_Fla1
  0613 3C0001            cmp [_Fla1],1
  0616 A006              jz L100
  0618 3C0003            cmp [_Fla1],3
  061B B004              jnz L98
  061D           L100:
- 061D                   .dbline 378
+ 061D                   .dbline 376
  061D           ; }             
  061D 430001            or REG[ 0],1
  0620           L98:
- 0620                   .dbline 379
+ 0620                   .dbline 377
  0620 62D000            mov REG[0xd0],>_Fla2
  0623 3C0001            cmp [_Fla2],1
  0626 A006              jz L103
  0628 3C0003            cmp [_Fla2],3
  062B B004              jnz L101
  062D           L103:
- 062D                   .dbline 379
+ 062D                   .dbline 377
  062D           ; }             
  062D 430004            or REG[ 0],4
  0630           L101:
- 0630                   .dbline 380
+ 0630                   .dbline 378
  0630 62D000            mov REG[0xd0],>_Fla3
  0633 3C0001            cmp [_Fla3],1
  0636 A006              jz L106
  0638 3C0003            cmp [_Fla3],3
  063B B004              jnz L104
  063D           L106:
- 063D                   .dbline 380
+ 063D                   .dbline 378
  063D           ; }             
  063D 430010            or REG[ 0],16
  0640           L104:
- 0640                   .dbline 381
+ 0640                   .dbline 379
  0640 62D000            mov REG[0xd0],>_Fla4
  0643 3C0001            cmp [_Fla4],1
  0646 A006              jz L109
  0648 3C0003            cmp [_Fla4],3
  064B B004              jnz L107
  064D           L109:
- 064D                   .dbline 381
+ 064D                   .dbline 379
  064D           ; }             
  064D 430040            or REG[ 0],64
  0650           L107:
- 0650                   .dbline 382
+ 0650                   .dbline 380
  0650           ; }             
  0650           L96:
- 0650                   .dbline 383
+ 0650                   .dbline 381
  0650           ; }             
  0650 62D000            mov REG[0xd0],>_tocacam2
  0653 3C0001            cmp [_tocacam2],1
  0656 B041              jnz L110
- 0658                   .dbline 384
+ 0658                   .dbline 382
  0658           ; }             
- 0658                   .dbline 385
+ 0658                   .dbline 383
  0658 62D000            mov REG[0xd0],>_Fla1
  065B 3C0002            cmp [_Fla1],2
  065E A006              jz L114
  0660 3C0003            cmp [_Fla1],3
  0663 B004              jnz L112
  0665           L114:
- 0665                   .dbline 385
+ 0665                   .dbline 383
  0665           ; }             
  0665 430001            or REG[ 0],1
  0668           L112:
- 0668                   .dbline 386
+ 0668                   .dbline 384
  0668 62D000            mov REG[0xd0],>_Fla2
  066B 3C0002            cmp [_Fla2],2
  066E A006              jz L117
  0670 3C0003            cmp [_Fla2],3
  0673 B004              jnz L115
  0675           L117:
- 0675                   .dbline 386
+ 0675                   .dbline 384
  0675           ; }             
  0675 430004            or REG[ 0],4
  0678           L115:
- 0678                   .dbline 387
+ 0678                   .dbline 385
  0678 62D000            mov REG[0xd0],>_Fla3
  067B 3C0002            cmp [_Fla3],2
  067E A006              jz L120
  0680 3C0003            cmp [_Fla3],3
  0683 B004              jnz L118
  0685           L120:
- 0685                   .dbline 387
+ 0685                   .dbline 385
  0685           ; }             
  0685 430010            or REG[ 0],16
  0688           L118:
- 0688                   .dbline 388
+ 0688                   .dbline 386
  0688 62D000            mov REG[0xd0],>_Fla4
  068B 3C0002            cmp [_Fla4],2
  068E A006              jz L123
  0690 3C0003            cmp [_Fla4],3
  0693 B004              jnz L121
  0695           L123:
- 0695                   .dbline 388
+ 0695                   .dbline 386
  0695           ; }             
  0695 430040            or REG[ 0],64
  0698           L121:
- 0698                   .dbline 389
+ 0698                   .dbline 387
  0698           ; }             
  0698           L110:
- 0698                   .dbline 391
+ 0698                   .dbline 389
  0698 560100            mov [X+1],0
  069B 560000            mov [X+0],0
  069E           L124:
- 069E                   .dbline 391
+ 069E                   .dbline 389
  069E           L125:
- 069E                   .dbline 391
+ 069E                   .dbline 389
  069E           ; }             
  069E           ; }             
  069E 7701              inc [X+1]
  06A0 0F0000            adc [X+0],0
- 06A3                   .dbline 391
+ 06A3                   .dbline 389
  06A3 5201              mov A,[X+1]
  06A5 112C              sub A,44
  06A7 5200              mov A,[X+0]
@@ -1855,18 +1853,18 @@
  06AB 1981              sbb A,(1 ^ 0x80)
  06AD CFF0              jc L124
  06AF           X12:
- 06AF                   .dbline 394
+ 06AF                   .dbline 392
  06AF           ; }             
  06AF           ; }             
  06AF           ; }             
  06AF 4100AA            and REG[ 0],-86
- 06B2                   .dbline 397
+ 06B2                   .dbline 395
  06B2           ; }             
  06B2           ; }             
  06B2           ; }             
  06B2 4108AA            and REG[0x8],-86
  06B5                   .dbline -2
- 06B5                   .dbline 398
+ 06B5                   .dbline 396
  06B5           ; }             
  06B5           L91:
  06B5 38FE              add SP,-2
@@ -1878,25 +1876,25 @@
  06B9                   .dbfunc e envia_fintrabajo _envia_fintrabajo fV
  06B9           _envia_fintrabajo::
  06B9                   .dbline -1
+ 06B9                   .dbline 412
  06B9                   .dbline 414
- 06B9                   .dbline 416
  06B9 62D000            mov REG[0xd0],>_fintrabajo
  06BC 5500FF            mov [_fintrabajo],-1
  06BF 62D000            mov REG[0xd0],>__r0
  06C2 5500FF            mov [__r0],-1
  06C5 3C0000            cmp [__r0],0
  06C8 A00B              jz L129
- 06CA                   .dbline 417
- 06CA                   .dbline 418
+ 06CA                   .dbline 415
+ 06CA                   .dbline 416
  06CA 62D000            mov REG[0xd0],>_fintrabajo
  06CD 5100              mov A,[_fintrabajo]
  06CF 08                push A
  06D0 992E              xcall _envia
  06D2 38FF              add SP,-1
- 06D4                   .dbline 419
+ 06D4                   .dbline 417
  06D4           L129:
  06D4                   .dbline -2
- 06D4                   .dbline 420
+ 06D4                   .dbline 418
  06D4           ; }             
  06D4           ; }             
  06D4           ; }             
@@ -2055,12 +2053,12 @@
  0797 992A              xcall _recibe_valores
  0799                   .dbline 39
  0799 99F1              xcall _activar_sensores
- 079B                   .dbline 43
+ 079B                   .dbline 40
  079B 9A56              xcall _ejecucion
- 079D                   .dbline 44
+ 079D                   .dbline 41
  079D 9F1A              xcall _envia_fintrabajo
  079F                   .dbline -2
- 079F                   .dbline 45
+ 079F                   .dbline 42
  079F           L141:
  079F                   .dbline 0 ; func end
  079F 8FFF              jmp .

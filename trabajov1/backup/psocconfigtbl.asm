@@ -13,8 +13,8 @@ LoadConfigTBL_trabajov1:
 	mov	reg[03h], 00h		; Port_0_DriveMode_2 register (PRT0DM2)
 	mov	reg[02h], 00h		; Port_0_GlobalSelect register (PRT0GS)
 	M8C_SetBank1
-	mov	reg[02h], aah		; Port_0_IntCtrl_0 register (PRT0IC0)
-	mov	reg[03h], 00h		; Port_0_IntCtrl_1 register (PRT0IC1)
+	mov	reg[02h], 00h		; Port_0_IntCtrl_0 register (PRT0IC0)
+	mov	reg[03h], aah		; Port_0_IntCtrl_1 register (PRT0IC1)
 	M8C_SetBank0
 	mov	reg[01h], aah		; Port_0_IntEn register (PRT0IE)
 	M8C_SetBank1
@@ -180,11 +180,11 @@ LoadConfigTBL_trabajov1:
 	mov	reg[e7h], 00h		; Type2Decimator_Control register (DEC_CR2)
 ;  Instance name Segundos, User Module Timer16
 ;       Instance name Segundos, Block Name TIMER16_LSB(DBB10)
-	mov	reg[30h], 00h		;Segundos_FUNC_LSB_REG(DBB10FN)
+	mov	reg[30h], 10h		;Segundos_FUNC_LSB_REG(DBB10FN)
 	mov	reg[31h], 01h		;Segundos_INPUT_LSB_REG(DBB10IN)
 	mov	reg[32h], 40h		;Segundos_OUTPUT_LSB_REG(DBB10OU)
 ;       Instance name Segundos, Block Name TIMER16_MSB(DBB11)
-	mov	reg[34h], 20h		;Segundos_FUNC_MSB_REG(DBB11FN)
+	mov	reg[34h], 30h		;Segundos_FUNC_MSB_REG(DBB11FN)
 	mov	reg[35h], 31h		;Segundos_INPUT_MSB_REG(DBB11IN)
 	mov	reg[36h], 40h		;Segundos_OUTPUT_MSB_REG(DBB11OU)
 ;  Instance name Timer8, User Module Timer8
@@ -196,11 +196,11 @@ LoadConfigTBL_trabajov1:
 ;       Instance name UART, Block Name RX(DCB03)
 	mov	reg[2ch], 05h		;UART_RX_FUNC_REG   (DCB03FN)
 	mov	reg[2dh], e9h		;UART_RX_INPUT_REG  (DCB03IN)
-	mov	reg[2eh], 00h		;UART_RX_OUTPUT_REG (DCB03OU)
+	mov	reg[2eh], 40h		;UART_RX_OUTPUT_REG (DCB03OU)
 ;       Instance name UART, Block Name TX(DCB02)
 	mov	reg[28h], 0dh		;UART_TX_FUNC_REG   (DCB02FN)
 	mov	reg[29h], 09h		;UART_TX_INPUT_REG  (DCB02IN)
-	mov	reg[2ah], 04h		;UART_TX_OUTPUT_REG (DCB02OU)
+	mov	reg[2ah], 44h		;UART_TX_OUTPUT_REG (DCB02OU)
 	M8C_SetBank0
 	ret
 

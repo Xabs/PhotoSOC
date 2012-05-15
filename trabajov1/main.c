@@ -37,9 +37,6 @@ void main()						//Programa principal
 	inicializacion ();
 	recibe_valores();
 	activar_sensores();	
-	
-	
-	
 	ejecucion();
 	envia_fintrabajo();
 }		

@@ -180,11 +180,11 @@ LoadConfigTBL_terminalv1:
 ;       Instance name UART, Block Name RX(DCB03)
 	mov	reg[2ch], 05h		;UART_RX_FUNC_REG   (DCB03FN)
 	mov	reg[2dh], e9h		;UART_RX_INPUT_REG  (DCB03IN)
-	mov	reg[2eh], 00h		;UART_RX_OUTPUT_REG (DCB03OU)
+	mov	reg[2eh], 40h		;UART_RX_OUTPUT_REG (DCB03OU)
 ;       Instance name UART, Block Name TX(DCB02)
 	mov	reg[28h], 0dh		;UART_TX_FUNC_REG   (DCB02FN)
 	mov	reg[29h], 09h		;UART_TX_INPUT_REG  (DCB02IN)
-	mov	reg[2ah], 04h		;UART_TX_OUTPUT_REG (DCB02OU)
+	mov	reg[2ah], 44h		;UART_TX_OUTPUT_REG (DCB02OU)
 	M8C_SetBank0
 	ret
 

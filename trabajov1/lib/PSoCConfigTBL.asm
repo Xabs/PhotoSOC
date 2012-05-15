@@ -172,19 +172,19 @@ LoadConfigTBL_trabajov1:
 	mov	reg[d3h], 00h		; GlobalDigitalInterconnect_Drive_Even_Output register (GDI_E_OU)
 	mov	reg[d0h], 00h		; GlobalDigitalInterconnect_Drive_Odd_Input register (GDI_O_IN)
 	mov	reg[d2h], 00h		; GlobalDigitalInterconnect_Drive_Odd_Output register (GDI_O_OU)
-	mov	reg[e1h], 00h		; OscillatorControl_1 register (OSC_CR1)
+	mov	reg[e1h], 0fh		; OscillatorControl_1 register (OSC_CR1)
 	mov	reg[e2h], 00h		; OscillatorControl_2 register (OSC_CR2)
-	mov	reg[dfh], 00h		; OscillatorControl_3 register (OSC_CR3)
-	mov	reg[deh], 00h		; OscillatorControl_4 register (OSC_CR4)
+	mov	reg[dfh], 95h		; OscillatorControl_3 register (OSC_CR3)
+	mov	reg[deh], 02h		; OscillatorControl_4 register (OSC_CR4)
 	mov	reg[ddh], 00h		; OscillatorGlobalBusEnableControl register (OSC_GO_EN)
 	mov	reg[e7h], 00h		; Type2Decimator_Control register (DEC_CR2)
 ;  Instance name Segundos, User Module Timer16
 ;       Instance name Segundos, Block Name TIMER16_LSB(DBB10)
-	mov	reg[30h], 00h		;Segundos_FUNC_LSB_REG(DBB10FN)
+	mov	reg[30h], 10h		;Segundos_FUNC_LSB_REG(DBB10FN)
 	mov	reg[31h], 01h		;Segundos_INPUT_LSB_REG(DBB10IN)
 	mov	reg[32h], 40h		;Segundos_OUTPUT_LSB_REG(DBB10OU)
 ;       Instance name Segundos, Block Name TIMER16_MSB(DBB11)
-	mov	reg[34h], 20h		;Segundos_FUNC_MSB_REG(DBB11FN)
+	mov	reg[34h], 30h		;Segundos_FUNC_MSB_REG(DBB11FN)
 	mov	reg[35h], 31h		;Segundos_INPUT_MSB_REG(DBB11IN)
 	mov	reg[36h], 40h		;Segundos_OUTPUT_MSB_REG(DBB11OU)
 ;  Instance name Timer8, User Module Timer8
@@ -196,11 +196,11 @@ LoadConfigTBL_trabajov1:
 ;       Instance name UART, Block Name RX(DCB03)
 	mov	reg[2ch], 05h		;UART_RX_FUNC_REG   (DCB03FN)
 	mov	reg[2dh], e9h		;UART_RX_INPUT_REG  (DCB03IN)
-	mov	reg[2eh], 00h		;UART_RX_OUTPUT_REG (DCB03OU)
+	mov	reg[2eh], 40h		;UART_RX_OUTPUT_REG (DCB03OU)
 ;       Instance name UART, Block Name TX(DCB02)
 	mov	reg[28h], 0dh		;UART_TX_FUNC_REG   (DCB02FN)
 	mov	reg[29h], 09h		;UART_TX_INPUT_REG  (DCB02IN)
-	mov	reg[2ah], 04h		;UART_TX_OUTPUT_REG (DCB02OU)
+	mov	reg[2ah], 44h		;UART_TX_OUTPUT_REG (DCB02OU)
 	M8C_SetBank0
 	ret
 

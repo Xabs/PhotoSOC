@@ -991,19 +991,19 @@
  01A9 62D300            mov     reg[d3h], 00h           ; GlobalDigitalInterconnect_Drive_Even_Output register (GDI_E_OU)
  01AC 62D000            mov     reg[d0h], 00h           ; GlobalDigitalInterconnect_Drive_Odd_Input register (GDI_O_IN)
  01AF 62D200            mov     reg[d2h], 00h           ; GlobalDigitalInterconnect_Drive_Odd_Output register (GDI_O_OU)
- 01B2 62E100            mov     reg[e1h], 00h           ; OscillatorControl_1 register (OSC_CR1)
+ 01B2 62E10F            mov     reg[e1h], 0fh           ; OscillatorControl_1 register (OSC_CR1)
  01B5 62E200            mov     reg[e2h], 00h           ; OscillatorControl_2 register (OSC_CR2)
- 01B8 62DF00            mov     reg[dfh], 00h           ; OscillatorControl_3 register (OSC_CR3)
- 01BB 62DE00            mov     reg[deh], 00h           ; OscillatorControl_4 register (OSC_CR4)
+ 01B8 62DF95            mov     reg[dfh], 95h           ; OscillatorControl_3 register (OSC_CR3)
+ 01BB 62DE02            mov     reg[deh], 02h           ; OscillatorControl_4 register (OSC_CR4)
  01BE 62DD00            mov     reg[ddh], 00h           ; OscillatorGlobalBusEnableControl register (OSC_GO_EN)
  01C1 62E700            mov     reg[e7h], 00h           ; Type2Decimator_Control register (DEC_CR2)
  01C4           ;  Instance name Segundos, User Module Timer16
  01C4           ;       Instance name Segundos, Block Name TIMER16_LSB(DBB10)
- 01C4 623000            mov     reg[30h], 00h           ;Segundos_FUNC_LSB_REG(DBB10FN)
+ 01C4 623010            mov     reg[30h], 10h           ;Segundos_FUNC_LSB_REG(DBB10FN)
  01C7 623101            mov     reg[31h], 01h           ;Segundos_INPUT_LSB_REG(DBB10IN)
  01CA 623240            mov     reg[32h], 40h           ;Segundos_OUTPUT_LSB_REG(DBB10OU)
  01CD           ;       Instance name Segundos, Block Name TIMER16_MSB(DBB11)
- 01CD 623420            mov     reg[34h], 20h           ;Segundos_FUNC_MSB_REG(DBB11FN)
+ 01CD 623430            mov     reg[34h], 30h           ;Segundos_FUNC_MSB_REG(DBB11FN)
  01D0 623531            mov     reg[35h], 31h           ;Segundos_INPUT_MSB_REG(DBB11IN)
  01D3 623640            mov     reg[36h], 40h           ;Segundos_OUTPUT_MSB_REG(DBB11OU)
  01D6           ;  Instance name Timer8, User Module Timer8
@@ -1015,11 +1015,11 @@
  01DF           ;       Instance name UART, Block Name RX(DCB03)
  01DF 622C05            mov     reg[2ch], 05h           ;UART_RX_FUNC_REG   (DCB03FN)
  01E2 622DE9            mov     reg[2dh], e9h           ;UART_RX_INPUT_REG  (DCB03IN)
- 01E5 622E00            mov     reg[2eh], 00h           ;UART_RX_OUTPUT_REG (DCB03OU)
+ 01E5 622E40            mov     reg[2eh], 40h           ;UART_RX_OUTPUT_REG (DCB03OU)
  01E8           ;       Instance name UART, Block Name TX(DCB02)
  01E8 62280D            mov     reg[28h], 0dh           ;UART_TX_FUNC_REG   (DCB02FN)
  01EB 622909            mov     reg[29h], 09h           ;UART_TX_INPUT_REG  (DCB02IN)
- 01EE 622A04            mov     reg[2ah], 04h           ;UART_TX_OUTPUT_REG (DCB02OU)
+ 01EE 622A44            mov     reg[2ah], 44h           ;UART_TX_OUTPUT_REG (DCB02OU)
  01F1 70EF          and   F, ~FLAG_XIO_MASK
  01F3 7F                ret
  01F4           

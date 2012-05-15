@@ -59,15 +59,15 @@ WATCHDOG_ENABLE:		equ 0	;Watchdog Enable 1 = Enable
 CLOCK_DIV_VC1:			equ	0h	;VC1 clock divider
 CLOCK_DIV_VC1_MASK:		equ	f0h	;VC1 clock divider mask
 CLOCK_DIV_VC1_JUST:		equ	0h	;VC1 clock divider justified
-CLOCK_DIV_VC2:			equ	bh	;VC2 clock divider
+CLOCK_DIV_VC2:			equ	0h	;VC2 clock divider
 CLOCK_DIV_VC2_MASK:		equ	fh	;VC2 clock divider mask
-CLOCK_DIV_VC2_JUST:		equ	bh	;VC2 clock divider justified
-CLOCK_INPUT_VC3:		equ	2h	;VC3 clock source
+CLOCK_DIV_VC2_JUST:		equ	0h	;VC2 clock divider justified
+CLOCK_INPUT_VC3:		equ	0h	;VC3 clock source
 CLOCK_INPUT_VC3_MASK:	equ	3h	;VC3 clock source mask
-CLOCK_INPUT_VC3_JUST:	equ	2h	;VC3 clock source justified
-CLOCK_DIV_VC3:			equ	c7h	;VC3 clock divider
+CLOCK_INPUT_VC3_JUST:	equ	0h	;VC3 clock source justified
+CLOCK_DIV_VC3:			equ	0h	;VC3 clock divider
 CLOCK_DIV_VC3_MASK:		equ	ffh	;VC3 clock divider mask
-CLOCK_DIV_VC3_JUST:		equ	c7h	;VC3 clock divider justified
+CLOCK_DIV_VC3_JUST:		equ	0h	;VC3 clock divider justified
 ANALOG_BUFFER_PWR:		equ	0h	;Analog buffer power level
 ANALOG_BUFFER_PWR_MASK:	equ	1h	;Analog buffer power level mask
 ANALOG_BUFFER_PWR_JUST:	equ	0h	;Analog buffer power level justified
