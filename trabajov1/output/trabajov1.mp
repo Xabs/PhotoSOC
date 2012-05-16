@@ -1,4 +1,4 @@
-  ROM 11% full. 3847 bytes used (does not include absolute areas).
+  ROM 11% full. 3875 bytes used (does not include absolute areas).
   RAM 5% full. 91 bytes used (does not include stack usage).
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
@@ -155,7 +155,7 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                            text   06AD   09FA =   2554. bytes (rel,con,rom)
+                            text   06AD   0A16 =   2582. bytes (rel,con,rom)
 
        Addr  Global Symbol
       -----  --------------------------------
@@ -167,24 +167,24 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
        0829  _preparadisparo
        0A61  _calculosegundos
        0B0E  _activar_sensores
-       0B36  _ejecucion
-       0B43  _bucle
-       0C2A  _disparo
-       0D17  _envia_fintrabajo
-       0D33  _disparo_sensores
-       0D74  _MI_RSI_EXTERNA
-       0DF3  _MI_RSI_DEL_TIMER
-       0EF6  _led1
-       0F1D  _led2
-       0F44  _main
-       0F50  PSoC_GPIO_ISR
-       0F54  __divmodu_32X32_32
-       0F63  __i_div32_block_util
-       0FC6  __i_mulu8_block_util
-       0FE3  __mul16
-       1021  __mul_32X32_32
-       10B1  __xidata_end
-       10A7  __text_end
+       0B34  _ejecucion
+       0B41  _bucle
+       0C28  _disparo
+       0D15  _envia_fintrabajo
+       0D31  _disparo_sensores
+       0D8E  _MI_RSI_EXTERNA
+       0E0D  _MI_RSI_DEL_TIMER
+       0F10  _led1
+       0F37  _led2
+       0F5E  _main
+       0F6C  PSoC_GPIO_ISR
+       0F70  __divmodu_32X32_32
+       0F7F  __i_div32_block_util
+       0FE2  __i_mulu8_block_util
+       0FFF  __mul16
+       103D  __mul_32X32_32
+       10CD  __xidata_end
+       10C3  __text_end
 
 Area                               Start  End    Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------

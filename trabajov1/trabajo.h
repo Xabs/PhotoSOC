@@ -208,8 +208,7 @@ void activar_sensores(void)
 	if (Ent1==on || Ent2==on || Ent3==on || Ent4==on)
 	{
 		M8C_EnableIntMask (INT_MSK0,INT_MSK0_GPIO);		//Permitir interrupciones externas
-		M8C_EnableGInt;
-		led2();									//Permitimos las interrupciones globalmente
+		M8C_EnableGInt;									//Permitimos las interrupciones globalmente
 	}
 }
 //******************************************************************************
@@ -403,10 +402,14 @@ void disparo_sensores(void)
 	if (Ent2==off) sensores=sensores&0xDF; 	//1101-1111
 	if (Ent3==off) sensores=sensores&0xF7; 	//1111-0111
 	if (Ent4==off) sensores=sensores&0xFD; 	//1111-1101
-	
+		
 	//Disparar segun tipo de disparo
-	if (sensores!=0) 
-	bucle();
+	if (sensores!=0)
+	{
+		if (Cam1==1) tocacam1=on;
+		if (Cam2==1) tocacam2=on;
+		disparo();
+	}
 }
 //******************************************************************************
 //******************************************************************************

@@ -21,8 +21,7 @@ void led2(void);
 
 void MI_RSI_EXTERNA(void)		//Interrupción externa
 {
-	led1();
-	//disparo_sensores();
+	disparo_sensores();
 }
 
 void MI_RSI_DEL_TIMER (void)	//Interrupción del timer Segundos

@@ -13,27 +13,6 @@
 				<SOURCE_FILE NAME="psocapi.h" TYPE="LibraryIncludeFile" LANGUAGE="C" OVERLAY_NAME="" FILEMODTIME="1241984" LIBTIME="2088812166"/>
 				<SOURCE_FILE NAME="psocapi.inc" TYPE="LibraryIncludeFile" LANGUAGE="ASM" OVERLAY_NAME="" FILEMODTIME="1242020" LIBTIME="2088812166"/>
 				<SOURCE_FILE NAME="memory.inc" TYPE="UserIncludeFile" LANGUAGE="ASM" OVERLAY_NAME=""/>
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
 				<SOURCE_FILE NAME="segundosint.asm" TYPE="LibrarySource" LANGUAGE="ASM" OVERLAY_NAME="" FILEMODTIME="0" LIBTIME="7702394"/>
 				<SOURCE_FILE NAME="segundos.inc" TYPE="LibraryIncludeFile" LANGUAGE="ASM" OVERLAY_NAME="" FILEMODTIME="2089943136" LIBTIME="-1"/>
 				<SOURCE_FILE NAME="segundos.asm" TYPE="LibrarySource" LANGUAGE="ASM" OVERLAY_NAME="" FILEMODTIME="2089943136" LIBTIME="-1"/>
