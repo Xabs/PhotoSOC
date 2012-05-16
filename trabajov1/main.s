@@ -1384,48 +1384,47 @@ L61:
 	.dbline 266
 ; }		
 	xcall _disparo
-	.dbline 269
-; }		
+	.dbline 268
 ; }		
 ; }		
 	cmp [X+0],0
 	jnz L64
-	.dbline 270
+	.dbline 269
 ; }		
-	.dbline 271
+	.dbline 270
 ; }		
 	mov REG[0xd0],>_Cam1
 	cmp [_Cam1],1
 	jnz L66
-	.dbline 271
+	.dbline 270
 	mov [X+0],1
 	xjmp L67
 L66:
+	.dbline 272
+; }		
+; }		
 	.dbline 273
-; }		
-; }		
-	.dbline 274
 ; }		
 	mov REG[0xd0],>_chivato1
 	cmp [_chivato1],1
 	jnz L68
-	.dbline 275
+	.dbline 274
 ; }		
-	.dbline 276
+	.dbline 275
 ; }		
 	mov REG[0xd0],>_tocacam1
 	mov [_tocacam1],1
-	.dbline 277
+	.dbline 276
 ; }		
 	mov REG[0xd0],>_contador_trabajo1
 	mov [_contador_trabajo1],0
 	mov [_contador_trabajo1+1],0
 	mov [_contador_trabajo1+2],0
 	mov [_contador_trabajo1+3],0
-	.dbline 278
+	.dbline 277
 ; }		
 L68:
-	.dbline 279
+	.dbline 278
 ; }		
 	mov REG[0xd0],>_contadordspCam1
 	mov A,[_contadordspCam1]
@@ -1438,64 +1437,56 @@ L68:
 	cmp A,[_dspCam1+1]
 	jnz L70
 X10:
-	.dbline 280
-; }		
-	.dbline 281
-; }		
+	.dbline 278
 	mov [X+0],1
-	.dbline 282
-; }		
-	mov [X+2],-1
-	.dbline 283
-; }		
 L70:
-	.dbline 284
+	.dbline 279
 ; }		
 L67:
-	.dbline 285
+	.dbline 280
 ; }		
 L64:
-	.dbline 287
+	.dbline 282
 ; }		
 ; }		
 	cmp [X+1],0
 	jnz L72
-	.dbline 288
+	.dbline 283
 ; }		
-	.dbline 289
+	.dbline 284
 ; }		
 	mov REG[0xd0],>_Cam2
 	cmp [_Cam2],1
 	jnz L74
-	.dbline 289
+	.dbline 284
 	mov [X+1],1
 	xjmp L75
 L74:
-	.dbline 291
+	.dbline 286
 ; }		
 ; }		
-	.dbline 292
+	.dbline 287
 ; }		
 	mov REG[0xd0],>_chivato2
 	cmp [_chivato2],1
 	jnz L76
-	.dbline 293
+	.dbline 288
 ; }		
-	.dbline 294
+	.dbline 289
 ; }		
 	mov REG[0xd0],>_tocacam2
 	mov [_tocacam2],1
-	.dbline 295
+	.dbline 290
 ; }		
 	mov REG[0xd0],>_contador_trabajo2
 	mov [_contador_trabajo2],0
 	mov [_contador_trabajo2+1],0
 	mov [_contador_trabajo2+2],0
 	mov [_contador_trabajo2+3],0
-	.dbline 296
+	.dbline 291
 ; }		
 L76:
-	.dbline 297
+	.dbline 292
 ; }		
 	mov REG[0xd0],>_contadordspCam2
 	mov A,[_contadordspCam2]
@@ -1508,45 +1499,31 @@ L76:
 	cmp A,[_dspCam2+1]
 	jnz L78
 X11:
-	.dbline 298
-; }		
-	.dbline 299
-; }		
+	.dbline 292
 	mov [X+1],1
-	.dbline 300
-; }		
-	mov [X+3],-1
-	.dbline 301
-; }		
 L78:
-	.dbline 302
+	.dbline 293
 ; }		
 L75:
-	.dbline 303
+	.dbline 294
 ; }		
 L72:
-	.dbline 304
+	.dbline 295
 ; }		
 L62:
-	.dbline 305
+	.dbline 296
+; }		
 	cmp [X+0],0
 	jz L61
 	cmp [X+1],0
 	jz L61
-	.dbline 307
-	cmp [X+2],-1
-	jnz L80
-	cmp [X+3],-1
-	jnz L80
-	.dbline 307
+	.dbline 298
+; }		
+; }		
 	mov REG[0xd0],>_fintrabajo
 	mov [_fintrabajo],-1
-L80:
 	.dbline -2
-	.dbline 308
-; }		
-; }		
-; }		
+	.dbline 299
 ; }		
 L55:
 	add SP,-4
@@ -1565,7 +1542,7 @@ _disparo::
 	push X
 	mov X,SP
 	add SP,2
-	.dbline 323
+	.dbline 314
 ; }		
 ; }		
 ; }		
@@ -1581,198 +1558,203 @@ _disparo::
 ; }		
 ; }		
 ; }		
-	.dbline 326
+	.dbline 317
 ; }		
 ; }		
 ; }		
 	mov REG[0xd0],>_tocacam1
 	cmp [_tocacam1],1
-	jnz L83
-	.dbline 327
+	jnz L81
+	.dbline 318
 ; }		
-	.dbline 328
+	.dbline 319
 ; }		
 	or REG[0x8],1
-	.dbline 329
+	.dbline 320
 ; }		
 	or REG[0x8],4
-	.dbline 330
-; }		
-	mov [_tocacam1],0
-	.dbline 331
+	.dbline 321
 ; }		
 	mov REG[0xd0],>_contadordspCam1
 	inc [_contadordspCam1+1]
 	adc [_contadordspCam1],0
-	.dbline 332
+	.dbline 322
 ; }		
-L83:
-	.dbline 333
+L81:
+	.dbline 323
 ; }		
 	mov REG[0xd0],>_tocacam2
 	cmp [_tocacam2],1
-	jnz L85
-	.dbline 334
+	jnz L83
+	.dbline 324
 ; }		
-	.dbline 335
+	.dbline 325
 ; }		
 	or REG[0x8],16
-	.dbline 336
+	.dbline 326
 ; }		
 	or REG[0x8],64
-	.dbline 337
-; }		
-	mov [_tocacam2],0
-	.dbline 338
+	.dbline 327
 ; }		
 	mov REG[0xd0],>_contadordspCam2
 	inc [_contadordspCam2+1]
 	adc [_contadordspCam2],0
-	.dbline 339
+	.dbline 328
 ; }		
-L85:
-	.dbline 341
+L83:
+	.dbline 331
+; }		
 ; }		
 ; }		
 	mov REG[0xd0],>_tocacam1
 	cmp [_tocacam1],1
-	jnz L87
-	.dbline 342
+	jnz L85
+	.dbline 332
 ; }		
-	.dbline 343
+	.dbline 333
 	mov REG[0xd0],>_Fla1
 	cmp [_Fla1],1
-	jz L91
+	jz L89
 	cmp [_Fla1],3
-	jnz L89
-L91:
-	.dbline 343
+	jnz L87
+L89:
+	.dbline 333
 ; }		
 	or REG[ 0],1
-L89:
-	.dbline 344
+L87:
+	.dbline 334
 	mov REG[0xd0],>_Fla2
 	cmp [_Fla2],1
-	jz L94
+	jz L92
 	cmp [_Fla2],3
-	jnz L92
-L94:
-	.dbline 344
+	jnz L90
+L92:
+	.dbline 334
 ; }		
 	or REG[ 0],4
-L92:
-	.dbline 345
+L90:
+	.dbline 335
 	mov REG[0xd0],>_Fla3
 	cmp [_Fla3],1
-	jz L97
+	jz L95
 	cmp [_Fla3],3
-	jnz L95
-L97:
-	.dbline 345
+	jnz L93
+L95:
+	.dbline 335
 ; }		
 	or REG[ 0],16
-L95:
-	.dbline 346
+L93:
+	.dbline 336
 	mov REG[0xd0],>_Fla4
 	cmp [_Fla4],1
-	jz L100
+	jz L98
 	cmp [_Fla4],3
-	jnz L98
-L100:
-	.dbline 346
+	jnz L96
+L98:
+	.dbline 336
 ; }		
 	or REG[ 0],64
-L98:
-	.dbline 347
+L96:
+	.dbline 337
 ; }		
-L87:
-	.dbline 348
+L85:
+	.dbline 338
 ; }		
 	mov REG[0xd0],>_tocacam2
 	cmp [_tocacam2],1
-	jnz L101
-	.dbline 349
+	jnz L99
+	.dbline 339
 ; }		
-	.dbline 350
+	.dbline 340
 	mov REG[0xd0],>_Fla1
 	cmp [_Fla1],2
-	jz L105
+	jz L103
 	cmp [_Fla1],3
-	jnz L103
-L105:
-	.dbline 350
+	jnz L101
+L103:
+	.dbline 340
 ; }		
 	or REG[ 0],1
-L103:
-	.dbline 351
+L101:
+	.dbline 341
 	mov REG[0xd0],>_Fla2
 	cmp [_Fla2],2
-	jz L108
+	jz L106
 	cmp [_Fla2],3
-	jnz L106
-L108:
-	.dbline 351
+	jnz L104
+L106:
+	.dbline 341
 ; }		
 	or REG[ 0],4
-L106:
-	.dbline 352
+L104:
+	.dbline 342
 	mov REG[0xd0],>_Fla3
 	cmp [_Fla3],2
-	jz L111
+	jz L109
 	cmp [_Fla3],3
-	jnz L109
-L111:
-	.dbline 352
+	jnz L107
+L109:
+	.dbline 342
 ; }		
 	or REG[ 0],16
-L109:
-	.dbline 353
+L107:
+	.dbline 343
 	mov REG[0xd0],>_Fla4
 	cmp [_Fla4],2
-	jz L114
+	jz L112
 	cmp [_Fla4],3
-	jnz L112
-L114:
-	.dbline 353
+	jnz L110
+L112:
+	.dbline 343
 ; }		
 	or REG[ 0],64
-L112:
-	.dbline 354
+L110:
+	.dbline 344
 ; }		
-L101:
-	.dbline 356
+L99:
+	.dbline 346
 	mov [X+1],0
 	mov [X+0],0
-L115:
-	.dbline 356
-L116:
-	.dbline 356
+L113:
+	.dbline 346
+L114:
+	.dbline 346
 ; }		
 ; }		
 	inc [X+1]
 	adc [X+0],0
-	.dbline 356
+	.dbline 346
 	mov A,[X+1]
-	sub A,44
+	sub A,-24
 	mov A,[X+0]
 	xor A,-128
-	sbb A,(1 ^ 0x80)
-	jc L115
+	sbb A,(3 ^ 0x80)
+	jc L113
 X12:
-	.dbline 359
+	.dbline 349
 ; }		
 ; }		
 ; }		
 	and REG[ 0],-86
-	.dbline 362
+	.dbline 352
 ; }		
 ; }		
 ; }		
 	and REG[0x8],-86
-	.dbline -2
-	.dbline 363
+	.dbline 355
 ; }		
-L82:
+; }		
+; }		
+	mov REG[0xd0],>_tocacam1
+	mov [_tocacam1],0
+	.dbline 356
+; }		
+	mov REG[0xd0],>_tocacam2
+	mov [_tocacam2],0
+	.dbline -2
+	.dbline 357
+; }		
+L80:
 	add SP,-2
 	pop X
 	.dbline 0 ; func end
@@ -1782,25 +1764,25 @@ L82:
 	.dbfunc e envia_fintrabajo _envia_fintrabajo fV
 _envia_fintrabajo::
 	.dbline -1
-	.dbline 378
-	.dbline 380
+	.dbline 372
+	.dbline 374
 	mov REG[0xd0],>_fintrabajo
 	mov [_fintrabajo],-1
 	mov REG[0xd0],>__r0
 	mov [__r0],-1
 	cmp [__r0],0
-	jz L120
-	.dbline 381
-	.dbline 382
+	jz L118
+	.dbline 375
+	.dbline 376
 	mov REG[0xd0],>_fintrabajo
 	mov A,[_fintrabajo]
 	push A
 	xcall _envia
 	add SP,-1
-	.dbline 383
-L120:
+	.dbline 377
+L118:
 	.dbline -2
-	.dbline 384
+	.dbline 378
 ; }		
 ; }		
 ; }		
@@ -1822,7 +1804,7 @@ L120:
 ; }		
 ; }		
 ; }		
-L119:
+L117:
 	.dbline 0 ; func end
 	ret
 	.dbend
@@ -1833,7 +1815,7 @@ _disparo_sensores::
 	push X
 	mov X,SP
 	add SP,1
-	.dbline 399
+	.dbline 393
 ; }		
 ; }		
 ; }		
@@ -1849,7 +1831,7 @@ _disparo_sensores::
 ; }		
 ; }		
 ; }		
-	.dbline 404
+	.dbline 398
 ; }		
 ; }		
 ; }		
@@ -1858,54 +1840,54 @@ _disparo_sensores::
 	mov A,REG[ 0]
 	and A,-86
 	mov [X+0],A
-	.dbline 407
+	.dbline 401
 ; }		
 ; }		
 ; }		
 	mov REG[0xd0],>_Ent1
 	cmp [_Ent1],0
-	jnz L123
-	.dbline 407
+	jnz L121
+	.dbline 401
 	and [X+0],127
-L123:
-	.dbline 408
+L121:
+	.dbline 402
 ; }		
 	mov REG[0xd0],>_Ent2
 	cmp [_Ent2],0
-	jnz L125
-	.dbline 408
+	jnz L123
+	.dbline 402
 	and [X+0],-33
-L125:
-	.dbline 409
+L123:
+	.dbline 403
 ; }		
 	mov REG[0xd0],>_Ent3
 	cmp [_Ent3],0
-	jnz L127
-	.dbline 409
+	jnz L125
+	.dbline 403
 	and [X+0],-9
-L127:
-	.dbline 410
+L125:
+	.dbline 404
 ; }		
 	mov REG[0xd0],>_Ent4
 	cmp [_Ent4],0
-	jnz L129
-	.dbline 410
+	jnz L127
+	.dbline 404
 	and [X+0],-3
-L129:
-	.dbline 413
+L127:
+	.dbline 407
 	cmp [X+0],0
-	jz L131
-	.dbline 414
+	jz L129
+	.dbline 408
 	xcall _bucle
-L131:
+L129:
 	.dbline -2
-	.dbline 415
+	.dbline 409
 ; }		
 ; }		
 ; }		
 ; }		
 ; }		
-L122:
+L120:
 	add SP,-1
 	pop X
 	.dbline 0 ; func end
@@ -1919,7 +1901,7 @@ _MI_RSI_EXTERNA::
 	.dbline 23
 	.dbline -2
 	.dbline 25
-L133:
+L131:
 	.dbline 0 ; func end
 	reti
 	.dbend
@@ -1980,27 +1962,27 @@ _MI_RSI_DEL_TIMER::
 	mov A,[_contador_trabajo1]
 	mov REG[0xd0],>_tpCam1
 	cmp A,[_tpCam1]
-	jnz L135
+	jnz L133
 	mov REG[0xd0],>_contador_trabajo1
 	mov A,[_contador_trabajo1+1]
 	mov REG[0xd0],>_tpCam1
 	cmp A,[_tpCam1+1]
-	jnz L135
+	jnz L133
 	mov REG[0xd0],>_contador_trabajo1
 	mov A,[_contador_trabajo1+2]
 	mov REG[0xd0],>_tpCam1
 	cmp A,[_tpCam1+2]
-	jnz L135
+	jnz L133
 	mov REG[0xd0],>_contador_trabajo1
 	mov A,[_contador_trabajo1+3]
 	mov REG[0xd0],>_tpCam1
 	cmp A,[_tpCam1+3]
-	jnz L135
+	jnz L133
 X13:
 	.dbline 31
 	mov REG[0xd0],>_chivato1
 	mov [_chivato1],1
-L135:
+L133:
 	.dbline 32
 	mov REG[0xd0],>_contador_trabajo2
 	add [_contador_trabajo2+3],1
@@ -2011,30 +1993,30 @@ L135:
 	mov A,[_contador_trabajo2]
 	mov REG[0xd0],>_tpCam2
 	cmp A,[_tpCam2]
-	jnz L137
+	jnz L135
 	mov REG[0xd0],>_contador_trabajo2
 	mov A,[_contador_trabajo2+1]
 	mov REG[0xd0],>_tpCam2
 	cmp A,[_tpCam2+1]
-	jnz L137
+	jnz L135
 	mov REG[0xd0],>_contador_trabajo2
 	mov A,[_contador_trabajo2+2]
 	mov REG[0xd0],>_tpCam2
 	cmp A,[_tpCam2+2]
-	jnz L137
+	jnz L135
 	mov REG[0xd0],>_contador_trabajo2
 	mov A,[_contador_trabajo2+3]
 	mov REG[0xd0],>_tpCam2
 	cmp A,[_tpCam2+3]
-	jnz L137
+	jnz L135
 X14:
 	.dbline 33
 	mov REG[0xd0],>_chivato2
 	mov [_chivato2],1
-L137:
+L135:
 	.dbline -2
 	.dbline 34
-L134:
+L132:
 	mov REG[0xD0],>__r0
 	pop A
 	mov [__rZ],A
@@ -2088,28 +2070,28 @@ _led1::
 	mov REG[0xd0],>_tempo
 	mov [_tempo+1],0
 	mov [_tempo],0
-	xjmp L143
-L140:
+	xjmp L141
+L138:
 	.dbline 39
-L141:
+L139:
 	.dbline 39
 	mov REG[0xd0],>_tempo
 	inc [_tempo+1]
 	adc [_tempo],0
-L143:
+L141:
 	.dbline 39
 	mov REG[0xd0],>_tempo
 	mov A,[_tempo+1]
 	sub A,16
 	mov A,[_tempo]
 	sbb A,39
-	jc L140
+	jc L138
 X15:
 	.dbline 40
 	and REG[ 0],-2
 	.dbline -2
 	.dbline 41
-L139:
+L137:
 	.dbline 0 ; func end
 	ret
 	.dbend
@@ -2123,28 +2105,28 @@ _led2::
 	mov REG[0xd0],>_tempo2
 	mov [_tempo2+1],0
 	mov [_tempo2],0
-	xjmp L148
-L145:
+	xjmp L146
+L143:
 	.dbline 45
-L146:
+L144:
 	.dbline 45
 	mov REG[0xd0],>_tempo2
 	inc [_tempo2+1]
 	adc [_tempo2],0
-L148:
+L146:
 	.dbline 45
 	mov REG[0xd0],>_tempo2
 	mov A,[_tempo2+1]
 	sub A,-12
 	mov A,[_tempo2]
 	sbb A,1
-	jc L145
+	jc L143
 X16:
 	.dbline 46
 	and REG[ 0],-5
 	.dbline -2
 	.dbline 47
-L144:
+L142:
 	.dbline 0 ; func end
 	ret
 	.dbend
@@ -2164,7 +2146,7 @@ _main::
 	xcall _ejecucion
 	.dbline -2
 	.dbline 56
-L149:
+L147:
 	.dbline 0 ; func end
 	jmp .
 	.dbend

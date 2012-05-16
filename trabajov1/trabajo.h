@@ -265,7 +265,6 @@ void bucle(void)
 	{
 		disparo();
 		
-		
 		if (bucle_acaba1==off)
 		{
 			if (Cam1==1) bucle_acaba1=on;
@@ -276,11 +275,7 @@ void bucle(void)
 					tocacam1=on;
 					contador_trabajo1=0;
 				}
-				if (contadordspCam1==dspCam1)
-				{
-					bucle_acaba1=on;
-					fintrabajo1=255;
-				}
+				if (contadordspCam1==dspCam1) bucle_acaba1=on;
 			}
 		}
 		
@@ -294,17 +289,13 @@ void bucle(void)
 					tocacam2=on;
 					contador_trabajo2=0;
 				}
-				if (contadordspCam2==dspCam2)
-				{
-					bucle_acaba2=on;
-					fintrabajo2=255;
-				}
+				if (contadordspCam2==dspCam2) bucle_acaba2=on;
 			}
 		}	
 	}
 	while (bucle_acaba1==off || bucle_acaba2==off);
 	
-	if (fintrabajo1==255 && fintrabajo2==255) fintrabajo=255;
+	fintrabajo=255;
 }
 //******************************************************************************
 //******************************************************************************
@@ -327,16 +318,15 @@ void disparo(void)
 	{
 		PRT2DR=PRT2DR | 0x01;	//activar enfoque cam1
 		PRT2DR=PRT2DR | 0x04;	//activar obturador cam1
-		tocacam1=off;
 		contadordspCam1++;
 	}
 	if (tocacam2==on)
 	{
 		PRT2DR=PRT2DR | 0x10;	//activar enfoque cam2
 		PRT2DR=PRT2DR | 0x40;	//activar obturador cam2
-		tocacam2=off;
 		contadordspCam2++;
 	}
+	
 	//Apertura de los flashes
 	if (tocacam1==on)
 	{
@@ -353,13 +343,17 @@ void disparo(void)
 		if (Fla4==2 || Fla4==3) PRT0DR=PRT0DR | 0x40;
 	}	
 	//Perdida de tiempo para activar salidas
-	for(x=0;x<300;x++);
+	for(x=0;x<1000;x++);
 	
 	//Desactivación de los flashes
 	PRT0DR=PRT0DR & 0xAA;			//1010-1010
 	
 	//Desactivación de las cámaras
 	PRT2DR=PRT2DR & 0xAA;			//1010-1010
+	
+	//Reseteo de la variable tocacam
+	tocacam1=off;
+	tocacam2=off;
 }
 //******************************************************************************
 //******************************************************************************
