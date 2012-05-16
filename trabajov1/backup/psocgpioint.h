@@ -32,60 +32,6 @@ BYTE			Entrada4_12V_IntCtrl_1_ADDR;
 #pragma	ioport	Entrada4_12V_IntEn_ADDR:	0x1
 BYTE			Entrada4_12V_IntEn_ADDR;
 #define Entrada4_12V_MASK 0x80
-// Entrada3_12V address and mask defines
-#pragma	ioport	Entrada3_12V_Data_ADDR:	0x0
-BYTE			Entrada3_12V_Data_ADDR;
-#pragma	ioport	Entrada3_12V_DriveMode_0_ADDR:	0x100
-BYTE			Entrada3_12V_DriveMode_0_ADDR;
-#pragma	ioport	Entrada3_12V_DriveMode_1_ADDR:	0x101
-BYTE			Entrada3_12V_DriveMode_1_ADDR;
-#pragma	ioport	Entrada3_12V_DriveMode_2_ADDR:	0x3
-BYTE			Entrada3_12V_DriveMode_2_ADDR;
-#pragma	ioport	Entrada3_12V_GlobalSelect_ADDR:	0x2
-BYTE			Entrada3_12V_GlobalSelect_ADDR;
-#pragma	ioport	Entrada3_12V_IntCtrl_0_ADDR:	0x102
-BYTE			Entrada3_12V_IntCtrl_0_ADDR;
-#pragma	ioport	Entrada3_12V_IntCtrl_1_ADDR:	0x103
-BYTE			Entrada3_12V_IntCtrl_1_ADDR;
-#pragma	ioport	Entrada3_12V_IntEn_ADDR:	0x1
-BYTE			Entrada3_12V_IntEn_ADDR;
-#define Entrada3_12V_MASK 0x20
-// Entrada2_5V address and mask defines
-#pragma	ioport	Entrada2_5V_Data_ADDR:	0x0
-BYTE			Entrada2_5V_Data_ADDR;
-#pragma	ioport	Entrada2_5V_DriveMode_0_ADDR:	0x100
-BYTE			Entrada2_5V_DriveMode_0_ADDR;
-#pragma	ioport	Entrada2_5V_DriveMode_1_ADDR:	0x101
-BYTE			Entrada2_5V_DriveMode_1_ADDR;
-#pragma	ioport	Entrada2_5V_DriveMode_2_ADDR:	0x3
-BYTE			Entrada2_5V_DriveMode_2_ADDR;
-#pragma	ioport	Entrada2_5V_GlobalSelect_ADDR:	0x2
-BYTE			Entrada2_5V_GlobalSelect_ADDR;
-#pragma	ioport	Entrada2_5V_IntCtrl_0_ADDR:	0x102
-BYTE			Entrada2_5V_IntCtrl_0_ADDR;
-#pragma	ioport	Entrada2_5V_IntCtrl_1_ADDR:	0x103
-BYTE			Entrada2_5V_IntCtrl_1_ADDR;
-#pragma	ioport	Entrada2_5V_IntEn_ADDR:	0x1
-BYTE			Entrada2_5V_IntEn_ADDR;
-#define Entrada2_5V_MASK 0x8
-// Entrada1_5V address and mask defines
-#pragma	ioport	Entrada1_5V_Data_ADDR:	0x0
-BYTE			Entrada1_5V_Data_ADDR;
-#pragma	ioport	Entrada1_5V_DriveMode_0_ADDR:	0x100
-BYTE			Entrada1_5V_DriveMode_0_ADDR;
-#pragma	ioport	Entrada1_5V_DriveMode_1_ADDR:	0x101
-BYTE			Entrada1_5V_DriveMode_1_ADDR;
-#pragma	ioport	Entrada1_5V_DriveMode_2_ADDR:	0x3
-BYTE			Entrada1_5V_DriveMode_2_ADDR;
-#pragma	ioport	Entrada1_5V_GlobalSelect_ADDR:	0x2
-BYTE			Entrada1_5V_GlobalSelect_ADDR;
-#pragma	ioport	Entrada1_5V_IntCtrl_0_ADDR:	0x102
-BYTE			Entrada1_5V_IntCtrl_0_ADDR;
-#pragma	ioport	Entrada1_5V_IntCtrl_1_ADDR:	0x103
-BYTE			Entrada1_5V_IntCtrl_1_ADDR;
-#pragma	ioport	Entrada1_5V_IntEn_ADDR:	0x1
-BYTE			Entrada1_5V_IntEn_ADDR;
-#define Entrada1_5V_MASK 0x2
 // Flash1 address and mask defines
 #pragma	ioport	Flash1_Data_ADDR:	0x0
 BYTE			Flash1_Data_ADDR;
@@ -104,6 +50,24 @@ BYTE			Flash1_IntCtrl_1_ADDR;
 #pragma	ioport	Flash1_IntEn_ADDR:	0x1
 BYTE			Flash1_IntEn_ADDR;
 #define Flash1_MASK 0x1
+// Entrada1_5V address and mask defines
+#pragma	ioport	Entrada1_5V_Data_ADDR:	0x0
+BYTE			Entrada1_5V_Data_ADDR;
+#pragma	ioport	Entrada1_5V_DriveMode_0_ADDR:	0x100
+BYTE			Entrada1_5V_DriveMode_0_ADDR;
+#pragma	ioport	Entrada1_5V_DriveMode_1_ADDR:	0x101
+BYTE			Entrada1_5V_DriveMode_1_ADDR;
+#pragma	ioport	Entrada1_5V_DriveMode_2_ADDR:	0x3
+BYTE			Entrada1_5V_DriveMode_2_ADDR;
+#pragma	ioport	Entrada1_5V_GlobalSelect_ADDR:	0x2
+BYTE			Entrada1_5V_GlobalSelect_ADDR;
+#pragma	ioport	Entrada1_5V_IntCtrl_0_ADDR:	0x102
+BYTE			Entrada1_5V_IntCtrl_0_ADDR;
+#pragma	ioport	Entrada1_5V_IntCtrl_1_ADDR:	0x103
+BYTE			Entrada1_5V_IntCtrl_1_ADDR;
+#pragma	ioport	Entrada1_5V_IntEn_ADDR:	0x1
+BYTE			Entrada1_5V_IntEn_ADDR;
+#define Entrada1_5V_MASK 0x2
 // Flash2 address and mask defines
 #pragma	ioport	Flash2_Data_ADDR:	0x0
 BYTE			Flash2_Data_ADDR;
@@ -122,6 +86,24 @@ BYTE			Flash2_IntCtrl_1_ADDR;
 #pragma	ioport	Flash2_IntEn_ADDR:	0x1
 BYTE			Flash2_IntEn_ADDR;
 #define Flash2_MASK 0x4
+// Entrada2_5V address and mask defines
+#pragma	ioport	Entrada2_5V_Data_ADDR:	0x0
+BYTE			Entrada2_5V_Data_ADDR;
+#pragma	ioport	Entrada2_5V_DriveMode_0_ADDR:	0x100
+BYTE			Entrada2_5V_DriveMode_0_ADDR;
+#pragma	ioport	Entrada2_5V_DriveMode_1_ADDR:	0x101
+BYTE			Entrada2_5V_DriveMode_1_ADDR;
+#pragma	ioport	Entrada2_5V_DriveMode_2_ADDR:	0x3
+BYTE			Entrada2_5V_DriveMode_2_ADDR;
+#pragma	ioport	Entrada2_5V_GlobalSelect_ADDR:	0x2
+BYTE			Entrada2_5V_GlobalSelect_ADDR;
+#pragma	ioport	Entrada2_5V_IntCtrl_0_ADDR:	0x102
+BYTE			Entrada2_5V_IntCtrl_0_ADDR;
+#pragma	ioport	Entrada2_5V_IntCtrl_1_ADDR:	0x103
+BYTE			Entrada2_5V_IntCtrl_1_ADDR;
+#pragma	ioport	Entrada2_5V_IntEn_ADDR:	0x1
+BYTE			Entrada2_5V_IntEn_ADDR;
+#define Entrada2_5V_MASK 0x8
 // Flash3 address and mask defines
 #pragma	ioport	Flash3_Data_ADDR:	0x0
 BYTE			Flash3_Data_ADDR;
@@ -140,6 +122,24 @@ BYTE			Flash3_IntCtrl_1_ADDR;
 #pragma	ioport	Flash3_IntEn_ADDR:	0x1
 BYTE			Flash3_IntEn_ADDR;
 #define Flash3_MASK 0x10
+// Entrada3_12V address and mask defines
+#pragma	ioport	Entrada3_12V_Data_ADDR:	0x0
+BYTE			Entrada3_12V_Data_ADDR;
+#pragma	ioport	Entrada3_12V_DriveMode_0_ADDR:	0x100
+BYTE			Entrada3_12V_DriveMode_0_ADDR;
+#pragma	ioport	Entrada3_12V_DriveMode_1_ADDR:	0x101
+BYTE			Entrada3_12V_DriveMode_1_ADDR;
+#pragma	ioport	Entrada3_12V_DriveMode_2_ADDR:	0x3
+BYTE			Entrada3_12V_DriveMode_2_ADDR;
+#pragma	ioport	Entrada3_12V_GlobalSelect_ADDR:	0x2
+BYTE			Entrada3_12V_GlobalSelect_ADDR;
+#pragma	ioport	Entrada3_12V_IntCtrl_0_ADDR:	0x102
+BYTE			Entrada3_12V_IntCtrl_0_ADDR;
+#pragma	ioport	Entrada3_12V_IntCtrl_1_ADDR:	0x103
+BYTE			Entrada3_12V_IntCtrl_1_ADDR;
+#pragma	ioport	Entrada3_12V_IntEn_ADDR:	0x1
+BYTE			Entrada3_12V_IntEn_ADDR;
+#define Entrada3_12V_MASK 0x20
 // Flash4 address and mask defines
 #pragma	ioport	Flash4_Data_ADDR:	0x0
 BYTE			Flash4_Data_ADDR;

@@ -1,222 +1,222 @@
-  ROM 27% full. 8964 bytes used (does not include absolute areas).
+  ROM 27% full. 9028 bytes used (does not include absolute areas).
   RAM 3% full. 55 bytes used (does not include stack usage).
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                             lit   01A0   03A6 =    934. bytes (rel,con,rom)
+                             lit   01A0   03B6 =    950. bytes (rel,con,rom)
 
        Addr  Global Symbol
       -----  --------------------------------
-       0546  __lit_end
+       0556  __lit_end
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                        func_lit   0546   0002 =      2. bytes (rel,con,rom)
+                        func_lit   0556   0002 =      2. bytes (rel,con,rom)
 
        Addr  Global Symbol
       -----  --------------------------------
-       0546  __func_lit_start
-       0548  __func_lit_end
+       0556  __func_lit_start
+       0558  __func_lit_end
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                     psoc_config   0548   01E3 =    483. bytes (rel,con,rom)
+                     psoc_config   0558   01E3 =    483. bytes (rel,con,rom)
 
        Addr  Global Symbol
       -----  --------------------------------
-       0548  LoadConfigTBL_terminalv1
-       0718  LoadConfigInit
-       0718  _LoadConfigInit
-       0725  _LoadConfig_terminalv1
-       0725  LoadConfig_terminalv1
-       072B  __psoc_config_end
+       0558  LoadConfigTBL_terminalv1
+       0728  LoadConfigInit
+       0728  _LoadConfigInit
+       0735  _LoadConfig_terminalv1
+       0735  LoadConfig_terminalv1
+       073B  __psoc_config_end
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                     UserModules   072B   052D =   1325. bytes (rel,con,rom)
+                     UserModules   073B   052D =   1325. bytes (rel,con,rom)
 
        Addr  Global Symbol
       -----  --------------------------------
-       072B  _UART_TX_ISR
-       072C  _UART_RX_ISR
-       079F  UART_EnableInt
-       079F  _UART_EnableInt
-       07A6  UART_DisableInt
-       07A6  _UART_DisableInt
-       07AD  UART_SetTxIntMode
-       07AD  _UART_SetTxIntMode
-       07BF  _UART_Start
-       07BF  UART_Start
-       07C8  UART_Stop
-       07C8  _UART_Stop
-       07CF  _UART_SendData
-       07CF  UART_SendData
-       07D2  _bUART_ReadTxStatus
-       07D2  UART_bReadTxStatus
-       07D2  bUART_ReadTxStatus
-       07D2  _UART_bReadTxStatus
-       07D5  _bUART_ReadRxData
-       07D5  _UART_bReadRxData
-       07D5  UART_bReadRxData
-       07D5  bUART_ReadRxData
-       07D8  UART_bReadRxStatus
-       07D8  _bUART_ReadRxStatus
-       07D8  _UART_bReadRxStatus
-       07D8  bUART_ReadRxStatus
-       07DB  UART_TxIntMode
-       07DB  _UART_TxIntMode
-       07EE  _UART_IntCntl
-       07EE  UART_IntCntl
-       0819  _UART_PutSHexByte
-       0819  UART_PutSHexByte
-       082C  UART_PutSHexInt
-       082C  _UART_PutSHexInt
-       0833  _UART_PutChar
-       0833  UART_PutChar
-       083B  _UART_cGetChar
-       083B  UART_cGetChar
-       0843  _UART_cReadChar
-       0843  UART_cReadChar
-       085A  UART_iReadChar
-       085A  _UART_iReadChar
-       0870  UART_PutString
-       0870  _UART_PutString
-       0882  _UART_Write
-       0882  UART_Write
-       08AA  UART_CWrite
-       08AA  _UART_CWrite
-       08D6  _UART_CPutString
-       08D6  UART_CPutString
-       08E8  UART_PutCRLF
-       08E8  _UART_PutCRLF
-       08F1  UART_CmdReset
-       08F1  _UART_CmdReset
-       0907  UART_bCmdCheck
-       0907  _UART_bCmdCheck
-       090F  _UART_bErrCheck
-       090F  UART_bErrCheck
-       091A  _UART_bCmdLength
-       091A  UART_bCmdLength
-       0920  UART_szGetParam
-       0920  _UART_szGetParam
-       097F  UART_szGetRestOfParams
-       097F  _UART_szGetRestOfParams
-       098A  _Timer8_ISR
-       098B  _Timer8_EnableInt
-       098B  Timer8_EnableInt
-       098F  Timer8_DisableInt
-       098F  _Timer8_DisableInt
-       0993  Timer8_Start
-       0993  _Timer8_Start
-       0997  Timer8_Stop
-       0997  _Timer8_Stop
-       099B  Timer8_WritePeriod
-       099B  _Timer8_WritePeriod
-       099E  _Timer8_WriteCompareValue
-       099E  Timer8_WriteCompareValue
-       09A1  _bTimer8_ReadCompareValue
-       09A1  bTimer8_ReadCompareValue
-       09A1  Timer8_bReadCompareValue
-       09A1  _Timer8_bReadCompareValue
-       09A4  bTimer8_ReadTimerSaveCV
-       09A4  _bTimer8_ReadTimerSaveCV
-       09A4  _Timer8_bReadTimerSaveCV
-       09A4  bTimer8_ReadCounter
-       09A4  _bTimer8_ReadCounter
-       09A4  Timer8_bReadTimerSaveCV
-       09CF  bTimer8_ReadTimer
-       09CF  Timer8_bReadTimer
-       09CF  _bTimer8_ReadTimer
-       09CF  _Timer8_bReadTimer
-       09CF  _bTimer8_CaptureCounter
-       09CF  bTimer8_CaptureCounter
-       09D4  _LCD_PrCString
-       09D4  LCD_PrCString
-       09E6  LCD_HEX_STR
-       09F6  LCD_PrHexByte
-       09F6  _LCD_PrHexByte
-       0A09  _LCD_PrHexInt
-       0A09  LCD_PrHexInt
-       0A10  LCD_PrString
-       0A10  _LCD_PrString
-       0A22  LCD_WriteData
-       0A22  _LCD_Write_Data
-       0A22  LCD_Write_Data
-       0A22  _LCD_WriteData
-       0A36  LCD_Control
-       0A36  _LCD_Control
-       0ADF  _LCD_Init
-       0ADF  LCD_Start
-       0ADF  LCD_Init
-       0ADF  _LCD_Start
-       0B4E  LCD_ROW_OFFSET
-       0B52  _LCD_Position
-       0B52  LCD_Position
-       0B62  _LCD_Delay50uTimes
-       0B62  LCD_Delay50uTimes
-       0B68  LCD_Delay50u_Table
-       0B70  _LCD_Delay50u
-       0B70  LCD_Delay50u
-       0B84  _LCD_DrawBG
-       0BB1  _LCD_DrawVBG
-       0BE5  LCD_InitVBG
-       0BE5  _LCD_InitVBG
-       0C16  LCD_BG_TYPE1
-       0C1D  LCD_BG_TYPE2
-       0C24  LCD_InitBG
-       0C24  _LCD_InitBG
-       0C58  __UserModules_end
+       073B  _UART_TX_ISR
+       073C  _UART_RX_ISR
+       07AF  UART_EnableInt
+       07AF  _UART_EnableInt
+       07B6  UART_DisableInt
+       07B6  _UART_DisableInt
+       07BD  UART_SetTxIntMode
+       07BD  _UART_SetTxIntMode
+       07CF  _UART_Start
+       07CF  UART_Start
+       07D8  UART_Stop
+       07D8  _UART_Stop
+       07DF  _UART_SendData
+       07DF  UART_SendData
+       07E2  _bUART_ReadTxStatus
+       07E2  UART_bReadTxStatus
+       07E2  bUART_ReadTxStatus
+       07E2  _UART_bReadTxStatus
+       07E5  _bUART_ReadRxData
+       07E5  _UART_bReadRxData
+       07E5  UART_bReadRxData
+       07E5  bUART_ReadRxData
+       07E8  UART_bReadRxStatus
+       07E8  _bUART_ReadRxStatus
+       07E8  _UART_bReadRxStatus
+       07E8  bUART_ReadRxStatus
+       07EB  UART_TxIntMode
+       07EB  _UART_TxIntMode
+       07FE  _UART_IntCntl
+       07FE  UART_IntCntl
+       0829  _UART_PutSHexByte
+       0829  UART_PutSHexByte
+       083C  UART_PutSHexInt
+       083C  _UART_PutSHexInt
+       0843  _UART_PutChar
+       0843  UART_PutChar
+       084B  _UART_cGetChar
+       084B  UART_cGetChar
+       0853  _UART_cReadChar
+       0853  UART_cReadChar
+       086A  UART_iReadChar
+       086A  _UART_iReadChar
+       0880  UART_PutString
+       0880  _UART_PutString
+       0892  _UART_Write
+       0892  UART_Write
+       08BA  UART_CWrite
+       08BA  _UART_CWrite
+       08E6  _UART_CPutString
+       08E6  UART_CPutString
+       08F8  UART_PutCRLF
+       08F8  _UART_PutCRLF
+       0901  UART_CmdReset
+       0901  _UART_CmdReset
+       0917  UART_bCmdCheck
+       0917  _UART_bCmdCheck
+       091F  _UART_bErrCheck
+       091F  UART_bErrCheck
+       092A  _UART_bCmdLength
+       092A  UART_bCmdLength
+       0930  UART_szGetParam
+       0930  _UART_szGetParam
+       098F  UART_szGetRestOfParams
+       098F  _UART_szGetRestOfParams
+       099A  _Timer8_ISR
+       099B  _Timer8_EnableInt
+       099B  Timer8_EnableInt
+       099F  Timer8_DisableInt
+       099F  _Timer8_DisableInt
+       09A3  Timer8_Start
+       09A3  _Timer8_Start
+       09A7  Timer8_Stop
+       09A7  _Timer8_Stop
+       09AB  Timer8_WritePeriod
+       09AB  _Timer8_WritePeriod
+       09AE  _Timer8_WriteCompareValue
+       09AE  Timer8_WriteCompareValue
+       09B1  _bTimer8_ReadCompareValue
+       09B1  bTimer8_ReadCompareValue
+       09B1  Timer8_bReadCompareValue
+       09B1  _Timer8_bReadCompareValue
+       09B4  bTimer8_ReadTimerSaveCV
+       09B4  _bTimer8_ReadTimerSaveCV
+       09B4  _Timer8_bReadTimerSaveCV
+       09B4  bTimer8_ReadCounter
+       09B4  _bTimer8_ReadCounter
+       09B4  Timer8_bReadTimerSaveCV
+       09DF  bTimer8_ReadTimer
+       09DF  Timer8_bReadTimer
+       09DF  _bTimer8_ReadTimer
+       09DF  _Timer8_bReadTimer
+       09DF  _bTimer8_CaptureCounter
+       09DF  bTimer8_CaptureCounter
+       09E4  _LCD_PrCString
+       09E4  LCD_PrCString
+       09F6  LCD_HEX_STR
+       0A06  LCD_PrHexByte
+       0A06  _LCD_PrHexByte
+       0A19  _LCD_PrHexInt
+       0A19  LCD_PrHexInt
+       0A20  LCD_PrString
+       0A20  _LCD_PrString
+       0A32  LCD_WriteData
+       0A32  _LCD_Write_Data
+       0A32  LCD_Write_Data
+       0A32  _LCD_WriteData
+       0A46  LCD_Control
+       0A46  _LCD_Control
+       0AEF  _LCD_Init
+       0AEF  LCD_Start
+       0AEF  LCD_Init
+       0AEF  _LCD_Start
+       0B5E  LCD_ROW_OFFSET
+       0B62  _LCD_Position
+       0B62  LCD_Position
+       0B72  _LCD_Delay50uTimes
+       0B72  LCD_Delay50uTimes
+       0B78  LCD_Delay50u_Table
+       0B80  _LCD_Delay50u
+       0B80  LCD_Delay50u
+       0B94  _LCD_DrawBG
+       0BC1  _LCD_DrawVBG
+       0BF5  LCD_InitVBG
+       0BF5  _LCD_InitVBG
+       0C26  LCD_BG_TYPE1
+       0C2D  LCD_BG_TYPE2
+       0C34  LCD_InitBG
+       0C34  _LCD_InitBG
+       0C68  __UserModules_end
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                            text   0C58   184C =   6220. bytes (rel,con,rom)
+                            text   0C68   187C =   6268. bytes (rel,con,rom)
 
        Addr  Global Symbol
       -----  --------------------------------
-       0C58  _envia
-       0C58  __text_start
-       0CA3  _recibe
-       0CF6  _Inicializacion
-       0D14  _Bienvenida
-       0D40  _bucle_temp
-       0D74  _Principal
-       0D91  _Pitido
-       0DBD  _Reset_PdT
-       0DE2  _Pulsador
-       0E84  _Menu
-       0F82  _Sensors
-       1061  _Entrada1
-       10E3  _Entrada2
-       1165  _Entrada3
-       11E7  _Entrada4
-       1269  _Flashes
-       13D0  _Flash1
-       147A  _Flash2
-       1524  _Flash3
-       15D0  _Flash4
-       167D  _Tipo_fla
-       17B9  _Dispar
-       1863  _Camara1
-       1910  _Camara2
-       19BD  _Tipo_disp
-       1ADF  _Intervalometro
-       1BDF  _TimeLapse
-       1CED  _Numeros
-       1DBC  _Tiempos
-       1E6E  _Executar
-       1EC1  _envio_valores
-       2068  _Ara
-       206D  _Trabajando
-       21FE  _Resetear
-       2205  _Sistema
-       22CB  _Reali_LCD
-       2356  _Zumbador
-       23DB  _Ali_Led
-       2466  _main
-       2473  __divmodu_8X8_8
-       248B  __i_div8_block_util
-       24A4  __text_end
-       24AA  __xidata_end
+       0C68  _envia
+       0C68  __text_start
+       0CB3  _recibe
+       0D06  _Inicializacion
+       0D24  _Bienvenida
+       0D50  _bucle_temp
+       0D84  _Principal
+       0DA1  _Pitido
+       0DCD  _Reset_PdT
+       0DF2  _Pulsador
+       0E94  _Menu
+       0F92  _Sensors
+       1071  _Entrada1
+       10F3  _Entrada2
+       1175  _Entrada3
+       11F7  _Entrada4
+       1279  _Flashes
+       13E0  _Flash1
+       148A  _Flash2
+       1534  _Flash3
+       15E0  _Flash4
+       168D  _Tipo_fla
+       17C9  _Dispar
+       1873  _Camara1
+       1920  _Camara2
+       19CD  _Tipo_disp
+       1AEF  _Intervalometro
+       1BEF  _TimeLapse
+       1CFD  _Numeros
+       1DCC  _Tiempos
+       1E7E  _Executar
+       1ED1  _envio_valores
+       2078  _Ara
+       207D  _Trabajando
+       223E  _Resetear
+       2245  _Sistema
+       230B  _Reali_LCD
+       2396  _Zumbador
+       241B  _Ali_Led
+       24A6  _main
+       24B3  __divmodu_8X8_8
+       24CB  __i_div8_block_util
+       24E4  __text_end
+       24EA  __xidata_end
 
 Area                               Start  End    Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------

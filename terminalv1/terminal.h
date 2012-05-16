@@ -114,7 +114,7 @@ void Bienvenida(void)
 	LCD_Control(0x01);	//Borrat de pantalla
 	LCD_Position(0,1);
 	LCD_PrCString("Bienvenidos");
-	LCD_Position(1,3);
+	LCD_Position(1,4);
 	LCD_PrCString("a  PhotoSoC");
 	bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
 }
@@ -574,10 +574,10 @@ void Flash2()
 		LCD_Control(0x01);	//Borrat de pantalla
 		LCD_PrCString(">Flash 2");
 		LCD_Position(1,0);
-		if(Fla1==0) LCD_PrCString("Apagado");
-		else if(Fla1==1) LCD_PrCString("Camara 1");
-		else if(Fla1==2) LCD_PrCString("Camara 2");
-		else if(Fla1==3) LCD_PrCString("Ambas");
+		if(Fla2==0) LCD_PrCString("Apagado");
+		else if(Fla2==1) LCD_PrCString("Camara 1");
+		else if(Fla2==2) LCD_PrCString("Camara 2");
+		else if(Fla2==3) LCD_PrCString("Ambas");
 		bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
 		pulsat=Pulsador();
 		if(Buzzer==1) Pitido();
@@ -608,10 +608,10 @@ void Flash3()
 		LCD_Control(0x01);	//Borrat de pantalla
 		LCD_PrCString(">Flash 3");
 		LCD_Position(1,0);
-		if(Fla1==0) LCD_PrCString("Apagado");
-		else if(Fla1==1) LCD_PrCString("Camara 1");
-		else if(Fla1==2) LCD_PrCString("Camara 2");
-		else if(Fla1==3) LCD_PrCString("Ambas");
+		if(Fla3==0) LCD_PrCString("Apagado");
+		else if(Fla3==1) LCD_PrCString("Camara 1");
+		else if(Fla3==2) LCD_PrCString("Camara 2");
+		else if(Fla3==3) LCD_PrCString("Ambas");
 		bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
 		pulsat=Pulsador();
 		if(Buzzer==1) Pitido();
@@ -641,10 +641,10 @@ void Flash4()
 		LCD_Control(0x01);	//Borrat de pantalla
 		LCD_PrCString(">Flash 4");
 		LCD_Position(1,0);
-		if(Fla1==0) LCD_PrCString("Apagado");
-		else if(Fla1==1) LCD_PrCString("Camara 1");
-		else if(Fla1==2) LCD_PrCString("Camara 2");
-		else if(Fla1==3) LCD_PrCString("Ambas");
+		if(Fla4==0) LCD_PrCString("Apagado");
+		else if(Fla4==1) LCD_PrCString("Camara 1");
+		else if(Fla4==2) LCD_PrCString("Camara 2");
+		else if(Fla4==3) LCD_PrCString("Ambas");
 		bucle_temp();	//Bulcle perdida de tiempo para canvio de menu
 		pulsat=Pulsador();
 		if(Buzzer==1) Pitido();
@@ -1197,7 +1197,10 @@ void Trabajando(void)
 	char pulsat;
 	
 	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("PhotoSOC activo");
+	LCD_Position(0,4);
+	LCD_PrCString("PhotoSOC");
+	LCD_Position(1,3);
+	LCD_PrCString("trabajando");
 	for(x=0;x<60000;x++);
 	for(x=0;x<60000;x++);
 	for(x=0;x<60000;x++);
@@ -1211,7 +1214,7 @@ void Trabajando(void)
 		if(Buzzer==1) Pitido();
 		if(pulsat==1||pulsat==2||pulsat==4)
 		{
-			LCD_Control(0x0E);	//LCD on
+			LCD_Control(0x0C);	//LCD on
 			LCD_Position(0,1);
 			LCD_PrCString("Parar trabajo?");
 			LCD_Position(1,0);
@@ -1221,8 +1224,11 @@ void Trabajando(void)
 		}	
 		else if(pulsat==3)
 		{
-			LCD_Control(0x0E);	//LCD on
+			LCD_Control(0x0C);	//LCD on
+			LCD_Position(0,1);
 			LCD_PrCString("Trabajo parado");
+			LCD_Position(1,2);
+			LCD_PrCString("Pulse boton");
 			for(x=0;x<50000;x++);
 			Resetear();
 		}

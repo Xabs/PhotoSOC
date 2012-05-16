@@ -23,36 +23,6 @@ Entrada4_12V_IntCtrl_0_ADDR:	equ	102h
 Entrada4_12V_IntCtrl_1_ADDR:	equ	103h
 Entrada4_12V_IntEn_ADDR:	equ	1h
 Entrada4_12V_MASK:	equ	80h
-; Entrada3_12V address and mask equates
-Entrada3_12V_Data_ADDR:	equ	0h
-Entrada3_12V_DriveMode_0_ADDR:	equ	100h
-Entrada3_12V_DriveMode_1_ADDR:	equ	101h
-Entrada3_12V_DriveMode_2_ADDR:	equ	3h
-Entrada3_12V_GlobalSelect_ADDR:	equ	2h
-Entrada3_12V_IntCtrl_0_ADDR:	equ	102h
-Entrada3_12V_IntCtrl_1_ADDR:	equ	103h
-Entrada3_12V_IntEn_ADDR:	equ	1h
-Entrada3_12V_MASK:	equ	20h
-; Entrada2_5V address and mask equates
-Entrada2_5V_Data_ADDR:	equ	0h
-Entrada2_5V_DriveMode_0_ADDR:	equ	100h
-Entrada2_5V_DriveMode_1_ADDR:	equ	101h
-Entrada2_5V_DriveMode_2_ADDR:	equ	3h
-Entrada2_5V_GlobalSelect_ADDR:	equ	2h
-Entrada2_5V_IntCtrl_0_ADDR:	equ	102h
-Entrada2_5V_IntCtrl_1_ADDR:	equ	103h
-Entrada2_5V_IntEn_ADDR:	equ	1h
-Entrada2_5V_MASK:	equ	8h
-; Entrada1_5V address and mask equates
-Entrada1_5V_Data_ADDR:	equ	0h
-Entrada1_5V_DriveMode_0_ADDR:	equ	100h
-Entrada1_5V_DriveMode_1_ADDR:	equ	101h
-Entrada1_5V_DriveMode_2_ADDR:	equ	3h
-Entrada1_5V_GlobalSelect_ADDR:	equ	2h
-Entrada1_5V_IntCtrl_0_ADDR:	equ	102h
-Entrada1_5V_IntCtrl_1_ADDR:	equ	103h
-Entrada1_5V_IntEn_ADDR:	equ	1h
-Entrada1_5V_MASK:	equ	2h
 ; Flash1 address and mask equates
 Flash1_Data_ADDR:	equ	0h
 Flash1_DriveMode_0_ADDR:	equ	100h
@@ -63,6 +33,16 @@ Flash1_IntCtrl_0_ADDR:	equ	102h
 Flash1_IntCtrl_1_ADDR:	equ	103h
 Flash1_IntEn_ADDR:	equ	1h
 Flash1_MASK:	equ	1h
+; Entrada1_5V address and mask equates
+Entrada1_5V_Data_ADDR:	equ	0h
+Entrada1_5V_DriveMode_0_ADDR:	equ	100h
+Entrada1_5V_DriveMode_1_ADDR:	equ	101h
+Entrada1_5V_DriveMode_2_ADDR:	equ	3h
+Entrada1_5V_GlobalSelect_ADDR:	equ	2h
+Entrada1_5V_IntCtrl_0_ADDR:	equ	102h
+Entrada1_5V_IntCtrl_1_ADDR:	equ	103h
+Entrada1_5V_IntEn_ADDR:	equ	1h
+Entrada1_5V_MASK:	equ	2h
 ; Flash2 address and mask equates
 Flash2_Data_ADDR:	equ	0h
 Flash2_DriveMode_0_ADDR:	equ	100h
@@ -73,6 +53,16 @@ Flash2_IntCtrl_0_ADDR:	equ	102h
 Flash2_IntCtrl_1_ADDR:	equ	103h
 Flash2_IntEn_ADDR:	equ	1h
 Flash2_MASK:	equ	4h
+; Entrada2_5V address and mask equates
+Entrada2_5V_Data_ADDR:	equ	0h
+Entrada2_5V_DriveMode_0_ADDR:	equ	100h
+Entrada2_5V_DriveMode_1_ADDR:	equ	101h
+Entrada2_5V_DriveMode_2_ADDR:	equ	3h
+Entrada2_5V_GlobalSelect_ADDR:	equ	2h
+Entrada2_5V_IntCtrl_0_ADDR:	equ	102h
+Entrada2_5V_IntCtrl_1_ADDR:	equ	103h
+Entrada2_5V_IntEn_ADDR:	equ	1h
+Entrada2_5V_MASK:	equ	8h
 ; Flash3 address and mask equates
 Flash3_Data_ADDR:	equ	0h
 Flash3_DriveMode_0_ADDR:	equ	100h
@@ -83,6 +73,16 @@ Flash3_IntCtrl_0_ADDR:	equ	102h
 Flash3_IntCtrl_1_ADDR:	equ	103h
 Flash3_IntEn_ADDR:	equ	1h
 Flash3_MASK:	equ	10h
+; Entrada3_12V address and mask equates
+Entrada3_12V_Data_ADDR:	equ	0h
+Entrada3_12V_DriveMode_0_ADDR:	equ	100h
+Entrada3_12V_DriveMode_1_ADDR:	equ	101h
+Entrada3_12V_DriveMode_2_ADDR:	equ	3h
+Entrada3_12V_GlobalSelect_ADDR:	equ	2h
+Entrada3_12V_IntCtrl_0_ADDR:	equ	102h
+Entrada3_12V_IntCtrl_1_ADDR:	equ	103h
+Entrada3_12V_IntEn_ADDR:	equ	1h
+Entrada3_12V_MASK:	equ	20h
 ; Flash4 address and mask equates
 Flash4_Data_ADDR:	equ	0h
 Flash4_DriveMode_0_ADDR:	equ	100h

@@ -3,4 +3,4 @@
  -Btrabajov1_RAM 
  -o"output/trabajov1" 
  ./obj/main.o   
- C:/DOCUME~1/x/PhotoSOC/TRABAJ~1/lib/libPSoc.a -LC:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/lib/LMM/eightpages C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/lib/CY8C29000/cms.a C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/lib/LMM/UASW/MAC/arith.a 
+ I:/PhotoSOC/TRABAJ~1/lib/libPSoc.a -LC:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/lib/LMM/eightpages C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/lib/CY8C29000/cms.a C:/ARCHIV~1/CYPRES~1/PSOCDE~1/tools/lib/LMM/UASW/MAC/arith.a 

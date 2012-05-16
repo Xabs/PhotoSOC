@@ -493,22 +493,22 @@
  00C6 7C0000            xcall _LCD_Position
  00C9                   .dbline 116
  00C9           ; }
- 00C9 509A              mov A,>L19
+ 00C9 50AA              mov A,>L19
  00CB 08                push A
- 00CC 509A              mov A,<L19
+ 00CC 50AA              mov A,<L19
  00CE 5C                mov X,A
  00CF 18                pop A
  00D0 7C0000            xcall _LCD_PrCString
  00D3                   .dbline 117
  00D3           ; }
- 00D3 5703              mov X,3
+ 00D3 5704              mov X,4
  00D5 5001              mov A,1
  00D7 7C0000            xcall _LCD_Position
  00DA                   .dbline 118
  00DA           ; }
- 00DA 508E              mov A,>L20
+ 00DA 509E              mov A,>L20
  00DC 08                push A
- 00DD 508E              mov A,<L20
+ 00DD 509E              mov A,<L20
  00DF 5C                mov X,A
  00E0 18                pop A
  00E1 7C0000            xcall _LCD_PrCString
@@ -965,9 +965,9 @@
  0236 7C0000            xcall _LCD_Control
  0239                   .dbline 251
  0239           ; }
- 0239 507E              mov A,>L69
+ 0239 508E              mov A,>L69
  023B 08                push A
- 023C 507E              mov A,<L69
+ 023C 508E              mov A,<L69
  023E 5C                mov X,A
  023F 18                pop A
  0240 7C0000            xcall _LCD_PrCString
@@ -983,9 +983,9 @@
  024E B00F              jnz L70
  0250                   .dbline 253
  0250 10                push X
- 0251 506D              mov A,>L72
+ 0251 507D              mov A,>L72
  0253 08                push A
- 0254 506D              mov A,<L72
+ 0254 507D              mov A,<L72
  0256 5C                mov X,A
  0257 18                pop A
  0258 7C0000            xcall _LCD_PrCString
@@ -998,9 +998,9 @@
  0261 B00F              jnz L73
  0263                   .dbline 254
  0263 10                push X
- 0264 505D              mov A,>L75
+ 0264 506D              mov A,>L75
  0266 08                push A
- 0267 505D              mov A,<L75
+ 0267 506D              mov A,<L75
  0269 5C                mov X,A
  026A 18                pop A
  026B 7C0000            xcall _LCD_PrCString
@@ -1013,9 +1013,9 @@
  0274 B00F              jnz L76
  0276                   .dbline 255
  0276 10                push X
- 0277 504D              mov A,>L78
+ 0277 505D              mov A,>L78
  0279 08                push A
- 027A 504D              mov A,<L78
+ 027A 505D              mov A,<L78
  027C 5C                mov X,A
  027D 18                pop A
  027E 7C0000            xcall _LCD_PrCString
@@ -1028,9 +1028,9 @@
  0287 B00F              jnz L79
  0289                   .dbline 256
  0289 10                push X
- 028A 5042              mov A,>L81
+ 028A 5052              mov A,>L81
  028C 08                push A
- 028D 5042              mov A,<L81
+ 028D 5052              mov A,<L81
  028F 5C                mov X,A
  0290 18                pop A
  0291 7C0000            xcall _LCD_PrCString
@@ -1043,9 +1043,9 @@
  029A B00D              jnz L82
  029C                   .dbline 257
  029C 10                push X
- 029D 5032              mov A,>L84
+ 029D 5042              mov A,>L84
  029F 08                push A
- 02A0 5032              mov A,<L84
+ 02A0 5042              mov A,<L84
  02A2 5C                mov X,A
  02A3 18                pop A
  02A4 7C0000            xcall _LCD_PrCString
@@ -1140,7 +1140,7 @@
  0300 3D0005            cmp [X+0],5
  0303 B01D              jnz L92
  0305                   .dbline 272
- 0305 7C15AD            xcall _Sistema
+ 0305 7C15DD            xcall _Sistema
  0308                   .dbline 273
  0308           ; }
  0308 8018              xjmp L92
@@ -1226,9 +1226,9 @@
  0334 7C0000            xcall _LCD_Control
  0337                   .dbline 297
  0337           ; }
- 0337 5022              mov A,>L111
+ 0337 5032              mov A,>L111
  0339 08                push A
- 033A 5022              mov A,<L111
+ 033A 5032              mov A,<L111
  033C 5C                mov X,A
  033D 18                pop A
  033E 7C0000            xcall _LCD_PrCString
@@ -1244,9 +1244,9 @@
  034C B00F              jnz L112
  034E                   .dbline 299
  034E 10                push X
- 034F 5012              mov A,>L114
+ 034F 5022              mov A,>L114
  0351 08                push A
- 0352 5012              mov A,<L114
+ 0352 5022              mov A,<L114
  0354 5C                mov X,A
  0355 18                pop A
  0356 7C0000            xcall _LCD_PrCString
@@ -1259,9 +1259,9 @@
  035F B00F              jnz L115
  0361                   .dbline 300
  0361 10                push X
- 0362 5002              mov A,>L117
+ 0362 5012              mov A,>L117
  0364 08                push A
- 0365 5002              mov A,<L117
+ 0365 5012              mov A,<L117
  0367 5C                mov X,A
  0368 18                pop A
  0369 7C0000            xcall _LCD_PrCString
@@ -1274,9 +1274,9 @@
  0372 B00F              jnz L118
  0374                   .dbline 301
  0374 10                push X
- 0375 50F3              mov A,>L120
+ 0375 5003              mov A,>L120
  0377 08                push A
- 0378 50F3              mov A,<L120
+ 0378 5003              mov A,<L120
  037A 5C                mov X,A
  037B 18                pop A
  037C 7C0000            xcall _LCD_PrCString
@@ -1289,9 +1289,9 @@
  0385 B00D              jnz L121
  0387                   .dbline 302
  0387 10                push X
- 0388 50E4              mov A,>L123
+ 0388 50F4              mov A,>L123
  038A 08                push A
- 038B 50E4              mov A,<L123
+ 038B 50F4              mov A,<L123
  038D 5C                mov X,A
  038E 18                pop A
  038F 7C0000            xcall _LCD_PrCString
@@ -1460,9 +1460,9 @@
  0410 7C0000            xcall _LCD_Control
  0413                   .dbline 341
  0413           ; }
- 0413 50D5              mov A,>L148
+ 0413 50E5              mov A,>L148
  0415 08                push A
- 0416 50D5              mov A,<L148
+ 0416 50E5              mov A,<L148
  0418 5C                mov X,A
  0419 18                pop A
  041A 7C0000            xcall _LCD_PrCString
@@ -1479,9 +1479,9 @@
  042B B00F              jnz L149
  042D                   .dbline 343
  042D 10                push X
- 042E 50D1              mov A,>L151
+ 042E 50E1              mov A,>L151
  0430 08                push A
- 0431 50D1              mov A,<L151
+ 0431 50E1              mov A,<L151
  0433 5C                mov X,A
  0434 18                pop A
  0435 7C0000            xcall _LCD_PrCString
@@ -1491,9 +1491,9 @@
  043B                   .dbline 344
  043B           ; }
  043B 10                push X
- 043C 50CE              mov A,>L152
+ 043C 50DE              mov A,>L152
  043E 08                push A
- 043F 50CE              mov A,<L152
+ 043F 50DE              mov A,<L152
  0441 5C                mov X,A
  0442 18                pop A
  0443 7C0000            xcall _LCD_PrCString
@@ -1606,9 +1606,9 @@
  0492 7C0000            xcall _LCD_Control
  0495                   .dbline 375
  0495           ; }
- 0495 50BF              mov A,>L166
+ 0495 50CF              mov A,>L166
  0497 08                push A
- 0498 50BF              mov A,<L166
+ 0498 50CF              mov A,<L166
  049A 5C                mov X,A
  049B 18                pop A
  049C 7C0000            xcall _LCD_PrCString
@@ -1625,9 +1625,9 @@
  04AD B00F              jnz L167
  04AF                   .dbline 377
  04AF 10                push X
- 04B0 50D1              mov A,>L151
+ 04B0 50E1              mov A,>L151
  04B2 08                push A
- 04B3 50D1              mov A,<L151
+ 04B3 50E1              mov A,<L151
  04B5 5C                mov X,A
  04B6 18                pop A
  04B7 7C0000            xcall _LCD_PrCString
@@ -1637,9 +1637,9 @@
  04BD                   .dbline 378
  04BD           ; }
  04BD 10                push X
- 04BE 50CE              mov A,>L152
+ 04BE 50DE              mov A,>L152
  04C0 08                push A
- 04C1 50CE              mov A,<L152
+ 04C1 50DE              mov A,<L152
  04C3 5C                mov X,A
  04C4 18                pop A
  04C5 7C0000            xcall _LCD_PrCString
@@ -1752,9 +1752,9 @@
  0514 7C0000            xcall _LCD_Control
  0517                   .dbline 409
  0517           ; }
- 0517 50B1              mov A,>L182
+ 0517 50C1              mov A,>L182
  0519 08                push A
- 051A 50B1              mov A,<L182
+ 051A 50C1              mov A,<L182
  051C 5C                mov X,A
  051D 18                pop A
  051E 7C0000            xcall _LCD_PrCString
@@ -1771,9 +1771,9 @@
  052F B00F              jnz L183
  0531                   .dbline 411
  0531 10                push X
- 0532 50D1              mov A,>L151
+ 0532 50E1              mov A,>L151
  0534 08                push A
- 0535 50D1              mov A,<L151
+ 0535 50E1              mov A,<L151
  0537 5C                mov X,A
  0538 18                pop A
  0539 7C0000            xcall _LCD_PrCString
@@ -1783,9 +1783,9 @@
  053F                   .dbline 412
  053F           ; }
  053F 10                push X
- 0540 50CE              mov A,>L152
+ 0540 50DE              mov A,>L152
  0542 08                push A
- 0543 50CE              mov A,<L152
+ 0543 50DE              mov A,<L152
  0545 5C                mov X,A
  0546 18                pop A
  0547 7C0000            xcall _LCD_PrCString
@@ -1898,9 +1898,9 @@
  0596 7C0000            xcall _LCD_Control
  0599                   .dbline 443
  0599           ; }
- 0599 50A3              mov A,>L198
+ 0599 50B3              mov A,>L198
  059B 08                push A
- 059C 50A3              mov A,<L198
+ 059C 50B3              mov A,<L198
  059E 5C                mov X,A
  059F 18                pop A
  05A0 7C0000            xcall _LCD_PrCString
@@ -1917,9 +1917,9 @@
  05B1 B00F              jnz L199
  05B3                   .dbline 445
  05B3 10                push X
- 05B4 50D1              mov A,>L151
+ 05B4 50E1              mov A,>L151
  05B6 08                push A
- 05B7 50D1              mov A,<L151
+ 05B7 50E1              mov A,<L151
  05B9 5C                mov X,A
  05BA 18                pop A
  05BB 7C0000            xcall _LCD_PrCString
@@ -1929,9 +1929,9 @@
  05C1                   .dbline 446
  05C1           ; }
  05C1 10                push X
- 05C2 50CE              mov A,>L152
+ 05C2 50DE              mov A,>L152
  05C4 08                push A
- 05C5 50CE              mov A,<L152
+ 05C5 50DE              mov A,<L152
  05C7 5C                mov X,A
  05C8 18                pop A
  05C9 7C0000            xcall _LCD_PrCString
@@ -2047,9 +2047,9 @@
  061B 7C0000            xcall _LCD_Control
  061E                   .dbline 477
  061E           ; }
- 061E 5094              mov A,>L214
+ 061E 50A4              mov A,>L214
  0620 08                push A
- 0621 5094              mov A,<L214
+ 0621 50A4              mov A,<L214
  0623 5C                mov X,A
  0624 18                pop A
  0625 7C0000            xcall _LCD_PrCString
@@ -2068,9 +2068,9 @@
  0635                   .dbline 481
  0635           ; }
  0635 10                push X
- 0636 508A              mov A,>L217
+ 0636 509A              mov A,>L217
  0638 08                push A
- 0639 508A              mov A,<L217
+ 0639 509A              mov A,<L217
  063B 5C                mov X,A
  063C 18                pop A
  063D 7C0000            xcall _LCD_PrCString
@@ -2082,9 +2082,9 @@
  0647 B00F              jnz L218
  0649                   .dbline 482
  0649 10                push X
- 064A 5083              mov A,>L220
+ 064A 5093              mov A,>L220
  064C 08                push A
- 064D 5083              mov A,<L220
+ 064D 5093              mov A,<L220
  064F 5C                mov X,A
  0650 18                pop A
  0651 7C0000            xcall _LCD_PrCString
@@ -2094,9 +2094,9 @@
  0657                   .dbline 483
  0657           ; }
  0657 10                push X
- 0658 507D              mov A,>L221
+ 0658 508D              mov A,>L221
  065A 08                push A
- 065B 507D              mov A,<L221
+ 065B 508D              mov A,<L221
  065D 5C                mov X,A
  065E 18                pop A
  065F 7C0000            xcall _LCD_PrCString
@@ -2114,9 +2114,9 @@
  066A                   .dbline 487
  066A           ; }
  066A 10                push X
- 066B 5073              mov A,>L224
+ 066B 5083              mov A,>L224
  066D 08                push A
- 066E 5073              mov A,<L224
+ 066E 5083              mov A,<L224
  0670 5C                mov X,A
  0671 18                pop A
  0672 7C0000            xcall _LCD_PrCString
@@ -2128,9 +2128,9 @@
  067C B00F              jnz L225
  067E                   .dbline 488
  067E 10                push X
- 067F 5083              mov A,>L220
+ 067F 5093              mov A,>L220
  0681 08                push A
- 0682 5083              mov A,<L220
+ 0682 5093              mov A,<L220
  0684 5C                mov X,A
  0685 18                pop A
  0686 7C0000            xcall _LCD_PrCString
@@ -2140,9 +2140,9 @@
  068C                   .dbline 489
  068C           ; }
  068C 10                push X
- 068D 507D              mov A,>L221
+ 068D 508D              mov A,>L221
  068F 08                push A
- 0690 507D              mov A,<L221
+ 0690 508D              mov A,<L221
  0692 5C                mov X,A
  0693 18                pop A
  0694 7C0000            xcall _LCD_PrCString
@@ -2161,9 +2161,9 @@
  069F           ; }
  069F           ; }
  069F 10                push X
- 06A0 5069              mov A,>L229
+ 06A0 5079              mov A,>L229
  06A2 08                push A
- 06A3 5069              mov A,<L229
+ 06A3 5079              mov A,<L229
  06A5 5C                mov X,A
  06A6 18                pop A
  06A7 7C0000            xcall _LCD_PrCString
@@ -2175,9 +2175,9 @@
  06B1 B00F              jnz L230
  06B3                   .dbline 495
  06B3 10                push X
- 06B4 5083              mov A,>L220
+ 06B4 5093              mov A,>L220
  06B6 08                push A
- 06B7 5083              mov A,<L220
+ 06B7 5093              mov A,<L220
  06B9 5C                mov X,A
  06BA 18                pop A
  06BB 7C0000            xcall _LCD_PrCString
@@ -2187,9 +2187,9 @@
  06C1                   .dbline 496
  06C1           ; }
  06C1 10                push X
- 06C2 507D              mov A,>L221
+ 06C2 508D              mov A,>L221
  06C4 08                push A
- 06C5 507D              mov A,<L221
+ 06C5 508D              mov A,<L221
  06C7 5C                mov X,A
  06C8 18                pop A
  06C9 7C0000            xcall _LCD_PrCString
@@ -2207,9 +2207,9 @@
  06D4                   .dbline 500
  06D4           ; }
  06D4 10                push X
- 06D5 505F              mov A,>L234
+ 06D5 506F              mov A,>L234
  06D7 08                push A
- 06D8 505F              mov A,<L234
+ 06D8 506F              mov A,<L234
  06DA 5C                mov X,A
  06DB 18                pop A
  06DC 7C0000            xcall _LCD_PrCString
@@ -2221,9 +2221,9 @@
  06E6 B00F              jnz L235
  06E8                   .dbline 501
  06E8 10                push X
- 06E9 5057              mov A,>L237
+ 06E9 5067              mov A,>L237
  06EB 08                push A
- 06EC 5057              mov A,<L237
+ 06EC 5067              mov A,<L237
  06EE 5C                mov X,A
  06EF 18                pop A
  06F0 7C0000            xcall _LCD_PrCString
@@ -2233,9 +2233,9 @@
  06F6                   .dbline 502
  06F6           ; }
  06F6 10                push X
- 06F7 507D              mov A,>L221
+ 06F7 508D              mov A,>L221
  06F9 08                push A
- 06FA 507D              mov A,<L221
+ 06FA 508D              mov A,<L221
  06FC 5C                mov X,A
  06FD 18                pop A
  06FE 7C0000            xcall _LCD_PrCString
@@ -2405,9 +2405,9 @@
  077F 7C0000            xcall _LCD_Control
  0782                   .dbline 540
  0782           ; }
- 0782 504E              mov A,>L262
+ 0782 505E              mov A,>L262
  0784 08                push A
- 0785 504E              mov A,<L262
+ 0785 505E              mov A,<L262
  0787 5C                mov X,A
  0788 18                pop A
  0789 7C0000            xcall _LCD_PrCString
@@ -2424,9 +2424,9 @@
  079A B00F              jnz L263
  079C                   .dbline 542
  079C 10                push X
- 079D 5046              mov A,>L265
+ 079D 5056              mov A,>L265
  079F 08                push A
- 07A0 5046              mov A,<L265
+ 07A0 5056              mov A,<L265
  07A2 5C                mov X,A
  07A3 18                pop A
  07A4 7C0000            xcall _LCD_PrCString
@@ -2440,9 +2440,9 @@
  07B0 B00F              jnz L266
  07B2                   .dbline 543
  07B2 10                push X
- 07B3 503D              mov A,>L268
+ 07B3 504D              mov A,>L268
  07B5 08                push A
- 07B6 503D              mov A,<L268
+ 07B6 504D              mov A,<L268
  07B8 5C                mov X,A
  07B9 18                pop A
  07BA 7C0000            xcall _LCD_PrCString
@@ -2456,9 +2456,9 @@
  07C6 B00F              jnz L269
  07C8                   .dbline 544
  07C8 10                push X
- 07C9 5034              mov A,>L271
+ 07C9 5044              mov A,>L271
  07CB 08                push A
- 07CC 5034              mov A,<L271
+ 07CC 5044              mov A,<L271
  07CE 5C                mov X,A
  07CF 18                pop A
  07D0 7C0000            xcall _LCD_PrCString
@@ -2472,9 +2472,9 @@
  07DC B00D              jnz L272
  07DE                   .dbline 545
  07DE 10                push X
- 07DF 502E              mov A,>L274
+ 07DF 503E              mov A,>L274
  07E1 08                push A
- 07E2 502E              mov A,<L274
+ 07E2 503E              mov A,<L274
  07E4 5C                mov X,A
  07E5 18                pop A
  07E6 7C0000            xcall _LCD_PrCString
@@ -2582,9 +2582,9 @@
  0829 7C0000            xcall _LCD_Control
  082C                   .dbline 575
  082C           ; }
- 082C 5025              mov A,>L286
+ 082C 5035              mov A,>L286
  082E 08                push A
- 082F 5025              mov A,<L286
+ 082F 5035              mov A,<L286
  0831 5C                mov X,A
  0832 18                pop A
  0833 7C0000            xcall _LCD_PrCString
@@ -2596,14 +2596,14 @@
  083D 20                pop X
  083E                   .dbline 577
  083E           ; }
- 083E 62D000            mov REG[0xd0],>_Fla1
- 0841 3C0000            cmp [_Fla1],0
+ 083E 62D000            mov REG[0xd0],>_Fla2
+ 0841 3C0000            cmp [_Fla2],0
  0844 B00F              jnz L287
  0846                   .dbline 577
  0846 10                push X
- 0847 5046              mov A,>L265
+ 0847 5056              mov A,>L265
  0849 08                push A
- 084A 5046              mov A,<L265
+ 084A 5056              mov A,<L265
  084C 5C                mov X,A
  084D 18                pop A
  084E 7C0000            xcall _LCD_PrCString
@@ -2612,14 +2612,14 @@
  0854           L287:
  0854                   .dbline 578
  0854           ; }
- 0854 62D000            mov REG[0xd0],>_Fla1
- 0857 3C0001            cmp [_Fla1],1
+ 0854 62D000            mov REG[0xd0],>_Fla2
+ 0857 3C0001            cmp [_Fla2],1
  085A B00F              jnz L289
  085C                   .dbline 578
  085C 10                push X
- 085D 503D              mov A,>L268
+ 085D 504D              mov A,>L268
  085F 08                push A
- 0860 503D              mov A,<L268
+ 0860 504D              mov A,<L268
  0862 5C                mov X,A
  0863 18                pop A
  0864 7C0000            xcall _LCD_PrCString
@@ -2628,14 +2628,14 @@
  086A           L289:
  086A                   .dbline 579
  086A           ; }
- 086A 62D000            mov REG[0xd0],>_Fla1
- 086D 3C0002            cmp [_Fla1],2
+ 086A 62D000            mov REG[0xd0],>_Fla2
+ 086D 3C0002            cmp [_Fla2],2
  0870 B00F              jnz L291
  0872                   .dbline 579
  0872 10                push X
- 0873 5034              mov A,>L271
+ 0873 5044              mov A,>L271
  0875 08                push A
- 0876 5034              mov A,<L271
+ 0876 5044              mov A,<L271
  0878 5C                mov X,A
  0879 18                pop A
  087A 7C0000            xcall _LCD_PrCString
@@ -2644,14 +2644,14 @@
  0880           L291:
  0880                   .dbline 580
  0880           ; }
- 0880 62D000            mov REG[0xd0],>_Fla1
- 0883 3C0003            cmp [_Fla1],3
+ 0880 62D000            mov REG[0xd0],>_Fla2
+ 0883 3C0003            cmp [_Fla2],3
  0886 B00D              jnz L293
  0888                   .dbline 580
  0888 10                push X
- 0889 502E              mov A,>L274
+ 0889 503E              mov A,>L274
  088B 08                push A
- 088C 502E              mov A,<L274
+ 088C 503E              mov A,<L274
  088E 5C                mov X,A
  088F 18                pop A
  0890 7C0000            xcall _LCD_PrCString
@@ -2758,9 +2758,9 @@
  08D3 7C0000            xcall _LCD_Control
  08D6                   .dbline 609
  08D6           ; }
- 08D6 501C              mov A,>L306
+ 08D6 502C              mov A,>L306
  08D8 08                push A
- 08D9 501C              mov A,<L306
+ 08D9 502C              mov A,<L306
  08DB 5C                mov X,A
  08DC 18                pop A
  08DD 7C0000            xcall _LCD_PrCString
@@ -2772,14 +2772,14 @@
  08E7 20                pop X
  08E8                   .dbline 611
  08E8           ; }
- 08E8 62D000            mov REG[0xd0],>_Fla1
- 08EB 3C0000            cmp [_Fla1],0
+ 08E8 62D000            mov REG[0xd0],>_Fla3
+ 08EB 3C0000            cmp [_Fla3],0
  08EE B00F              jnz L307
  08F0                   .dbline 611
  08F0 10                push X
- 08F1 5046              mov A,>L265
+ 08F1 5056              mov A,>L265
  08F3 08                push A
- 08F4 5046              mov A,<L265
+ 08F4 5056              mov A,<L265
  08F6 5C                mov X,A
  08F7 18                pop A
  08F8 7C0000            xcall _LCD_PrCString
@@ -2788,14 +2788,14 @@
  08FE           L307:
  08FE                   .dbline 612
  08FE           ; }
- 08FE 62D000            mov REG[0xd0],>_Fla1
- 0901 3C0001            cmp [_Fla1],1
+ 08FE 62D000            mov REG[0xd0],>_Fla3
+ 0901 3C0001            cmp [_Fla3],1
  0904 B00F              jnz L309
  0906                   .dbline 612
  0906 10                push X
- 0907 503D              mov A,>L268
+ 0907 504D              mov A,>L268
  0909 08                push A
- 090A 503D              mov A,<L268
+ 090A 504D              mov A,<L268
  090C 5C                mov X,A
  090D 18                pop A
  090E 7C0000            xcall _LCD_PrCString
@@ -2804,14 +2804,14 @@
  0914           L309:
  0914                   .dbline 613
  0914           ; }
- 0914 62D000            mov REG[0xd0],>_Fla1
- 0917 3C0002            cmp [_Fla1],2
+ 0914 62D000            mov REG[0xd0],>_Fla3
+ 0917 3C0002            cmp [_Fla3],2
  091A B00F              jnz L311
  091C                   .dbline 613
  091C 10                push X
- 091D 5034              mov A,>L271
+ 091D 5044              mov A,>L271
  091F 08                push A
- 0920 5034              mov A,<L271
+ 0920 5044              mov A,<L271
  0922 5C                mov X,A
  0923 18                pop A
  0924 7C0000            xcall _LCD_PrCString
@@ -2820,14 +2820,14 @@
  092A           L311:
  092A                   .dbline 614
  092A           ; }
- 092A 62D000            mov REG[0xd0],>_Fla1
- 092D 3C0003            cmp [_Fla1],3
+ 092A 62D000            mov REG[0xd0],>_Fla3
+ 092D 3C0003            cmp [_Fla3],3
  0930 B00D              jnz L313
  0932                   .dbline 614
  0932 10                push X
- 0933 502E              mov A,>L274
+ 0933 503E              mov A,>L274
  0935 08                push A
- 0936 502E              mov A,<L274
+ 0936 503E              mov A,<L274
  0938 5C                mov X,A
  0939 18                pop A
  093A 7C0000            xcall _LCD_PrCString
@@ -2933,9 +2933,9 @@
  097F 7C0000            xcall _LCD_Control
  0982                   .dbline 642
  0982           ; }
- 0982 5013              mov A,>L326
+ 0982 5023              mov A,>L326
  0984 08                push A
- 0985 5013              mov A,<L326
+ 0985 5023              mov A,<L326
  0987 5C                mov X,A
  0988 18                pop A
  0989 7C0000            xcall _LCD_PrCString
@@ -2947,14 +2947,14 @@
  0993 20                pop X
  0994                   .dbline 644
  0994           ; }
- 0994 62D000            mov REG[0xd0],>_Fla1
- 0997 3C0000            cmp [_Fla1],0
+ 0994 62D000            mov REG[0xd0],>_Fla4
+ 0997 3C0000            cmp [_Fla4],0
  099A B00F              jnz L327
  099C                   .dbline 644
  099C 10                push X
- 099D 5046              mov A,>L265
+ 099D 5056              mov A,>L265
  099F 08                push A
- 09A0 5046              mov A,<L265
+ 09A0 5056              mov A,<L265
  09A2 5C                mov X,A
  09A3 18                pop A
  09A4 7C0000            xcall _LCD_PrCString
@@ -2963,14 +2963,14 @@
  09AA           L327:
  09AA                   .dbline 645
  09AA           ; }
- 09AA 62D000            mov REG[0xd0],>_Fla1
- 09AD 3C0001            cmp [_Fla1],1
+ 09AA 62D000            mov REG[0xd0],>_Fla4
+ 09AD 3C0001            cmp [_Fla4],1
  09B0 B00F              jnz L329
  09B2                   .dbline 645
  09B2 10                push X
- 09B3 503D              mov A,>L268
+ 09B3 504D              mov A,>L268
  09B5 08                push A
- 09B6 503D              mov A,<L268
+ 09B6 504D              mov A,<L268
  09B8 5C                mov X,A
  09B9 18                pop A
  09BA 7C0000            xcall _LCD_PrCString
@@ -2979,14 +2979,14 @@
  09C0           L329:
  09C0                   .dbline 646
  09C0           ; }
- 09C0 62D000            mov REG[0xd0],>_Fla1
- 09C3 3C0002            cmp [_Fla1],2
+ 09C0 62D000            mov REG[0xd0],>_Fla4
+ 09C3 3C0002            cmp [_Fla4],2
  09C6 B00F              jnz L331
  09C8                   .dbline 646
  09C8 10                push X
- 09C9 5034              mov A,>L271
+ 09C9 5044              mov A,>L271
  09CB 08                push A
- 09CC 5034              mov A,<L271
+ 09CC 5044              mov A,<L271
  09CE 5C                mov X,A
  09CF 18                pop A
  09D0 7C0000            xcall _LCD_PrCString
@@ -2995,14 +2995,14 @@
  09D6           L331:
  09D6                   .dbline 647
  09D6           ; }
- 09D6 62D000            mov REG[0xd0],>_Fla1
- 09D9 3C0003            cmp [_Fla1],3
+ 09D6 62D000            mov REG[0xd0],>_Fla4
+ 09D9 3C0003            cmp [_Fla4],3
  09DC B00D              jnz L333
  09DE                   .dbline 647
  09DE 10                push X
- 09DF 502E              mov A,>L274
+ 09DF 503E              mov A,>L274
  09E1 08                push A
- 09E2 502E              mov A,<L274
+ 09E2 503E              mov A,<L274
  09E4 5C                mov X,A
  09E5 18                pop A
  09E6 7C0000            xcall _LCD_PrCString
@@ -3158,9 +3158,9 @@
  0A6A 7C0000            xcall _LCD_Control
  0A6D                   .dbline 681
  0A6D           ; }
- 0A6D 5007              mov A,>L354
+ 0A6D 5017              mov A,>L354
  0A6F 08                push A
- 0A70 5007              mov A,<L354
+ 0A70 5017              mov A,<L354
  0A72 5C                mov X,A
  0A73 18                pop A
  0A74 7C0000            xcall _LCD_PrCString
@@ -3176,9 +3176,9 @@
  0A82 B00F              jnz L355
  0A84                   .dbline 683
  0A84 10                push X
- 0A85 5046              mov A,>L265
+ 0A85 5056              mov A,>L265
  0A87 08                push A
- 0A88 5046              mov A,<L265
+ 0A88 5056              mov A,<L265
  0A8A 5C                mov X,A
  0A8B 18                pop A
  0A8C 7C0000            xcall _LCD_PrCString
@@ -3191,9 +3191,9 @@
  0A95 B00F              jnz L357
  0A97                   .dbline 684
  0A97 10                push X
- 0A98 503D              mov A,>L268
+ 0A98 504D              mov A,>L268
  0A9A 08                push A
- 0A9B 503D              mov A,<L268
+ 0A9B 504D              mov A,<L268
  0A9D 5C                mov X,A
  0A9E 18                pop A
  0A9F 7C0000            xcall _LCD_PrCString
@@ -3206,9 +3206,9 @@
  0AA8 B00F              jnz L359
  0AAA                   .dbline 685
  0AAA 10                push X
- 0AAB 5034              mov A,>L271
+ 0AAB 5044              mov A,>L271
  0AAD 08                push A
- 0AAE 5034              mov A,<L271
+ 0AAE 5044              mov A,<L271
  0AB0 5C                mov X,A
  0AB1 18                pop A
  0AB2 7C0000            xcall _LCD_PrCString
@@ -3221,9 +3221,9 @@
  0ABB B00D              jnz L361
  0ABD                   .dbline 686
  0ABD 10                push X
- 0ABE 502E              mov A,>L274
+ 0ABE 503E              mov A,>L274
  0AC0 08                push A
- 0AC1 502E              mov A,<L274
+ 0AC1 503E              mov A,<L274
  0AC3 5C                mov X,A
  0AC4 18                pop A
  0AC5 7C0000            xcall _LCD_PrCString
@@ -3416,9 +3416,9 @@
  0B6B 7C0000            xcall _LCD_Control
  0B6E                   .dbline 727
  0B6E           ; }
- 0B6E 50F8              mov A,>L387
+ 0B6E 5008              mov A,>L387
  0B70 08                push A
- 0B71 50F8              mov A,<L387
+ 0B71 5008              mov A,<L387
  0B73 5C                mov X,A
  0B74 18                pop A
  0B75 7C0000            xcall _LCD_PrCString
@@ -3434,9 +3434,9 @@
  0B83 B00F              jnz L388
  0B85                   .dbline 729
  0B85 10                push X
- 0B86 50ED              mov A,>L390
+ 0B86 50FD              mov A,>L390
  0B88 08                push A
- 0B89 50ED              mov A,<L390
+ 0B89 50FD              mov A,<L390
  0B8B 5C                mov X,A
  0B8C 18                pop A
  0B8D 7C0000            xcall _LCD_PrCString
@@ -3449,9 +3449,9 @@
  0B96 B00D              jnz L391
  0B98                   .dbline 730
  0B98 10                push X
- 0B99 50E2              mov A,>L393
+ 0B99 50F2              mov A,>L393
  0B9B 08                push A
- 0B9C 50E2              mov A,<L393
+ 0B9C 50F2              mov A,<L393
  0B9E 5C                mov X,A
  0B9F 18                pop A
  0BA0 7C0000            xcall _LCD_PrCString
@@ -3601,9 +3601,9 @@
  0C12 7C0000            xcall _LCD_Control
  0C15                   .dbline 766
  0C15           ; }
- 0C15 50D8              mov A,>L414
+ 0C15 50E8              mov A,>L414
  0C17 08                push A
- 0C18 50D8              mov A,<L414
+ 0C18 50E8              mov A,<L414
  0C1A 5C                mov X,A
  0C1B 18                pop A
  0C1C 7C0000            xcall _LCD_PrCString
@@ -3620,9 +3620,9 @@
  0C2D B00F              jnz L415
  0C2F                   .dbline 768
  0C2F 10                push X
- 0C30 50CD              mov A,>L417
+ 0C30 50DD              mov A,>L417
  0C32 08                push A
- 0C33 50CD              mov A,<L417
+ 0C33 50DD              mov A,<L417
  0C35 5C                mov X,A
  0C36 18                pop A
  0C37 7C0000            xcall _LCD_PrCString
@@ -3636,9 +3636,9 @@
  0C43 B00F              jnz L418
  0C45                   .dbline 769
  0C45 10                push X
- 0C46 50C1              mov A,>L420
+ 0C46 50D1              mov A,>L420
  0C48 08                push A
- 0C49 50C1              mov A,<L420
+ 0C49 50D1              mov A,<L420
  0C4B 5C                mov X,A
  0C4C 18                pop A
  0C4D 7C0000            xcall _LCD_PrCString
@@ -3652,9 +3652,9 @@
  0C59 B00F              jnz L421
  0C5B                   .dbline 770
  0C5B 10                push X
- 0C5C 50B2              mov A,>L423
+ 0C5C 50C2              mov A,>L423
  0C5E 08                push A
- 0C5F 50B2              mov A,<L423
+ 0C5F 50C2              mov A,<L423
  0C61 5C                mov X,A
  0C62 18                pop A
  0C63 7C0000            xcall _LCD_PrCString
@@ -3668,9 +3668,9 @@
  0C6F B00D              jnz L424
  0C71                   .dbline 771
  0C71 10                push X
- 0C72 50A7              mov A,>L426
+ 0C72 50B7              mov A,>L426
  0C74 08                push A
- 0C75 50A7              mov A,<L426
+ 0C75 50B7              mov A,<L426
  0C77 5C                mov X,A
  0C78 18                pop A
  0C79 7C0000            xcall _LCD_PrCString
@@ -3777,9 +3777,9 @@
  0CBF 7C0000            xcall _LCD_Control
  0CC2                   .dbline 800
  0CC2           ; }
- 0CC2 509D              mov A,>L438
+ 0CC2 50AD              mov A,>L438
  0CC4 08                push A
- 0CC5 509D              mov A,<L438
+ 0CC5 50AD              mov A,<L438
  0CC7 5C                mov X,A
  0CC8 18                pop A
  0CC9 7C0000            xcall _LCD_PrCString
@@ -3796,9 +3796,9 @@
  0CDA B00F              jnz L439
  0CDC                   .dbline 802
  0CDC 10                push X
- 0CDD 50CD              mov A,>L417
+ 0CDD 50DD              mov A,>L417
  0CDF 08                push A
- 0CE0 50CD              mov A,<L417
+ 0CE0 50DD              mov A,<L417
  0CE2 5C                mov X,A
  0CE3 18                pop A
  0CE4 7C0000            xcall _LCD_PrCString
@@ -3812,9 +3812,9 @@
  0CF0 B00F              jnz L441
  0CF2                   .dbline 803
  0CF2 10                push X
- 0CF3 50C1              mov A,>L420
+ 0CF3 50D1              mov A,>L420
  0CF5 08                push A
- 0CF6 50C1              mov A,<L420
+ 0CF6 50D1              mov A,<L420
  0CF8 5C                mov X,A
  0CF9 18                pop A
  0CFA 7C0000            xcall _LCD_PrCString
@@ -3828,9 +3828,9 @@
  0D06 B00F              jnz L443
  0D08                   .dbline 804
  0D08 10                push X
- 0D09 50B2              mov A,>L423
+ 0D09 50C2              mov A,>L423
  0D0B 08                push A
- 0D0C 50B2              mov A,<L423
+ 0D0C 50C2              mov A,<L423
  0D0E 5C                mov X,A
  0D0F 18                pop A
  0D10 7C0000            xcall _LCD_PrCString
@@ -3844,9 +3844,9 @@
  0D1C B00D              jnz L445
  0D1E                   .dbline 805
  0D1E 10                push X
- 0D1F 50A7              mov A,>L426
+ 0D1F 50B7              mov A,>L426
  0D21 08                push A
- 0D22 50A7              mov A,<L426
+ 0D22 50B7              mov A,<L426
  0D24 5C                mov X,A
  0D25 18                pop A
  0D26 7C0000            xcall _LCD_PrCString
@@ -3979,9 +3979,9 @@
  0D8A 7C0000            xcall _LCD_Control
  0D8D                   .dbline 838
  0D8D           ; }
- 0D8D 508E              mov A,>L462
+ 0D8D 509E              mov A,>L462
  0D8F 08                push A
- 0D90 508E              mov A,<L462
+ 0D90 509E              mov A,<L462
  0D92 5C                mov X,A
  0D93 18                pop A
  0D94 7C0000            xcall _LCD_PrCString
@@ -3997,9 +3997,9 @@
  0DA2 B00F              jnz L463
  0DA4                   .dbline 840
  0DA4 10                push X
- 0DA5 50CD              mov A,>L417
+ 0DA5 50DD              mov A,>L417
  0DA7 08                push A
- 0DA8 50CD              mov A,<L417
+ 0DA8 50DD              mov A,<L417
  0DAA 5C                mov X,A
  0DAB 18                pop A
  0DAC 7C0000            xcall _LCD_PrCString
@@ -4012,9 +4012,9 @@
  0DB5 B00F              jnz L465
  0DB7                   .dbline 841
  0DB7 10                push X
- 0DB8 50C1              mov A,>L420
+ 0DB8 50D1              mov A,>L420
  0DBA 08                push A
- 0DBB 50C1              mov A,<L420
+ 0DBB 50D1              mov A,<L420
  0DBD 5C                mov X,A
  0DBE 18                pop A
  0DBF 7C0000            xcall _LCD_PrCString
@@ -4027,9 +4027,9 @@
  0DC8 B00F              jnz L467
  0DCA                   .dbline 842
  0DCA 10                push X
- 0DCB 50B2              mov A,>L423
+ 0DCB 50C2              mov A,>L423
  0DCD 08                push A
- 0DCE 50B2              mov A,<L423
+ 0DCE 50C2              mov A,<L423
  0DD0 5C                mov X,A
  0DD1 18                pop A
  0DD2 7C0000            xcall _LCD_PrCString
@@ -4042,9 +4042,9 @@
  0DDB B00D              jnz L469
  0DDD                   .dbline 843
  0DDD 10                push X
- 0DDE 50A7              mov A,>L426
+ 0DDE 50B7              mov A,>L426
  0DE0 08                push A
- 0DE1 50A7              mov A,<L426
+ 0DE1 50B7              mov A,<L426
  0DE3 5C                mov X,A
  0DE4 18                pop A
  0DE5 7C0000            xcall _LCD_PrCString
@@ -4263,9 +4263,9 @@
  0EA9 7C0000            xcall _LCD_Control
  0EAC                   .dbline 886
  0EAC           ; }
- 0EAC 507E              mov A,>L502
+ 0EAC 508E              mov A,>L502
  0EAE 08                push A
- 0EAF 507E              mov A,<L502
+ 0EAF 508E              mov A,<L502
  0EB1 5C                mov X,A
  0EB2 18                pop A
  0EB3 7C0000            xcall _LCD_PrCString
@@ -4281,9 +4281,9 @@
  0EC1 B00F              jnz L503
  0EC3                   .dbline 888
  0EC3 10                push X
- 0EC4 5071              mov A,>L505
+ 0EC4 5081              mov A,>L505
  0EC6 08                push A
- 0EC7 5071              mov A,<L505
+ 0EC7 5081              mov A,<L505
  0EC9 5C                mov X,A
  0ECA 18                pop A
  0ECB 7C0000            xcall _LCD_PrCString
@@ -4296,9 +4296,9 @@
  0ED4 B00D              jnz L506
  0ED6                   .dbline 889
  0ED6 10                push X
- 0ED7 5061              mov A,>L508
+ 0ED7 5071              mov A,>L508
  0ED9 08                push A
- 0EDA 5061              mov A,<L508
+ 0EDA 5071              mov A,<L508
  0EDC 5C                mov X,A
  0EDD 18                pop A
  0EDE 7C0000            xcall _LCD_PrCString
@@ -4531,9 +4531,9 @@
  0FA9 7C0000            xcall _LCD_Control
  0FAC                   .dbline 943
  0FAC           ; }
- 0FAC 5055              mov A,>L541
+ 0FAC 5065              mov A,>L541
  0FAE 08                push A
- 0FAF 5055              mov A,<L541
+ 0FAF 5065              mov A,<L541
  0FB1 5C                mov X,A
  0FB2 18                pop A
  0FB3 7C0000            xcall _LCD_PrCString
@@ -4549,9 +4549,9 @@
  0FC1 B00F              jnz L542
  0FC3                   .dbline 945
  0FC3 10                push X
- 0FC4 5049              mov A,>L544
+ 0FC4 5059              mov A,>L544
  0FC6 08                push A
- 0FC7 5049              mov A,<L544
+ 0FC7 5059              mov A,<L544
  0FC9 5C                mov X,A
  0FCA 18                pop A
  0FCB 7C0000            xcall _LCD_PrCString
@@ -4564,9 +4564,9 @@
  0FD4 B00D              jnz L545
  0FD6                   .dbline 946
  0FD6 10                push X
- 0FD7 503C              mov A,>L547
+ 0FD7 504C              mov A,>L547
  0FD9 08                push A
- 0FDA 503C              mov A,<L547
+ 0FDA 504C              mov A,<L547
  0FDC 5C                mov X,A
  0FDD 18                pop A
  0FDE 7C0000            xcall _LCD_PrCString
@@ -4803,9 +4803,9 @@
  109F 7C0000            xcall _LCD_Control
  10A2                   .dbline 1006
  10A2           ; }
- 10A2 502E              mov A,>L576
+ 10A2 503E              mov A,>L576
  10A4 08                push A
- 10A5 502E              mov A,<L576
+ 10A5 503E              mov A,<L576
  10A7 5C                mov X,A
  10A8 18                pop A
  10A9 7C0000            xcall _LCD_PrCString
@@ -5014,9 +5014,9 @@
  116E 7C0000            xcall _LCD_Control
  1171                   .dbline 1048
  1171           ; }
- 1171 501E              mov A,>L597
+ 1171 502E              mov A,>L597
  1173 08                push A
- 1174 501E              mov A,<L597
+ 1174 502E              mov A,<L597
  1176 5C                mov X,A
  1177 18                pop A
  1178 7C0000            xcall _LCD_PrCString
@@ -5032,9 +5032,9 @@
  1186 B00F              jnz L598
  1188                   .dbline 1050
  1188 10                push X
- 1189 5015              mov A,>L600
+ 1189 5025              mov A,>L600
  118B 08                push A
- 118C 5015              mov A,<L600
+ 118C 5025              mov A,<L600
  118E 5C                mov X,A
  118F 18                pop A
  1190 7C0000            xcall _LCD_PrCString
@@ -5047,9 +5047,9 @@
  1199 B00F              jnz L601
  119B                   .dbline 1051
  119B 10                push X
- 119C 500D              mov A,>L603
+ 119C 501D              mov A,>L603
  119E 08                push A
- 119F 500D              mov A,<L603
+ 119F 501D              mov A,<L603
  11A1 5C                mov X,A
  11A2 18                pop A
  11A3 7C0000            xcall _LCD_PrCString
@@ -5062,9 +5062,9 @@
  11AC B00D              jnz L604
  11AE                   .dbline 1052
  11AE 10                push X
- 11AF 5007              mov A,>L606
+ 11AF 5017              mov A,>L606
  11B1 08                push A
- 11B2 5007              mov A,<L606
+ 11B2 5017              mov A,<L606
  11B4 5C                mov X,A
  11B5 18                pop A
  11B6 7C0000            xcall _LCD_PrCString
@@ -5207,9 +5207,9 @@
  1220 7C0000            xcall _LCD_Control
  1223                   .dbline 1088
  1223           ; }
- 1223 50FD              mov A,>L623
+ 1223 500D              mov A,>L623
  1225 08                push A
- 1226 50FD              mov A,<L623
+ 1226 500D              mov A,<L623
  1228 5C                mov X,A
  1229 18                pop A
  122A 7C0000            xcall _LCD_PrCString
@@ -5220,9 +5220,9 @@
  1231 7C0000            xcall _LCD_Position
  1234                   .dbline 1090
  1234           ; }
- 1234 50F5              mov A,>L624
+ 1234 5005              mov A,>L624
  1236 08                push A
- 1237 50F5              mov A,<L624
+ 1237 5005              mov A,<L624
  1239 5C                mov X,A
  123A 18                pop A
  123B 7C0000            xcall _LCD_PrCString
@@ -5307,9 +5307,9 @@
  126F 7C0000            xcall _LCD_Control
  1272                   .dbline 1117
  1272           ; }
- 1272 50E8              mov A,>L632
+ 1272 50F8              mov A,>L632
  1274 08                push A
- 1275 50E8              mov A,<L632
+ 1275 50F8              mov A,<L632
  1277 5C                mov X,A
  1278 18                pop A
  1279 7C0000            xcall _LCD_PrCString
@@ -5332,9 +5332,9 @@
  1290 7C0000            xcall _LCD_Control
  1293                   .dbline 1121
  1293           ; }
- 1293 50DC              mov A,>L633
+ 1293 50EC              mov A,>L633
  1295 08                push A
- 1296 50DC              mov A,<L633
+ 1296 50EC              mov A,<L633
  1298 5C                mov X,A
  1299 18                pop A
  129A 7C0000            xcall _LCD_PrCString
@@ -5353,9 +5353,9 @@
  12AC 7C0000            xcall _LCD_Control
  12AF                   .dbline 1124
  12AF           ; }
- 12AF 50D0              mov A,>L634
+ 12AF 50E0              mov A,>L634
  12B1 08                push A
- 12B2 50D0              mov A,<L634
+ 12B2 50E0              mov A,<L634
  12B4 5C                mov X,A
  12B5 18                pop A
  12B6 7C0000            xcall _LCD_PrCString
@@ -5374,9 +5374,9 @@
  12C8 7C0000            xcall _LCD_Control
  12CB                   .dbline 1127
  12CB           ; }
- 12CB 50C4              mov A,>L635
+ 12CB 50D4              mov A,>L635
  12CD 08                push A
- 12CE 50C4              mov A,<L635
+ 12CE 50D4              mov A,<L635
  12D0 5C                mov X,A
  12D1 18                pop A
  12D2 7C0000            xcall _LCD_PrCString
@@ -5395,9 +5395,9 @@
  12E4 7C0000            xcall _LCD_Control
  12E7                   .dbline 1130
  12E7           ; }
- 12E7 50B8              mov A,>L636
+ 12E7 50C8              mov A,>L636
  12E9 08                push A
- 12EA 50B8              mov A,<L636
+ 12EA 50C8              mov A,<L636
  12EC 5C                mov X,A
  12ED 18                pop A
  12EE 7C0000            xcall _LCD_PrCString
@@ -5416,9 +5416,9 @@
  1300 7C0000            xcall _LCD_Control
  1303                   .dbline 1133
  1303           ; }
- 1303 50AC              mov A,>L637
+ 1303 50BC              mov A,>L637
  1305 08                push A
- 1306 50AC              mov A,<L637
+ 1306 50BC              mov A,<L637
  1308 5C                mov X,A
  1309 18                pop A
  130A 7C0000            xcall _LCD_PrCString
@@ -5437,9 +5437,9 @@
  131C 7C0000            xcall _LCD_Control
  131F                   .dbline 1136
  131F           ; }
- 131F 50A0              mov A,>L638
+ 131F 50B0              mov A,>L638
  1321 08                push A
- 1322 50A0              mov A,<L638
+ 1322 50B0              mov A,<L638
  1324 5C                mov X,A
  1325 18                pop A
  1326 7C0000            xcall _LCD_PrCString
@@ -5671,1186 +5671,1226 @@
  141C 7C0000            xcall _LCD_Control
  141F                   .dbline 1200
  141F           ; }
- 141F 5090              mov A,>L651
- 1421 08                push A
- 1422 5090              mov A,<L651
- 1424 5C                mov X,A
- 1425 18                pop A
- 1426 7C0000            xcall _LCD_PrCString
- 1429 20                pop X
- 142A                   .dbline 1201
- 142A 560100            mov [X+1],0
- 142D 560000            mov [X+0],0
- 1430 8006              xjmp L655
- 1432           L652:
- 1432                   .dbline 1201
- 1432           L653:
- 1432                   .dbline 1201
- 1432 7701              inc [X+1]
- 1434 0F0000            adc [X+0],0
- 1437           L655:
- 1437                   .dbline 1201
+ 141F 5704              mov X,4
+ 1421 5000              mov A,0
+ 1423 7C0000            xcall _LCD_Position
+ 1426                   .dbline 1201
+ 1426           ; }
+ 1426 50A7              mov A,>L651
+ 1428 08                push A
+ 1429 50A7              mov A,<L651
+ 142B 5C                mov X,A
+ 142C 18                pop A
+ 142D 7C0000            xcall _LCD_PrCString
+ 1430                   .dbline 1202
+ 1430           ; }
+ 1430 5703              mov X,3
+ 1432 5001              mov A,1
+ 1434 7C0000            xcall _LCD_Position
+ 1437                   .dbline 1203
  1437           ; }
- 1437 62D000            mov REG[0xd0],>__r0
- 143A 5201              mov A,[X+1]
- 143C 5300              mov [__r3],A
- 143E 5200              mov A,[X+0]
- 1440 5300              mov [__r2],A
- 1442 5100              mov A,[__r3]
- 1444 1160              sub A,96
- 1446 5100              mov A,[__r2]
- 1448 19EA              sbb A,-22
- 144A 5000              mov A,0
- 144C 1900              sbb A,0
- 144E 5000              mov A,0
- 1450 3180              xor A,-128
- 1452 1980              sbb A,(0 ^ 0x80)
- 1454 CFDD              jc L652
- 1456           X27:
- 1456                   .dbline 1202
- 1456 560100            mov [X+1],0
- 1459 560000            mov [X+0],0
- 145C 8006              xjmp L659
- 145E           L656:
- 145E                   .dbline 1202
- 145E           L657:
- 145E                   .dbline 1202
- 145E 7701              inc [X+1]
- 1460 0F0000            adc [X+0],0
- 1463           L659:
- 1463                   .dbline 1202
- 1463           ; }
- 1463 62D000            mov REG[0xd0],>__r0
- 1466 5201              mov A,[X+1]
- 1468 5300              mov [__r3],A
- 146A 5200              mov A,[X+0]
- 146C 5300              mov [__r2],A
- 146E 5100              mov A,[__r3]
- 1470 1160              sub A,96
- 1472 5100              mov A,[__r2]
- 1474 19EA              sbb A,-22
- 1476 5000              mov A,0
- 1478 1900              sbb A,0
- 147A 5000              mov A,0
- 147C 3180              xor A,-128
- 147E 1980              sbb A,(0 ^ 0x80)
- 1480 CFDD              jc L656
- 1482           X28:
- 1482                   .dbline 1203
- 1482 560100            mov [X+1],0
- 1485 560000            mov [X+0],0
- 1488 8006              xjmp L663
- 148A           L660:
- 148A                   .dbline 1203
- 148A           L661:
- 148A                   .dbline 1203
- 148A 7701              inc [X+1]
- 148C 0F0000            adc [X+0],0
- 148F           L663:
- 148F                   .dbline 1203
- 148F           ; }
- 148F 62D000            mov REG[0xd0],>__r0
- 1492 5201              mov A,[X+1]
- 1494 5300              mov [__r3],A
- 1496 5200              mov A,[X+0]
- 1498 5300              mov [__r2],A
- 149A 5100              mov A,[__r3]
- 149C 1160              sub A,96
- 149E 5100              mov A,[__r2]
- 14A0 19EA              sbb A,-22
- 14A2 5000              mov A,0
- 14A4 1900              sbb A,0
- 14A6 5000              mov A,0
- 14A8 3180              xor A,-128
- 14AA 1980              sbb A,(0 ^ 0x80)
- 14AC CFDD              jc L660
- 14AE           X29:
- 14AE                   .dbline 1205
- 14AE           ; }
- 14AE           ; }
- 14AE           L664:
- 14AE                   .dbline 1206
- 14AE           ; }
- 14AE                   .dbline 1207
- 14AE           ; }
- 14AE 10                push X
- 14AF 5008              mov A,8
- 14B1 7C0000            xcall _LCD_Control
- 14B4                   .dbline 1208
- 14B4           ; }
- 14B4 5001              mov A,1
- 14B6 7C0000            xcall _LCD_Control
- 14B9 20                pop X
- 14BA                   .dbline 1210
- 14BA           ; }
- 14BA           ; }
- 14BA 7C018A            xcall _Pulsador
- 14BD 5402              mov [X+2],A
- 14BF                   .dbline 1211
- 14BF           ; }
- 14BF 62D000            mov REG[0xd0],>_Buzzer
- 14C2 3C0001            cmp [_Buzzer],1
- 14C5 B004              jnz L668
- 14C7                   .dbline 1211
- 14C7 7C0139            xcall _Pitido
- 14CA           L668:
- 14CA                   .dbline 1212
- 14CA           ; }
- 14CA 3D0201            cmp [X+2],1
- 14CD A00B              jz L673
- 14CF 3D0202            cmp [X+2],2
- 14D2 A006              jz L673
- 14D4 3D0204            cmp [X+2],4
- 14D7 B084              jnz L670
- 14D9           L673:
- 14D9                   .dbline 1213
- 14D9           ; }
- 14D9                   .dbline 1214
- 14D9           ; }
- 14D9 10                push X
- 14DA 500E              mov A,14
- 14DC 7C0000            xcall _LCD_Control
- 14DF                   .dbline 1215
- 14DF           ; }
- 14DF 5701              mov X,1
- 14E1 5000              mov A,0
- 14E3 7C0000            xcall _LCD_Position
- 14E6                   .dbline 1216
- 14E6           ; }
- 14E6 5081              mov A,>L674
- 14E8 08                push A
- 14E9 5081              mov A,<L674
- 14EB 5C                mov X,A
- 14EC 18                pop A
- 14ED 7C0000            xcall _LCD_PrCString
- 14F0                   .dbline 1217
- 14F0           ; }
- 14F0 5700              mov X,0
- 14F2 5001              mov A,1
- 14F4 7C0000            xcall _LCD_Position
+ 1437 509C              mov A,>L652
+ 1439 08                push A
+ 143A 509C              mov A,<L652
+ 143C 5C                mov X,A
+ 143D 18                pop A
+ 143E 7C0000            xcall _LCD_PrCString
+ 1441 20                pop X
+ 1442                   .dbline 1204
+ 1442 560100            mov [X+1],0
+ 1445 560000            mov [X+0],0
+ 1448 8006              xjmp L656
+ 144A           L653:
+ 144A                   .dbline 1204
+ 144A           L654:
+ 144A                   .dbline 1204
+ 144A 7701              inc [X+1]
+ 144C 0F0000            adc [X+0],0
+ 144F           L656:
+ 144F                   .dbline 1204
+ 144F           ; }
+ 144F 62D000            mov REG[0xd0],>__r0
+ 1452 5201              mov A,[X+1]
+ 1454 5300              mov [__r3],A
+ 1456 5200              mov A,[X+0]
+ 1458 5300              mov [__r2],A
+ 145A 5100              mov A,[__r3]
+ 145C 1160              sub A,96
+ 145E 5100              mov A,[__r2]
+ 1460 19EA              sbb A,-22
+ 1462 5000              mov A,0
+ 1464 1900              sbb A,0
+ 1466 5000              mov A,0
+ 1468 3180              xor A,-128
+ 146A 1980              sbb A,(0 ^ 0x80)
+ 146C CFDD              jc L653
+ 146E           X27:
+ 146E                   .dbline 1205
+ 146E 560100            mov [X+1],0
+ 1471 560000            mov [X+0],0
+ 1474 8006              xjmp L660
+ 1476           L657:
+ 1476                   .dbline 1205
+ 1476           L658:
+ 1476                   .dbline 1205
+ 1476 7701              inc [X+1]
+ 1478 0F0000            adc [X+0],0
+ 147B           L660:
+ 147B                   .dbline 1205
+ 147B           ; }
+ 147B 62D000            mov REG[0xd0],>__r0
+ 147E 5201              mov A,[X+1]
+ 1480 5300              mov [__r3],A
+ 1482 5200              mov A,[X+0]
+ 1484 5300              mov [__r2],A
+ 1486 5100              mov A,[__r3]
+ 1488 1160              sub A,96
+ 148A 5100              mov A,[__r2]
+ 148C 19EA              sbb A,-22
+ 148E 5000              mov A,0
+ 1490 1900              sbb A,0
+ 1492 5000              mov A,0
+ 1494 3180              xor A,-128
+ 1496 1980              sbb A,(0 ^ 0x80)
+ 1498 CFDD              jc L657
+ 149A           X28:
+ 149A                   .dbline 1206
+ 149A 560100            mov [X+1],0
+ 149D 560000            mov [X+0],0
+ 14A0 8006              xjmp L664
+ 14A2           L661:
+ 14A2                   .dbline 1206
+ 14A2           L662:
+ 14A2                   .dbline 1206
+ 14A2 7701              inc [X+1]
+ 14A4 0F0000            adc [X+0],0
+ 14A7           L664:
+ 14A7                   .dbline 1206
+ 14A7           ; }
+ 14A7 62D000            mov REG[0xd0],>__r0
+ 14AA 5201              mov A,[X+1]
+ 14AC 5300              mov [__r3],A
+ 14AE 5200              mov A,[X+0]
+ 14B0 5300              mov [__r2],A
+ 14B2 5100              mov A,[__r3]
+ 14B4 1160              sub A,96
+ 14B6 5100              mov A,[__r2]
+ 14B8 19EA              sbb A,-22
+ 14BA 5000              mov A,0
+ 14BC 1900              sbb A,0
+ 14BE 5000              mov A,0
+ 14C0 3180              xor A,-128
+ 14C2 1980              sbb A,(0 ^ 0x80)
+ 14C4 CFDD              jc L661
+ 14C6           X29:
+ 14C6                   .dbline 1208
+ 14C6           ; }
+ 14C6           ; }
+ 14C6           L665:
+ 14C6                   .dbline 1209
+ 14C6           ; }
+ 14C6                   .dbline 1210
+ 14C6           ; }
+ 14C6 10                push X
+ 14C7 5008              mov A,8
+ 14C9 7C0000            xcall _LCD_Control
+ 14CC                   .dbline 1211
+ 14CC           ; }
+ 14CC 5001              mov A,1
+ 14CE 7C0000            xcall _LCD_Control
+ 14D1 20                pop X
+ 14D2                   .dbline 1213
+ 14D2           ; }
+ 14D2           ; }
+ 14D2 7C018A            xcall _Pulsador
+ 14D5 5402              mov [X+2],A
+ 14D7                   .dbline 1214
+ 14D7           ; }
+ 14D7 62D000            mov REG[0xd0],>_Buzzer
+ 14DA 3C0001            cmp [_Buzzer],1
+ 14DD B004              jnz L669
+ 14DF                   .dbline 1214
+ 14DF 7C0139            xcall _Pitido
+ 14E2           L669:
+ 14E2                   .dbline 1215
+ 14E2           ; }
+ 14E2 3D0201            cmp [X+2],1
+ 14E5 A00B              jz L674
+ 14E7 3D0202            cmp [X+2],2
+ 14EA A006              jz L674
+ 14EC 3D0204            cmp [X+2],4
+ 14EF B084              jnz L671
+ 14F1           L674:
+ 14F1                   .dbline 1216
+ 14F1           ; }
+ 14F1                   .dbline 1217
+ 14F1           ; }
+ 14F1 10                push X
+ 14F2 500C              mov A,12
+ 14F4 7C0000            xcall _LCD_Control
  14F7                   .dbline 1218
  14F7           ; }
- 14F7 5071              mov A,>L675
- 14F9 08                push A
- 14FA 5071              mov A,<L675
- 14FC 5C                mov X,A
- 14FD 18                pop A
- 14FE 7C0000            xcall _LCD_PrCString
- 1501 20                pop X
- 1502                   .dbline 1219
- 1502 560100            mov [X+1],0
- 1505 560000            mov [X+0],0
- 1508 8006              xjmp L679
- 150A           L676:
- 150A                   .dbline 1219
- 150A           L677:
- 150A                   .dbline 1219
- 150A 7701              inc [X+1]
- 150C 0F0000            adc [X+0],0
- 150F           L679:
- 150F                   .dbline 1219
+ 14F7 5701              mov X,1
+ 14F9 5000              mov A,0
+ 14FB 7C0000            xcall _LCD_Position
+ 14FE                   .dbline 1219
+ 14FE           ; }
+ 14FE 508D              mov A,>L675
+ 1500 08                push A
+ 1501 508D              mov A,<L675
+ 1503 5C                mov X,A
+ 1504 18                pop A
+ 1505 7C0000            xcall _LCD_PrCString
+ 1508                   .dbline 1220
+ 1508           ; }
+ 1508 5700              mov X,0
+ 150A 5001              mov A,1
+ 150C 7C0000            xcall _LCD_Position
+ 150F                   .dbline 1221
  150F           ; }
- 150F 62D000            mov REG[0xd0],>__r0
- 1512 5201              mov A,[X+1]
- 1514 5300              mov [__r3],A
- 1516 5200              mov A,[X+0]
- 1518 5300              mov [__r2],A
- 151A 5100              mov A,[__r3]
- 151C 1150              sub A,80
- 151E 5100              mov A,[__r2]
- 1520 19C3              sbb A,-61
- 1522 5000              mov A,0
- 1524 1900              sbb A,0
- 1526 5000              mov A,0
- 1528 3180              xor A,-128
- 152A 1980              sbb A,(0 ^ 0x80)
- 152C CFDD              jc L676
- 152E           X30:
- 152E                   .dbline 1220
- 152E 560100            mov [X+1],0
- 1531 560000            mov [X+0],0
- 1534 8006              xjmp L683
- 1536           L680:
- 1536                   .dbline 1220
- 1536           L681:
- 1536                   .dbline 1220
- 1536 7701              inc [X+1]
- 1538 0F0000            adc [X+0],0
- 153B           L683:
- 153B                   .dbline 1220
- 153B           ; }
- 153B 62D000            mov REG[0xd0],>__r0
- 153E 5201              mov A,[X+1]
- 1540 5300              mov [__r3],A
- 1542 5200              mov A,[X+0]
- 1544 5300              mov [__r2],A
- 1546 5100              mov A,[__r3]
- 1548 1150              sub A,80
- 154A 5100              mov A,[__r2]
- 154C 19C3              sbb A,-61
- 154E 5000              mov A,0
- 1550 1900              sbb A,0
- 1552 5000              mov A,0
- 1554 3180              xor A,-128
- 1556 1980              sbb A,(0 ^ 0x80)
- 1558 CFDD              jc L680
- 155A           X31:
- 155A                   .dbline 1221
- 155A           ; }
- 155A 8F53              xjmp L664
- 155C           L670:
- 155C                   .dbline 1222
- 155C           ; }
- 155C 3D0203            cmp [X+2],3
- 155F BF4E              jnz L664
- 1561                   .dbline 1223
- 1561           ; }
- 1561                   .dbline 1224
- 1561           ; }
- 1561 10                push X
- 1562 500E              mov A,14
- 1564 7C0000            xcall _LCD_Control
- 1567                   .dbline 1225
- 1567           ; }
- 1567 5062              mov A,>L686
- 1569 08                push A
- 156A 5062              mov A,<L686
- 156C 5C                mov X,A
- 156D 18                pop A
- 156E 7C0000            xcall _LCD_PrCString
- 1571 20                pop X
- 1572                   .dbline 1226
- 1572 560100            mov [X+1],0
- 1575 560000            mov [X+0],0
- 1578 8006              xjmp L690
- 157A           L687:
- 157A                   .dbline 1226
- 157A           L688:
- 157A                   .dbline 1226
- 157A 7701              inc [X+1]
- 157C 0F0000            adc [X+0],0
- 157F           L690:
- 157F                   .dbline 1226
- 157F 62D000            mov REG[0xd0],>__r0
- 1582 5201              mov A,[X+1]
- 1584 5300              mov [__r3],A
- 1586 5200              mov A,[X+0]
- 1588 5300              mov [__r2],A
- 158A 5100              mov A,[__r3]
- 158C 1150              sub A,80
- 158E 5100              mov A,[__r2]
- 1590 19C3              sbb A,-61
- 1592 5000              mov A,0
- 1594 1900              sbb A,0
- 1596 5000              mov A,0
- 1598 3180              xor A,-128
- 159A 1980              sbb A,(0 ^ 0x80)
- 159C CFDD              jc L687
- 159E           X32:
- 159E                   .dbline 1227
- 159E 9006              xcall _Resetear
- 15A0                   .dbline 1228
- 15A0                   .dbline 1229
- 15A0                   .dbline 1205
- 15A0                   .dbline 1205
- 15A0 8F0D              xjmp L664
- 15A2           X26:
- 15A2                   .dbline -2
- 15A2           L650:
- 15A2 38FD              add SP,-3
- 15A4 20                pop X
- 15A5                   .dbline 0 ; func end
- 15A5 7F                ret
- 15A6                   .dbsym l pulsat 2 c
- 15A6                   .dbsym l x 0 i
- 15A6                   .dbend
- 15A6                   .dbfunc e Resetear _Resetear fV
- 15A6           _Resetear::
- 15A6                   .dbline -1
- 15A6                   .dbline 1239
- 15A6           ; }
- 15A6           ; }
- 15A6           ; }
- 15A6           ; }
- 15A6           ; }
- 15A6           ; }
- 15A6           ; }
- 15A6           ; }
- 15A6           ; }
- 15A6           ; }
- 15A6           ; }
- 15A6           ; }
- 15A6           ; }
- 15A6           ; }
- 15A6                   .dbline 1240
- 15A6           ; }
- 15A6 7C0165            xcall _Reset_PdT
- 15A9                   .dbline 1241
- 15A9           ; }
- 15A9 7C011C            xcall _Principal
- 15AC                   .dbline -2
- 15AC                   .dbline 1242
- 15AC           ; }
- 15AC           L691:
- 15AC                   .dbline 0 ; func end
- 15AC 7F                ret
- 15AD                   .dbend
- 15AD                   .dbfunc e Sistema _Sistema fV
- 15AD           ;              x -> X+2
- 15AD           ;           menu -> X+1
- 15AD           ;         pulsat -> X+0
- 15AD           _Sistema::
- 15AD                   .dbline -1
- 15AD 10                push X
- 15AE 4F                mov X,SP
- 15AF 3804              add SP,4
- 15B1                   .dbline 1252
- 15B1           ; }
- 15B1           ; }
- 15B1           ; }
- 15B1           ; }
- 15B1           ; }
- 15B1           ; }
- 15B1           ; }
- 15B1           ; }
- 15B1           ; }
- 15B1           ; }
- 15B1                   .dbline 1253
- 15B1           ; }
- 15B1 560101            mov [X+1],1
- 15B4           L693:
- 15B4                   .dbline 1257
- 15B4           ; }
- 15B4           ; }
- 15B4           ; }
- 15B4           ; }
- 15B4                   .dbline 1258
- 15B4           ; }
- 15B4 10                push X
- 15B5 5001              mov A,1
- 15B7 7C0000            xcall _LCD_Control
- 15BA                   .dbline 1259
- 15BA           ; }
- 15BA 5053              mov A,>L696
- 15BC 08                push A
- 15BD 5053              mov A,<L696
- 15BF 5C                mov X,A
- 15C0 18                pop A
- 15C1 7C0000            xcall _LCD_PrCString
- 15C4                   .dbline 1260
- 15C4           ; }
- 15C4 5700              mov X,0
- 15C6 5001              mov A,1
- 15C8 7C0000            xcall _LCD_Position
- 15CB 20                pop X
- 15CC                   .dbline 1261
- 15CC           ; }
- 15CC 3D0101            cmp [X+1],1
- 15CF B00F              jnz L697
- 15D1                   .dbline 1261
- 15D1 10                push X
- 15D2 5049              mov A,>L699
- 15D4 08                push A
- 15D5 5049              mov A,<L699
- 15D7 5C                mov X,A
- 15D8 18                pop A
- 15D9 7C0000            xcall _LCD_PrCString
- 15DC 20                pop X
- 15DD 8025              xjmp L698
- 15DF           L697:
- 15DF                   .dbline 1262
- 15DF           ; }
- 15DF 3D0102            cmp [X+1],2
- 15E2 B00F              jnz L700
- 15E4                   .dbline 1262
+ 150F 507D              mov A,>L676
+ 1511 08                push A
+ 1512 507D              mov A,<L676
+ 1514 5C                mov X,A
+ 1515 18                pop A
+ 1516 7C0000            xcall _LCD_PrCString
+ 1519 20                pop X
+ 151A                   .dbline 1222
+ 151A 560100            mov [X+1],0
+ 151D 560000            mov [X+0],0
+ 1520 8006              xjmp L680
+ 1522           L677:
+ 1522                   .dbline 1222
+ 1522           L678:
+ 1522                   .dbline 1222
+ 1522 7701              inc [X+1]
+ 1524 0F0000            adc [X+0],0
+ 1527           L680:
+ 1527                   .dbline 1222
+ 1527           ; }
+ 1527 62D000            mov REG[0xd0],>__r0
+ 152A 5201              mov A,[X+1]
+ 152C 5300              mov [__r3],A
+ 152E 5200              mov A,[X+0]
+ 1530 5300              mov [__r2],A
+ 1532 5100              mov A,[__r3]
+ 1534 1150              sub A,80
+ 1536 5100              mov A,[__r2]
+ 1538 19C3              sbb A,-61
+ 153A 5000              mov A,0
+ 153C 1900              sbb A,0
+ 153E 5000              mov A,0
+ 1540 3180              xor A,-128
+ 1542 1980              sbb A,(0 ^ 0x80)
+ 1544 CFDD              jc L677
+ 1546           X30:
+ 1546                   .dbline 1223
+ 1546 560100            mov [X+1],0
+ 1549 560000            mov [X+0],0
+ 154C 8006              xjmp L684
+ 154E           L681:
+ 154E                   .dbline 1223
+ 154E           L682:
+ 154E                   .dbline 1223
+ 154E 7701              inc [X+1]
+ 1550 0F0000            adc [X+0],0
+ 1553           L684:
+ 1553                   .dbline 1223
+ 1553           ; }
+ 1553 62D000            mov REG[0xd0],>__r0
+ 1556 5201              mov A,[X+1]
+ 1558 5300              mov [__r3],A
+ 155A 5200              mov A,[X+0]
+ 155C 5300              mov [__r2],A
+ 155E 5100              mov A,[__r3]
+ 1560 1150              sub A,80
+ 1562 5100              mov A,[__r2]
+ 1564 19C3              sbb A,-61
+ 1566 5000              mov A,0
+ 1568 1900              sbb A,0
+ 156A 5000              mov A,0
+ 156C 3180              xor A,-128
+ 156E 1980              sbb A,(0 ^ 0x80)
+ 1570 CFDD              jc L681
+ 1572           X31:
+ 1572                   .dbline 1224
+ 1572           ; }
+ 1572 8F53              xjmp L665
+ 1574           L671:
+ 1574                   .dbline 1225
+ 1574           ; }
+ 1574 3D0203            cmp [X+2],3
+ 1577 BF4E              jnz L665
+ 1579                   .dbline 1226
+ 1579           ; }
+ 1579                   .dbline 1227
+ 1579           ; }
+ 1579 10                push X
+ 157A 500C              mov A,12
+ 157C 7C0000            xcall _LCD_Control
+ 157F                   .dbline 1228
+ 157F           ; }
+ 157F 5701              mov X,1
+ 1581 5000              mov A,0
+ 1583 7C0000            xcall _LCD_Position
+ 1586                   .dbline 1229
+ 1586           ; }
+ 1586 506E              mov A,>L687
+ 1588 08                push A
+ 1589 506E              mov A,<L687
+ 158B 5C                mov X,A
+ 158C 18                pop A
+ 158D 7C0000            xcall _LCD_PrCString
+ 1590                   .dbline 1230
+ 1590           ; }
+ 1590 5702              mov X,2
+ 1592 5001              mov A,1
+ 1594 7C0000            xcall _LCD_Position
+ 1597                   .dbline 1231
+ 1597           ; }
+ 1597 5062              mov A,>L688
+ 1599 08                push A
+ 159A 5062              mov A,<L688
+ 159C 5C                mov X,A
+ 159D 18                pop A
+ 159E 7C0000            xcall _LCD_PrCString
+ 15A1 20                pop X
+ 15A2                   .dbline 1232
+ 15A2 560100            mov [X+1],0
+ 15A5 560000            mov [X+0],0
+ 15A8 8006              xjmp L692
+ 15AA           L689:
+ 15AA                   .dbline 1232
+ 15AA           L690:
+ 15AA                   .dbline 1232
+ 15AA 7701              inc [X+1]
+ 15AC 0F0000            adc [X+0],0
+ 15AF           L692:
+ 15AF                   .dbline 1232
+ 15AF 62D000            mov REG[0xd0],>__r0
+ 15B2 5201              mov A,[X+1]
+ 15B4 5300              mov [__r3],A
+ 15B6 5200              mov A,[X+0]
+ 15B8 5300              mov [__r2],A
+ 15BA 5100              mov A,[__r3]
+ 15BC 1150              sub A,80
+ 15BE 5100              mov A,[__r2]
+ 15C0 19C3              sbb A,-61
+ 15C2 5000              mov A,0
+ 15C4 1900              sbb A,0
+ 15C6 5000              mov A,0
+ 15C8 3180              xor A,-128
+ 15CA 1980              sbb A,(0 ^ 0x80)
+ 15CC CFDD              jc L689
+ 15CE           X32:
+ 15CE                   .dbline 1233
+ 15CE 9006              xcall _Resetear
+ 15D0                   .dbline 1234
+ 15D0                   .dbline 1235
+ 15D0                   .dbline 1208
+ 15D0                   .dbline 1208
+ 15D0 8EF5              xjmp L665
+ 15D2           X26:
+ 15D2                   .dbline -2
+ 15D2           L650:
+ 15D2 38FD              add SP,-3
+ 15D4 20                pop X
+ 15D5                   .dbline 0 ; func end
+ 15D5 7F                ret
+ 15D6                   .dbsym l pulsat 2 c
+ 15D6                   .dbsym l x 0 i
+ 15D6                   .dbend
+ 15D6                   .dbfunc e Resetear _Resetear fV
+ 15D6           _Resetear::
+ 15D6                   .dbline -1
+ 15D6                   .dbline 1245
+ 15D6           ; }
+ 15D6           ; }
+ 15D6           ; }
+ 15D6           ; }
+ 15D6           ; }
+ 15D6           ; }
+ 15D6           ; }
+ 15D6           ; }
+ 15D6           ; }
+ 15D6           ; }
+ 15D6           ; }
+ 15D6           ; }
+ 15D6           ; }
+ 15D6           ; }
+ 15D6                   .dbline 1246
+ 15D6           ; }
+ 15D6 7C0165            xcall _Reset_PdT
+ 15D9                   .dbline 1247
+ 15D9           ; }
+ 15D9 7C011C            xcall _Principal
+ 15DC                   .dbline -2
+ 15DC                   .dbline 1248
+ 15DC           ; }
+ 15DC           L693:
+ 15DC                   .dbline 0 ; func end
+ 15DC 7F                ret
+ 15DD                   .dbend
+ 15DD                   .dbfunc e Sistema _Sistema fV
+ 15DD           ;              x -> X+2
+ 15DD           ;           menu -> X+1
+ 15DD           ;         pulsat -> X+0
+ 15DD           _Sistema::
+ 15DD                   .dbline -1
+ 15DD 10                push X
+ 15DE 4F                mov X,SP
+ 15DF 3804              add SP,4
+ 15E1                   .dbline 1258
+ 15E1           ; }
+ 15E1           ; }
+ 15E1           ; }
+ 15E1           ; }
+ 15E1           ; }
+ 15E1           ; }
+ 15E1           ; }
+ 15E1           ; }
+ 15E1           ; }
+ 15E1           ; }
+ 15E1                   .dbline 1259
+ 15E1           ; }
+ 15E1 560101            mov [X+1],1
+ 15E4           L695:
+ 15E4                   .dbline 1263
+ 15E4           ; }
+ 15E4           ; }
+ 15E4           ; }
+ 15E4           ; }
+ 15E4                   .dbline 1264
+ 15E4           ; }
  15E4 10                push X
- 15E5 5038              mov A,>L702
- 15E7 08                push A
- 15E8 5038              mov A,<L702
- 15EA 5C                mov X,A
- 15EB 18                pop A
- 15EC 7C0000            xcall _LCD_PrCString
- 15EF 20                pop X
- 15F0 8012              xjmp L701
- 15F2           L700:
- 15F2                   .dbline 1263
- 15F2           ; }
- 15F2 3D0103            cmp [X+1],3
- 15F5 B00D              jnz L703
- 15F7                   .dbline 1263
- 15F7 10                push X
- 15F8 5028              mov A,>L705
- 15FA 08                push A
- 15FB 5028              mov A,<L705
- 15FD 5C                mov X,A
- 15FE 18                pop A
- 15FF 7C0000            xcall _LCD_PrCString
- 1602 20                pop X
- 1603           L703:
- 1603           L701:
- 1603           L698:
- 1603                   .dbline 1264
- 1603           ; }
- 1603 7C00E8            xcall _bucle_temp
- 1606                   .dbline 1265
- 1606           ; }
- 1606 7C018A            xcall _Pulsador
- 1609 5400              mov [X+0],A
- 160B                   .dbline 1266
- 160B           ; }
- 160B 62D000            mov REG[0xd0],>_Buzzer
- 160E 3C0001            cmp [_Buzzer],1
- 1611 B004              jnz L706
- 1613                   .dbline 1266
- 1613 7C0139            xcall _Pitido
- 1616           L706:
- 1616                   .dbline 1267
- 1616           ; }
- 1616 3D0001            cmp [X+0],1
- 1619 B019              jnz L708
- 161B                   .dbline 1268
- 161B           ; }
- 161B                   .dbline 1269
- 161B           ; }
- 161B 62D000            mov REG[0xd0],>__r0
- 161E 5201              mov A,[X+1]
- 1620 0101              add A,1
- 1622 5300              mov [__r0],A
- 1624 5003              mov A,3
- 1626 3A00              cmp A,[__r0]
- 1628 D006              jnc L710
- 162A           X33:
- 162A                   .dbline 1269
- 162A 560101            mov [X+1],1
- 162D 803C              xjmp L709
- 162F           L710:
- 162F                   .dbline 1270
- 162F           ; }
- 162F 7701              inc [X+1]
- 1631                   .dbline 1271
- 1631           ; }
- 1631 8038              xjmp L709
- 1633           L708:
- 1633                   .dbline 1272
+ 15E5 5001              mov A,1
+ 15E7 7C0000            xcall _LCD_Control
+ 15EA                   .dbline 1265
+ 15EA           ; }
+ 15EA 5053              mov A,>L698
+ 15EC 08                push A
+ 15ED 5053              mov A,<L698
+ 15EF 5C                mov X,A
+ 15F0 18                pop A
+ 15F1 7C0000            xcall _LCD_PrCString
+ 15F4                   .dbline 1266
+ 15F4           ; }
+ 15F4 5700              mov X,0
+ 15F6 5001              mov A,1
+ 15F8 7C0000            xcall _LCD_Position
+ 15FB 20                pop X
+ 15FC                   .dbline 1267
+ 15FC           ; }
+ 15FC 3D0101            cmp [X+1],1
+ 15FF B00F              jnz L699
+ 1601                   .dbline 1267
+ 1601 10                push X
+ 1602 5049              mov A,>L701
+ 1604 08                push A
+ 1605 5049              mov A,<L701
+ 1607 5C                mov X,A
+ 1608 18                pop A
+ 1609 7C0000            xcall _LCD_PrCString
+ 160C 20                pop X
+ 160D 8025              xjmp L700
+ 160F           L699:
+ 160F                   .dbline 1268
+ 160F           ; }
+ 160F 3D0102            cmp [X+1],2
+ 1612 B00F              jnz L702
+ 1614                   .dbline 1268
+ 1614 10                push X
+ 1615 5038              mov A,>L704
+ 1617 08                push A
+ 1618 5038              mov A,<L704
+ 161A 5C                mov X,A
+ 161B 18                pop A
+ 161C 7C0000            xcall _LCD_PrCString
+ 161F 20                pop X
+ 1620 8012              xjmp L703
+ 1622           L702:
+ 1622                   .dbline 1269
+ 1622           ; }
+ 1622 3D0103            cmp [X+1],3
+ 1625 B00D              jnz L705
+ 1627                   .dbline 1269
+ 1627 10                push X
+ 1628 5028              mov A,>L707
+ 162A 08                push A
+ 162B 5028              mov A,<L707
+ 162D 5C                mov X,A
+ 162E 18                pop A
+ 162F 7C0000            xcall _LCD_PrCString
+ 1632 20                pop X
+ 1633           L705:
+ 1633           L703:
+ 1633           L700:
+ 1633                   .dbline 1270
  1633           ; }
- 1633 3D0003            cmp [X+0],3
- 1636 B01C              jnz L712
- 1638                   .dbline 1273
- 1638           ; }
- 1638                   .dbline 1274
- 1638           ; }
- 1638 3D0101            cmp [X+1],1
- 163B B005              jnz L714
- 163D                   .dbline 1274
- 163D 9034              xcall _Reali_LCD
- 163F 802A              xjmp L713
- 1641           L714:
- 1641                   .dbline 1275
- 1641           ; }
- 1641 3D0102            cmp [X+1],2
- 1644 B005              jnz L716
- 1646                   .dbline 1275
- 1646 90B6              xcall _Zumbador
- 1648 8021              xjmp L713
- 164A           L716:
- 164A                   .dbline 1276
- 164A           ; }
- 164A 3D0103            cmp [X+1],3
- 164D B01C              jnz L713
- 164F                   .dbline 1276
- 164F 9132              xcall _Ali_Led
- 1651                   .dbline 1277
- 1651           ; }
- 1651 8018              xjmp L713
- 1653           L712:
- 1653                   .dbline 1278
- 1653           ; }
- 1653 3D0002            cmp [X+0],2
- 1656 B013              jnz L720
- 1658                   .dbline 1279
- 1658           ; }
- 1658                   .dbline 1280
- 1658           ; }
- 1658 62D000            mov REG[0xd0],>__r0
- 165B 5201              mov A,[X+1]
- 165D 1101              sub A,1
- 165F 3901              cmp A,1
- 1661 D006              jnc L722
- 1663           X34:
- 1663                   .dbline 1280
- 1663 560103            mov [X+1],3
- 1666 8003              xjmp L723
- 1668           L722:
- 1668                   .dbline 1281
+ 1633 7C00E8            xcall _bucle_temp
+ 1636                   .dbline 1271
+ 1636           ; }
+ 1636 7C018A            xcall _Pulsador
+ 1639 5400              mov [X+0],A
+ 163B                   .dbline 1272
+ 163B           ; }
+ 163B 62D000            mov REG[0xd0],>_Buzzer
+ 163E 3C0001            cmp [_Buzzer],1
+ 1641 B004              jnz L708
+ 1643                   .dbline 1272
+ 1643 7C0139            xcall _Pitido
+ 1646           L708:
+ 1646                   .dbline 1273
+ 1646           ; }
+ 1646 3D0001            cmp [X+0],1
+ 1649 B019              jnz L710
+ 164B                   .dbline 1274
+ 164B           ; }
+ 164B                   .dbline 1275
+ 164B           ; }
+ 164B 62D000            mov REG[0xd0],>__r0
+ 164E 5201              mov A,[X+1]
+ 1650 0101              add A,1
+ 1652 5300              mov [__r0],A
+ 1654 5003              mov A,3
+ 1656 3A00              cmp A,[__r0]
+ 1658 D006              jnc L712
+ 165A           X33:
+ 165A                   .dbline 1275
+ 165A 560101            mov [X+1],1
+ 165D 803C              xjmp L711
+ 165F           L712:
+ 165F                   .dbline 1276
+ 165F           ; }
+ 165F 7701              inc [X+1]
+ 1661                   .dbline 1277
+ 1661           ; }
+ 1661 8038              xjmp L711
+ 1663           L710:
+ 1663                   .dbline 1278
+ 1663           ; }
+ 1663 3D0003            cmp [X+0],3
+ 1666 B01C              jnz L714
+ 1668                   .dbline 1279
  1668           ; }
- 1668 7B01              dec [X+1]
- 166A           L723:
- 166A                   .dbline 1282
- 166A           ; }
- 166A           L720:
- 166A           L713:
- 166A           L709:
- 166A                   .dbline 1283
- 166A           L694:
- 166A                   .dbline 1283
- 166A           ; }
- 166A 3D0004            cmp [X+0],4
- 166D BF46              jnz L693
- 166F                   .dbline -2
- 166F                   .dbline 1284
- 166F           ; }
- 166F           L692:
- 166F 38FC              add SP,-4
- 1671 20                pop X
- 1672                   .dbline 0 ; func end
- 1672 7F                ret
- 1673                   .dbsym l x 2 i
- 1673                   .dbsym l menu 1 c
- 1673                   .dbsym l pulsat 0 c
- 1673                   .dbend
- 1673                   .dbfunc e Reali_LCD _Reali_LCD fV
- 1673           ;              x -> X+1
- 1673           ;         pulsat -> X+0
- 1673           _Reali_LCD::
- 1673                   .dbline -1
- 1673 10                push X
- 1674 4F                mov X,SP
- 1675 3803              add SP,3
- 1677                   .dbline 1293
- 1677           ; }
- 1677           ; }
- 1677           ; }
- 1677           ; }
- 1677           ; }
- 1677           ; }
- 1677           ; }
- 1677           ; }
- 1677           ; }
- 1677           L725:
- 1677                   .dbline 1298
- 1677           ; }
- 1677           ; }
- 1677           ; }
- 1677           ; }
- 1677           ; }
- 1677                   .dbline 1299
- 1677           ; }
- 1677 10                push X
- 1678 5001              mov A,1
- 167A 7C0000            xcall _LCD_Control
- 167D                   .dbline 1300
- 167D           ; }
- 167D 501F              mov A,>L728
- 167F 08                push A
- 1680 501F              mov A,<L728
- 1682 5C                mov X,A
- 1683 18                pop A
- 1684 7C0000            xcall _LCD_PrCString
- 1687                   .dbline 1301
- 1687           ; }
- 1687 5700              mov X,0
- 1689 5001              mov A,1
- 168B 7C0000            xcall _LCD_Position
- 168E 20                pop X
- 168F                   .dbline 1302
- 168F           ; }
- 168F 62D000            mov REG[0xd0],>_Luz_LCD
- 1692 3C0000            cmp [_Luz_LCD],0
- 1695 B00F              jnz L729
- 1697                   .dbline 1302
- 1697 10                push X
- 1698 50D1              mov A,>L151
- 169A 08                push A
- 169B 50D1              mov A,<L151
- 169D 5C                mov X,A
- 169E 18                pop A
- 169F 7C0000            xcall _LCD_PrCString
- 16A2 20                pop X
- 16A3 800D              xjmp L730
- 16A5           L729:
- 16A5                   .dbline 1303
- 16A5           ; }
- 16A5 10                push X
- 16A6 50CE              mov A,>L152
- 16A8 08                push A
- 16A9 50CE              mov A,<L152
- 16AB 5C                mov X,A
- 16AC 18                pop A
- 16AD 7C0000            xcall _LCD_PrCString
- 16B0 20                pop X
- 16B1           L730:
- 16B1                   .dbline 1304
- 16B1           ; }
- 16B1 7C00E8            xcall _bucle_temp
- 16B4                   .dbline 1305
- 16B4           ; }
- 16B4 7C018A            xcall _Pulsador
- 16B7 5400              mov [X+0],A
- 16B9                   .dbline 1306
- 16B9           ; }
- 16B9 62D000            mov REG[0xd0],>_Buzzer
- 16BC 3C0001            cmp [_Buzzer],1
- 16BF B004              jnz L731
- 16C1                   .dbline 1306
- 16C1 7C0139            xcall _Pitido
- 16C4           L731:
- 16C4                   .dbline 1307
- 16C4           ; }
- 16C4 3D0001            cmp [X+0],1
- 16C7 A006              jz L735
- 16C9 3D0002            cmp [X+0],2
- 16CC B00A              jnz L733
- 16CE           L735:
- 16CE                   .dbline 1308
- 16CE           ; }
- 16CE                   .dbline 1309
- 16CE           ; }
- 16CE 5D00              mov A,REG[ 0]
- 16D0 62D000            mov REG[0xd0],>__r0
- 16D3 6000              mov REG[ 0],A
- 16D5                   .dbline 1310
+ 1668                   .dbline 1280
+ 1668           ; }
+ 1668 3D0101            cmp [X+1],1
+ 166B B005              jnz L716
+ 166D                   .dbline 1280
+ 166D 9034              xcall _Reali_LCD
+ 166F 802A              xjmp L715
+ 1671           L716:
+ 1671                   .dbline 1281
+ 1671           ; }
+ 1671 3D0102            cmp [X+1],2
+ 1674 B005              jnz L718
+ 1676                   .dbline 1281
+ 1676 90B6              xcall _Zumbador
+ 1678 8021              xjmp L715
+ 167A           L718:
+ 167A                   .dbline 1282
+ 167A           ; }
+ 167A 3D0103            cmp [X+1],3
+ 167D B01C              jnz L715
+ 167F                   .dbline 1282
+ 167F 9132              xcall _Ali_Led
+ 1681                   .dbline 1283
+ 1681           ; }
+ 1681 8018              xjmp L715
+ 1683           L714:
+ 1683                   .dbline 1284
+ 1683           ; }
+ 1683 3D0002            cmp [X+0],2
+ 1686 B013              jnz L722
+ 1688                   .dbline 1285
+ 1688           ; }
+ 1688                   .dbline 1286
+ 1688           ; }
+ 1688 62D000            mov REG[0xd0],>__r0
+ 168B 5201              mov A,[X+1]
+ 168D 1101              sub A,1
+ 168F 3901              cmp A,1
+ 1691 D006              jnc L724
+ 1693           X34:
+ 1693                   .dbline 1286
+ 1693 560103            mov [X+1],3
+ 1696 8003              xjmp L725
+ 1698           L724:
+ 1698                   .dbline 1287
+ 1698           ; }
+ 1698 7B01              dec [X+1]
+ 169A           L725:
+ 169A                   .dbline 1288
+ 169A           ; }
+ 169A           L722:
+ 169A           L715:
+ 169A           L711:
+ 169A                   .dbline 1289
+ 169A           L696:
+ 169A                   .dbline 1289
+ 169A           ; }
+ 169A 3D0004            cmp [X+0],4
+ 169D BF46              jnz L695
+ 169F                   .dbline -2
+ 169F                   .dbline 1290
+ 169F           ; }
+ 169F           L694:
+ 169F 38FC              add SP,-4
+ 16A1 20                pop X
+ 16A2                   .dbline 0 ; func end
+ 16A2 7F                ret
+ 16A3                   .dbsym l x 2 i
+ 16A3                   .dbsym l menu 1 c
+ 16A3                   .dbsym l pulsat 0 c
+ 16A3                   .dbend
+ 16A3                   .dbfunc e Reali_LCD _Reali_LCD fV
+ 16A3           ;              x -> X+1
+ 16A3           ;         pulsat -> X+0
+ 16A3           _Reali_LCD::
+ 16A3                   .dbline -1
+ 16A3 10                push X
+ 16A4 4F                mov X,SP
+ 16A5 3803              add SP,3
+ 16A7                   .dbline 1299
+ 16A7           ; }
+ 16A7           ; }
+ 16A7           ; }
+ 16A7           ; }
+ 16A7           ; }
+ 16A7           ; }
+ 16A7           ; }
+ 16A7           ; }
+ 16A7           ; }
+ 16A7           L727:
+ 16A7                   .dbline 1304
+ 16A7           ; }
+ 16A7           ; }
+ 16A7           ; }
+ 16A7           ; }
+ 16A7           ; }
+ 16A7                   .dbline 1305
+ 16A7           ; }
+ 16A7 10                push X
+ 16A8 5001              mov A,1
+ 16AA 7C0000            xcall _LCD_Control
+ 16AD                   .dbline 1306
+ 16AD           ; }
+ 16AD 501F              mov A,>L730
+ 16AF 08                push A
+ 16B0 501F              mov A,<L730
+ 16B2 5C                mov X,A
+ 16B3 18                pop A
+ 16B4 7C0000            xcall _LCD_PrCString
+ 16B7                   .dbline 1307
+ 16B7           ; }
+ 16B7 5700              mov X,0
+ 16B9 5001              mov A,1
+ 16BB 7C0000            xcall _LCD_Position
+ 16BE 20                pop X
+ 16BF                   .dbline 1308
+ 16BF           ; }
+ 16BF 62D000            mov REG[0xd0],>_Luz_LCD
+ 16C2 3C0000            cmp [_Luz_LCD],0
+ 16C5 B00F              jnz L731
+ 16C7                   .dbline 1308
+ 16C7 10                push X
+ 16C8 50E1              mov A,>L151
+ 16CA 08                push A
+ 16CB 50E1              mov A,<L151
+ 16CD 5C                mov X,A
+ 16CE 18                pop A
+ 16CF 7C0000            xcall _LCD_PrCString
+ 16D2 20                pop X
+ 16D3 800D              xjmp L732
+ 16D5           L731:
+ 16D5                   .dbline 1309
  16D5           ; }
- 16D5 801F              xjmp L734
- 16D7           L733:
- 16D7                   .dbline 1311
- 16D7           ; }
- 16D7 3D0003            cmp [X+0],3
- 16DA B01A              jnz L736
- 16DC                   .dbline 1312
- 16DC           ; }
- 16DC                   .dbline 1313
- 16DC           ; }
- 16DC 62D000            mov REG[0xd0],>_Luz_LCD
- 16DF 3C0000            cmp [_Luz_LCD],0
- 16E2 B009              jnz L738
- 16E4                   .dbline 1314
+ 16D5 10                push X
+ 16D6 50DE              mov A,>L152
+ 16D8 08                push A
+ 16D9 50DE              mov A,<L152
+ 16DB 5C                mov X,A
+ 16DC 18                pop A
+ 16DD 7C0000            xcall _LCD_PrCString
+ 16E0 20                pop X
+ 16E1           L732:
+ 16E1                   .dbline 1310
+ 16E1           ; }
+ 16E1 7C00E8            xcall _bucle_temp
+ 16E4                   .dbline 1311
  16E4           ; }
- 16E4                   .dbline 1315
- 16E4           ; }
- 16E4 430002            or REG[ 0],2
- 16E7                   .dbline 1316
- 16E7           ; }
- 16E7 550001            mov [_Luz_LCD],1
- 16EA                   .dbline 1317
- 16EA           ; }
- 16EA 800A              xjmp L739
- 16EC           L738:
- 16EC                   .dbline 1319
- 16EC           ; }
- 16EC           ; }
- 16EC                   .dbline 1320
- 16EC           ; }
- 16EC 4100FD            and REG[ 0],-3
- 16EF                   .dbline 1321
- 16EF           ; }
- 16EF 62D000            mov REG[0xd0],>_Luz_LCD
- 16F2 550000            mov [_Luz_LCD],0
- 16F5                   .dbline 1322
- 16F5           ; }
- 16F5           L739:
- 16F5                   .dbline 1323
- 16F5           ; }
- 16F5           L736:
- 16F5           L734:
- 16F5                   .dbline 1324
- 16F5           L726:
- 16F5                   .dbline 1324
- 16F5           ; }
- 16F5 3D0004            cmp [X+0],4
- 16F8 BF7E              jnz L725
- 16FA                   .dbline -2
- 16FA                   .dbline 1325
- 16FA           ; }
- 16FA           L724:
- 16FA 38FD              add SP,-3
- 16FC 20                pop X
- 16FD                   .dbline 0 ; func end
- 16FD 7F                ret
- 16FE                   .dbsym l x 1 i
- 16FE                   .dbsym l pulsat 0 c
- 16FE                   .dbend
- 16FE                   .dbfunc e Zumbador _Zumbador fV
- 16FE           ;              x -> X+1
- 16FE           ;         pulsat -> X+0
- 16FE           _Zumbador::
- 16FE                   .dbline -1
- 16FE 10                push X
- 16FF 4F                mov X,SP
- 1700 3803              add SP,3
- 1702                   .dbline 1334
- 1702           ; }
- 1702           ; }
- 1702           ; }
- 1702           ; }
- 1702           ; }
- 1702           ; }
- 1702           ; }
- 1702           ; }
- 1702           ; }
- 1702           L741:
- 1702                   .dbline 1339
- 1702           ; }
- 1702           ; }
- 1702           ; }
- 1702           ; }
- 1702           ; }
- 1702                   .dbline 1340
- 1702           ; }
- 1702 10                push X
- 1703 5001              mov A,1
- 1705 7C0000            xcall _LCD_Control
- 1708                   .dbline 1341
- 1708           ; }
- 1708 500F              mov A,>L744
- 170A 08                push A
- 170B 500F              mov A,<L744
- 170D 5C                mov X,A
- 170E 18                pop A
- 170F 7C0000            xcall _LCD_PrCString
- 1712                   .dbline 1342
- 1712           ; }
- 1712 5700              mov X,0
- 1714 5001              mov A,1
- 1716 7C0000            xcall _LCD_Position
- 1719 20                pop X
- 171A                   .dbline 1343
+ 16E4 7C018A            xcall _Pulsador
+ 16E7 5400              mov [X+0],A
+ 16E9                   .dbline 1312
+ 16E9           ; }
+ 16E9 62D000            mov REG[0xd0],>_Buzzer
+ 16EC 3C0001            cmp [_Buzzer],1
+ 16EF B004              jnz L733
+ 16F1                   .dbline 1312
+ 16F1 7C0139            xcall _Pitido
+ 16F4           L733:
+ 16F4                   .dbline 1313
+ 16F4           ; }
+ 16F4 3D0001            cmp [X+0],1
+ 16F7 A006              jz L737
+ 16F9 3D0002            cmp [X+0],2
+ 16FC B00A              jnz L735
+ 16FE           L737:
+ 16FE                   .dbline 1314
+ 16FE           ; }
+ 16FE                   .dbline 1315
+ 16FE           ; }
+ 16FE 5D00              mov A,REG[ 0]
+ 1700 62D000            mov REG[0xd0],>__r0
+ 1703 6000              mov REG[ 0],A
+ 1705                   .dbline 1316
+ 1705           ; }
+ 1705 801F              xjmp L736
+ 1707           L735:
+ 1707                   .dbline 1317
+ 1707           ; }
+ 1707 3D0003            cmp [X+0],3
+ 170A B01A              jnz L738
+ 170C                   .dbline 1318
+ 170C           ; }
+ 170C                   .dbline 1319
+ 170C           ; }
+ 170C 62D000            mov REG[0xd0],>_Luz_LCD
+ 170F 3C0000            cmp [_Luz_LCD],0
+ 1712 B009              jnz L740
+ 1714                   .dbline 1320
+ 1714           ; }
+ 1714                   .dbline 1321
+ 1714           ; }
+ 1714 430002            or REG[ 0],2
+ 1717                   .dbline 1322
+ 1717           ; }
+ 1717 550001            mov [_Luz_LCD],1
+ 171A                   .dbline 1323
  171A           ; }
- 171A 62D000            mov REG[0xd0],>_Buzzer
- 171D 3C0000            cmp [_Buzzer],0
- 1720 B00F              jnz L745
- 1722                   .dbline 1343
- 1722 10                push X
- 1723 50D1              mov A,>L151
- 1725 08                push A
- 1726 50D1              mov A,<L151
- 1728 5C                mov X,A
- 1729 18                pop A
- 172A 7C0000            xcall _LCD_PrCString
- 172D 20                pop X
- 172E 800D              xjmp L746
- 1730           L745:
- 1730                   .dbline 1344
- 1730           ; }
- 1730 10                push X
- 1731 50CE              mov A,>L152
- 1733 08                push A
- 1734 50CE              mov A,<L152
- 1736 5C                mov X,A
- 1737 18                pop A
- 1738 7C0000            xcall _LCD_PrCString
- 173B 20                pop X
- 173C           L746:
- 173C                   .dbline 1345
- 173C           ; }
- 173C 7C00E8            xcall _bucle_temp
- 173F                   .dbline 1346
- 173F           ; }
- 173F 7C018A            xcall _Pulsador
- 1742 5400              mov [X+0],A
- 1744                   .dbline 1347
- 1744           ; }
- 1744 62D000            mov REG[0xd0],>_Buzzer
- 1747 3C0001            cmp [_Buzzer],1
- 174A B004              jnz L747
- 174C                   .dbline 1347
- 174C 7C0139            xcall _Pitido
- 174F           L747:
- 174F                   .dbline 1348
- 174F           ; }
- 174F 3D0001            cmp [X+0],1
- 1752 A006              jz L751
- 1754 3D0002            cmp [X+0],2
- 1757 B00A              jnz L749
- 1759           L751:
- 1759                   .dbline 1349
- 1759           ; }
- 1759                   .dbline 1350
- 1759           ; }
- 1759 5D00              mov A,REG[ 0]
- 175B 62D000            mov REG[0xd0],>__r0
- 175E 6000              mov REG[ 0],A
- 1760                   .dbline 1351
+ 171A 800A              xjmp L741
+ 171C           L740:
+ 171C                   .dbline 1325
+ 171C           ; }
+ 171C           ; }
+ 171C                   .dbline 1326
+ 171C           ; }
+ 171C 4100FD            and REG[ 0],-3
+ 171F                   .dbline 1327
+ 171F           ; }
+ 171F 62D000            mov REG[0xd0],>_Luz_LCD
+ 1722 550000            mov [_Luz_LCD],0
+ 1725                   .dbline 1328
+ 1725           ; }
+ 1725           L741:
+ 1725                   .dbline 1329
+ 1725           ; }
+ 1725           L738:
+ 1725           L736:
+ 1725                   .dbline 1330
+ 1725           L728:
+ 1725                   .dbline 1330
+ 1725           ; }
+ 1725 3D0004            cmp [X+0],4
+ 1728 BF7E              jnz L727
+ 172A                   .dbline -2
+ 172A                   .dbline 1331
+ 172A           ; }
+ 172A           L726:
+ 172A 38FD              add SP,-3
+ 172C 20                pop X
+ 172D                   .dbline 0 ; func end
+ 172D 7F                ret
+ 172E                   .dbsym l x 1 i
+ 172E                   .dbsym l pulsat 0 c
+ 172E                   .dbend
+ 172E                   .dbfunc e Zumbador _Zumbador fV
+ 172E           ;              x -> X+1
+ 172E           ;         pulsat -> X+0
+ 172E           _Zumbador::
+ 172E                   .dbline -1
+ 172E 10                push X
+ 172F 4F                mov X,SP
+ 1730 3803              add SP,3
+ 1732                   .dbline 1340
+ 1732           ; }
+ 1732           ; }
+ 1732           ; }
+ 1732           ; }
+ 1732           ; }
+ 1732           ; }
+ 1732           ; }
+ 1732           ; }
+ 1732           ; }
+ 1732           L743:
+ 1732                   .dbline 1345
+ 1732           ; }
+ 1732           ; }
+ 1732           ; }
+ 1732           ; }
+ 1732           ; }
+ 1732                   .dbline 1346
+ 1732           ; }
+ 1732 10                push X
+ 1733 5001              mov A,1
+ 1735 7C0000            xcall _LCD_Control
+ 1738                   .dbline 1347
+ 1738           ; }
+ 1738 500F              mov A,>L746
+ 173A 08                push A
+ 173B 500F              mov A,<L746
+ 173D 5C                mov X,A
+ 173E 18                pop A
+ 173F 7C0000            xcall _LCD_PrCString
+ 1742                   .dbline 1348
+ 1742           ; }
+ 1742 5700              mov X,0
+ 1744 5001              mov A,1
+ 1746 7C0000            xcall _LCD_Position
+ 1749 20                pop X
+ 174A                   .dbline 1349
+ 174A           ; }
+ 174A 62D000            mov REG[0xd0],>_Buzzer
+ 174D 3C0000            cmp [_Buzzer],0
+ 1750 B00F              jnz L747
+ 1752                   .dbline 1349
+ 1752 10                push X
+ 1753 50E1              mov A,>L151
+ 1755 08                push A
+ 1756 50E1              mov A,<L151
+ 1758 5C                mov X,A
+ 1759 18                pop A
+ 175A 7C0000            xcall _LCD_PrCString
+ 175D 20                pop X
+ 175E 800D              xjmp L748
+ 1760           L747:
+ 1760                   .dbline 1350
  1760           ; }
- 1760 8019              xjmp L750
- 1762           L749:
- 1762                   .dbline 1352
- 1762           ; }
- 1762 3D0003            cmp [X+0],3
- 1765 B014              jnz L752
- 1767                   .dbline 1353
- 1767           ; }
- 1767                   .dbline 1354
- 1767           ; }
- 1767 62D000            mov REG[0xd0],>_Buzzer
- 176A 3C0000            cmp [_Buzzer],0
- 176D B006              jnz L754
- 176F                   .dbline 1354
- 176F 550001            mov [_Buzzer],1
- 1772 8007              xjmp L755
- 1774           L754:
- 1774                   .dbline 1355
+ 1760 10                push X
+ 1761 50DE              mov A,>L152
+ 1763 08                push A
+ 1764 50DE              mov A,<L152
+ 1766 5C                mov X,A
+ 1767 18                pop A
+ 1768 7C0000            xcall _LCD_PrCString
+ 176B 20                pop X
+ 176C           L748:
+ 176C                   .dbline 1351
+ 176C           ; }
+ 176C 7C00E8            xcall _bucle_temp
+ 176F                   .dbline 1352
+ 176F           ; }
+ 176F 7C018A            xcall _Pulsador
+ 1772 5400              mov [X+0],A
+ 1774                   .dbline 1353
  1774           ; }
  1774 62D000            mov REG[0xd0],>_Buzzer
- 1777 550000            mov [_Buzzer],0
- 177A           L755:
- 177A                   .dbline 1356
- 177A           ; }
- 177A           L752:
- 177A           L750:
- 177A                   .dbline 1357
- 177A           L742:
- 177A                   .dbline 1357
- 177A           ; }
- 177A 3D0004            cmp [X+0],4
- 177D BF84              jnz L741
- 177F                   .dbline -2
- 177F                   .dbline 1358
+ 1777 3C0001            cmp [_Buzzer],1
+ 177A B004              jnz L749
+ 177C                   .dbline 1353
+ 177C 7C0139            xcall _Pitido
+ 177F           L749:
+ 177F                   .dbline 1354
  177F           ; }
- 177F           L740:
- 177F 38FD              add SP,-3
- 1781 20                pop X
- 1782                   .dbline 0 ; func end
- 1782 7F                ret
- 1783                   .dbsym l x 1 i
- 1783                   .dbsym l pulsat 0 c
- 1783                   .dbend
- 1783                   .dbfunc e Ali_Led _Ali_Led fV
- 1783           ;              x -> X+1
- 1783           ;         pulsat -> X+0
- 1783           _Ali_Led::
- 1783                   .dbline -1
- 1783 10                push X
- 1784 4F                mov X,SP
- 1785 3803              add SP,3
- 1787                   .dbline 1367
- 1787           ; }
- 1787           ; }
- 1787           ; }
- 1787           ; }
- 1787           ; }
- 1787           ; }
- 1787           ; }
- 1787           ; }
- 1787           ; }
- 1787           L757:
- 1787                   .dbline 1372
- 1787           ; }
- 1787           ; }
- 1787           ; }
- 1787           ; }
- 1787           ; }
- 1787                   .dbline 1373
- 1787           ; }
- 1787 10                push X
- 1788 5001              mov A,1
- 178A 7C0000            xcall _LCD_Control
- 178D                   .dbline 1374
- 178D           ; }
- 178D 5000              mov A,>L760
- 178F 08                push A
- 1790 5000              mov A,<L760
- 1792 5C                mov X,A
- 1793 18                pop A
- 1794 7C0000            xcall _LCD_PrCString
- 1797                   .dbline 1375
+ 177F 3D0001            cmp [X+0],1
+ 1782 A006              jz L753
+ 1784 3D0002            cmp [X+0],2
+ 1787 B00A              jnz L751
+ 1789           L753:
+ 1789                   .dbline 1355
+ 1789           ; }
+ 1789                   .dbline 1356
+ 1789           ; }
+ 1789 5D00              mov A,REG[ 0]
+ 178B 62D000            mov REG[0xd0],>__r0
+ 178E 6000              mov REG[ 0],A
+ 1790                   .dbline 1357
+ 1790           ; }
+ 1790 8019              xjmp L752
+ 1792           L751:
+ 1792                   .dbline 1358
+ 1792           ; }
+ 1792 3D0003            cmp [X+0],3
+ 1795 B014              jnz L754
+ 1797                   .dbline 1359
  1797           ; }
- 1797 5700              mov X,0
- 1799 5001              mov A,1
- 179B 7C0000            xcall _LCD_Position
- 179E 20                pop X
- 179F                   .dbline 1376
- 179F           ; }
- 179F 62D000            mov REG[0xd0],>_Alimentacion
- 17A2 3C0000            cmp [_Alimentacion],0
- 17A5 B00F              jnz L761
- 17A7                   .dbline 1376
- 17A7 10                push X
- 17A8 50D1              mov A,>L151
- 17AA 08                push A
- 17AB 50D1              mov A,<L151
- 17AD 5C                mov X,A
- 17AE 18                pop A
- 17AF 7C0000            xcall _LCD_PrCString
- 17B2 20                pop X
- 17B3 800D              xjmp L762
- 17B5           L761:
- 17B5                   .dbline 1377
- 17B5           ; }
- 17B5 10                push X
- 17B6 50CE              mov A,>L152
- 17B8 08                push A
- 17B9 50CE              mov A,<L152
- 17BB 5C                mov X,A
- 17BC 18                pop A
- 17BD 7C0000            xcall _LCD_PrCString
- 17C0 20                pop X
- 17C1           L762:
- 17C1                   .dbline 1378
- 17C1           ; }
- 17C1 7C00E8            xcall _bucle_temp
- 17C4                   .dbline 1379
- 17C4           ; }
- 17C4 7C018A            xcall _Pulsador
- 17C7 5400              mov [X+0],A
- 17C9                   .dbline 1380
- 17C9           ; }
- 17C9 62D000            mov REG[0xd0],>_Buzzer
- 17CC 3C0001            cmp [_Buzzer],1
- 17CF B004              jnz L763
- 17D1                   .dbline 1380
- 17D1 7C0139            xcall _Pitido
- 17D4           L763:
- 17D4                   .dbline 1381
- 17D4           ; }
- 17D4 3D0001            cmp [X+0],1
- 17D7 A006              jz L767
- 17D9 3D0002            cmp [X+0],2
- 17DC B00A              jnz L765
- 17DE           L767:
- 17DE                   .dbline 1382
- 17DE           ; }
- 17DE                   .dbline 1383
- 17DE           ; }
- 17DE 5D00              mov A,REG[ 0]
- 17E0 62D000            mov REG[0xd0],>__r0
- 17E3 6000              mov REG[ 0],A
- 17E5                   .dbline 1384
+ 1797                   .dbline 1360
+ 1797           ; }
+ 1797 62D000            mov REG[0xd0],>_Buzzer
+ 179A 3C0000            cmp [_Buzzer],0
+ 179D B006              jnz L756
+ 179F                   .dbline 1360
+ 179F 550001            mov [_Buzzer],1
+ 17A2 8007              xjmp L757
+ 17A4           L756:
+ 17A4                   .dbline 1361
+ 17A4           ; }
+ 17A4 62D000            mov REG[0xd0],>_Buzzer
+ 17A7 550000            mov [_Buzzer],0
+ 17AA           L757:
+ 17AA                   .dbline 1362
+ 17AA           ; }
+ 17AA           L754:
+ 17AA           L752:
+ 17AA                   .dbline 1363
+ 17AA           L744:
+ 17AA                   .dbline 1363
+ 17AA           ; }
+ 17AA 3D0004            cmp [X+0],4
+ 17AD BF84              jnz L743
+ 17AF                   .dbline -2
+ 17AF                   .dbline 1364
+ 17AF           ; }
+ 17AF           L742:
+ 17AF 38FD              add SP,-3
+ 17B1 20                pop X
+ 17B2                   .dbline 0 ; func end
+ 17B2 7F                ret
+ 17B3                   .dbsym l x 1 i
+ 17B3                   .dbsym l pulsat 0 c
+ 17B3                   .dbend
+ 17B3                   .dbfunc e Ali_Led _Ali_Led fV
+ 17B3           ;              x -> X+1
+ 17B3           ;         pulsat -> X+0
+ 17B3           _Ali_Led::
+ 17B3                   .dbline -1
+ 17B3 10                push X
+ 17B4 4F                mov X,SP
+ 17B5 3803              add SP,3
+ 17B7                   .dbline 1373
+ 17B7           ; }
+ 17B7           ; }
+ 17B7           ; }
+ 17B7           ; }
+ 17B7           ; }
+ 17B7           ; }
+ 17B7           ; }
+ 17B7           ; }
+ 17B7           ; }
+ 17B7           L759:
+ 17B7                   .dbline 1378
+ 17B7           ; }
+ 17B7           ; }
+ 17B7           ; }
+ 17B7           ; }
+ 17B7           ; }
+ 17B7                   .dbline 1379
+ 17B7           ; }
+ 17B7 10                push X
+ 17B8 5001              mov A,1
+ 17BA 7C0000            xcall _LCD_Control
+ 17BD                   .dbline 1380
+ 17BD           ; }
+ 17BD 5000              mov A,>L762
+ 17BF 08                push A
+ 17C0 5000              mov A,<L762
+ 17C2 5C                mov X,A
+ 17C3 18                pop A
+ 17C4 7C0000            xcall _LCD_PrCString
+ 17C7                   .dbline 1381
+ 17C7           ; }
+ 17C7 5700              mov X,0
+ 17C9 5001              mov A,1
+ 17CB 7C0000            xcall _LCD_Position
+ 17CE 20                pop X
+ 17CF                   .dbline 1382
+ 17CF           ; }
+ 17CF 62D000            mov REG[0xd0],>_Alimentacion
+ 17D2 3C0000            cmp [_Alimentacion],0
+ 17D5 B00F              jnz L763
+ 17D7                   .dbline 1382
+ 17D7 10                push X
+ 17D8 50E1              mov A,>L151
+ 17DA 08                push A
+ 17DB 50E1              mov A,<L151
+ 17DD 5C                mov X,A
+ 17DE 18                pop A
+ 17DF 7C0000            xcall _LCD_PrCString
+ 17E2 20                pop X
+ 17E3 800D              xjmp L764
+ 17E5           L763:
+ 17E5                   .dbline 1383
  17E5           ; }
- 17E5 801F              xjmp L766
- 17E7           L765:
- 17E7                   .dbline 1385
- 17E7           ; }
- 17E7 3D0003            cmp [X+0],3
- 17EA B01A              jnz L768
- 17EC                   .dbline 1386
- 17EC           ; }
- 17EC                   .dbline 1387
- 17EC           ; }
- 17EC 62D000            mov REG[0xd0],>_Alimentacion
- 17EF 3C0000            cmp [_Alimentacion],0
- 17F2 B009              jnz L770
- 17F4                   .dbline 1388
+ 17E5 10                push X
+ 17E6 50DE              mov A,>L152
+ 17E8 08                push A
+ 17E9 50DE              mov A,<L152
+ 17EB 5C                mov X,A
+ 17EC 18                pop A
+ 17ED 7C0000            xcall _LCD_PrCString
+ 17F0 20                pop X
+ 17F1           L764:
+ 17F1                   .dbline 1384
+ 17F1           ; }
+ 17F1 7C00E8            xcall _bucle_temp
+ 17F4                   .dbline 1385
  17F4           ; }
- 17F4                   .dbline 1389
- 17F4           ; }
- 17F4 430010            or REG[ 0],16
- 17F7                   .dbline 1390
- 17F7           ; }
- 17F7 550001            mov [_Alimentacion],1
- 17FA                   .dbline 1391
- 17FA           ; }
- 17FA 800A              xjmp L771
- 17FC           L770:
- 17FC                   .dbline 1393
- 17FC           ; }
- 17FC           ; }
- 17FC                   .dbline 1394
- 17FC           ; }
- 17FC 4100EF            and REG[ 0],-17
- 17FF                   .dbline 1395
- 17FF           ; }
- 17FF 62D000            mov REG[0xd0],>_Alimentacion
- 1802 550000            mov [_Alimentacion],0
- 1805                   .dbline 1396
- 1805           ; }
- 1805           L771:
- 1805                   .dbline 1397
- 1805           ; }
- 1805           L768:
- 1805           L766:
- 1805                   .dbline 1398
- 1805           L758:
- 1805                   .dbline 1398
- 1805           ; }
- 1805 3D0004            cmp [X+0],4
- 1808 BF7E              jnz L757
- 180A                   .dbline -2
- 180A                   .dbline 1399
- 180A           ; }
- 180A           L756:
- 180A 38FD              add SP,-3
- 180C 20                pop X
- 180D                   .dbline 0 ; func end
- 180D 7F                ret
- 180E                   .dbsym l x 1 i
- 180E                   .dbsym l pulsat 0 c
- 180E                   .dbend
- 180E                   .dbfile ./main.c
- 180E                   .dbfunc e main _main fV
- 180E           _main::
- 180E                   .dbline -1
- 180E                   .dbline 15
- 180E                   .dbline 16
- 180E 7C009E            xcall _Inicializacion
- 1811                   .dbline 17
- 1811 7C00BC            xcall _Bienvenida
- 1814                   .dbline 18
- 1814           L773:
- 1814                   .dbline 18
- 1814 7C011C            xcall _Principal
- 1817                   .dbline 18
- 1817                   .dbline 18
- 1817 8FFC              xjmp L773
- 1819           X35:
- 1819                   .dbline -2
- 1819           L772:
- 1819                   .dbline 0 ; func end
- 1819 8FFF              jmp .
- 181B                   .dbend
+ 17F4 7C018A            xcall _Pulsador
+ 17F7 5400              mov [X+0],A
+ 17F9                   .dbline 1386
+ 17F9           ; }
+ 17F9 62D000            mov REG[0xd0],>_Buzzer
+ 17FC 3C0001            cmp [_Buzzer],1
+ 17FF B004              jnz L765
+ 1801                   .dbline 1386
+ 1801 7C0139            xcall _Pitido
+ 1804           L765:
+ 1804                   .dbline 1387
+ 1804           ; }
+ 1804 3D0001            cmp [X+0],1
+ 1807 A006              jz L769
+ 1809 3D0002            cmp [X+0],2
+ 180C B00A              jnz L767
+ 180E           L769:
+ 180E                   .dbline 1388
+ 180E           ; }
+ 180E                   .dbline 1389
+ 180E           ; }
+ 180E 5D00              mov A,REG[ 0]
+ 1810 62D000            mov REG[0xd0],>__r0
+ 1813 6000              mov REG[ 0],A
+ 1815                   .dbline 1390
+ 1815           ; }
+ 1815 801F              xjmp L768
+ 1817           L767:
+ 1817                   .dbline 1391
+ 1817           ; }
+ 1817 3D0003            cmp [X+0],3
+ 181A B01A              jnz L770
+ 181C                   .dbline 1392
+ 181C           ; }
+ 181C                   .dbline 1393
+ 181C           ; }
+ 181C 62D000            mov REG[0xd0],>_Alimentacion
+ 181F 3C0000            cmp [_Alimentacion],0
+ 1822 B009              jnz L772
+ 1824                   .dbline 1394
+ 1824           ; }
+ 1824                   .dbline 1395
+ 1824           ; }
+ 1824 430010            or REG[ 0],16
+ 1827                   .dbline 1396
+ 1827           ; }
+ 1827 550001            mov [_Alimentacion],1
+ 182A                   .dbline 1397
+ 182A           ; }
+ 182A 800A              xjmp L773
+ 182C           L772:
+ 182C                   .dbline 1399
+ 182C           ; }
+ 182C           ; }
+ 182C                   .dbline 1400
+ 182C           ; }
+ 182C 4100EF            and REG[ 0],-17
+ 182F                   .dbline 1401
+ 182F           ; }
+ 182F 62D000            mov REG[0xd0],>_Alimentacion
+ 1832 550000            mov [_Alimentacion],0
+ 1835                   .dbline 1402
+ 1835           ; }
+ 1835           L773:
+ 1835                   .dbline 1403
+ 1835           ; }
+ 1835           L770:
+ 1835           L768:
+ 1835                   .dbline 1404
+ 1835           L760:
+ 1835                   .dbline 1404
+ 1835           ; }
+ 1835 3D0004            cmp [X+0],4
+ 1838 BF7E              jnz L759
+ 183A                   .dbline -2
+ 183A                   .dbline 1405
+ 183A           ; }
+ 183A           L758:
+ 183A 38FD              add SP,-3
+ 183C 20                pop X
+ 183D                   .dbline 0 ; func end
+ 183D 7F                ret
+ 183E                   .dbsym l x 1 i
+ 183E                   .dbsym l pulsat 0 c
+ 183E                   .dbend
+ 183E                   .dbfile ./main.c
+ 183E                   .dbfunc e main _main fV
+ 183E           _main::
+ 183E                   .dbline -1
+ 183E                   .dbline 15
+ 183E                   .dbline 16
+ 183E 7C009E            xcall _Inicializacion
+ 1841                   .dbline 17
+ 1841 7C00BC            xcall _Bienvenida
+ 1844                   .dbline 18
+ 1844           L775:
+ 1844                   .dbline 18
+ 1844 7C011C            xcall _Principal
+ 1847                   .dbline 18
+ 1847                   .dbline 18
+ 1847 8FFC              xjmp L775
+ 1849           X35:
+ 1849                   .dbline -2
+ 1849           L774:
+ 1849                   .dbline 0 ; func end
+ 1849 8FFF              jmp .
+ 184B                   .dbend
                         .area lit(rom, con, rel)
- 0000           L760:
+ 0000           L762:
  0000 3E4C6564206465206D617263686100    .byte 62,'L,'e,'d,32,'d,'e,32,'m,'a,'r,'c,'h,'a,0
- 000F           L744:
+ 000F           L746:
  000F 3E50697469646F20696E7465726E6F00  .byte 62,'P,'i,'t,'i,'d,'o,32,'i,'n,'t,'e,'r,'n,'o,0
- 001F           L728:
+ 001F           L730:
  001F 3E4C757A204C434400        .byte 62,'L,'u,'z,32,'L,'C,'D,0
- 0028           L705:
+ 0028           L707:
  0028 332D4C6564206465206D617263686100  .byte 51,45,'L,'e,'d,32,'d,'e,32,'m,'a,'r,'c,'h,'a,0
- 0038           L702:
+ 0038           L704:
  0038 322D50697469646F20696E7465726E6F  .byte 50,45,'P,'i,'t,'i,'d,'o,32,'i,'n,'t,'e,'r,'n,'o
  0048 00                .byte 0
- 0049           L699:
+ 0049           L701:
  0049 312D4C757A204C434400      .byte 49,45,'L,'u,'z,32,'L,'C,'D,0
- 0053           L696:
+ 0053           L698:
  0053 3E436F6E662E2053697374656D6100    .byte 62,'C,'o,'n,'f,46,32,'S,'i,'s,'t,'e,'m,'a,0
- 0062           L686:
- 0062 54726162616A6F2070617261646F00    .byte 'T,'r,'a,'b,'a,'j,'o,32,'p,'a,'r,'a,'d,'o,0
- 0071           L675:
- 0071 4D616E74656E20416D6172696C6C6F00  .byte 'M,'a,'n,'t,'e,'n,32,'A,'m,'a,'r,'i,'l,'l,'o,0
- 0081           L674:
- 0081 50617261722074726162616A6F3F00    .byte 'P,'a,'r,'a,'r,32,'t,'r,'a,'b,'a,'j,'o,63,0
- 0090           L651:
- 0090 50686F746F534F432061637469766F00  .byte 'P,'h,'o,'t,'o,'S,'O,'C,32,'a,'c,'t,'i,'v,'o,0
- 00A0           L638:
- 00A0 61727269626120456E743400  .byte 'a,'r,'r,'i,'b,'a,32,'E,'n,'t,52,0
- 00AC           L637:
- 00AC 61727269626120456E743300  .byte 'a,'r,'r,'i,'b,'a,32,'E,'n,'t,51,0
- 00B8           L636:
- 00B8 61727269626120456E743200  .byte 'a,'r,'r,'i,'b,'a,32,'E,'n,'t,50,0
- 00C4           L635:
- 00C4 61727269626120456E743100  .byte 'a,'r,'r,'i,'b,'a,32,'E,'n,'t,49,0
- 00D0           L634:
- 00D0 6172726962612063616D3200  .byte 'a,'r,'r,'i,'b,'a,32,'c,'a,'m,50,0
- 00DC           L633:
- 00DC 6172726962612063616D3100  .byte 'a,'r,'r,'i,'b,'a,32,'c,'a,'m,49,0
- 00E8           L632:
- 00E8 61727269626120726573657400        .byte 'a,'r,'r,'i,'b,'a,32,'r,'e,'s,'e,'t,0
- 00F5           L624:
- 00F5 312D41686F726100  .byte 49,45,'A,'h,'o,'r,'a,0
- 00FD           L623:
- 00FD 3E456A65637574617200      .byte 62,'E,'j,'e,'c,'u,'t,'a,'r,0
- 0107           L606:
- 0107 486F72617300      .byte 'H,'o,'r,'a,'s,0
- 010D           L603:
- 010D 4D696E75746F7300  .byte 'M,'i,'n,'u,'t,'o,'s,0
- 0115           L600:
- 0115 536567756E646F7300        .byte 'S,'e,'g,'u,'n,'d,'o,'s,0
- 011E           L597:
- 011E 3E556E692E206465207469656D706F00  .byte 62,'U,'n,'i,46,32,'d,'e,32,'t,'i,'e,'m,'p,'o,0
- 012E           L576:
- 012E 3E4E756D65726F20312D31303000      .byte 62,'N,'u,'m,'e,'r,'o,32,49,45,49,48,48,0
- 013C           L547:
- 013C 5469656D706F20766964656F00        .byte 'T,'i,'e,'m,'p,'o,32,'v,'i,'d,'e,'o,0
- 0149           L544:
- 0149 5469656D706F207265616C00  .byte 'T,'i,'e,'m,'p,'o,32,'r,'e,'a,'l,0
- 0155           L541:
- 0155 3E54696D65204C6170736500  .byte 62,'T,'i,'m,'e,32,'L,'a,'p,'s,'e,0
- 0161           L508:
- 0161 4E756D65726F20646520666F746F7300  .byte 'N,'u,'m,'e,'r,'o,32,'d,'e,32,'f,'o,'t,'o,'s,0
- 0171           L505:
- 0171 5420656E74726520666F746F00        .byte 'T,32,'e,'n,'t,'r,'e,32,'f,'o,'t,'o,0
- 017E           L502:
- 017E 3E496E74657276616C6F6D6574726F00  .byte 62,'I,'n,'t,'e,'r,'v,'a,'l,'o,'m,'e,'t,'r,'o,0
- 018E           L462:
- 018E 3E5469706F20646520646973702E00    .byte 62,'T,'i,'p,'o,32,'d,'e,32,'d,'i,'s,'p,46,0
- 019D           L438:
- 019D 3E43616D617261203200      .byte 62,'C,'a,'m,'a,'r,'a,32,50,0
- 01A7           L426:
- 01A7 54696D65204C6170736500    .byte 'T,'i,'m,'e,32,'L,'a,'p,'s,'e,0
- 01B2           L423:
- 01B2 496E74657276616C6F6D6574726F00    .byte 'I,'n,'t,'e,'r,'v,'a,'l,'o,'m,'e,'t,'r,'o,0
- 01C1           L420:
- 01C1 446973702E20556E69636F00  .byte 'D,'i,'s,'p,46,32,'U,'n,'i,'c,'o,0
- 01CD           L417:
- 01CD 4E6F206469737061726100    .byte 'N,'o,32,'d,'i,'s,'p,'a,'r,'a,0
- 01D8           L414:
- 01D8 3E43616D617261203100      .byte 62,'C,'a,'m,'a,'r,'a,32,49,0
- 01E2           L393:
- 01E2 322D43616D617261203200    .byte 50,45,'C,'a,'m,'a,'r,'a,32,50,0
- 01ED           L390:
- 01ED 312D43616D617261203100    .byte 49,45,'C,'a,'m,'a,'r,'a,32,49,0
- 01F8           L387:
- 01F8 3E436F6E662E204469737061726F00    .byte 62,'C,'o,'n,'f,46,32,'D,'i,'s,'p,'a,'r,'o,0
- 0207           L354:
- 0207 3E417369676E6163696F6E00  .byte 62,'A,'s,'i,'g,'n,'a,'c,'i,'o,'n,0
- 0213           L326:
- 0213 3E466C617368203400        .byte 62,'F,'l,'a,'s,'h,32,52,0
- 021C           L306:
- 021C 3E466C617368203300        .byte 62,'F,'l,'a,'s,'h,32,51,0
- 0225           L286:
- 0225 3E466C617368203200        .byte 62,'F,'l,'a,'s,'h,32,50,0
- 022E           L274:
- 022E 416D62617300      .byte 'A,'m,'b,'a,'s,0
- 0234           L271:
- 0234 43616D617261203200        .byte 'C,'a,'m,'a,'r,'a,32,50,0
- 023D           L268:
- 023D 43616D617261203100        .byte 'C,'a,'m,'a,'r,'a,32,49,0
- 0246           L265:
- 0246 4170616761646F00  .byte 'A,'p,'a,'g,'a,'d,'o,0
- 024E           L262:
- 024E 3E466C617368203100        .byte 62,'F,'l,'a,'s,'h,32,49,0
- 0257           L237:
- 0257 2020284F66662900  .byte 32,32,40,'O,'f,'f,41,0
- 025F           L234:
- 025F 342D466C617368203400      .byte 52,45,'F,'l,'a,'s,'h,32,52,0
- 0269           L229:
- 0269 332D466C617368203300      .byte 51,45,'F,'l,'a,'s,'h,32,51,0
- 0273           L224:
- 0273 322D466C617368203200      .byte 50,45,'F,'l,'a,'s,'h,32,50,0
- 027D           L221:
- 027D 20284F6E2900      .byte 32,40,'O,'n,41,0
- 0283           L220:
- 0283 20284F66662900    .byte 32,40,'O,'f,'f,41,0
- 028A           L217:
- 028A 312D466C617368203100      .byte 49,45,'F,'l,'a,'s,'h,32,49,0
- 0294           L214:
- 0294 3E436F6E662E20466C617368657300    .byte 62,'C,'o,'n,'f,46,32,'F,'l,'a,'s,'h,'e,'s,0
- 02A3           L198:
- 02A3 3E4469676974616C203220355600      .byte 62,'D,'i,'g,'i,'t,'a,'l,32,50,32,53,'V,0
- 02B1           L182:
- 02B1 3E4469676974616C203120355600      .byte 62,'D,'i,'g,'i,'t,'a,'l,32,49,32,53,'V,0
- 02BF           L166:
- 02BF 3E4261727265726120322031325600    .byte 62,'B,'a,'r,'r,'e,'r,'a,32,50,32,49,50,'V,0
- 02CE           L152:
- 02CE 4F4E00            .byte 'O,'N,0
- 02D1           L151:
- 02D1 4F464600          .byte 'O,'F,'F,0
- 02D5           L148:
- 02D5 3E4261727265726120312031325600    .byte 62,'B,'a,'r,'r,'e,'r,'a,32,49,32,49,50,'V,0
- 02E4           L123:
- 02E4 342D4469676974616C203220355600    .byte 52,45,'D,'i,'g,'i,'t,'a,'l,32,50,32,53,'V,0
- 02F3           L120:
- 02F3 332D4469676974616C203120355600    .byte 51,45,'D,'i,'g,'i,'t,'a,'l,32,49,32,53,'V,0
- 0302           L117:
- 0302 322D4261727265726120322031325600  .byte 50,45,'B,'a,'r,'r,'e,'r,'a,32,50,32,49,50,'V,0
- 0312           L114:
- 0312 312D4261727265726120312031325600  .byte 49,45,'B,'a,'r,'r,'e,'r,'a,32,49,32,49,50,'V,0
- 0322           L111:
- 0322 3E436F6E662E2053656E736F72657300  .byte 62,'C,'o,'n,'f,46,32,'S,'e,'n,'s,'o,'r,'e,'s,0
- 0332           L84:
- 0332 352D436F6E662E2053697374656D6100  .byte 53,45,'C,'o,'n,'f,46,32,'S,'i,'s,'t,'e,'m,'a,0
- 0342           L81:
- 0342 342D456A65637574617200    .byte 52,45,'E,'j,'e,'c,'u,'t,'a,'r,0
- 034D           L78:
- 034D 332D436F6E662E204469737061726F00  .byte 51,45,'C,'o,'n,'f,46,32,'D,'i,'s,'p,'a,'r,'o,0
- 035D           L75:
- 035D 322D436F6E662E20466C617368657300  .byte 50,45,'C,'o,'n,'f,46,32,'F,'l,'a,'s,'h,'e,'s,0
- 036D           L72:
- 036D 312D436F6E662E2053656E736F726573  .byte 49,45,'C,'o,'n,'f,46,32,'S,'e,'n,'s,'o,'r,'e,'s
- 037D 00                .byte 0
- 037E           L69:
- 037E 3E4D656E75205072696E636970616C00  .byte 62,'M,'e,'n,'u,32,'P,'r,'i,'n,'c,'i,'p,'a,'l,0
- 038E           L20:
- 038E 61202050686F746F536F4300  .byte 'a,32,32,'P,'h,'o,'t,'o,'S,'o,'C,0
- 039A           L19:
- 039A 4269656E76656E69646F7300  .byte 'B,'i,'e,'n,'v,'e,'n,'i,'d,'o,'s,0
+ 0062           L688:
+ 0062 50756C736520626F746F6E00  .byte 'P,'u,'l,'s,'e,32,'b,'o,'t,'o,'n,0
+ 006E           L687:
+ 006E 54726162616A6F2070617261646F00    .byte 'T,'r,'a,'b,'a,'j,'o,32,'p,'a,'r,'a,'d,'o,0
+ 007D           L676:
+ 007D 4D616E74656E20416D6172696C6C6F00  .byte 'M,'a,'n,'t,'e,'n,32,'A,'m,'a,'r,'i,'l,'l,'o,0
+ 008D           L675:
+ 008D 50617261722074726162616A6F3F00    .byte 'P,'a,'r,'a,'r,32,'t,'r,'a,'b,'a,'j,'o,63,0
+ 009C           L652:
+ 009C 74726162616A616E646F00    .byte 't,'r,'a,'b,'a,'j,'a,'n,'d,'o,0
+ 00A7           L651:
+ 00A7 50686F746F534F4300        .byte 'P,'h,'o,'t,'o,'S,'O,'C,0
+ 00B0           L638:
+ 00B0 61727269626120456E743400  .byte 'a,'r,'r,'i,'b,'a,32,'E,'n,'t,52,0
+ 00BC           L637:
+ 00BC 61727269626120456E743300  .byte 'a,'r,'r,'i,'b,'a,32,'E,'n,'t,51,0
+ 00C8           L636:
+ 00C8 61727269626120456E743200  .byte 'a,'r,'r,'i,'b,'a,32,'E,'n,'t,50,0
+ 00D4           L635:
+ 00D4 61727269626120456E743100  .byte 'a,'r,'r,'i,'b,'a,32,'E,'n,'t,49,0
+ 00E0           L634:
+ 00E0 6172726962612063616D3200  .byte 'a,'r,'r,'i,'b,'a,32,'c,'a,'m,50,0
+ 00EC           L633:
+ 00EC 6172726962612063616D3100  .byte 'a,'r,'r,'i,'b,'a,32,'c,'a,'m,49,0
+ 00F8           L632:
+ 00F8 61727269626120726573657400        .byte 'a,'r,'r,'i,'b,'a,32,'r,'e,'s,'e,'t,0
+ 0105           L624:
+ 0105 312D41686F726100  .byte 49,45,'A,'h,'o,'r,'a,0
+ 010D           L623:
+ 010D 3E456A65637574617200      .byte 62,'E,'j,'e,'c,'u,'t,'a,'r,0
+ 0117           L606:
+ 0117 486F72617300      .byte 'H,'o,'r,'a,'s,0
+ 011D           L603:
+ 011D 4D696E75746F7300  .byte 'M,'i,'n,'u,'t,'o,'s,0
+ 0125           L600:
+ 0125 536567756E646F7300        .byte 'S,'e,'g,'u,'n,'d,'o,'s,0
+ 012E           L597:
+ 012E 3E556E692E206465207469656D706F00  .byte 62,'U,'n,'i,46,32,'d,'e,32,'t,'i,'e,'m,'p,'o,0
+ 013E           L576:
+ 013E 3E4E756D65726F20312D31303000      .byte 62,'N,'u,'m,'e,'r,'o,32,49,45,49,48,48,0
+ 014C           L547:
+ 014C 5469656D706F20766964656F00        .byte 'T,'i,'e,'m,'p,'o,32,'v,'i,'d,'e,'o,0
+ 0159           L544:
+ 0159 5469656D706F207265616C00  .byte 'T,'i,'e,'m,'p,'o,32,'r,'e,'a,'l,0
+ 0165           L541:
+ 0165 3E54696D65204C6170736500  .byte 62,'T,'i,'m,'e,32,'L,'a,'p,'s,'e,0
+ 0171           L508:
+ 0171 4E756D65726F20646520666F746F7300  .byte 'N,'u,'m,'e,'r,'o,32,'d,'e,32,'f,'o,'t,'o,'s,0
+ 0181           L505:
+ 0181 5420656E74726520666F746F00        .byte 'T,32,'e,'n,'t,'r,'e,32,'f,'o,'t,'o,0
+ 018E           L502:
+ 018E 3E496E74657276616C6F6D6574726F00  .byte 62,'I,'n,'t,'e,'r,'v,'a,'l,'o,'m,'e,'t,'r,'o,0
+ 019E           L462:
+ 019E 3E5469706F20646520646973702E00    .byte 62,'T,'i,'p,'o,32,'d,'e,32,'d,'i,'s,'p,46,0
+ 01AD           L438:
+ 01AD 3E43616D617261203200      .byte 62,'C,'a,'m,'a,'r,'a,32,50,0
+ 01B7           L426:
+ 01B7 54696D65204C6170736500    .byte 'T,'i,'m,'e,32,'L,'a,'p,'s,'e,0
+ 01C2           L423:
+ 01C2 496E74657276616C6F6D6574726F00    .byte 'I,'n,'t,'e,'r,'v,'a,'l,'o,'m,'e,'t,'r,'o,0
+ 01D1           L420:
+ 01D1 446973702E20556E69636F00  .byte 'D,'i,'s,'p,46,32,'U,'n,'i,'c,'o,0
+ 01DD           L417:
+ 01DD 4E6F206469737061726100    .byte 'N,'o,32,'d,'i,'s,'p,'a,'r,'a,0
+ 01E8           L414:
+ 01E8 3E43616D617261203100      .byte 62,'C,'a,'m,'a,'r,'a,32,49,0
+ 01F2           L393:
+ 01F2 322D43616D617261203200    .byte 50,45,'C,'a,'m,'a,'r,'a,32,50,0
+ 01FD           L390:
+ 01FD 312D43616D617261203100    .byte 49,45,'C,'a,'m,'a,'r,'a,32,49,0
+ 0208           L387:
+ 0208 3E436F6E662E204469737061726F00    .byte 62,'C,'o,'n,'f,46,32,'D,'i,'s,'p,'a,'r,'o,0
+ 0217           L354:
+ 0217 3E417369676E6163696F6E00  .byte 62,'A,'s,'i,'g,'n,'a,'c,'i,'o,'n,0
+ 0223           L326:
+ 0223 3E466C617368203400        .byte 62,'F,'l,'a,'s,'h,32,52,0
+ 022C           L306:
+ 022C 3E466C617368203300        .byte 62,'F,'l,'a,'s,'h,32,51,0
+ 0235           L286:
+ 0235 3E466C617368203200        .byte 62,'F,'l,'a,'s,'h,32,50,0
+ 023E           L274:
+ 023E 416D62617300      .byte 'A,'m,'b,'a,'s,0
+ 0244           L271:
+ 0244 43616D617261203200        .byte 'C,'a,'m,'a,'r,'a,32,50,0
+ 024D           L268:
+ 024D 43616D617261203100        .byte 'C,'a,'m,'a,'r,'a,32,49,0
+ 0256           L265:
+ 0256 4170616761646F00  .byte 'A,'p,'a,'g,'a,'d,'o,0
+ 025E           L262:
+ 025E 3E466C617368203100        .byte 62,'F,'l,'a,'s,'h,32,49,0
+ 0267           L237:
+ 0267 2020284F66662900  .byte 32,32,40,'O,'f,'f,41,0
+ 026F           L234:
+ 026F 342D466C617368203400      .byte 52,45,'F,'l,'a,'s,'h,32,52,0
+ 0279           L229:
+ 0279 332D466C617368203300      .byte 51,45,'F,'l,'a,'s,'h,32,51,0
+ 0283           L224:
+ 0283 322D466C617368203200      .byte 50,45,'F,'l,'a,'s,'h,32,50,0
+ 028D           L221:
+ 028D 20284F6E2900      .byte 32,40,'O,'n,41,0
+ 0293           L220:
+ 0293 20284F66662900    .byte 32,40,'O,'f,'f,41,0
+ 029A           L217:
+ 029A 312D466C617368203100      .byte 49,45,'F,'l,'a,'s,'h,32,49,0
+ 02A4           L214:
+ 02A4 3E436F6E662E20466C617368657300    .byte 62,'C,'o,'n,'f,46,32,'F,'l,'a,'s,'h,'e,'s,0
+ 02B3           L198:
+ 02B3 3E4469676974616C203220355600      .byte 62,'D,'i,'g,'i,'t,'a,'l,32,50,32,53,'V,0
+ 02C1           L182:
+ 02C1 3E4469676974616C203120355600      .byte 62,'D,'i,'g,'i,'t,'a,'l,32,49,32,53,'V,0
+ 02CF           L166:
+ 02CF 3E4261727265726120322031325600    .byte 62,'B,'a,'r,'r,'e,'r,'a,32,50,32,49,50,'V,0
+ 02DE           L152:
+ 02DE 4F4E00            .byte 'O,'N,0
+ 02E1           L151:
+ 02E1 4F464600          .byte 'O,'F,'F,0
+ 02E5           L148:
+ 02E5 3E4261727265726120312031325600    .byte 62,'B,'a,'r,'r,'e,'r,'a,32,49,32,49,50,'V,0
+ 02F4           L123:
+ 02F4 342D4469676974616C203220355600    .byte 52,45,'D,'i,'g,'i,'t,'a,'l,32,50,32,53,'V,0
+ 0303           L120:
+ 0303 332D4469676974616C203120355600    .byte 51,45,'D,'i,'g,'i,'t,'a,'l,32,49,32,53,'V,0
+ 0312           L117:
+ 0312 322D4261727265726120322031325600  .byte 50,45,'B,'a,'r,'r,'e,'r,'a,32,50,32,49,50,'V,0
+ 0322           L114:
+ 0322 312D4261727265726120312031325600  .byte 49,45,'B,'a,'r,'r,'e,'r,'a,32,49,32,49,50,'V,0
+ 0332           L111:
+ 0332 3E436F6E662E2053656E736F72657300  .byte 62,'C,'o,'n,'f,46,32,'S,'e,'n,'s,'o,'r,'e,'s,0
+ 0342           L84:
+ 0342 352D436F6E662E2053697374656D6100  .byte 53,45,'C,'o,'n,'f,46,32,'S,'i,'s,'t,'e,'m,'a,0
+ 0352           L81:
+ 0352 342D456A65637574617200    .byte 52,45,'E,'j,'e,'c,'u,'t,'a,'r,0
+ 035D           L78:
+ 035D 332D436F6E662E204469737061726F00  .byte 51,45,'C,'o,'n,'f,46,32,'D,'i,'s,'p,'a,'r,'o,0
+ 036D           L75:
+ 036D 322D436F6E662E20466C617368657300  .byte 50,45,'C,'o,'n,'f,46,32,'F,'l,'a,'s,'h,'e,'s,0
+ 037D           L72:
+ 037D 312D436F6E662E2053656E736F726573  .byte 49,45,'C,'o,'n,'f,46,32,'S,'e,'n,'s,'o,'r,'e,'s
+ 038D 00                .byte 0
+ 038E           L69:
+ 038E 3E4D656E75205072696E636970616C00  .byte 62,'M,'e,'n,'u,32,'P,'r,'i,'n,'c,'i,'p,'a,'l,0
+ 039E           L20:
+ 039E 61202050686F746F536F4300  .byte 'a,32,32,'P,'h,'o,'t,'o,'S,'o,'C,0
+ 03AA           L19:
+ 03AA 4269656E76656E69646F7300  .byte 'B,'i,'e,'n,'v,'e,'n,'i,'d,'o,'s,0

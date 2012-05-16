@@ -21,6 +21,7 @@ void led2(void);
 
 void MI_RSI_EXTERNA(void)		//Interrupción externa
 {
+	led1();
 	//disparo_sensores();
 }
 

@@ -208,7 +208,8 @@ void activar_sensores(void)
 	if (Ent1==on || Ent2==on || Ent3==on || Ent4==on)
 	{
 		M8C_EnableIntMask (INT_MSK0,INT_MSK0_GPIO);		//Permitir interrupciones externas
-		M8C_EnableGInt;									//Permitimos las interrupciones globalmente
+		M8C_EnableGInt;
+		led2();									//Permitimos las interrupciones globalmente
 	}
 }
 //******************************************************************************
