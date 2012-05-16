@@ -14,29 +14,43 @@
 #pragma interrupt_handler MI_RSI_EXTERNA
 #pragma interrupt_handler MI_RSI_DEL_TIMER
 
+unsigned int tempo,tempo2; 		//Para debuggar
+
+void led1(void);
+void led2(void);
+
 void MI_RSI_EXTERNA(void)		//Interrupción externa
 {
-	PRT0DR=PRT0DR|0x01; //0000-0001
-	for (tempo=0;tempo<5000;tempo++) ;
-	PRT0DR=PRT0DR&0xFE;
-	
 	//disparo_sensores();
 }
 
 void MI_RSI_DEL_TIMER (void)	//Interrupción del timer Segundos
 {
+	led2();
 	contador_trabajo1++;
 	if (contador_trabajo1==tpCam1) chivato1=on;
 	contador_trabajo2++;
 	if (contador_trabajo2==tpCam2) chivato2=on;
 }
 
+void led1(void)	//Rutina para debuggar
+{
+	PRT0DR=PRT0DR|0x01; //0000-0001
+	for (tempo=0;tempo<10000;tempo++) ;
+	PRT0DR=PRT0DR&0xFE;
+}
+void led2(void)	//Rutina para debuggar
+{
+	PRT0DR=PRT0DR|0x04; //0000-0100
+	for (tempo2=0;tempo2<500;tempo2++) ;
+	PRT0DR=PRT0DR&0xFB;
+}
 
 void main()						//Programa principal
 {	
 	inicializacion ();
 	recibe_valores();
+	preparadisparo();
 	activar_sensores();	
 	ejecucion();
-	envia_fintrabajo();
 }		

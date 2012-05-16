@@ -7,13 +7,13 @@ AREA psoc_config(rom, rel)
 LoadConfigTBL_trabajov1:
 ;  Ordered Global Register values
 	M8C_SetBank1
-	mov	reg[00h], 55h		; Port_0_DriveMode_0 register (PRT0DM0)
+	mov	reg[00h], ffh		; Port_0_DriveMode_0 register (PRT0DM0)
 	mov	reg[01h], aah		; Port_0_DriveMode_1 register (PRT0DM1)
 	M8C_SetBank0
 	mov	reg[03h], 00h		; Port_0_DriveMode_2 register (PRT0DM2)
 	mov	reg[02h], 00h		; Port_0_GlobalSelect register (PRT0GS)
 	M8C_SetBank1
-	mov	reg[02h], 00h		; Port_0_IntCtrl_0 register (PRT0IC0)
+	mov	reg[02h], aah		; Port_0_IntCtrl_0 register (PRT0IC0)
 	mov	reg[03h], aah		; Port_0_IntCtrl_1 register (PRT0IC1)
 	M8C_SetBank0
 	mov	reg[01h], aah		; Port_0_IntEn register (PRT0IE)
@@ -172,10 +172,10 @@ LoadConfigTBL_trabajov1:
 	mov	reg[d3h], 00h		; GlobalDigitalInterconnect_Drive_Even_Output register (GDI_E_OU)
 	mov	reg[d0h], 00h		; GlobalDigitalInterconnect_Drive_Odd_Input register (GDI_O_IN)
 	mov	reg[d2h], 00h		; GlobalDigitalInterconnect_Drive_Odd_Output register (GDI_O_OU)
-	mov	reg[e1h], 00h		; OscillatorControl_1 register (OSC_CR1)
+	mov	reg[e1h], 0fh		; OscillatorControl_1 register (OSC_CR1)
 	mov	reg[e2h], 00h		; OscillatorControl_2 register (OSC_CR2)
-	mov	reg[dfh], 00h		; OscillatorControl_3 register (OSC_CR3)
-	mov	reg[deh], 00h		; OscillatorControl_4 register (OSC_CR4)
+	mov	reg[dfh], 95h		; OscillatorControl_3 register (OSC_CR3)
+	mov	reg[deh], 02h		; OscillatorControl_4 register (OSC_CR4)
 	mov	reg[ddh], 00h		; OscillatorGlobalBusEnableControl register (OSC_GO_EN)
 	mov	reg[e7h], 00h		; Type2Decimator_Control register (DEC_CR2)
 ;  Instance name Segundos, User Module Timer16

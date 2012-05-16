@@ -1,5 +1,5 @@
-  ROM 11% full. 3589 bytes used (does not include absolute areas).
-  RAM 4% full. 81 bytes used (does not include stack usage).
+  ROM 11% full. 3729 bytes used (does not include absolute areas).
+  RAM 5% full. 91 bytes used (does not include stack usage).
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
@@ -133,8 +133,8 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
        0659  _Segundos_Stop
        065D  Segundos_WritePeriod
        065D  _Segundos_WritePeriod
-       0663  Segundos_WriteCompareValue
        0663  _Segundos_WriteCompareValue
+       0663  Segundos_WriteCompareValue
        0669  Segundos_wReadCompareValue
        0669  wSegundos_ReadCompareValue
        0669  _Segundos_wReadCompareValue
@@ -155,34 +155,36 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                            text   06AD   08F8 =   2296. bytes (rel,con,rom)
+                            text   06AD   0984 =   2436. bytes (rel,con,rom)
 
        Addr  Global Symbol
       -----  --------------------------------
-       06AD  __text_start
        06AD  _envia
+       06AD  __text_start
        06F8  _recibe
        074B  _inicializacion
-       0770  _recibe_valores
-       0839  _activar_sensores
-       085F  _disparo_sensores
-       08A0  _ejecucion
-       08AF  _preparadisparo
-       0AE7  _calculosegundos
-       0B94  _bucle
-       0C7F  _disparo
-       0D66  _envia_fintrabajo
-       0D82  _MI_RSI_EXTERNA
-       0DB3  _MI_RSI_DEL_TIMER
-       0E42  _main
-       0E4E  PSoC_GPIO_ISR
-       0E52  __divmodu_32X32_32
-       0E61  __i_div32_block_util
-       0EC4  __i_mulu8_block_util
-       0EE1  __mul16
-       0F1F  __mul_32X32_32
-       0FA5  __text_end
-       0FAF  __xidata_end
+       0760  _recibe_valores
+       0829  _preparadisparo
+       0A61  _calculosegundos
+       0B0E  _activar_sensores
+       0B34  _ejecucion
+       0B41  _bucle
+       0C38  _disparo
+       0D1F  _envia_fintrabajo
+       0D3B  _disparo_sensores
+       0D7C  _MI_RSI_EXTERNA
+       0D7D  _MI_RSI_DEL_TIMER
+       0E80  _led1
+       0EA7  _led2
+       0ECE  _main
+       0EDA  PSoC_GPIO_ISR
+       0EDE  __divmodu_32X32_32
+       0EED  __i_div32_block_util
+       0F50  __i_mulu8_block_util
+       0F6D  __mul16
+       0FAB  __mul_32X32_32
+       103B  __xidata_end
+       1031  __text_end
 
 Area                               Start  End    Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
@@ -218,71 +220,81 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-               virtual_registers   0012   0007 =      7. bytes (rel,con,ram)
+               virtual_registers   0012   000F =     15. bytes (rel,con,ram)
 
        Addr  Global Symbol
       -----  --------------------------------
        0012  __rZ
        0013  __rY
        0014  __rX
-       0015  __r3
-       0016  __r2
-       0017  __r1
-       0018  __r0
+       0015  __r11
+       0016  __r10
+       0017  __r9
+       0018  __r8
+       0019  __r7
+       001A  __r6
+       001B  __r5
+       001C  __r4
+       001D  __r3
+       001E  __r2
+       001F  __r1
+       0020  __r0
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                            data   0000   0037 =     55. bytes (rel,con,ram)
+                            data   0000   0039 =     57. bytes (rel,con,ram)
 
        Addr  Global Symbol
       -----  --------------------------------
        0000  __data_start
-       0019  _tpCam2
-       001D  _tpCam1
-       0021  _contador_trabajo2
-       0025  _contador_trabajo1
-       0029  _dspCam2
-       002B  _tempo
-       002D  _dspCam1
-       002F  _contadordspCam1
-       0031  _contadordspCam2
-       0033  _Fla4
-       0034  _Int1_Tdisp
-       0035  _Int1_Tdisp_Uni
-       0036  _Int1_Ndisp
-       0037  _Int2_Tdisp
-       0038  _Int2_Tdisp_Uni
-       0039  _Int2_Ndisp
-       003A  _TL1_Treal
-       003B  _TL1_Tfilm
-       003C  _TL1_Tfilm_Uni
-       003D  _TL2_Treal
-       003E  _TL2_Treal_Uni
-       003F  _TL2_Tfilm
-       0040  _TL2_Tfilm_Uni
-       0041  _tocacam1
-       0042  _tocacam2
-       0043  _fintrabajo
-       0044  _chivato1
-       0045  _chivato2
-       0046  _TL1_Treal_Uni
-       0048  _Cam1
-       0049  _Cam2
-       004A  _Ent1
-       004B  _Ent2
-       004C  _Ent3
-       004D  _Ent4
-       004E  _Fla1
-       004F  _Fla2
-       0050  _Fla3
+       0021  _tpCam2
+       0025  _tpCam1
+       0029  _contador_trabajo2
+       002D  _contador_trabajo1
+       0031  _dspCam2
+       0033  _dspCam1
+       0035  _tempo
+       0037  _contadordspCam1
+       0039  _contadordspCam2
+       003B  _tempo2
+       003D  _Int1_Tdisp_Uni
+       003E  _Int1_Ndisp
+       003F  _Int2_Tdisp
+       0040  _Int2_Tdisp_Uni
+       0041  _Int2_Ndisp
+       0042  _TL1_Treal
+       0043  _TL1_Treal_Uni
+       0044  _TL1_Tfilm
+       0045  _TL1_Tfilm_Uni
+       0046  _TL2_Treal
+       0047  _TL2_Treal_Uni
+       0048  _TL2_Tfilm
+       0049  _TL2_Tfilm_Uni
+       004A  _tocacam1
+       004B  _tocacam2
+       004C  _fintrabajo
+       004D  _chivato1
+       004E  _chivato2
+       004F  _Fla1
+       0051  _Cam1
+       0052  _Cam2
+       0053  _Ent1
+       0054  _Ent2
+       0055  _Ent3
+       0056  _Ent4
+       0057  _Fla2
+       0058  _Fla3
+       0059  _Fla4
+       005A  _Int1_Tdisp
 
 Files Linked      [ module(s) ]
 
 ./obj/boot.o	[ boot.asm ]
 ./obj/main.o	[ main.c ]
 <library>	[ uartint.asm, uart.asm, timer8int.asm, timer8.asm, segundosint.asm, segundos.asm, psocgpioint.asm ]
-[ psocconfigtbl.asm, psocconfig.asm, rZ.asm, rY.asm, rX.asm, r3.asm, r2.asm, r1.asm, r0.asm, divmodu_32x32_32_util.asm ]
-[ i_div32_block_util.asm, i_mulu8_block_util.asm, mul16_util.asm, mul32_util.asm ]
+[ psocconfigtbl.asm, psocconfig.asm, rZ.asm, rY.asm, rX.asm, r11.asm, r10.asm, r9.asm, r8.asm, r7.asm ]
+[ r6.asm, r5.asm, r4.asm, r3.asm, r2.asm, r1.asm, r0.asm, divmodu_32x32_32_util.asm, i_div32_block_util.asm ]
+[ i_mulu8_block_util.asm, mul16_util.asm, mul32_util.asm ]
 
 User Base Address Definitions
 
@@ -291,5 +303,5 @@ data = 0x0
 SSCParmBlk:0x00F7.0x00FF
 InterruptRAM = 0x0
 virtual_registers = 0x12
-trabajov1_RAM = 0x51
+trabajov1_RAM = 0x5b
 

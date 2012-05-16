@@ -13,7 +13,7 @@
 #define off 0
 #define on 1
 
-unsigned int tempo; 		//Para debuggar
+unsigned int tempo;
 
 //Declaracion de las variables globales del PSoC Trabajo
 char Cam1=0, Cam2=0; 					//Variables que determinan si una salida a camara esta activa o no y el tipo de disparo
@@ -37,15 +37,14 @@ unsigned int contadordspCam1=0, contadordspCam2=0;			//Contadores de los disparo
 //Prototipos de la libreria del PSoC de trabajo
 void inicializacion(void);
 void recibe_valores(void);
-void activar_sensores(void);
-void disparo_sensores(void);
-void ejecucion(void);
 void preparadisparo(void);
 unsigned long calculosegundos(char numero, char unidades);
+void activar_sensores(void);
+void ejecucion(void);
 void bucle(void);
 void disparo(void);
 void envia_fintrabajo(void);
-
+void disparo_sensores(void);
 
 //***********************************************************************************************************************
 //***********************************************************************************************************************
@@ -69,11 +68,6 @@ void inicializacion(void)
 	
 	//Inicialización de la UART en modo sin paridad
 	UART_Start(UART_PARITY_NONE);
-	
-	//Inicialización del Timer para contar el tiempo entre disparos
-	Segundos_WritePeriod(10000);		
-	Segundos_WriteCompareValue(0);
-	Segundos_Start();	
 }	
 //******************************************************************************
 //******************************************************************************
@@ -131,81 +125,6 @@ void recibe_valores(void)
 
 
 /************************************************************************************************************************
-/  	LLAMADA: activar_sensores()
-/  	FUNCION: Rutina que activa las interrupciones externas para permitir el disparo por sensor
-/  	ENTRADA: void
-/  	SALIDA: void
-/	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
-/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-/**********************************************************************************************************************/
-void activar_sensores(void)
-{
-	if (Ent1==on || Ent2==on || Ent3==on || Ent4==on)
-	{
-		M8C_EnableGInt;									//Permitir interrupciones globalmente
-		M8C_EnableIntMask (INT_MSK0,INT_MSK0_GPIO);		//Permitir interrupciones externas
-	}
-}
-//******************************************************************************
-//******************************************************************************
-
-
-
-/************************************************************************************************************************
-/  	LLAMADA: disparo_sensores()
-/  	FUNCION: Rutina que dispara la/s camara/s cuando se ha activado algun sensor
-/  	ENTRADA: void
-/  	SALIDA: void
-/	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
-/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-/**********************************************************************************************************************/
-void disparo_sensores(void)
-{
-	#define sensores disparo_sensores_sensores
-	char sensores;		//Declaraciones de las variables de la rutina
-	
-	//Guardamos el estado del port que crea las interrupciones evitando los flashes
-	sensores=PRT0DR&0xAA; 					//1010-1010 
-	
-	//Evitar las entradas no activadas en la programación aunque provoquen una interrupción
-	if (Ent1==off) sensores=sensores&0x7F; 	//0111-1111
-	if (Ent2==off) sensores=sensores&0xDF; 	//1101-1111
-	if (Ent3==off) sensores=sensores&0xF7; 	//1111-0111
-	if (Ent4==off) sensores=sensores&0xFD; 	//1111-1101
-	
-	//Disparar segun tipo de disparo
-	if (sensores!=0) 
-	bucle();
-}
-//******************************************************************************
-//******************************************************************************
-
-
-
-/************************************************************************************************************************
-/  	LLAMADA: ejecucion()
-/  	FUNCION: Rutina que segun los valores recibidos ejecuta los diferentes trabajos
-/  	ENTRADA: void
-/  	SALIDA: void
-/	OTROS: nada
-/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
-/**********************************************************************************************************************/
-void ejecucion (void)
-{
-	preparadisparo();
-	do
-	{
-		bucle();
-	}
-	while(fintrabajo!=255);
-	envia_fintrabajo();
-}	
-//******************************************************************************
-//******************************************************************************
-
-
-
-/************************************************************************************************************************
 /  	LLAMADA: preparadisparo()
 /  	FUNCION: Rutina que segun el tipo de disparo programado activa las interrupciones y prepara las variables
 /  	ENTRADA: void
@@ -219,8 +138,10 @@ void preparadisparo(void)
 	#define tclip preparadisparo_tp_clip
 	
 	unsigned long treal, tclip;
+	
 	tocacam1=on;				//Activa el disparo de la cámara 1 para hacer el primer disparo o si es disparo único
 	tocacam2=on;				//Activa el disparo de la cámara 2 para hacer el segundo disparo o si es disparo único
+	
 	switch (Cam1)				//Cámara 1
 	{
 		case 2:					//intervalometro
@@ -254,7 +175,7 @@ void preparadisparo(void)
 
 
 /************************************************************************************************************************
-/  	LLAMADA: x=calculosegundos(numero,unidades)
+/  	LLAMADA: x=calculosegundos(numero,unidades);
 /  	FUNCION: Rutina que calcula los segundos en funcion de la cantidad y las unidades
 /  	ENTRADA: numero (char) y unidades (char)
 /  	SALIDA: unsigned long
@@ -275,6 +196,50 @@ unsigned long calculosegundos(char numero, char unidades)
 
 
 /************************************************************************************************************************
+/  	LLAMADA: activar_sensores();
+/  	FUNCION: Rutina que activa las interrupciones externas para permitir el disparo por sensor
+/  	ENTRADA: void
+/  	SALIDA: void
+/	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
+/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/**********************************************************************************************************************/
+void activar_sensores(void)
+{
+	if (Ent1==on || Ent2==on || Ent3==on || Ent4==on)
+	{
+		M8C_EnableIntMask (INT_MSK0,INT_MSK0_GPIO);		//Permitir interrupciones externas
+		M8C_EnableGInt;									//Permitimos las interrupciones globalmente
+	}
+}
+//******************************************************************************
+//******************************************************************************
+
+
+
+/************************************************************************************************************************
+/  	LLAMADA: ejecucion()
+/  	FUNCION: Rutina que segun los valores recibidos ejecuta los diferentes trabajos
+/  	ENTRADA: void
+/  	SALIDA: void
+/	OTROS: nada
+/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/**********************************************************************************************************************/
+void ejecucion (void)
+{
+	do
+	{
+		bucle();
+	}
+	while(fintrabajo!=255);
+
+	envia_fintrabajo();
+}	
+//******************************************************************************
+//******************************************************************************
+
+
+
+/************************************************************************************************************************
 /  	LLAMADA: bucle()
 /  	FUNCION: Rutina que decide cuando se deben disparar las cámaras/flashes
 /  	ENTRADA: void
@@ -287,17 +252,19 @@ void bucle(void)
 	char bucle_acaba1=0, bucle_acaba2=0;
 	char fintrabajo1=0, fintrabajo2=0;
 	
+	//Start de los contadores de trabajo
+	if (Cam1==2 || Cam1==3 || Cam2==2 || Cam2==3)
+	{
+		Segundos_EnableInt();			//Permitimos la interrupción del timer
+		M8C_EnableGInt;					//Permitimos las interrupciones globalmente
+		Segundos_WritePeriod (10000);	//Seleccionamos el WritePeriod
+		Segundos_Start();				//Iniciamos el timer
+	}
+		
 	do
 	{
 		disparo();
-		if (Cam1!=1 || Cam2!=1)
-		{
-			Segundos_WritePeriod (1000);	//Seleccionamos el WritePeriod
-			Segundos_Start();				//Iniciamos el timer
-			Segundos_EnableInt();			//Permitimos la interrupción del timer
-			M8C_EnableGInt;					//Permitimos las interrupciones globalmente
-		}
-		//Start de los contadores de trabajo
+		
 		
 		if (bucle_acaba1==off)
 		{
@@ -399,7 +366,6 @@ void disparo(void)
 
 
 
-
 /************************************************************************************************************************
 /  	LLAMADA: envia_fintrabajo()
 /  	FUNCION: Rutina que envia mediante UART un 255 para indicar al PSoC que ha finalizado el trabajo
@@ -415,6 +381,37 @@ void envia_fintrabajo(void)
 	{
 	envia (fintrabajo);
 	}
+}
+//******************************************************************************
+//******************************************************************************
+
+
+
+/************************************************************************************************************************
+/  	LLAMADA: disparo_sensores()
+/  	FUNCION: Rutina que dispara la/s camara/s cuando se ha activado algun sensor
+/  	ENTRADA: void
+/  	SALIDA: void
+/	OTROS: necesario programar las patillas y crear la rutina par las interrupciones externas
+/  	AUTOR: Rutina realizada por Albert Sagol y Xavi Vicient para el proyecto de C4 y C9
+/**********************************************************************************************************************/
+void disparo_sensores(void)
+{
+	#define sensores disparo_sensores_sensores
+	char sensores;		//Declaraciones de las variables de la rutina
+	
+	//Guardamos el estado del port que crea las interrupciones evitando los flashes
+	sensores=PRT0DR&0xAA; 					//1010-1010 
+	
+	//Evitar las entradas no activadas en la programación aunque provoquen una interrupción
+	if (Ent1==off) sensores=sensores&0x7F; 	//0111-1111
+	if (Ent2==off) sensores=sensores&0xDF; 	//1101-1111
+	if (Ent3==off) sensores=sensores&0xF7; 	//1111-0111
+	if (Ent4==off) sensores=sensores&0xFD; 	//1111-1101
+	
+	//Disparar segun tipo de disparo
+	if (sensores!=0) 
+	bucle();
 }
 //******************************************************************************
 //******************************************************************************
