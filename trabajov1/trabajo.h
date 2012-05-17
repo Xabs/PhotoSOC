@@ -294,6 +294,11 @@ void bucle(void)
 		}
 	}
 	while (bucle_acaba1==off || bucle_acaba2==off);
+	
+	if ((Cam1==1 || Cam2==1) && (Ent1==1 || Ent2==1 || Ent3==1 || Ent4==1)) for (;;);
+	
+	led1();
+	
 	fintrabajo=255;
 }
 //******************************************************************************

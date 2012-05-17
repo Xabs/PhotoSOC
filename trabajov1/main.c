@@ -55,6 +55,7 @@ void led2(void)	//Rutina para debuggar
 	PRT0DR=PRT0DR&0xFB;
 }
 
+
 void main()						//Programa principal
 {	
 	inicializacion ();
