@@ -231,7 +231,7 @@ void ejecucion (void)
 		bucle();
 	}
 	while(fintrabajo!=255);
-
+	
 	envia_fintrabajo();
 }	
 //******************************************************************************
@@ -294,7 +294,6 @@ void bucle(void)
 		}
 	}
 	while (bucle_acaba1==off || bucle_acaba2==off);
-		
 	fintrabajo=255;
 }
 //******************************************************************************
