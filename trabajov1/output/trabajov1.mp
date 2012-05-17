@@ -1,5 +1,5 @@
-  ROM 11% full. 3854 bytes used (does not include absolute areas).
-  RAM 5% full. 91 bytes used (does not include stack usage).
+  ROM 11% full. 3773 bytes used (does not include absolute areas).
+  RAM 4% full. 89 bytes used (does not include stack usage).
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
@@ -155,12 +155,12 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                            text   06AD   0A01 =   2561. bytes (rel,con,rom)
+                            text   06AD   09B0 =   2480. bytes (rel,con,rom)
 
        Addr  Global Symbol
       -----  --------------------------------
-       06AD  _envia
        06AD  __text_start
+       06AD  _envia
        06F8  _recibe
        074B  _inicializacion
        0760  _recibe_valores
@@ -169,22 +169,20 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
        0B0E  _activar_sensores
        0B34  _ejecucion
        0B41  _bucle
-       0C64  _disparo
-       0D51  _envia_fintrabajo
-       0D6D  _disparo_sensores
-       0DCA  _MI_RSI_EXTERNA
-       0E49  _MI_RSI_DEL_TIMER
-       0EFC  _led1
-       0F23  _led2
-       0F4A  _main
-       0F57  PSoC_GPIO_ISR
-       0F5B  __divmodu_32X32_32
-       0F6A  __i_div32_block_util
-       0FCD  __i_mulu8_block_util
-       0FEA  __mul16
-       1028  __mul_32X32_32
-       10B8  __xidata_end
-       10AE  __text_end
+       0C62  _disparo
+       0D4F  _envia_fintrabajo
+       0D6B  _disparo_sensores
+       0DC8  _MI_RSI_EXTERNA
+       0E47  _MI_RSI_DEL_TIMER
+       0EFA  _main
+       0F06  PSoC_GPIO_ISR
+       0F0A  __divmodu_32X32_32
+       0F19  __i_div32_block_util
+       0F7C  __i_mulu8_block_util
+       0F99  __mul16
+       0FD7  __mul_32X32_32
+       105D  __text_end
+       1067  __xidata_end
 
 Area                               Start  End    Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
@@ -242,7 +240,7 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                            data   0000   0039 =     57. bytes (rel,con,ram)
+                            data   0000   0037 =     55. bytes (rel,con,ram)
 
        Addr  Global Symbol
       -----  --------------------------------
@@ -252,40 +250,39 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
        0029  _contador_trabajo2
        002D  _contador_trabajo1
        0031  _dspCam2
-       0033  _dspCam1
-       0035  _tempo
+       0033  _tempo
+       0035  _dspCam1
        0037  _contadordspCam1
        0039  _contadordspCam2
-       003B  _tempo2
+       003B  _Fla4
+       003C  _Int1_Tdisp
        003D  _Int1_Tdisp_Uni
        003E  _Int1_Ndisp
        003F  _Int2_Tdisp
        0040  _Int2_Tdisp_Uni
        0041  _Int2_Ndisp
        0042  _TL1_Treal
-       0043  _TL1_Treal_Uni
-       0044  _TL1_Tfilm
-       0045  _TL1_Tfilm_Uni
-       0046  _TL2_Treal
-       0047  _TL2_Treal_Uni
-       0048  _TL2_Tfilm
-       0049  _TL2_Tfilm_Uni
-       004A  _tocacam1
-       004B  _tocacam2
-       004C  _fintrabajo
-       004D  _chivato1
-       004E  _chivato2
-       004F  _Fla1
-       0051  _Cam1
-       0052  _Cam2
-       0053  _Ent1
-       0054  _Ent2
-       0055  _Ent3
-       0056  _Ent4
+       0043  _TL1_Tfilm
+       0044  _TL1_Tfilm_Uni
+       0045  _TL2_Treal
+       0046  _TL2_Treal_Uni
+       0047  _TL2_Tfilm
+       0048  _TL2_Tfilm_Uni
+       0049  _tocacam1
+       004A  _tocacam2
+       004B  _fintrabajo
+       004C  _chivato1
+       004D  _chivato2
+       004E  _TL1_Treal_Uni
+       0050  _Cam1
+       0051  _Cam2
+       0052  _Ent1
+       0053  _Ent2
+       0054  _Ent3
+       0055  _Ent4
+       0056  _Fla1
        0057  _Fla2
        0058  _Fla3
-       0059  _Fla4
-       005A  _Int1_Tdisp
 
 Files Linked      [ module(s) ]
 
@@ -303,5 +300,5 @@ data = 0x0
 SSCParmBlk:0x00F7.0x00FF
 InterruptRAM = 0x0
 virtual_registers = 0x12
-trabajov1_RAM = 0x5b
+trabajov1_RAM = 0x59
 

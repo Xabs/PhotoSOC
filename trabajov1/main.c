@@ -14,10 +14,10 @@
 #pragma interrupt_handler MI_RSI_EXTERNA
 #pragma interrupt_handler MI_RSI_DEL_TIMER
 
-unsigned int tempo,tempo2; 		//Para debuggar
+//unsigned int tempo,tempo2; 		//Para debuggar
 
-void led1(void);
-void led2(void);
+//void led1(void);
+//void led2(void);
 
 void MI_RSI_EXTERNA(void)		//Interrupción externa
 {
@@ -42,6 +42,7 @@ void MI_RSI_DEL_TIMER (void)	//Interrupción del timer Segundos
 	}
 }
 
+/*
 void led1(void)	//Rutina para debuggar
 {
 	PRT0DR=PRT0DR|0x01; //0000-0001
@@ -54,7 +55,7 @@ void led2(void)	//Rutina para debuggar
 	for (tempo2=0;tempo2<500;tempo2++) ;
 	PRT0DR=PRT0DR&0xFB;
 }
-
+*/
 
 void main()						//Programa principal
 {	
