@@ -26,17 +26,26 @@ void MI_RSI_EXTERNA(void)		//Interrupción externa
 
 void MI_RSI_DEL_TIMER (void)	//Interrupción del timer Segundos
 {
-	led2();
 	contador_trabajo1++;
-	if (contador_trabajo1==tpCam1) chivato1=on;
 	contador_trabajo2++;
-	if (contador_trabajo2==tpCam2) chivato2=on;
+	
+	if (contador_trabajo1==tpCam1) 
+	{
+		chivato1=on;
+		contador_trabajo1=0;
+	}
+	
+	if (contador_trabajo2==tpCam2) 
+	{
+		chivato2=on;
+		contador_trabajo2=0;
+	}
 }
 
 void led1(void)	//Rutina para debuggar
 {
 	PRT0DR=PRT0DR|0x01; //0000-0001
-	for (tempo=0;tempo<10000;tempo++) ;
+	for (tempo=0;tempo<5000;tempo++) ;
 	PRT0DR=PRT0DR&0xFE;
 }
 void led2(void)	//Rutina para debuggar

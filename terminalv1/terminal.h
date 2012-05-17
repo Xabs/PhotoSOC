@@ -1113,33 +1113,16 @@ void Executar(void)
 void envio_valores(void)
 {
 	Reset_PdT();
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("arriba reset");
-	LCD_Control(0x01);	//Borrat de pantalla
 	envia(Cam1);
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("arriba cam1");
 	envia(Cam2);
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("arriba cam2");
 	envia(Ent1);
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("arriba Ent1");
 	envia(Ent2);
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("arriba Ent2");
 	envia(Ent3);
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("arriba Ent3");
 	envia(Ent4);
-	LCD_Control(0x01);	//Borrat de pantalla
-	LCD_PrCString("arriba Ent4");
 	envia(Fla1);
 	envia(Fla2);
 	envia(Fla3);
 	envia(Fla4);
-	
-	
 	
 	if (Cam1==2)	//Intervalometro camara 1
 	envia(Int1_Tdisp);
@@ -1164,8 +1147,6 @@ void envio_valores(void)
 	envia(TL2_Tfilm_Uni);
 	
 	if(Buzzer==1) Pitido();
-	
-	
 }
 
 

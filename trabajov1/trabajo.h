@@ -263,17 +263,17 @@ void bucle(void)
 		
 	do
 	{
-		disparo();
+		if (tocacam1==on || tocacam2==on) disparo();	//Solo entra en la rutina si tiene que disparar
 		
 		if (bucle_acaba1==off)
 		{
-			if (Cam1==1) bucle_acaba1=on;
+			if (Cam1==0 || Cam1==1) bucle_acaba1=on;
 			else
 			{
 				if (chivato1==on) 
 				{
-					tocacam1=on;
-					contador_trabajo1=0;
+				tocacam1=on;
+				chivato1=off;
 				}
 				if (contadordspCam1==dspCam1) bucle_acaba1=on;
 			}
@@ -281,20 +281,20 @@ void bucle(void)
 		
 		if (bucle_acaba2==off)
 		{
-			if (Cam2==1) bucle_acaba2=on;
+			if (Cam2==0 || Cam2==1) bucle_acaba2=on;
 			else
 			{
 				if (chivato2==on) 
 				{
-					tocacam2=on;
-					contador_trabajo2=0;
+				tocacam2=on;
+				chivato2=off;
 				}
 				if (contadordspCam2==dspCam2) bucle_acaba2=on;
 			}
-		}	
+		}
 	}
 	while (bucle_acaba1==off || bucle_acaba2==off);
-	
+		
 	fintrabajo=255;
 }
 //******************************************************************************
@@ -313,6 +313,7 @@ void bucle(void)
 void disparo(void)
 {
 	int x;
+	
 	//Apertura de las cámaras
 	if (tocacam1==on)
 	{

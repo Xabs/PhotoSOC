@@ -1,4 +1,4 @@
-  ROM 11% full. 3875 bytes used (does not include absolute areas).
+  ROM 11% full. 3801 bytes used (does not include absolute areas).
   RAM 5% full. 91 bytes used (does not include stack usage).
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
@@ -155,7 +155,7 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                            text   06AD   0A16 =   2582. bytes (rel,con,rom)
+                            text   06AD   09CC =   2508. bytes (rel,con,rom)
 
        Addr  Global Symbol
       -----  --------------------------------
@@ -169,22 +169,22 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
        0B0E  _activar_sensores
        0B34  _ejecucion
        0B41  _bucle
-       0C28  _disparo
-       0D15  _envia_fintrabajo
-       0D31  _disparo_sensores
-       0D8E  _MI_RSI_EXTERNA
-       0E0D  _MI_RSI_DEL_TIMER
-       0F10  _led1
-       0F37  _led2
-       0F5E  _main
-       0F6C  PSoC_GPIO_ISR
-       0F70  __divmodu_32X32_32
-       0F7F  __i_div32_block_util
-       0FE2  __i_mulu8_block_util
-       0FFF  __mul16
-       103D  __mul_32X32_32
-       10CD  __xidata_end
-       10C3  __text_end
+       0C30  _disparo
+       0D1D  _envia_fintrabajo
+       0D39  _disparo_sensores
+       0D96  _MI_RSI_EXTERNA
+       0E15  _MI_RSI_DEL_TIMER
+       0EC8  _led1
+       0EEF  _led2
+       0F16  _main
+       0F22  PSoC_GPIO_ISR
+       0F26  __divmodu_32X32_32
+       0F35  __i_div32_block_util
+       0F98  __i_mulu8_block_util
+       0FB5  __mul16
+       0FF3  __mul_32X32_32
+       1083  __xidata_end
+       1079  __text_end
 
 Area                               Start  End    Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
