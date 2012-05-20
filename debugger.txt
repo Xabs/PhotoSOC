@@ -1,4 +1,0 @@
-	if (tpCam1==3) led1();
-	for (tempo=0;tempo<10000;tempo++) ;
-	for (tempo=0;tempo<10000;tempo++) ;
-	if (dspCam1==50) led1();
